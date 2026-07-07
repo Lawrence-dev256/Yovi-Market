@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Service Setup | YOVI</title>
+
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Global CSS -->
+
+    <link rel="stylesheet"
+          href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+<!--==================================================
+SERVICE SETUP PAGE
+===================================================-->
+
+<section id="yss-service-page">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-xl-6 col-lg-7 col-md-9 col-12">
+
+                <!--==========================
+                BRAND PLACEHOLDER
+                ===========================-->
+
+                <div class="yss-brand-wrapper text-center">
+
+                    <a href="javascript:void(0)"
+                       class="yss-brand-link">
+
+                        <div class="yss-brand-placeholder">
+
+                            <!--
+                            Replace with your logo later
+
+                            <img src="assets/images/logo.svg"
+                                 alt="Brand Logo">
+                            -->
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+                <!--==========================
+                PROGRESS STEPPER
+                ===========================-->
+
+                <div class="yss-progress-wrapper">
+
+                    <div class="yss-progress">
+
+                        <!-- Step 1 -->
+
+                        <div class="yss-step yss-step-complete">
+
+                            <div class="yss-step-circle">
+
+                                <i class="bi bi-check-lg"></i>
+
+                            </div>
+
+                            <span class="yss-step-label">
+
+                                Account
+
+                            </span>
+
+                        </div>
+
+                        <div class="yss-step-line yss-step-line-active"></div>
+
+                        <!-- Step 2 -->
+
+                        <div class="yss-step yss-step-complete">
+
+                            <div class="yss-step-circle">
+
+                                <i class="bi bi-check-lg"></i>
+
+                            </div>
+
+                            <span class="yss-step-label">
+
+                                Account Type
+
+                            </span>
+
+                        </div>
+
+                        <div class="yss-step-line yss-step-line-active"></div>
+
+                        <!-- Step 3 -->
+
+                        <div class="yss-step yss-step-complete">
+
+                            <div class="yss-step-circle">
+
+                                <i class="bi bi-check-lg"></i>
+
+                            </div>
+
+                            <span class="yss-step-label">
+
+                                Profile
+
+                            </span>
+
+                        </div>
+
+                        <div class="yss-step-line yss-step-line-active"></div>
+
+                        <!-- Step 4 -->
+
+                        <div class="yss-step yss-step-active">
+
+                            <div class="yss-step-circle">
+
+                                4
+
+                            </div>
+
+                            <span class="yss-step-label">
+
+                                Service Setup
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--==========================
+                PAGE HEADER
+                ===========================-->
+
+                <div class="yss-header text-center">
+
+                    <h1 class="yss-title">
+
+                        Set up your services
+
+                    </h1>
+
+                    <p class="yss-subtitle">
+
+                        Help clients find and book you with confidence
+
+                    </p>
+
+                </div>
+
+                <!--==========================
+                SERVICE SETUP CARD
+                Continues in Part 1B
+                ===========================-->
+
+                <div class="yss-service-card">
+
+                    <form id="yssServiceForm">
+
+                        <!--==================================
+                        PROFESSIONAL TITLE
+                        ===================================-->
+
+                        <div class="mb-4">
+
+                            <label for="yssProfessionalTitle"
+                                   class="form-label yss-label">
+
+                                Professional title
+
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control yss-input"
+                                id="yssProfessionalTitle"
+                                name="professionalTitle"
+                                placeholder="Auto Mechanic"
+                                maxlength="80"
+                                autocomplete="organization-title"
+                                required>
+
+                        </div>
+
+                        <!--==================================
+                        SERVICE CATEGORY
+                        ===================================-->
+
+                        <div class="mb-4">
+
+                            <label class="form-label yss-label">
+
+                                Service category
+
+                            </label>
+
+                            <div class="row g-3">
+
+                                <!-- Automotive -->
+
+                                <div class="col-12 col-sm-6">
+
+                                    <button
+                                        type="button"
+                                        class="yss-category-card active"
+                                        data-category="Automotive">
+
+                                        <span class="yss-category-icon">
+
+                                            🔧
+
+                                        </span>
+
+                                        <span class="yss-category-title">
+
+                                            Automotive
+
+                                        </span>
+
+                                        <span class="yss-category-check">
+
+                                            <i class="bi bi-check-circle-fill"></i>
+
+                                        </span>
+
+                                    </button>
+
+                                </div>
+
+                                <!-- Home Services -->
+
+                                <div class="col-12 col-sm-6">
+
+                                    <button
+                                        type="button"
+                                        class="yss-category-card"
+                                        data-category="Home Services">
+
+                                        <span class="yss-category-icon">
+
+                                            🏠
+
+                                        </span>
+
+                                        <span class="yss-category-title">
+
+                                            Home Services
+
+                                        </span>
+
+                                    </button>
+
+                                </div>
+
+                                <!-- Beauty -->
+
+                                <div class="col-12 col-sm-6">
+
+                                    <button
+                                        type="button"
+                                        class="yss-category-card"
+                                        data-category="Beauty & Wellness">
+
+                                        <span class="yss-category-icon">
+
+                                            💇
+
+                                        </span>
+
+                                        <span class="yss-category-title">
+
+                                            Beauty &amp; Wellness
+
+                                        </span>
+
+                                    </button>
+
+                                </div>
+
+                                <!-- Digital -->
+
+                                <div class="col-12 col-sm-6">
+
+                                    <button
+                                        type="button"
+                                        class="yss-category-card"
+                                        data-category="Digital Services">
+
+                                        <span class="yss-category-icon">
+
+                                            💻
+
+                                        </span>
+
+                                        <span class="yss-category-title">
+
+                                            Digital Services
+
+                                        </span>
+
+                                    </button>
+
+                                </div>
+
+                                <!-- Food -->
+
+                                <div class="col-12 col-sm-6">
+
+                                    <button
+                                        type="button"
+                                        class="yss-category-card"
+                                        data-category="Food & Events">
+
+                                        <span class="yss-category-icon">
+
+                                            🍽️
+
+                                        </span>
+
+                                        <span class="yss-category-title">
+
+                                            Food &amp; Events
+
+                                        </span>
+
+                                    </button>
+
+                                </div>
+
+                                <!-- Photography -->
+
+                                <div class="col-12 col-sm-6">
+
+                                    <button
+                                        type="button"
+                                        class="yss-category-card"
+                                        data-category="Photography">
+
+                                        <span class="yss-category-icon">
+
+                                            📷
+
+                                        </span>
+
+                                        <span class="yss-category-title">
+
+                                            Photography
+
+                                        </span>
+
+                                    </button>
+
+                                </div>
+
+                                <!-- Education -->
+
+                                <div class="col-12 col-sm-6">
+
+                                    <button
+                                        type="button"
+                                        class="yss-category-card"
+                                        data-category="Education">
+
+                                        <span class="yss-category-icon">
+
+                                            📖
+
+                                        </span>
+
+                                        <span class="yss-category-title">
+
+                                            Education
+
+                                        </span>
+
+                                    </button>
+
+                                </div>
+
+                                <!-- Health -->
+
+                                <div class="col-12 col-sm-6">
+
+                                    <button
+                                        type="button"
+                                        class="yss-category-card"
+                                        data-category="Health">
+
+                                        <span class="yss-category-icon">
+
+                                            🏥
+
+                                        </span>
+
+                                        <span class="yss-category-title">
+
+                                            Health
+
+                                        </span>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <input
+                                type="hidden"
+                                id="yssSelectedCategory"
+                                name="serviceCategory"
+                                value="Automotive">
+
+                        </div>
+
+                                               <!--==================================
+                        YEARS OF EXPERIENCE
+                        ===================================-->
+
+                        <div class="mb-4">
+
+                            <label class="form-label yss-label">
+
+                                Years of experience
+
+                            </label>
+
+                            <div class="yss-experience-group">
+
+                                <button
+                                    type="button"
+                                    class="yss-experience-btn"
+                                    data-experience="1-2 yrs">
+
+                                    1–2 yrs
+
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="yss-experience-btn"
+                                    data-experience="3-5 yrs">
+
+                                    3–5 yrs
+
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="yss-experience-btn active"
+                                    data-experience="6-10 yrs">
+
+                                    6–10 yrs
+
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="yss-experience-btn"
+                                    data-experience="10+ yrs">
+
+                                    10+ yrs
+
+                                </button>
+
+                            </div>
+
+                            <input
+                                type="hidden"
+                                id="yssExperience"
+                                name="experience"
+                                value="6-10 yrs">
+
+                        </div>
+
+                        <!--==================================
+                        STARTING RATE
+                        ===================================-->
+
+                        <div class="mb-4">
+
+                            <label
+                                for="yssStartingRate"
+                                class="form-label yss-label">
+
+                                Starting rate
+
+                            </label>
+
+                            <div class="row g-3 align-items-start">
+
+                                <!-- Rate -->
+
+                                <div class="col-lg-8 col-md-8">
+
+                                    <div class="input-group">
+
+                                        <span class="input-group-text yss-input-prefix">
+
+                                            ₦
+
+                                        </span>
+
+                                        <input
+                                            type="number"
+                                            id="yssStartingRate"
+                                            name="startingRate"
+                                            class="form-control yss-input"
+                                            placeholder="3500"
+                                            min="0"
+                                            step="100"
+                                            required>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- Service Image -->
+
+                                <div class="col-lg-4 col-md-4">
+
+                                    <input
+                                        type="file"
+                                        id="yssServiceImage"
+                                        accept="image/*"
+                                        hidden>
+
+                                    <label
+                                        for="yssServiceImage"
+                                        class="yss-service-image">
+
+                                        <div class="yss-service-image-placeholder">
+
+                                            <i class="bi bi-image"></i>
+
+                                            <span>
+
+                                                Upload
+
+                                            </span>
+
+                                        </div>
+
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!--==================================
+                        SERVICE AREA
+                        ===================================-->
+
+                        <div class="mb-4">
+
+                            <label class="form-label yss-label">
+
+                                Service area coverage
+
+                            </label>
+
+                            <div class="row g-3">
+
+                                <div class="col-md-6">
+
+                                    <input
+                                        type="text"
+                                        id="yssState"
+                                        class="form-control yss-input"
+                                        placeholder="State"
+                                        autocomplete="address-level1"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-6">
+
+                                    <input
+                                        type="text"
+                                        id="yssCity"
+                                        class="form-control yss-input"
+                                        placeholder="City"
+                                        autocomplete="address-level2"
+                                        required>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                                               <!--==================================
+                        BANK DETAILS
+                        ===================================-->
+
+                        <div class="mb-4">
+
+                            <label
+                                for="yssBankName"
+                                class="form-label yss-label">
+
+                                Bank name
+
+                            </label>
+
+                            <select
+                                id="yssBankName"
+                                class="form-select yss-input"
+                                required>
+
+                                <option value="" selected disabled>
+
+                                    Select your bank
+
+                                </option>
+
+                                <option value="Access Bank">
+
+                                    Access Bank
+
+                                </option>
+
+                                <option value="First Bank">
+
+                                    First Bank
+
+                                </option>
+
+                                <option value="GTBank">
+
+                                    Guaranty Trust Bank
+
+                                </option>
+
+                                <option value="UBA">
+
+                                    United Bank for Africa
+
+                                </option>
+
+                                <option value="Zenith Bank">
+
+                                    Zenith Bank
+
+                                </option>
+
+                                <option value="Fidelity Bank">
+
+                                    Fidelity Bank
+
+                                </option>
+
+                                <option value="FCMB">
+
+                                    First City Monument Bank
+
+                                </option>
+
+                                <option value="Sterling Bank">
+
+                                    Sterling Bank
+
+                                </option>
+
+                                <option value="Union Bank">
+
+                                    Union Bank
+
+                                </option>
+
+                                <option value="Wema Bank">
+
+                                    Wema Bank
+
+                                </option>
+
+                                <option value="Moniepoint">
+
+                                    Moniepoint
+
+                                </option>
+
+                                <option value="Opay">
+
+                                    Opay
+
+                                </option>
+
+                                <option value="PalmPay">
+
+                                    PalmPay
+
+                                </option>
+
+                                <option value="Kuda">
+
+                                    Kuda Bank
+
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label
+                                for="yssAccountNumber"
+                                class="form-label yss-label">
+
+                                Account number
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="yssAccountNumber"
+                                class="form-control yss-input"
+                                placeholder="Enter 10-digit account number"
+                                maxlength="10"
+                                inputmode="numeric"
+                                autocomplete="off"
+                                required>
+
+                        </div>
+
+                        <!--==================================
+                        ACTION BUTTON
+                        ===================================-->
+
+                        <div class="d-grid mt-4">
+
+                            <button
+                                type="submit"
+                                id="yssContinueBtn"
+                                class="btn yss-primary-btn">
+
+                                <span>
+
+                                    Start Receiving Bookings
+
+                                </span>
+
+                                <i class="bi bi-arrow-right ms-2"></i>
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--==================================
+BOOTSTRAP JS
+===================================-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--==================================
+GLOBAL JS
+===================================-->
+
+<script src="../assets/js/app.js"></script>
+
+</body>
+
+</html>

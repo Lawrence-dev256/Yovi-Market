@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>YOVI | Sign In</title>
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+          rel="stylesheet">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Global CSS -->
+
+    <link rel="stylesheet"
+          href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+<section id="sipSignInPage">
+
+    <div class="container-fluid p-0">
+
+        <div class="row g-0 min-vh-100">
+
+            <!-- ===========================================
+                 LEFT INFORMATION PANEL
+            ============================================ -->
+
+            <div class="col-lg-5 d-none d-lg-flex">
+
+                <aside class="sip-left-panel">
+
+                    <!-- Background Image -->
+
+                    <div class="sip-left-bg"></div>
+
+                    <!-- Dark Overlay -->
+
+                    <div class="sip-left-overlay"></div>
+
+                    <!-- Brand -->
+
+                    <div class="sip-brand-area">
+
+                        <a href="home.html"
+                           id="sipBrandLink"
+                           class="sip-brand-logo">
+
+                            <img src="https://placehold.co/180x55"
+                                 alt="Brand Logo"
+                                 class="img-fluid">
+
+                        </a>
+
+                        <p class="sip-brand-text">
+
+                            Buy, Sell &amp; Find Trusted Services Near You
+
+                        </p>
+
+                    </div>
+
+                    <!-- Testimonial Area -->
+
+                    <div class="sip-left-bottom">
+
+                        <div class="sip-testimonial-card">
+
+                            <div class="d-flex align-items-center">
+
+                                <img src="https://placehold.co/52x52"
+                                     alt="Customer"
+                                     class="rounded-circle sip-user-image">
+
+                                <div class="ms-3">
+
+                                    <h6 class="sip-user-name">
+
+                                        Chidi Nwosu
+
+                                    </h6>
+
+                                    <div class="sip-user-rating">
+
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <p class="sip-review-text">
+
+                                "YOVI's escrow protection gave me the confidence
+                                to buy a ₦620,000 iPhone. Money was held until
+                                confirmed delivery. Completely stress-free!"
+
+                            </p>
+
+                        </div>
+
+                        <!-- Statistics -->
+
+                        <div class="row text-center sip-statistics">
+
+                            <div class="col-4">
+
+                                <h3>120K+</h3>
+
+                                <span>Verified Sellers</span>
+
+                            </div>
+
+                            <div class="col-4">
+
+                                <h3>500K+</h3>
+
+                                <span>Products</span>
+
+                            </div>
+
+                            <div class="col-4">
+
+                                <h3>45K+</h3>
+
+                                <span>Providers</span>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Features -->
+
+                        <ul class="list-unstyled sip-features">
+
+                            <li>
+
+                                <i class="bi bi-shield-check"></i>
+
+                                Escrow-protected transactions
+
+                            </li>
+
+                            <li>
+
+                                <i class="bi bi-patch-check"></i>
+
+                                ID-verified sellers &amp; providers
+
+                            </li>
+
+                            <li>
+
+                                <i class="bi bi-lock"></i>
+
+                                Bank-grade payment security
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+            <!-- ===========================================
+                 RIGHT SIGN IN PANEL
+            ============================================ -->
+
+            <div class="col-lg-7">
+
+                <main class="sip-right-panel">
+
+                    <div class="sip-form-wrapper">
+
+                        <div class="text-center mb-4">
+
+                            <h1 class="sip-page-title">
+
+                                Welcome back
+
+                            </h1>
+
+                            <p class="sip-page-subtitle">
+
+                                Sign in to your YOVI account to continue
+
+                            </p>
+
+                        </div>
+
+                        <div class="card sip-form-card">
+
+                            <div class="card-body">
+
+                                <form id="sipSignInForm"
+                                      novalidate>
+
+                                    <!-- ===================================
+                                         EMAIL ADDRESS
+                                    ==================================== -->
+
+                                    <div class="mb-3">
+
+                                        <label for="sipEmailAddress"
+                                               class="form-label">
+
+                                            Email address
+
+                                        </label>
+
+                                        <div class="input-group sip-input-group">
+
+                                            <span class="input-group-text">
+
+                                                <i class="bi bi-envelope"></i>
+
+                                            </span>
+
+                                            <input
+                                                type="email"
+                                                class="form-control"
+                                                id="sipEmailAddress"
+                                                placeholder="adaeze@example.com"
+                                                autocomplete="email"
+                                                required>
+
+                                            <div class="invalid-feedback">
+
+                                                Please enter a valid email address.
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!-- ===================================
+                                         PASSWORD
+                                    ==================================== -->
+
+                                    <div class="mb-2">
+
+                                        <div class="d-flex
+                                                    justify-content-between
+                                                    align-items-center
+                                                    mb-2">
+
+                                            <label for="sipPassword"
+                                                   class="form-label mb-0">
+
+                                                Password
+
+                                            </label>
+
+                                            <a href="forgot-password.html"
+                                               id="sipForgotPasswordLink"
+                                               class="sip-forgot-link">
+
+                                                Forgot password?
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="input-group sip-input-group">
+
+                                            <span class="input-group-text">
+
+                                                <i class="bi bi-lock"></i>
+
+                                            </span>
+
+                                            <input
+                                                type="password"
+                                                class="form-control"
+                                                id="sipPassword"
+                                                placeholder="SecurePass123"
+                                                autocomplete="current-password"
+                                                required>
+
+                                            <button
+                                                type="button"
+                                                class="btn sip-password-toggle"
+                                                id="sipTogglePassword">
+
+                                                <i class="bi bi-eye"></i>
+
+                                            </button>
+
+                                            <div class="invalid-feedback">
+
+                                                Password is required.
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!-- ===================================
+                                         KEEP ME SIGNED IN
+                                    ==================================== -->
+
+                                    <div class="form-check sip-remember-check mb-4">
+
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="sipRememberMe">
+
+                                        <label
+                                            class="form-check-label"
+                                            for="sipRememberMe">
+
+                                            Keep me signed in
+
+                                        </label>
+
+                                    </div>
+
+                                    <!-- ===================================
+                                         SIGN IN BUTTON
+                                    ==================================== -->
+
+                                    <div class="d-grid mb-4">
+
+                                        <button
+                                            type="submit"
+                                            id="sipSignInButton"
+                                            class="btn sip-primary-btn">
+
+                                            <span>
+
+                                                Sign in to YOVI
+
+                                            </span>
+
+                                        </button>
+
+                                    </div>
+
+                                    <!-- ===================================
+                                         DIVIDER
+                                    ==================================== -->
+
+                                    <div class="sip-divider">
+
+                                        <span>
+
+                                            or continue with
+
+                                        </span>
+
+                                    </div>
+
+                                    <!-- ===================================
+                                         SOCIAL SIGN IN
+                                    ==================================== -->
+
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-6">
+
+                                            <button
+                                                type="button"
+                                                id="sipGoogleButton"
+                                                class="btn sip-social-btn w-100">
+
+                                                <img
+                                                    src="https://placehold.co/20x20"
+                                                    alt="Google">
+
+                                                <span>
+
+                                                    Google
+
+                                                </span>
+
+                                            </button>
+
+                                        </div>
+
+                                        <div class="col-6">
+
+                                            <button
+                                                type="button"
+                                                id="sipPhoneButton"
+                                                class="btn sip-social-btn w-100">
+
+                                                <i class="bi bi-telephone"></i>
+
+                                                <span>
+
+                                                    Phone
+
+                                                </span>
+
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                        <!-- ================================
+                             CREATE ACCOUNT
+                        ================================= -->
+
+                        <div class="text-center mt-4">
+
+                            <span class="sip-signup-text">
+
+                                Don't have an account?
+
+                            </span>
+
+                            <a href="create-account.html"
+                               id="sipCreateAccountLink"
+                               class="sip-signup-link">
+
+                                Create one free
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </main>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ===========================================
+         PAGE LOADER
+    ============================================ -->
+
+    <div id="sipPageLoader">
+
+        <div class="spinner-border"
+             role="status">
+
+            <span class="visually-hidden">
+
+                Loading...
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- ===========================================
+         SUCCESS TOAST
+    ============================================ -->
+
+    <div class="toast-container
+                position-fixed
+                top-0
+                end-0
+                p-4">
+
+        <div id="sipSuccessToast"
+             class="toast align-items-center border-0"
+             role="alert"
+             aria-live="assertive"
+             aria-atomic="true">
+
+            <div class="d-flex">
+
+                <div class="toast-body"
+                     id="sipToastMessage">
+
+                    Welcome back!
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-close btn-close-white
+                           me-2 m-auto"
+                    data-bs-dismiss="toast">
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ===========================================
+         HIDDEN PAGE LINKS
+    ============================================ -->
+
+    <input
+        type="hidden"
+        id="sipDashboardPage"
+        value="account-type.html">
+
+    <input
+        type="hidden"
+        id="sipCreateAccountPage"
+        value="create-account.html">
+
+    <input
+        type="hidden"
+        id="sipForgotPasswordPage"
+        value="forgot-password.html">
+
+    <!-- ===========================================
+         BOOTSTRAP JS
+    ============================================ -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- ===========================================
+         GLOBAL JAVASCRIPT
+    ============================================ -->
+
+    <script src="../assets/js/app.js"></script>
+
+</section>
+
+</body>
+
+</html>

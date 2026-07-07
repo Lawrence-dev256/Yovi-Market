@@ -1,0 +1,14 @@
+# Claude files
+.claude/
+.claude.json
+.claude.json.backup*
+.last-cleanup
+
+# Lock files
+*.lock
+
+#Node
+node_modules/
+
+# VS Code
+.vscode/

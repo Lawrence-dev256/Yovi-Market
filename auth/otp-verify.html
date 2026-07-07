@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Verify Phone | YOVI</title>
+
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Global Styles -->
+
+    <link rel="stylesheet"
+          href="../assets/css/style.css">
+
+</head>
+
+<body id="yvp-phone-verification-page">
+
+    <!-- =====================================
+         PHONE VERIFICATION SECTION
+    ====================================== -->
+
+    <section class="yvp-verification-section">
+
+        <div class="container">
+
+            <div class="row justify-content-center">
+
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11">
+
+                    <div class="yvp-page-wrapper">
+
+                        <!-- Verification Icon -->
+
+                        <div class="yvp-icon-wrapper">
+
+                            <div class="yvp-icon-circle">
+
+                                <i class="bi bi-telephone"></i>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Heading -->
+
+                        <div class="yvp-page-header text-center">
+
+                            <h1 class="yvp-title">
+
+                                Check your phone
+
+                            </h1>
+
+                            <p class="yvp-subtitle">
+
+                                We sent a 6-digit verification code to
+
+                            </p>
+
+                            <h6 class="yvp-phone-number">
+
+                                +234 0812 345 6789
+
+                            </h6>
+
+                            <a href="register.html"
+                               class="yvp-change-number">
+
+                                Change number
+
+                            </a>
+
+                        </div>
+
+                        <!-- Verification Card -->
+
+                        <div class="yvp-verification-card">
+
+                        <!--=====================================
+                            VERIFICATION FORM
+                        ======================================-->
+
+                        <form id="yvpVerificationForm"
+                              class="yvp-verification-form"
+                              autocomplete="one-time-code"
+                              novalidate>
+
+                            <!-- Card Title -->
+
+                            <div class="yvp-card-header text-center">
+
+                                <h5 class="yvp-card-title">
+
+                                    Enter 6-digit code
+
+                                </h5>
+
+                            </div>
+
+                            <!-- OTP Inputs -->
+
+                            <div class="yvp-otp-wrapper">
+
+                                <input type="text"
+                                       id="yvpOtp1"
+                                       class="yvp-otp-input"
+                                       maxlength="1"
+                                       inputmode="numeric"
+                                       pattern="[0-9]"
+                                       autocomplete="off">
+
+                                <input type="text"
+                                       id="yvpOtp2"
+                                       class="yvp-otp-input"
+                                       maxlength="1"
+                                       inputmode="numeric"
+                                       pattern="[0-9]"
+                                       autocomplete="off">
+
+                                <input type="text"
+                                       id="yvpOtp3"
+                                       class="yvp-otp-input"
+                                       maxlength="1"
+                                       inputmode="numeric"
+                                       pattern="[0-9]"
+                                       autocomplete="off">
+
+                                <input type="text"
+                                       id="yvpOtp4"
+                                       class="yvp-otp-input"
+                                       maxlength="1"
+                                       inputmode="numeric"
+                                       pattern="[0-9]"
+                                       autocomplete="off">
+
+                                <input type="text"
+                                       id="yvpOtp5"
+                                       class="yvp-otp-input"
+                                       maxlength="1"
+                                       inputmode="numeric"
+                                       pattern="[0-9]"
+                                       autocomplete="off">
+
+                                <input type="text"
+                                       id="yvpOtp6"
+                                       class="yvp-otp-input"
+                                       maxlength="1"
+                                       inputmode="numeric"
+                                       pattern="[0-9]"
+                                       autocomplete="off">
+
+                            </div>
+
+                            <!-- Verify Button -->
+
+                            <a href="../auth/account-type.html">
+
+                            <button type="submit"
+                                    id="yvpVerifyBtn"
+                                    class="btn yvp-verify-btn">
+
+                                <i class="bi bi-check-circle me-2"></i>
+
+                                Verify &amp; Continue
+
+                            </button>
+
+                            </a>
+
+                            <!-- Countdown -->
+
+                            <div class="yvp-resend-section">
+
+                                <p class="yvp-countdown-text">
+
+                                    Resend code in
+
+                                    <span id="yvpCountdown">
+
+                                        54s
+
+                                    </span>
+
+                                </p>
+
+                            </div>
+
+                            <!--=====================================
+                                EMAIL VERIFICATION ALTERNATIVE
+                            ======================================-->
+
+                            <div class="yvp-email-option">
+
+                                <p class="yvp-email-text">
+
+                                    Didn't get it? Check spam or
+
+                                </p>
+
+                                <a href="verify-email.html"
+                                   id="yvpVerifyEmailLink"
+                                   class="yvp-email-link">
+
+                                    verify via email instead
+
+                                </a>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                    <!-- End Verification Card -->
+
+                    <!--=====================================
+                        BACK TO SIGN UP
+                    ======================================-->
+
+                    <div class="yvp-back-wrapper text-center">
+
+                        <a href="register.html"
+                           id="yvpBackToRegister"
+                           class="yvp-back-link">
+
+                            <i class="bi bi-chevron-left"></i>
+
+                            <span>
+
+                                Back to sign up
+
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         BOOTSTRAP JAVASCRIPT
+    ====================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- =====================================
+         GLOBAL JAVASCRIPT
+    ====================================== -->
+
+    <script src="../assets/js/app.js"></script>
+
+</body>
+
+</html>
