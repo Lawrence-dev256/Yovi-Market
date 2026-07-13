@@ -19489,6 +19489,2014 @@ PRINT OPTIMIZATION
 END OF SELLER REVENUE PAGE
 =========================================================*/
 
+/*=========================================================
+SELLER PROMOTE LISTINGS
+PART 2A
+=========================================================*/
+
+/*=========================================================
+PAGE
+=========================================================*/
+
+#csplPage{
+
+    background:#F8FAFC;
+
+    min-height:100vh;
+
+    color:var(--text-color);
+
+}
+
+.cspl-main{
+
+    padding:40px 0 80px;
+
+    animation:csplPageFade .45s ease;
+
+}
+
+@keyframes csplPageFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+HEADER
+=========================================================*/
+
+.cspl-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1030;
+
+    background:#FFFFFF;
+
+    border-bottom:1px solid var(--border-color);
+
+    box-shadow:0 4px 18px rgba(15,23,42,.04);
+
+}
+
+.cspl-navbar-container{
+
+    padding:14px 28px;
+
+}
+
+/*=========================================================
+BRAND
+=========================================================*/
+
+.cspl-brand-placeholder{
+
+    width:160px;
+
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:2px dashed var(--border-color);
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-size:.9rem;
+
+    font-weight:700;
+
+    color:var(--text-muted);
+
+    transition:.3s ease;
+
+}
+
+.cspl-brand-placeholder:hover{
+
+    border-color:#14D495;
+
+    color:#14D495;
+
+}
+
+/*=========================================================
+NAVIGATION
+=========================================================*/
+
+.cspl-navigation{
+
+    gap:14px;
+
+}
+
+.cspl-navigation .nav-link{
+
+    color:var(--text-secondary);
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    position:relative;
+
+    transition:.3s ease;
+
+}
+
+.cspl-navigation .nav-link:hover{
+
+    color:#14D495;
+
+}
+
+.cspl-navigation .nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:#14D495;
+
+    transition:.3s ease;
+
+}
+
+.cspl-navigation .nav-link:hover::after{
+
+    width:100%;
+
+}
+
+/*=========================================================
+RIGHT NAVIGATION
+=========================================================*/
+
+.cspl-navbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.cspl-nav-icon{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#F3F4F6;
+
+    border-radius:50%;
+
+    text-decoration:none;
+
+    position:relative;
+
+    transition:.3s ease;
+
+}
+
+.cspl-nav-icon i{
+
+    color:var(--text-secondary);
+
+    font-size:1.05rem;
+
+}
+
+.cspl-nav-icon:hover{
+
+    background:#14D495;
+
+    transform:translateY(-2px);
+
+}
+
+.cspl-nav-icon:hover i{
+
+    color:#FFFFFF;
+
+}
+
+.cspl-notification-dot{
+
+    position:absolute;
+
+    top:9px;
+
+    right:10px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#EF4444;
+
+    border:2px solid #FFFFFF;
+
+}
+
+/*=========================================================
+USER PROFILE
+=========================================================*/
+
+.cspl-user-dropdown{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:var(--text-color);
+
+    text-decoration:none;
+
+}
+
+.cspl-user-dropdown::after{
+
+    margin-left:4px;
+
+}
+
+.cspl-user-avatar{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+}
+
+.cspl-user-avatar img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.cspl-user-name{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+}
+
+/*=========================================================
+BREADCRUMB
+=========================================================*/
+
+.cspl-breadcrumb{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:24px;
+
+    text-decoration:none;
+
+    color:#6B7280;
+
+    font-size:.92rem;
+
+    font-weight:500;
+
+    transition:.3s ease;
+
+}
+
+.cspl-breadcrumb:hover{
+
+    color:#14D495;
+
+}
+
+.cspl-breadcrumb i{
+
+    font-size:.85rem;
+
+}
+
+/*=========================================================
+PAGE HEADER
+=========================================================*/
+
+.cspl-page-heading{
+
+    margin-bottom:40px;
+
+}
+
+.cspl-page-title{
+
+    margin:0;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+    line-height:1.2;
+
+}
+
+.cspl-page-subtitle{
+
+    margin-top:10px;
+
+    margin-bottom:0;
+
+    font-size:1rem;
+
+    color:var(--text-muted);
+
+    max-width:620px;
+
+}
+
+/*=========================================================
+PROMOTION ROW
+=========================================================*/
+
+.cspl-promotion-row{
+
+    margin-bottom:50px;
+
+}
+
+/*=========================================================
+PROMOTION PACKAGE CARDS
+=========================================================*/
+
+.cspl-package-card{
+
+    position:relative;
+
+    background:#FFFFFF;
+
+    border:1px solid var(--border-color);
+
+    border-radius:22px;
+
+    padding:28px;
+
+    height:100%;
+
+    overflow:hidden;
+
+    transition:all .35s ease;
+
+    box-shadow:0 8px 24px rgba(15,23,42,.05);
+
+}
+
+.cspl-package-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:#14D495;
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:.35s ease;
+
+}
+
+.cspl-package-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#14D495;
+
+    box-shadow:0 20px 42px rgba(20,212,149,.14);
+
+}
+
+.cspl-package-card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+/*=========================================================
+PACKAGE ICON
+=========================================================*/
+
+.cspl-package-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:24px;
+
+}
+
+.cspl-package-icon i{
+
+    font-size:1.7rem;
+
+}
+
+.cspl-featured-icon{
+
+    background:#ECFDF5;
+
+    color:#10B981;
+
+}
+
+.cspl-sponsored-icon{
+
+    background:#EFF6FF;
+
+    color:#2563EB;
+
+}
+
+.cspl-banner-icon{
+
+    background:#FEF3C7;
+
+    color:#F59E0B;
+
+}
+
+/*=========================================================
+PACKAGE CONTENT
+=========================================================*/
+
+.cspl-package-title{
+
+    margin:0 0 12px;
+
+    font-size:1.3rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+}
+
+.cspl-package-description{
+
+    margin:0;
+
+    font-size:.95rem;
+
+    line-height:1.75;
+
+    color:var(--text-muted);
+
+    min-height:72px;
+
+}
+
+/*=========================================================
+PACKAGE DETAILS
+=========================================================*/
+
+.cspl-package-meta{
+
+    margin-top:28px;
+
+    padding-top:22px;
+
+    border-top:1px solid #E5E7EB;
+
+}
+
+.cspl-package-item{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:16px;
+
+}
+
+.cspl-package-item:last-child{
+
+    margin-bottom:0;
+
+}
+
+.cspl-package-item span{
+
+    font-size:.9rem;
+
+    color:var(--text-muted);
+
+}
+
+.cspl-package-item strong{
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+}
+
+.cspl-success-text{
+
+    color:#10B981 !important;
+
+}
+
+/*=========================================================
+PROMOTE BUTTON
+=========================================================*/
+
+.cspl-package-btn{
+
+    width:100%;
+
+    margin-top:28px;
+
+    padding:13px 18px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#14D495;
+
+    color:#FFFFFF;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:all .3s ease;
+
+    box-shadow:0 10px 24px rgba(20,212,149,.18);
+
+}
+
+.cspl-package-btn:hover{
+
+    background:#10B981;
+
+    color:#FFFFFF;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 14px 32px rgba(16,185,129,.22);
+
+}
+
+.cspl-package-btn:active{
+
+    transform:scale(.98);
+
+}
+
+/*=========================================================
+PACKAGE SELECTION STATE
+=========================================================*/
+
+.cspl-package-selected{
+
+    border-color:#10B981;
+
+    box-shadow:0 20px 40px rgba(20,212,149,.18);
+
+}
+
+.cspl-package-selected::before{
+
+    transform:scaleX(1);
+
+}
+
+.cspl-package-selected .cspl-package-btn{
+
+    background:#10B981;
+
+}
+
+/*=========================================================
+SECTION DIVIDER
+=========================================================*/
+
+.cspl-product-selection{
+
+    margin-top:18px;
+
+}
+
+/*=========================================================
+PRODUCT SELECTION SECTION
+=========================================================*/
+
+.cspl-selection-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    margin-bottom:28px;
+
+}
+
+.cspl-section-title{
+
+    margin:0;
+
+    font-size:1.5rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+}
+
+.cspl-section-subtitle{
+
+    margin:8px 0 0;
+
+    font-size:.95rem;
+
+    color:var(--text-muted);
+
+}
+
+/*=========================================================
+PRODUCT CARD
+=========================================================*/
+
+.cspl-product-card{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100%;
+
+    background:#FFFFFF;
+
+    border:2px solid transparent;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:all .35s ease;
+
+    box-shadow:0 8px 24px rgba(15,23,42,.05);
+
+}
+
+.cspl-product-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#14D495;
+
+    box-shadow:0 18px 40px rgba(20,212,149,.14);
+
+}
+
+/*=========================================================
+PRODUCT IMAGE
+=========================================================*/
+
+.cspl-product-image{
+
+    position:relative;
+
+    width:100%;
+
+    height:230px;
+
+    overflow:hidden;
+
+    background:#F8FAFC;
+
+}
+
+.cspl-product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform .45s ease;
+
+}
+
+.cspl-product-card:hover .cspl-product-image img{
+
+    transform:scale(1.08);
+
+}
+
+/*=========================================================
+PRODUCT DETAILS
+=========================================================*/
+
+.cspl-product-body{
+
+    padding:22px;
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.cspl-product-title{
+
+    margin:0;
+
+    font-size:1.08rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+    line-height:1.45;
+
+}
+
+.cspl-product-category{
+
+    margin:8px 0 18px;
+
+    font-size:.92rem;
+
+    color:var(--text-muted);
+
+}
+
+.cspl-product-footer{
+
+    margin-top:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+}
+
+.cspl-product-price{
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+    color:#10B981;
+
+}
+
+/*=========================================================
+SELECTED BADGE
+=========================================================*/
+
+.cspl-selected-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:6px 14px;
+
+    border-radius:999px;
+
+    background:#ECFDF5;
+
+    color:#10B981;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+}
+
+/*=========================================================
+SELECTED PRODUCT
+=========================================================*/
+
+.cspl-product-selected{
+
+    border-color:#10B981;
+
+    box-shadow:0 18px 42px rgba(20,212,149,.18);
+
+}
+
+.cspl-product-selected::after{
+
+    content:"✓";
+
+    position:absolute;
+
+    top:16px;
+
+    right:16px;
+
+    width:34px;
+
+    height:34px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#10B981;
+
+    color:#FFFFFF;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    border-radius:50%;
+
+    box-shadow:0 8px 18px rgba(16,185,129,.28);
+
+}
+
+/*=========================================================
+ACTION AREA
+=========================================================*/
+
+.cspl-action-area{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    margin-top:40px;
+
+}
+
+/*=========================================================
+CONTINUE BUTTON
+=========================================================*/
+
+.cspl-continue-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:15px 30px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#F97316;
+
+    color:#FFFFFF;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    transition:all .35s ease;
+
+    box-shadow:0 14px 30px rgba(249,115,22,.22);
+
+}
+
+.cspl-continue-btn:hover{
+
+    background:#EA580C;
+
+    color:#FFFFFF;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 18px 36px rgba(234,88,12,.28);
+
+}
+
+.cspl-continue-btn i{
+
+    transition:transform .3s ease;
+
+}
+
+.cspl-continue-btn:hover i{
+
+    transform:translateX(6px);
+
+}
+
+/*=========================================================
+LARGE TABLETS (≤1199px)
+=========================================================*/
+
+@media (max-width:1199.98px){
+
+    .cspl-navbar-container{
+
+        padding:14px 22px;
+
+    }
+
+    .cspl-package-card{
+
+        padding:24px;
+
+    }
+
+    .cspl-product-image{
+
+        height:210px;
+
+    }
+
+    .cspl-page-title{
+
+        font-size:1.85rem;
+
+    }
+
+}
+
+/*=========================================================
+TABLETS (≤991px)
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .cspl-main{
+
+        padding:32px 0 65px;
+
+    }
+
+    .cspl-navigation{
+
+        gap:0;
+
+        margin:20px 0;
+
+    }
+
+    .cspl-navigation .nav-item{
+
+        margin-bottom:6px;
+
+    }
+
+    .cspl-navbar-right{
+
+        justify-content:flex-start;
+
+        margin-top:20px;
+
+        padding-top:20px;
+
+        border-top:1px solid var(--border-color);
+
+    }
+
+    .cspl-package-card{
+
+        min-height:auto;
+
+    }
+
+    .cspl-package-description{
+
+        min-height:auto;
+
+    }
+
+    .cspl-product-selection{
+
+        margin-top:10px;
+
+    }
+
+    .cspl-selection-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .cspl-action-area{
+
+        justify-content:center;
+
+    }
+
+    .cspl-continue-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+        max-width:500px;
+
+    }
+
+}
+
+/*=========================================================
+MOBILE (≤767px)
+=========================================================*/
+
+@media (max-width:767.98px){
+
+    .cspl-main{
+
+        padding:24px 0 55px;
+
+    }
+
+    .cspl-page-heading{
+
+        margin-bottom:32px;
+
+    }
+
+    .cspl-page-title{
+
+        font-size:1.6rem;
+
+    }
+
+    .cspl-page-subtitle{
+
+        font-size:.92rem;
+
+    }
+
+    .cspl-package-card{
+
+        padding:22px;
+
+    }
+
+    .cspl-package-title{
+
+        font-size:1.15rem;
+
+    }
+
+    .cspl-package-description{
+
+        font-size:.9rem;
+
+        line-height:1.7;
+
+    }
+
+    .cspl-package-meta{
+
+        margin-top:22px;
+
+    }
+
+    .cspl-product-image{
+
+        height:220px;
+
+    }
+
+    .cspl-product-body{
+
+        padding:18px;
+
+    }
+
+    .cspl-product-title{
+
+        font-size:1rem;
+
+    }
+
+    .cspl-product-price{
+
+        font-size:1rem;
+
+    }
+
+}
+
+/*=========================================================
+SMALL MOBILE (≤575px)
+=========================================================*/
+
+@media (max-width:575.98px){
+
+    .cspl-navbar-container{
+
+        padding:12px 15px;
+
+    }
+
+    .cspl-brand-placeholder{
+
+        width:125px;
+
+        height:42px;
+
+        font-size:.8rem;
+
+    }
+
+    .cspl-user-name{
+
+        display:none;
+
+    }
+
+    .cspl-page-title{
+
+        font-size:1.4rem;
+
+    }
+
+    .cspl-section-title{
+
+        font-size:1.25rem;
+
+    }
+
+    .cspl-section-subtitle{
+
+        font-size:.88rem;
+
+    }
+
+    .cspl-product-image{
+
+        height:190px;
+
+    }
+
+    .cspl-product-footer{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .cspl-selected-badge{
+
+        margin-top:6px;
+
+    }
+
+    .cspl-action-area{
+
+        margin-top:30px;
+
+    }
+
+    .cspl-continue-btn{
+
+        padding:14px 20px;
+
+        font-size:.95rem;
+
+    }
+
+}
+
+/*=========================================================
+EXTRA SMALL DEVICES (≤360px)
+=========================================================*/
+
+@media (max-width:360px){
+
+    .cspl-page-title{
+
+        font-size:1.25rem;
+
+    }
+
+    .cspl-page-subtitle{
+
+        font-size:.85rem;
+
+    }
+
+    .cspl-package-card{
+
+        padding:18px;
+
+    }
+
+    .cspl-package-title{
+
+        font-size:1.05rem;
+
+    }
+
+    .cspl-package-icon{
+
+        width:58px;
+
+        height:58px;
+
+    }
+
+    .cspl-package-icon i{
+
+        font-size:1.4rem;
+
+    }
+
+    .cspl-product-image{
+
+        height:170px;
+
+    }
+
+    .cspl-product-title{
+
+        font-size:.95rem;
+
+    }
+
+    .cspl-product-price{
+
+        font-size:.95rem;
+
+    }
+
+    .cspl-selected-badge{
+
+        font-size:.75rem;
+
+        padding:5px 12px;
+
+    }
+
+}
+
+/*=========================================================
+ACCESSIBILITY
+=========================================================*/
+
+.cspl-package-btn:focus-visible,
+.cspl-continue-btn:focus-visible,
+.cspl-product-card:focus-visible,
+.cspl-package-card:focus-visible,
+.cspl-breadcrumb:focus-visible,
+.cspl-nav-icon:focus-visible,
+.cspl-user-dropdown:focus-visible,
+.cspl-navigation .nav-link:focus-visible{
+
+    outline:3px solid rgba(20,212,149,.35);
+
+    outline-offset:4px;
+
+    border-radius:14px;
+
+}
+
+/*=========================================================
+CUSTOM SCROLLBAR
+=========================================================*/
+
+#csplPage::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+#csplPage::-webkit-scrollbar-track{
+
+    background:#F1F5F9;
+
+}
+
+#csplPage::-webkit-scrollbar-thumb{
+
+    background:#14D495;
+
+    border-radius:999px;
+
+}
+
+#csplPage::-webkit-scrollbar-thumb:hover{
+
+    background:#10B981;
+
+}
+
+/*=========================================================
+LOADING STATE
+=========================================================*/
+
+.cspl-loading{
+
+    pointer-events:none;
+
+    user-select:none;
+
+    opacity:.75;
+
+}
+
+.cspl-loading .cspl-package-card,
+
+.cspl-loading .cspl-product-card{
+
+    filter:grayscale(.15);
+
+}
+
+/*=========================================================
+SKELETON PLACEHOLDER
+=========================================================*/
+
+.cspl-skeleton{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#E5E7EB;
+
+    border-radius:12px;
+
+}
+
+.cspl-skeleton::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,255,255,.65),
+
+        transparent
+
+    );
+
+    transform:translateX(-100%);
+
+    animation:csplSkeleton 1.3s linear infinite;
+
+}
+
+@keyframes csplSkeleton{
+
+    to{
+
+        transform:translateX(100%);
+
+    }
+
+}
+
+/*=========================================================
+BUTTON LOADING
+=========================================================*/
+
+.cspl-btn-loading{
+
+    position:relative;
+
+    color:transparent !important;
+
+    pointer-events:none;
+
+}
+
+.cspl-btn-loading::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    width:18px;
+
+    height:18px;
+
+    margin-top:-9px;
+
+    margin-left:-9px;
+
+    border:2px solid rgba(255,255,255,.35);
+
+    border-top-color:#FFFFFF;
+
+    border-radius:50%;
+
+    animation:csplSpin .7s linear infinite;
+
+}
+
+@keyframes csplSpin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/*=========================================================
+DARK MODE
+=========================================================*/
+
+@media (prefers-color-scheme:dark){
+
+    #csplPage{
+
+        background:#0F172A;
+
+    }
+
+    .cspl-header,
+
+    .cspl-package-card,
+
+    .cspl-product-card{
+
+        background:#1E293B;
+
+        border-color:#334155;
+
+    }
+
+    .cspl-page-title,
+
+    .cspl-section-title,
+
+    .cspl-package-title,
+
+    .cspl-product-title,
+
+    .cspl-product-price,
+
+    .cspl-user-name{
+
+        color:#F8FAFC;
+
+    }
+
+    .cspl-page-subtitle,
+
+    .cspl-section-subtitle,
+
+    .cspl-package-description,
+
+    .cspl-product-category,
+
+    .cspl-package-item span,
+
+    .cspl-breadcrumb{
+
+        color:#CBD5E1;
+
+    }
+
+    .cspl-brand-placeholder{
+
+        background:#1E293B;
+
+        border-color:#475569;
+
+        color:#CBD5E1;
+
+    }
+
+    .cspl-nav-icon{
+
+        background:#334155;
+
+    }
+
+    .cspl-nav-icon i{
+
+        color:#F8FAFC;
+
+    }
+
+}
+
+/*=========================================================
+PRINT MODE
+=========================================================*/
+
+@media print{
+
+    .cspl-header,
+
+    .cspl-continue-btn,
+
+    .navbar-toggler{
+
+        display:none !important;
+
+    }
+
+    #csplPage{
+
+        background:#FFFFFF;
+
+    }
+
+    .cspl-package-card,
+
+    .cspl-product-card{
+
+        box-shadow:none;
+
+        border:1px solid #D1D5DB;
+
+        page-break-inside:avoid;
+
+    }
+
+}
+
+/*=========================================================
+REDUCED MOTION
+=========================================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+/*=========================================================
+PERFORMANCE
+=========================================================*/
+
+.cspl-package-card,
+
+.cspl-product-card,
+
+.cspl-package-btn,
+
+.cspl-continue-btn{
+
+    will-change:transform;
+
+}
+
+.cspl-product-image img,
+
+.cspl-user-avatar img{
+
+    transform:translateZ(0);
+
+    backface-visibility:hidden;
+
+}
+
+/*=========================================================
+UTILITY CLASSES
+=========================================================*/
+
+.cspl-hidden{
+
+    display:none !important;
+
+}
+
+.cspl-visible{
+
+    display:block !important;
+
+}
+
+.cspl-flex{
+
+    display:flex !important;
+
+}
+
+.cspl-flex-center{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.cspl-w-100{
+
+    width:100% !important;
+
+}
+
+.cspl-text-center{
+
+    text-align:center !important;
+
+}
+
+.cspl-rounded{
+
+    border-radius:20px !important;
+
+}
+
+.cspl-shadow{
+
+    box-shadow:0 18px 40px rgba(15,23,42,.08);
+
+}
+
+/*=========================================================
+BUTTON SHINE ANIMATION
+=========================================================*/
+
+.cspl-package-btn,
+
+.cspl-continue-btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.cspl-package-btn::before,
+
+.cspl-continue-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+
+    transform:translateX(-150%);
+
+}
+
+.cspl-package-btn:hover::before,
+
+.cspl-continue-btn:hover::before{
+
+    animation:csplButtonShine .9s ease;
+
+}
+
+@keyframes csplButtonShine{
+
+    from{
+
+        transform:translateX(-150%);
+
+    }
+
+    to{
+
+        transform:translateX(150%);
+
+    }
+
+}
+
+/*=========================================================
+CARD ENTRANCE ANIMATION
+=========================================================*/
+
+.cspl-package-card,
+
+.cspl-product-card{
+
+    animation:csplCardFade .5s ease both;
+
+}
+
+.cspl-package-card:nth-child(1){
+
+    animation-delay:.05s;
+
+}
+
+.cspl-package-card:nth-child(2){
+
+    animation-delay:.12s;
+
+}
+
+.cspl-package-card:nth-child(3){
+
+    animation-delay:.19s;
+
+}
+
+.cspl-product-card:nth-child(1){
+
+    animation-delay:.25s;
+
+}
+
+.cspl-product-card:nth-child(2){
+
+    animation-delay:.32s;
+
+}
+
+.cspl-product-card:nth-child(3){
+
+    animation-delay:.39s;
+
+}
+
+@keyframes csplCardFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+ACTIVE STATES
+=========================================================*/
+
+.cspl-package-card:active,
+
+.cspl-product-card:active{
+
+    transform:scale(.98);
+
+}
+
+.cspl-product-selected{
+
+    animation:csplSelectedPulse .6s ease;
+
+}
+
+@keyframes csplSelectedPulse{
+
+    0%{
+
+        transform:scale(.96);
+
+    }
+
+    50%{
+
+        transform:scale(1.02);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/*=========================================================
+TEXT SELECTION
+=========================================================*/
+
+#csplPage ::selection{
+
+    background:#14D495;
+
+    color:#FFFFFF;
+
+}
+
+#csplPage ::-moz-selection{
+
+    background:#14D495;
+
+    color:#FFFFFF;
+
+}
+
+/*=========================================================
+SMOOTH SCROLL
+=========================================================*/
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/*=========================================================
+HIGH DPI IMAGE RENDERING
+=========================================================*/
+
+@media (-webkit-min-device-pixel-ratio:2),
+(min-resolution:192dpi){
+
+    .cspl-product-image img,
+
+    .cspl-user-avatar img{
+
+        image-rendering:auto;
+
+    }
+
+}
+
+/*=========================================================
+LANDSCAPE MOBILE
+=========================================================*/
+
+@media (max-width:767.98px) and (orientation:landscape){
+
+    .cspl-main{
+
+        padding-top:20px;
+
+    }
+
+    .cspl-page-heading{
+
+        margin-bottom:24px;
+
+    }
+
+    .cspl-action-area{
+
+        justify-content:flex-end;
+
+    }
+
+}
+
+/*=========================================================
+TOUCH DEVICE OPTIMIZATION
+=========================================================*/
+
+@media (hover:none){
+
+    .cspl-package-card,
+
+    .cspl-product-card,
+
+    .cspl-package-btn,
+
+    .cspl-continue-btn,
+
+    .cspl-nav-icon{
+
+        -webkit-tap-highlight-color:transparent;
+
+    }
+
+}
+
+/*=========================================================
+END OF SELLER PROMOTE LISTINGS STYLES
+=========================================================*/
+
 
 /*=========================================================
 SELLER INVENTORY PAGE

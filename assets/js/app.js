@@ -10693,6 +10693,990 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+/*=========================================================
+SELLER PROMOTE LISTINGS
+PART 3A
+=========================================================*/
+
+const SellerPromoteListings = {
+
+    /*=====================================================
+    LOCAL STORAGE KEYS
+    =====================================================*/
+
+    storage: {
+
+        selectedPackage: "yoviSelectedPromotionPackage",
+
+        selectedProduct: "yoviSelectedPromotionProduct",
+
+        promotionDraft: "yoviPromotionDraft"
+
+    },
+
+    /*=====================================================
+    APPLICATION STATE
+    =====================================================*/
+
+    state: {
+
+        selectedPackage: null,
+
+        selectedProduct: "1",
+
+        isLoading: false
+
+    },
+
+    /*=====================================================
+    DOM ELEMENTS
+    =====================================================*/
+
+    elements: {},
+
+    /*=====================================================
+    INITIALIZE
+    =====================================================*/
+
+    init() {
+
+        this.cacheDOM();
+
+        this.loadLocalStorage();
+
+        this.restoreSelections();
+
+        this.bindEvents();
+
+        this.initializeAnimations();
+
+    },
+
+    /*=====================================================
+    CACHE DOM
+    =====================================================*/
+
+    cacheDOM() {
+
+        this.elements.packageCards =
+
+            document.querySelectorAll(
+
+                ".cspl-package-card"
+
+            );
+
+        this.elements.packageButtons =
+
+            document.querySelectorAll(
+
+                ".cspl-package-btn"
+
+            );
+
+        this.elements.productCards =
+
+            document.querySelectorAll(
+
+                ".cspl-product-card"
+
+            );
+
+        this.elements.continueButton =
+
+            document.getElementById(
+
+                "csplContinueButton"
+
+            );
+
+        this.elements.breadcrumb =
+
+            document.querySelector(
+
+                ".cspl-breadcrumb"
+
+            );
+
+    },
+
+    /*=====================================================
+    LOAD LOCAL STORAGE
+    =====================================================*/
+
+    loadLocalStorage() {
+
+        const selectedPackage =
+
+            localStorage.getItem(
+
+                this.storage.selectedPackage
+
+            );
+
+        const selectedProduct =
+
+            localStorage.getItem(
+
+                this.storage.selectedProduct
+
+            );
+
+        if (selectedPackage) {
+
+            this.state.selectedPackage =
+
+                selectedPackage;
+
+        }
+
+        if (selectedProduct) {
+
+            this.state.selectedProduct =
+
+                selectedProduct;
+
+        }
+
+    },
+
+    /*=====================================================
+    SAVE LOCAL STORAGE
+    =====================================================*/
+
+    saveLocalStorage() {
+
+        localStorage.setItem(
+
+            this.storage.selectedPackage,
+
+            this.state.selectedPackage || ""
+
+        );
+
+        localStorage.setItem(
+
+            this.storage.selectedProduct,
+
+            this.state.selectedProduct
+
+        );
+
+    },
+
+    /*=====================================================
+    RESTORE SAVED SELECTIONS
+    =====================================================*/
+
+    restoreSelections() {
+
+        this.elements.productCards.forEach(card => {
+
+            if (
+
+                card.dataset.product ===
+
+                this.state.selectedProduct
+
+            ) {
+
+                card.classList.add(
+
+                    "cspl-product-selected"
+
+                );
+
+            } else {
+
+                card.classList.remove(
+
+                    "cspl-product-selected"
+
+                );
+
+            }
+
+        });
+
+        this.elements.packageButtons.forEach(button => {
+
+            const card =
+
+                button.closest(
+
+                    ".cspl-package-card"
+
+                );
+
+            if (
+
+                button.dataset.package ===
+
+                this.state.selectedPackage
+
+            ) {
+
+                card.classList.add(
+
+                    "cspl-package-selected"
+
+                );
+
+            } else {
+
+                card.classList.remove(
+
+                    "cspl-package-selected"
+
+                );
+
+            }
+
+        });
+
+    },
+
+    /*=====================================================
+    BIND EVENTS
+    =====================================================*/
+
+    bindEvents() {
+
+        /*-----------------------------------------
+        Promotion Package Selection
+        -----------------------------------------*/
+
+        this.elements.packageButtons.forEach(button => {
+
+            button.addEventListener(
+
+                "click",
+
+                this.handlePackageSelection.bind(this)
+
+            );
+
+        });
+
+        /*-----------------------------------------
+        Product Selection
+        -----------------------------------------*/
+
+        this.elements.productCards.forEach(card => {
+
+            card.addEventListener(
+
+                "click",
+
+                this.handleProductSelection.bind(this)
+
+            );
+
+        });
+
+        /*-----------------------------------------
+        Continue Button
+        -----------------------------------------*/
+
+        if (this.elements.continueButton) {
+
+            this.elements.continueButton.addEventListener(
+
+                "click",
+
+                this.handleContinue.bind(this)
+
+            );
+
+        }
+
+        /*-----------------------------------------
+        Breadcrumb
+        -----------------------------------------*/
+
+        if (this.elements.breadcrumb) {
+
+            this.elements.breadcrumb.addEventListener(
+
+                "click",
+
+                this.handleBreadcrumb.bind(this)
+
+            );
+
+        }
+
+    },
+
+    /*=====================================================
+    HANDLE PACKAGE SELECTION
+    =====================================================*/
+
+    handlePackageSelection(event) {
+
+        event.preventDefault();
+
+        const button = event.currentTarget;
+
+        const selectedPackage =
+
+            button.dataset.package;
+
+        this.state.selectedPackage =
+
+            selectedPackage;
+
+        this.elements.packageCards.forEach(card => {
+
+            card.classList.remove(
+
+                "cspl-package-selected"
+
+            );
+
+        });
+
+        button.closest(
+
+            ".cspl-package-card"
+
+        ).classList.add(
+
+            "cspl-package-selected"
+
+        );
+
+        this.saveLocalStorage();
+
+    },
+
+    /*=====================================================
+    HANDLE PRODUCT SELECTION
+    =====================================================*/
+
+    handleProductSelection(event) {
+
+        const selectedCard =
+
+            event.currentTarget;
+
+        this.elements.productCards.forEach(card => {
+
+            card.classList.remove(
+
+                "cspl-product-selected"
+
+            );
+
+        });
+
+        selectedCard.classList.add(
+
+            "cspl-product-selected"
+
+        );
+
+        this.state.selectedProduct =
+
+            selectedCard.dataset.product;
+
+        this.saveLocalStorage();
+
+    },
+
+    /*=====================================================
+    HANDLE CONTINUE
+    =====================================================*/
+
+   handleContinue(event) {
+
+    event.preventDefault();
+
+    if (!this.validateCampaign()) {
+
+        return;
+    }
+
+    this.setLoadingState(true);
+
+    this.elements.continueButton.classList.add(
+
+        "cspl-btn-loading"
+
+    );
+
+    this.autoSave();
+
+    setTimeout(() => {
+
+        window.location.href = "seller-promotion-campaign.html";
+
+    }, 700)
+
+   },
+
+    /*=====================================================
+    HANDLE BREADCRUMB
+    =====================================================*/
+
+    handleBreadcrumb(event) {
+
+        event.preventDefault();
+
+        window.location.href =
+
+            "seller-dashboard.html";
+
+    },
+
+    /*=====================================================
+    INITIALIZE ANIMATIONS
+    =====================================================*/
+
+    initializeAnimations() {
+
+        [
+
+            ...this.elements.packageCards,
+
+            ...this.elements.productCards
+
+        ].forEach((card, index) => {
+
+            card.style.animationDelay =
+
+                `${index * 0.08}s`;
+
+        });
+
+    },
+
+    /*=====================================================
+    SHOW TOAST
+    =====================================================*/
+
+    showToast(message, type = "success") {
+
+        const existingToast =
+
+            document.getElementById(
+
+                "csplToast"
+
+            );
+
+        if (existingToast) {
+
+            existingToast.remove();
+
+        }
+
+        const toast = document.createElement("div");
+
+        toast.id = "csplToast";
+
+        toast.className =
+            `toast align-items-center text-bg-${type} border-0 position-fixed`;
+
+        toast.style.top = "20px";
+
+        toast.style.right = "20px";
+
+        toast.style.zIndex = "1080";
+
+        toast.innerHTML = `
+
+            <div class="d-flex">
+
+                <div class="toast-body">
+
+                    ${message}
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-close btn-close-white me-2 m-auto"
+                    data-bs-dismiss="toast">
+
+                </button>
+
+            </div>
+
+        `;
+
+        document.body.appendChild(toast);
+
+        const bsToast = new bootstrap.Toast(
+
+            toast,
+
+            {
+
+                delay:2500
+
+            }
+
+        );
+
+        bsToast.show();
+
+        toast.addEventListener(
+
+            "hidden.bs.toast",
+
+            () => toast.remove()
+
+        );
+
+    },
+
+    /*=====================================================
+    SAVE PROMOTION DRAFT
+    =====================================================*/
+
+    savePromotionDraft() {
+
+        const draft = {
+
+            package: this.state.selectedPackage,
+
+            product: this.state.selectedProduct,
+
+            createdAt: new Date().toISOString()
+
+        };
+
+        localStorage.setItem(
+
+            this.storage.promotionDraft,
+
+            JSON.stringify(draft)
+
+        );
+
+    },
+
+    /*=====================================================
+    LOADING STATE
+    =====================================================*/
+
+    setLoadingState(status) {
+
+        this.state.isLoading = status;
+
+        if (status) {
+
+            document.body.classList.add(
+
+                "cspl-loading"
+
+            );
+
+        } else {
+
+            document.body.classList.remove(
+
+                "cspl-loading"
+
+            );
+
+        }
+
+    },
+
+    /*=====================================================
+    INTERSECTION OBSERVER
+    =====================================================*/
+
+    initializeIntersectionObserver() {
+
+        const observer = new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+
+                            "cspl-visible"
+
+                        );
+
+                        observer.unobserve(
+
+                            entry.target
+
+                        );
+
+                    }
+
+                });
+
+            },
+
+            {
+
+                threshold:0.15,
+
+                rootMargin:"0px 0px -40px 0px"
+
+            }
+
+        );
+
+        [
+
+            ...this.elements.packageCards,
+
+            ...this.elements.productCards
+
+        ].forEach(card => {
+
+            observer.observe(card);
+
+        });
+
+    },
+
+    /*=====================================================
+    REFRESH PAGE STATE
+    =====================================================*/
+
+    refreshPageState() {
+
+        this.restoreSelections();
+
+    },
+
+    /*=====================================================
+    RESTORE PACKAGE ANIMATION
+    =====================================================*/
+
+    animateSelectedPackage() {
+
+        const selectedCard =
+
+            document.querySelector(
+
+                ".cspl-package-selected"
+
+            );
+
+        if (!selectedCard) return;
+
+        selectedCard.animate(
+
+            [
+
+                {
+
+                    transform:"scale(.96)"
+
+                },
+
+                {
+
+                    transform:"scale(1.03)"
+
+                },
+
+                {
+
+                    transform:"scale(1)"
+
+                }
+
+            ],
+
+            {
+
+                duration:450,
+
+                easing:"ease"
+
+            }
+
+        );
+
+    },
+
+    /*=====================================================
+    AUTO SAVE
+    =====================================================*/
+
+    autoSave() {
+
+        this.saveLocalStorage();
+
+        this.savePromotionDraft();
+
+    },
+
+    /*=====================================================
+    KEYBOARD ACCESSIBILITY
+    =====================================================*/
+
+    initializeKeyboardSupport() {
+
+        this.elements.productCards.forEach(card => {
+
+            card.setAttribute("tabindex", "0");
+
+            card.addEventListener("keydown", event => {
+
+                if (
+
+                    event.key === "Enter" ||
+
+                    event.key === " "
+
+                ) {
+
+                    event.preventDefault();
+
+                    card.click();
+
+                }
+
+            });
+
+        });
+
+        this.elements.packageButtons.forEach(button => {
+
+            button.addEventListener("keydown", event => {
+
+                if (
+
+                    event.key === "Enter" ||
+
+                    event.key === " "
+
+                ) {
+
+                    event.preventDefault();
+
+                    button.click();
+
+                }
+
+            });
+
+        });
+
+    },
+
+    /*=====================================================
+    WINDOW RESIZE
+    =====================================================*/
+
+    initializeResizeHandler() {
+
+        let resizeTimer;
+
+        window.addEventListener(
+
+            "resize",
+
+            () => {
+
+                clearTimeout(resizeTimer);
+
+                resizeTimer = setTimeout(() => {
+
+                    document.body.classList.add(
+
+                        "cspl-resizing"
+
+                    );
+
+                    setTimeout(() => {
+
+                        document.body.classList.remove(
+
+                            "cspl-resizing"
+
+                        );
+
+                    }, 150);
+
+                }, 100);
+
+            }
+
+        );
+
+    },
+
+    /*=====================================================
+    VISIBILITY CHANGE
+    =====================================================*/
+
+    initializeVisibilityHandler() {
+
+        document.addEventListener(
+
+            "visibilitychange",
+
+            () => {
+
+                if (document.hidden) {
+
+                    this.autoSave();
+
+                } else {
+
+                    this.refreshPageState();
+
+                }
+
+            }
+
+        );
+
+    },
+
+    /*=====================================================
+    VALIDATE CAMPAIGN
+    =====================================================*/
+
+    validateCampaign() {
+
+        if (!this.state.selectedPackage) {
+
+            this.showToast(
+
+                "Select a promotion package.",
+
+                "warning"
+
+            );
+
+            return false;
+
+        }
+
+        if (!this.state.selectedProduct) {
+
+            this.showToast(
+
+                "Select a product to promote.",
+
+                "warning"
+
+            );
+
+            return false;
+
+        }
+
+        return true;
+
+    },
+
+    /*=====================================================
+    GET SELECTED PRODUCT
+    =====================================================*/
+
+    getSelectedProductCard() {
+
+        return document.querySelector(
+
+            ".cspl-product-selected"
+
+        );
+
+    },
+
+    /*=====================================================
+    GET SELECTED PACKAGE
+    =====================================================*/
+
+    getSelectedPackageCard() {
+
+        return document.querySelector(
+
+            ".cspl-package-selected"
+
+        );
+
+    },
+
+    /*=====================================================
+    REGISTER GLOBAL EVENTS
+    =====================================================*/
+
+    registerGlobalEvents() {
+
+        this.initializeKeyboardSupport();
+
+        this.initializeResizeHandler();
+
+        this.initializeVisibilityHandler();
+
+        window.addEventListener(
+
+            "beforeunload",
+
+            () => {
+
+                this.autoSave();
+
+            }
+
+        );
+
+    },
+
+    /*=====================================================
+    RESET CAMPAIGN
+    =====================================================*/
+
+    resetCampaign() {
+
+        this.state.selectedPackage = null;
+
+        this.state.selectedProduct = "1";
+
+        this.restoreSelections();
+
+        this.autoSave();
+
+    },
+
+    /*=====================================================
+    DESTROY
+    =====================================================*/
+
+    destroy() {
+
+        this.autoSave();
+
+    }
+
+};
+
+/*=========================================================
+APPLICATION START
+=========================================================*/
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    () => {
+
+        SellerPromoteListings.init();
+
+        SellerPromoteListings.registerGlobalEvents();
+
+    }
+
+);
+
 /*=====================================================
 SELLER INVENTORY
 PART 3A
