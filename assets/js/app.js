@@ -10613,25 +10613,25 @@ document.addEventListener("DOMContentLoaded", function () {
     SELLER SESSION VALIDATION
     =====================================================*/
 
-    const ysrSellerSession =
+    // const ysrSellerSession =
 
-        localStorage.getItem(
+    //     localStorage.getItem(
 
-            "sellerLoggedIn"
+    //         "sellerLoggedIn"
 
-        );
+    //     );
 
-    if(
+    // if(
 
-        ysrSellerSession !== "true"
+    //     ysrSellerSession !== "true"
 
-    ){
+    // ){
 
-        window.location.href =
+    //     window.location.href =
 
-        "../auth/signin.html";
+    //     "../auth/signin.html";
 
-    }
+    // }
 
     /*=====================================================
     PAGE LOAD LOGGER
