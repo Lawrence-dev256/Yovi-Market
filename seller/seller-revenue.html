@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Seller Revenue | YOVI Marketplace</title>
+
+    <!-- Bootstrap -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Global CSS -->
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+<div id="ysrSellerRevenuePage">
+
+<!--========================================================
+TOP NAVIGATION
+=========================================================-->
+
+<nav class="navbar navbar-expand-lg ysr-navbar">
+
+    <div class="container-fluid px-lg-4">
+
+        <!--================================================
+        BRAND (Placeholder)
+        ================================================-->
+
+        <a class="navbar-brand"
+           href="../index.html">
+
+            <div class="ysr-brand-placeholder">
+
+                Brand Logo
+
+            </div>
+
+        </a>
+
+        <!-- Mobile Toggle -->
+
+        <button
+            class="navbar-toggler"
+
+            type="button"
+
+            data-bs-toggle="collapse"
+
+            data-bs-target="#ysrNavbarCollapse">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <!--==============================================
+        NAVIGATION LINKS
+        ==============================================-->
+
+        <div
+            class="collapse navbar-collapse"
+
+            id="ysrNavbarCollapse">
+
+            <ul
+                class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+
+                        href="../index.html">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+
+                        href="../Products/products.html">
+
+                        Products
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+
+                        href="../Services/services.html">
+
+                        Services
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+
+                        href="../Orders/orders.html">
+
+                        Orders
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+
+                        href="../Booking/bookings.html">
+
+                        Bookings
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+
+                        href="../Messages/messages.html">
+
+                        Messages
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+            <!--==========================================
+            RIGHT NAVIGATION
+            ==========================================-->
+
+            <div
+                class="d-flex align-items-center gap-3 ysr-nav-right">
+
+                <!-- Cart -->
+
+                <button
+
+                    id="ysrCartBtn"
+
+                    class="ysr-nav-icon">
+
+                    <i class="bi bi-cart3"></i>
+
+                </button>
+
+                <!-- Notifications -->
+
+                <button
+
+                    id="ysrNotificationBtn"
+
+                    class="ysr-nav-icon position-relative">
+
+                    <i class="bi bi-bell"></i>
+
+                    <span
+                        class="ysr-notification-dot">
+
+                    </span>
+
+                </button>
+
+                <!-- Profile -->
+
+                <div class="dropdown">
+
+                    <button
+
+                        class="btn ysr-profile-btn dropdown-toggle"
+
+                        type="button"
+
+                        data-bs-toggle="dropdown"
+
+                        aria-expanded="false">
+
+                        <img
+
+                            src="https://via.placeholder.com/40"
+
+                            alt="Seller"
+
+                            class="ysr-profile-image">
+
+                        <span class="ysr-profile-name">
+
+                            Chidi
+
+                        </span>
+
+                    </button>
+
+                    <ul class="dropdown-menu dropdown-menu-end">
+
+                        <li>
+
+                            <a
+
+                                class="dropdown-item"
+
+                                href="../Profile/profile.html">
+
+                                My Profile
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a
+
+                                class="dropdown-item"
+
+                                href="seller-dashboard.html">
+
+                                Seller Dashboard
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <hr class="dropdown-divider">
+
+                        </li>
+
+                        <li>
+
+                            <a
+
+                                id="ysrLogoutBtn"
+
+                                class="dropdown-item text-danger"
+
+                                href="#">
+
+                                Sign Out
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!--========================================================
+MAIN CONTENT
+=========================================================-->
+
+<main class="ysr-main">
+
+    <div class="container">
+
+        <!--==============================================
+        BREADCRUMB
+        ==============================================-->
+
+        <button
+
+            id="ysrBackDashboard"
+
+            class="ysr-breadcrumb">
+
+            <i class="bi bi-chevron-left"></i>
+
+            Seller Dashboard
+
+        </button>
+
+        <!--==============================================
+        PAGE TITLE
+        ==============================================-->
+
+        <h1 class="ysr-page-title">
+
+            Revenue Overview
+
+        </h1>
+
+        <!--==============================================
+        SUMMARY CARDS
+        ==============================================-->
+
+        <div class="row g-4 ysr-summary-row">
+
+            <!-- Total Revenue -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="ysr-summary-card">
+
+                    <h2 class="ysr-summary-value">
+
+                        ₦2.25M
+
+                    </h2>
+
+                    <p class="ysr-summary-title">
+
+                        Total Revenue
+
+                    </p>
+
+                    <small class="ysr-summary-growth">
+
+                        All time
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <!-- June Revenue -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="ysr-summary-card">
+
+                    <h2 class="ysr-summary-value">
+
+                        ₦524K
+
+                    </h2>
+
+                    <p class="ysr-summary-title">
+
+                        June Revenue
+
+                    </p>
+
+                    <small class="ysr-summary-growth">
+
+                        +23% vs May
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <!-- Average Order -->
+
+            <div class="col-lg-4 col-md-12">
+
+                <div class="ysr-summary-card">
+
+                    <h2 class="ysr-summary-value">
+
+                        ₦18,986
+
+                    </h2>
+
+                    <p class="ysr-summary-title">
+
+                        Avg. Order Value
+
+                    </p>
+
+                    <small class="ysr-summary-growth">
+
+                        June average
+
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--================================================
+        MONTHLY REVENUE CARD
+        =================================================-->
+
+        <div class="row mt-4">
+
+            <div class="col-12">
+
+                <div class="ysr-chart-card">
+
+                    <!-- Card Header -->
+
+                    <div class="ysr-chart-header">
+
+                        <h3 class="ysr-chart-title">
+
+                            Monthly Revenue (2024)
+
+                        </h3>
+
+                    </div>
+
+                    <!-- Chart Container -->
+
+                    <div class="ysr-chart-container">
+
+                        <canvas
+
+                            id="ysrRevenueChart">
+
+                        </canvas>
+
+                    </div>
+
+                    <!-- Revenue Summary -->
+
+                    <div class="ysr-chart-summary">
+
+                        <div class="ysr-month-item">
+
+                            <span class="ysr-month-value">
+
+                                285K
+
+                            </span>
+
+                            <span class="ysr-month-name">
+
+                                Jan
+
+                            </span>
+
+                        </div>
+
+                        <div class="ysr-month-item">
+
+                            <span class="ysr-month-value">
+
+                                342K
+
+                            </span>
+
+                            <span class="ysr-month-name">
+
+                                Feb
+
+                            </span>
+
+                        </div>
+
+                        <div class="ysr-month-item">
+
+                            <span class="ysr-month-value">
+
+                                298K
+
+                            </span>
+
+                            <span class="ysr-month-name">
+
+                                Mar
+
+                            </span>
+
+                        </div>
+
+                        <div class="ysr-month-item">
+
+                            <span class="ysr-month-value">
+
+                                412K
+
+                            </span>
+
+                            <span class="ysr-month-name">
+
+                                Apr
+
+                            </span>
+
+                        </div>
+
+                        <div class="ysr-month-item">
+
+                            <span class="ysr-month-value">
+
+                                389K
+
+                            </span>
+
+                            <span class="ysr-month-name">
+
+                                May
+
+                            </span>
+
+                        </div>
+
+                        <div class="ysr-month-item">
+
+                            <span class="ysr-month-value">
+
+                                524K
+
+                            </span>
+
+                            <span class="ysr-month-name">
+
+                                Jun
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--==============================================
+        FOOTER
+        ==============================================-->
+
+    </div>
+
+</main>
+
+<footer class="ysr-footer">
+
+    <div class="container">
+
+        <div class="row gy-5">
+
+            <!-- Brand -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="ysr-footer-brand">
+
+                    <div class="ysr-footer-logo-placeholder">
+
+                        Brand Logo
+
+                    </div>
+
+                    <p class="ysr-footer-text">
+
+                        Empowering local communities through a secure and efficient marketplace for everyone.
+
+                    </p>
+
+                    <div class="ysr-social-links">
+
+                        <a href="#" class="ysr-social-icon">
+
+                            <i class="bi bi-globe"></i>
+
+                        </a>
+
+                        <a href="#" class="ysr-social-icon">
+
+                            <i class="bi bi-at"></i>
+
+                        </a>
+
+                        <a href="#" class="ysr-social-icon">
+
+                            <i class="bi bi-share"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Marketplace -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <h5 class="ysr-footer-title">
+
+                    Marketplace
+
+                </h5>
+
+                <ul class="ysr-footer-links">
+
+                    <li>
+
+                        <a href="../Pages/about.html">
+
+                            About Us
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="../Pages/careers.html">
+
+                            Careers
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="../Pages/press.html">
+
+                            Press
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="../Pages/help-center.html">
+
+                            Help Center
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Safety -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <h5 class="ysr-footer-title">
+
+                    Safety & Rules
+
+                </h5>
+
+                <ul class="ysr-footer-links">
+
+                    <li>
+
+                        <a href="../Trust-centre/safety-rules.html">
+
+                            Safety Rules
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="../Pages/terms.html">
+
+                            Terms of Service
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="../Pages/privacy.html">
+
+                            Privacy Policy
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="../Pages/contact.html">
+
+                            Contact Support
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Newsletter -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <h5 class="ysr-footer-title">
+
+                    Join Our Newsletter
+
+                </h5>
+
+                <p class="ysr-footer-text">
+
+                    Get the latest local deals and community updates.
+
+                </p>
+
+                <form
+
+                    id="ysrNewsletterForm"
+
+                    class="input-group ysr-newsletter-form">
+
+                    <input
+
+                        type="email"
+
+                        id="ysrNewsletterEmail"
+
+                        class="form-control"
+
+                        placeholder="Your email"
+
+                        required>
+
+                    <button
+
+                        class="btn ysr-newsletter-btn"
+
+                        type="submit">
+
+                        <i class="bi bi-send"></i>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <hr class="ysr-footer-divider">
+
+        <div class="text-center">
+
+            <small>
+
+                © 2026 YOVI Marketplace. All rights reserved. Built for community efficiency.
+
+            </small>
+
+        </div>
+
+    </div>
+
+</footer>
+
+</div>
+
+<!--========================================================
+SCRIPTS
+=========================================================-->
+
+<!-- Bootstrap -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Chart.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Seller Revenue JS -->
+
+<script src="../assets/js/app.js"></script>
+
+</body>
+
+</html>

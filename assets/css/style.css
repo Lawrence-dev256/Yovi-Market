@@ -15289,6 +15289,7866 @@ END OF SELLER DONE STYLES
 =========================================*/
 
 
+/*=========================================================
+  YOVI SELLER DASHBOARD
+=========================================================*/
+
+/*=========================================================
+SELLER DASHBOARD PAGE
+=========================================================*/
+
+#ysdSellerDashboardPage{
+
+    background:var(--bg-color);
+
+    color:var(--text-color);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+
+/*=========================================================
+GLOBAL LINKS
+=========================================================*/
+
+#ysdSellerDashboardPage a{
+
+    text-decoration:none;
+
+    transition:var(--transition);
+
+}
+
+/*=========================================================
+MAIN WRAPPER
+=========================================================*/
+
+.ysd-wrapper{
+
+    padding-top:90px;
+
+    min-height:100vh;
+
+}
+
+/*=========================================================
+TOP NAVIGATION
+=========================================================*/
+
+.ysd-navbar{
+
+    background:var(--card-bg);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-sm);
+
+    height:80px;
+
+    z-index:1050;
+
+    animation:ysdFadeDown .45s ease;
+
+}
+
+/*=========================================================
+BRAND PLACEHOLDER
+=========================================================*/
+
+.ysd-brand-placeholder{
+
+    width:170px;
+
+    height:48px;
+
+    border:2px dashed var(--border);
+
+    border-radius:var(--radius-md);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    color:var(--text-muted);
+
+    transition:var(--transition);
+
+}
+
+.ysd-brand-placeholder:hover{
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+NAVIGATION LINKS
+=========================================================*/
+
+.ysd-navbar .nav-link{
+
+    color:var(--text);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    padding:.75rem 1rem;
+
+    position:relative;
+
+}
+
+.ysd-navbar .nav-link:hover{
+
+    color:var(--primary);
+
+}
+
+.ysd-navbar .nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:16px;
+
+    bottom:6px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--primary);
+
+    transition:var(--transition);
+
+}
+
+.ysd-navbar .nav-link:hover::after{
+
+    width:65%;
+
+}
+
+/*=========================================================
+NAV ICONS
+=========================================================*/
+
+.ysd-nav-icon{
+
+    width:44px;
+
+    height:44px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--bg-color);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:var(--transition);
+
+}
+
+.ysd-nav-icon i{
+
+    font-size:1.1rem;
+
+}
+
+.ysd-nav-icon:hover{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    transform:translateY(-3px);
+
+}
+
+/*=========================================================
+NOTIFICATION DOT
+=========================================================*/
+
+.ysd-notification-dot{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+    border:2px solid #ffffff;
+
+}
+
+/*=========================================================
+PROFILE IMAGE
+=========================================================*/
+
+.ysd-navbar .dropdown img{
+
+    width:40px;
+
+    height:40px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+}
+
+/*=========================================================
+DROPDOWN
+=========================================================*/
+
+.ysd-navbar .dropdown-menu{
+
+    border:none;
+
+    border-radius:var(--radius-md);
+
+    box-shadow:var(--shadow-md);
+
+    padding:.5rem;
+
+}
+
+.ysd-navbar .dropdown-item{
+
+    border-radius:8px;
+
+    padding:.65rem .9rem;
+
+    font-weight:500;
+
+    transition:var(--transition);
+
+}
+
+.ysd-navbar .dropdown-item:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary-color);
+
+}
+
+/*=========================================================
+ANIMATIONS
+=========================================================*/
+
+@keyframes ysdFadeDown{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes ysdFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes ysdFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-4px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+SIDEBAR
+=========================================================*/
+
+.ysd-sidebar{
+
+    position:sticky;
+
+    top:96px;
+
+    height:calc(100vh - 96px);
+
+    background:var(--card-bg);
+
+    border-right:1px solid var(--border-color);
+
+    padding:1.5rem 1rem;
+
+    overflow-y:auto;
+
+    animation:ysdFadeUp .5s ease;
+
+}
+
+/*=========================================================
+USER CARD
+=========================================================*/
+
+.ysd-user-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:1rem;
+
+    background:var(--bg-color);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    padding:1rem;
+
+    margin-bottom:2rem;
+
+    transition:var(--transition);
+
+}
+
+.ysd-user-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.ysd-user-card img{
+
+    width:60px;
+
+    height:60px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+}
+
+.ysd-user-card h6{
+
+    margin:0;
+
+    color:var(--text-color);
+
+    font-weight:700;
+
+    font-size:1rem;
+
+}
+
+.ysd-user-card small{
+
+    color:var(--text-muted);
+
+    font-size:.85rem;
+
+}
+
+/*=========================================================
+SIDEBAR MENU
+=========================================================*/
+
+.ysd-menu{
+
+    gap:.45rem;
+
+}
+
+.ysd-menu li{
+
+    list-style:none;
+
+}
+
+.ysd-menu a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.9rem;
+
+    padding:.85rem 1rem;
+
+    border-radius:var(--radius-md);
+
+    color:var(--text-color);
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.ysd-menu a i{
+
+    font-size:1.05rem;
+
+    width:22px;
+
+    text-align:center;
+
+}
+
+.ysd-menu a:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary-color);
+
+    transform:translateX(6px);
+
+}
+
+.ysd-menu a.active{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.ysd-menu a.active i{
+
+    color:#ffffff;
+
+}
+
+/*=========================================================
+SIGN OUT
+=========================================================*/
+
+.ysd-signout{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:.75rem;
+
+    margin-top:2rem;
+
+    padding:.95rem;
+
+    border-radius:var(--radius-md);
+
+    background:rgba(220,53,69,.08);
+
+    color:var(--danger);
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.ysd-signout:hover{
+
+    background:var(--danger);
+
+    color:#ffffff;
+
+    transform:translateY(-3px);
+
+}
+
+/*=========================================================
+MAIN CONTENT
+=========================================================*/
+
+.ysd-main{
+
+    padding:2rem;
+
+    animation:ysdFadeUp .55s ease;
+
+}
+
+/*=========================================================
+PAGE TITLE
+=========================================================*/
+
+.ysd-title{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+    margin-bottom:.35rem;
+
+}
+
+.ysd-subtitle{
+
+    margin:0;
+
+    color:var(--text-muted);
+
+    font-size:.95rem;
+
+}
+
+/*=========================================================
+ADD PRODUCT BUTTON
+=========================================================*/
+
+.ysd-add-product-btn{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    border:none;
+
+    border-radius:var(--radius-md);
+
+    padding:.85rem 1.6rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.ysd-add-product-btn:hover{
+
+    background:var(--primary-dark);
+
+    color:#ffffff;
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.ysd-add-product-btn:active{
+
+    transform:scale(.97);
+
+}
+
+/*=========================================================
+RESPONSIVE
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .ysd-sidebar{
+
+        position:relative;
+
+        top:0;
+
+        height:auto;
+
+        border-right:none;
+
+        border-bottom:1px solid var(--border);
+
+    }
+
+    .ysd-main{
+
+        padding:1.5rem;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .ysd-title{
+
+        font-size:1.6rem;
+
+    }
+
+    .ysd-add-product-btn{
+
+        width:100%;
+
+        margin-top:1rem;
+
+    }
+
+    .ysd-user-card{
+
+        justify-content:center;
+
+        text-align:center;
+
+        flex-direction:column;
+
+    }
+
+}
+
+/*=========================================================
+SELLER DASHBOARD CARDS
+=========================================================*/
+
+.ysd-card{
+
+    background:var(--card-bg);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    padding:1.5rem;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+    animation:ysdFadeUp .5s ease;
+
+}
+
+.ysd-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+/*=========================================================
+STATISTICS CARDS
+=========================================================*/
+
+.ysd-stat-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--card-bg);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    padding:1.5rem;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+    animation:ysdFadeUp .5s ease;
+
+}
+
+.ysd-stat-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.ysd-stat-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:var(--primary);
+
+    transform:scaleX(0);
+
+    transition:var(--transition);
+
+}
+
+.ysd-stat-card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+.ysd-stat-card h3{
+
+    margin-top:1rem;
+
+    margin-bottom:.35rem;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+.ysd-stat-card p{
+
+    margin-bottom:.35rem;
+
+    color:var(--text-muted);
+
+    font-weight:500;
+
+}
+
+.ysd-stat-card small{
+
+    color:var(--success);
+
+    font-weight:600;
+
+}
+
+/*=========================================================
+STAT ICON
+=========================================================*/
+
+.ysd-stat-icon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#ffffff;
+
+    font-size:1.4rem;
+
+    transition:var(--transition);
+
+}
+
+.ysd-stat-card:hover .ysd-stat-icon{
+
+    transform:rotate(8deg) scale(1.08);
+
+}
+
+.ysd-green{
+
+    background:var(--success);
+
+}
+
+.ysd-blue{
+
+    background: blue;
+
+}
+
+.ysd-purple{
+
+    background: purple;
+
+}
+
+.ysd-gold{
+
+    background: gold;
+
+}
+
+/*=========================================================
+REVENUE CHART
+=========================================================*/
+
+.ysd-revenue-chart{
+
+    position:relative;
+
+    height:270px;
+
+    background:var(--bg-color);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    overflow:hidden;
+
+    padding:1rem;
+
+}
+
+.ysd-chart-grid{
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+        linear-gradient(
+
+            var(--border) 1px,
+
+            transparent 1px
+
+        );
+
+    background-size:100% 45px;
+
+    opacity:.45;
+
+}
+
+.ysd-chart-line{
+
+    position:absolute;
+
+    bottom:20px;
+
+    left:20px;
+
+    right:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    height:200px;
+
+}
+
+.ysd-chart-line span{
+
+    width:40px;
+
+    background:linear-gradient(
+
+        to top,
+
+        var(--primary),
+
+        var(--secondary)
+
+    );
+
+    border-radius:12px 12px 0 0;
+
+    animation:ysdGrowChart 1.2s ease;
+
+    transition:var(--transition);
+
+}
+
+.ysd-chart-line span:hover{
+
+    opacity:.85;
+
+    transform:scaleY(1.05);
+
+}
+
+/*=========================================================
+RECENT ORDERS
+=========================================================*/
+
+.ysd-order-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:1rem 0;
+
+    border-bottom:1px solid var(--border);
+
+    transition:var(--transition);
+
+}
+
+.ysd-order-item:hover{
+
+    transform:translateX(6px);
+
+}
+
+.ysd-order-avatar{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    background:var(--primary-light);
+
+    color:var(--primary-color);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:700;
+
+    margin-right:1rem;
+
+}
+
+.ysd-order-item h6{
+
+    margin:0;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+}
+
+.ysd-order-item small{
+
+    color:var(--text-muted);
+
+}
+
+/*=========================================================
+ORDER STATUS
+=========================================================*/
+
+.ysd-paid,
+
+.ysd-processing,
+
+.ysd-shipped{
+
+    display:inline-block;
+
+    margin-top:.35rem;
+
+    padding:.35rem .8rem;
+
+    border-radius:50px;
+
+    font-size:.78rem;
+
+    font-weight:600;
+
+}
+
+.ysd-paid{
+
+    background:rgba(34,197,94,.12);
+
+    color:var(--success-color);
+
+}
+
+.ysd-processing{
+
+    background:rgba(245,158,11,.12);
+
+    color:var(--warning-color);
+
+}
+
+.ysd-shipped{
+
+    background:rgba(59,130,246,.12);
+
+    color:var(--primary-color);
+
+}
+
+/*=========================================================
+VIEW ALL LINK
+=========================================================*/
+
+.ysd-view-all{
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    color:var(--primary-color);
+
+    transition:var(--transition);
+
+}
+
+.ysd-view-all:hover{
+
+    color:var(--secondary-color);
+
+}
+
+/*=========================================================
+CHART ANIMATION
+=========================================================*/
+
+@keyframes ysdGrowChart{
+
+    from{
+
+        height:0;
+
+    }
+
+}
+
+/*=========================================================
+TOP PRODUCTS SECTION
+=========================================================*/
+
+.ysd-products-card{
+
+    animation:ysdFadeUp .6s ease;
+
+}
+
+/*=========================================================
+PRODUCT TABLE
+=========================================================*/
+
+.ysd-product-table{
+
+    margin-bottom:0;
+
+    vertical-align:middle;
+
+}
+
+.ysd-product-table thead th{
+
+    background:var(--bg-color);
+
+    color:var(--text-muted);
+
+    font-size:.8rem;
+
+    font-weight:700;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+    border-bottom:1px solid var(--border-color);
+
+    padding:1rem;
+
+    white-space:nowrap;
+
+}
+
+.ysd-product-table tbody td{
+
+    padding:1rem;
+
+    border-bottom:1px solid var(--border-color);
+
+    color:var(--text-color);
+
+    font-size:.95rem;
+
+    vertical-align:middle;
+
+    transition:var(--transition);
+
+}
+
+.ysd-product-table tbody tr{
+
+    transition:var(--transition);
+
+}
+
+.ysd-product-table tbody tr:hover{
+
+    background:var(--bg-color);
+
+    transform:scale(1.01);
+
+}
+
+.ysd-product-table tbody tr:last-child td{
+
+    border-bottom:none;
+
+}
+
+/*=========================================================
+PRODUCT IMAGE
+=========================================================*/
+
+.ysd-product-image{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:12px;
+
+    object-fit:cover;
+
+    border:1px solid var(--border-color);
+
+    background:var(--bg-color);
+
+    transition:var(--transition);
+
+}
+
+.ysd-product-table tbody tr:hover
+.ysd-product-image{
+
+    transform:scale(1.08);
+
+}
+
+/*=========================================================
+PRODUCT TITLE
+=========================================================*/
+
+.ysd-product-table h6{
+
+    margin:0;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text-color);
+
+    line-height:1.4;
+
+}
+
+/*=========================================================
+ACTIVE STATUS
+=========================================================*/
+
+.ysd-status-active{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:.45rem .95rem;
+
+    border-radius:50px;
+
+    background:rgba(34,197,94,.12);
+
+    color:var(--success-color);
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+}
+
+.ysd-status-active::before{
+
+    content:"";
+
+    width:8px;
+
+    height:8px;
+
+    margin-right:8px;
+
+    border-radius:50%;
+
+    background:var(--success-color);
+
+}
+
+/*=========================================================
+EDIT BUTTON
+=========================================================*/
+
+.ysd-edit-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--bg-color);
+
+    color:var(--primary-color);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:var(--transition);
+
+}
+
+.ysd-edit-btn:hover{
+
+    background:var(--primary-color);
+
+    color:#ffffff;
+
+    transform:rotate(10deg);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.ysd-edit-btn:active{
+
+    transform:scale(.95);
+
+}
+
+/*=========================================================
+PRICE / STOCK / SALES
+=========================================================*/
+
+.ysd-product-table td:nth-child(2){
+
+    font-weight:700;
+
+    color:var(--primary-color);
+
+}
+
+.ysd-product-table td:nth-child(3),
+
+.ysd-product-table td:nth-child(4){
+
+    font-weight:600;
+
+}
+
+/*=========================================================
+TABLE SCROLLBAR
+=========================================================*/
+
+.table-responsive{
+
+    scrollbar-width:thin;
+
+}
+
+.table-responsive::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+.table-responsive::-webkit-scrollbar-track{
+
+    background:var(--bg-color);
+
+}
+
+.table-responsive::-webkit-scrollbar-thumb{
+
+    background:var(--border-color);
+
+    border-radius:20px;
+
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary-color);
+
+}
+
+/*=========================================================
+RESPONSIVE TABLE
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .ysd-product-table{
+
+        min-width:760px;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .ysd-product-table thead th{
+
+        font-size:.75rem;
+
+    }
+
+    .ysd-product-table tbody td{
+
+        font-size:.88rem;
+
+    }
+
+    .ysd-product-image{
+
+        width:44px;
+
+        height:44px;
+
+    }
+
+}
+
+/*=========================================================
+FOOTER
+=========================================================*/
+
+.ysd-footer{
+
+    margin-top:3rem;
+
+    padding:4rem 0 2rem;
+
+    background:var(--body);
+
+    border-top:1px solid var(--border);
+
+    animation:ysdFadeUp .6s ease;
+
+}
+
+.ysd-footer h5{
+
+    margin-bottom:1.25rem;
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+.ysd-footer p{
+
+    color:var(--text-muted);
+
+    line-height:1.8;
+
+    font-size:.95rem;
+
+}
+
+/*=========================================================
+FOOTER LOGO
+=========================================================*/
+
+.ysd-footer-logo{
+
+    width:180px;
+
+    height:55px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:2px dashed var(--border);
+
+    border-radius:var(--radius-md);
+
+    font-weight:700;
+
+    color:var(--text-muted);
+
+    transition:var(--transition);
+
+}
+
+.ysd-footer-logo:hover{
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+FOOTER LINKS
+=========================================================*/
+
+.ysd-footer-links{
+
+    margin:0;
+
+    padding:0;
+
+    list-style:none;
+
+}
+
+.ysd-footer-links li{
+
+    margin-bottom:.85rem;
+
+}
+
+.ysd-footer-links a{
+
+    color:var(--text-muted);
+
+    font-weight:500;
+
+    transition:var(--transition);
+
+}
+
+.ysd-footer-links a:hover{
+
+    color:var(--primary);
+
+    padding-left:8px;
+
+}
+
+/*=========================================================
+SOCIAL LINKS
+=========================================================*/
+
+.ysd-social-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.85rem;
+
+    margin-top:1.5rem;
+
+}
+
+.ysd-social-links a{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:var(--bg-color);
+
+    color:var(--text-color);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.ysd-social-links a:hover{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    transform:translateY(-5px);
+
+}
+
+/*=========================================================
+NEWSLETTER
+=========================================================*/
+
+.ysd-newsletter{
+
+    position:relative;
+
+    margin-top:1.25rem;
+
+}
+
+.ysd-newsletter input{
+
+    height:52px;
+
+    padding-right:60px;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--bg-color);
+
+    color:var(--text-color);
+
+    transition:var(--transition);
+
+}
+
+.ysd-newsletter input:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:none;
+
+}
+
+.ysd-newsletter-btn{
+
+    position:absolute;
+
+    top:5px;
+
+    right:5px;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--secondary);
+
+    color:#ffffff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:var(--transition);
+
+}
+
+.ysd-newsletter-btn:hover{
+
+    background:var(--secondary-dark);
+
+    transform:rotate(12deg);
+
+    color: #ffffff;
+
+}
+
+/*=========================================================
+FOOTER DIVIDER
+=========================================================*/
+
+.ysd-footer hr{
+
+    margin:2.5rem 0 1.5rem;
+
+    border-color:var(--border-color);
+
+}
+
+/*=========================================================
+FOOTER COPYRIGHT
+=========================================================*/
+
+.ysd-footer-bottom{
+
+    text-align:center;
+
+    color:var(--text-muted);
+
+    font-size:.9rem;
+
+    font-weight:500;
+
+}
+
+/*=========================================================
+HOVER EFFECTS
+=========================================================*/
+
+.ysd-footer h5,
+
+.ysd-footer-logo,
+
+.ysd-social-links a,
+
+.ysd-newsletter-btn{
+
+    transition:var(--transition);
+
+}
+
+/*=========================================================
+RESPONSIVE FOOTER
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .ysd-footer{
+
+        text-align:center;
+
+    }
+
+    .ysd-social-links{
+
+        justify-content:center;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .ysd-footer{
+
+        padding:3rem 0 2rem;
+
+    }
+
+    .ysd-footer-logo{
+
+        margin:0 auto;
+
+    }
+
+    .ysd-newsletter{
+
+        max-width:420px;
+
+        margin:1.5rem auto 0;
+
+    }
+
+}
+
+/*=========================================================
+SELLER DASHBOARD UTILITIES
+=========================================================*/
+
+.ysd-hidden{
+
+    display:none !important;
+
+}
+
+.ysd-disabled{
+
+    pointer-events:none;
+
+    opacity:.6;
+
+}
+
+.ysd-clickable{
+
+    cursor:pointer;
+
+}
+
+.ysd-text-success{
+
+    color:var(--success-color);
+
+}
+
+.ysd-text-warning{
+
+    color:var(--warning-color);
+
+}
+
+.ysd-text-danger{
+
+    color:var(--danger-color);
+
+}
+
+.ysd-text-primary{
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+LOADING PLACEHOLDER
+=========================================================*/
+
+.ysd-skeleton{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--border-color);
+
+    border-radius:var(--radius-md);
+
+}
+
+.ysd-skeleton::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    transform:translateX(-100%);
+
+    background:linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,255,255,.45),
+
+        transparent
+
+    );
+
+    animation:ysdSkeletonLoading 1.5s infinite;
+
+}
+
+@keyframes ysdSkeletonLoading{
+
+    100%{
+
+        transform:translateX(100%);
+
+    }
+
+}
+
+/*=========================================================
+NOTIFICATION ANIMATION
+=========================================================*/
+
+.ysd-notification-dot{
+
+    animation:ysdNotificationPulse 1.8s infinite;
+
+}
+
+@keyframes ysdNotificationPulse{
+
+    0%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        transform:scale(1.35);
+
+        opacity:.6;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/*=========================================================
+CARD HOVER IMPROVEMENTS
+=========================================================*/
+
+.ysd-card,
+.ysd-stat-card,
+.ysd-order-item,
+.ysd-product-table tbody tr{
+
+    will-change:transform;
+
+}
+
+/*=========================================================
+SMOOTH SCROLL
+=========================================================*/
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/*=========================================================
+CUSTOM SCROLLBAR
+=========================================================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+    height:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:var(--bg-color);
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--border-color);
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary);
+
+}
+
+/* Firefox */
+
+*{
+
+    scrollbar-width:thin;
+
+    scrollbar-color:var(--primary) var(--bg-color);
+
+}
+
+/*=========================================================
+FOCUS ACCESSIBILITY
+=========================================================*/
+
+button:focus,
+
+a:focus,
+
+input:focus,
+
+select:focus,
+
+textarea:focus{
+
+    outline:none;
+
+    box-shadow:0 0 0 3px rgba(13,110,253,.15);
+
+}
+
+/*=========================================================
+IMAGE DEFAULTS
+=========================================================*/
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+/*=========================================================
+BUTTON ANIMATION
+=========================================================*/
+
+button{
+
+    transition:var(--transition);
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+/*=========================================================
+TABLE ANIMATION
+=========================================================*/
+
+.ysd-product-table tbody tr{
+
+    animation:ysdFadeUp .45s ease;
+
+}
+
+/*=========================================================
+PRINT
+=========================================================*/
+
+@media print{
+
+    .ysd-sidebar,
+
+    .ysd-navbar,
+
+    .ysd-footer,
+
+    .ysd-add-product-btn,
+
+    .ysd-edit-btn,
+
+    .ysd-signout{
+
+        display:none !important;
+
+    }
+
+    .ysd-main{
+
+        width:100%;
+
+        padding:0;
+
+    }
+
+}
+
+/*=========================================================
+REDUCED MOTION
+=========================================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+/*=========================================================
+MOBILE OPTIMIZATION
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .ysd-wrapper{
+
+        padding-top:80px;
+
+    }
+
+    .ysd-main{
+
+        padding:1.25rem;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .ysd-card,
+
+    .ysd-stat-card{
+
+        padding:1.25rem;
+
+    }
+
+    .ysd-order-item{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:1rem;
+
+    }
+
+    .ysd-order-item .text-end{
+
+        text-align:left !important;
+
+    }
+
+    .ysd-title{
+
+        font-size:1.55rem;
+
+    }
+
+}
+
+@media (max-width:576px){
+
+    .ysd-navbar{
+
+        height:72px;
+
+    }
+
+    .ysd-wrapper{
+
+        padding-top:72px;
+
+    }
+
+    .ysd-brand-placeholder{
+
+        width:135px;
+
+        height:42px;
+
+        font-size:.75rem;
+
+    }
+
+}
+
+/*=========================================================
+END OF SELLER DASHBOARD
+=========================================================*/
+
+
+/*=========================================================
+SELLER REVENUE PAGE
+PART 2A
+=========================================================*/
+
+/*=========================================================
+PAGE WRAPPER
+=========================================================*/
+
+#ysrSellerRevenuePage{
+
+    min-height:100vh;
+
+    background:var(--bg-color);
+
+    color:var(--text);
+
+}
+
+/*=========================================================
+GLOBAL LINKS
+=========================================================*/
+
+#ysrSellerRevenuePage a{
+
+    text-decoration:none;
+
+    transition:var(--transition);
+
+}
+
+/*=========================================================
+TOP NAVIGATION
+=========================================================*/
+
+.ysr-navbar{
+
+    background:var(--card-bg);
+
+    border-bottom:1px solid var(--border-color);
+
+    box-shadow:var(--shadow-sm);
+
+    padding:.8rem 0;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+/*=========================================================
+BRAND PLACEHOLDER
+=========================================================*/
+
+.ysr-brand-placeholder{
+
+    width:145px;
+
+    height:44px;
+
+    border:2px dashed var(--border);
+
+    border-radius:var(--radius-md);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+    color:var(--text-muted);
+
+    transition:var(--transition);
+
+}
+
+.ysr-brand-placeholder:hover{
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+NAVIGATION LINKS
+=========================================================*/
+
+.ysr-navbar .nav-link{
+
+    color:var(--text-color);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    margin:0 .4rem;
+
+    transition:var(--transition);
+
+}
+
+.ysr-navbar .nav-link:hover,
+
+.ysr-navbar .nav-link.active{
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+RIGHT NAVIGATION
+=========================================================*/
+
+.ysr-nav-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.8rem;
+
+}
+
+/*=========================================================
+NAV ICON BUTTONS
+=========================================================*/
+
+.ysr-nav-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--bg-color);
+
+    color:var(--text-color);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:var(--transition);
+
+}
+
+.ysr-nav-icon:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+    transform:translateY(-3px);
+
+}
+
+/*=========================================================
+NOTIFICATION INDICATOR
+=========================================================*/
+
+.ysr-notification-dot{
+
+    position:absolute;
+
+    top:8px;
+
+    right:9px;
+
+    width:9px;
+
+    height:9px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+    border:2px solid #fff;
+
+    animation:ysrNotificationPulse 1.8s infinite;
+
+}
+
+@keyframes ysrNotificationPulse{
+
+    0%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        transform:scale(1.35);
+
+        opacity:.65;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/*=========================================================
+PROFILE BUTTON
+=========================================================*/
+
+.ysr-profile-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.7rem;
+
+    background:transparent;
+
+    border:none;
+
+    color:var(--text);
+
+    font-weight:600;
+
+}
+
+.ysr-profile-image{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid var(--border);
+
+}
+
+.ysr-profile-name{
+
+    font-size:.95rem;
+
+}
+
+/*=========================================================
+MAIN CONTENT
+=========================================================*/
+
+.ysr-main{
+
+    padding:2rem 1rem 4rem;
+
+}
+
+/*=========================================================
+BREADCRUMB
+=========================================================*/
+
+.ysr-breadcrumb{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:.5rem;
+
+    background:none;
+
+    border:none;
+
+    color:var(--text-muted);
+
+    font-size:.92rem;
+
+    font-weight:600;
+
+    margin-bottom:1.5rem;
+
+    transition:var(--transition);
+
+}
+
+.ysr-breadcrumb:hover{
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+PAGE TITLE
+=========================================================*/
+
+.ysr-page-title{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+    margin-bottom:2rem;
+
+}
+
+/*=========================================================
+SUMMARY SECTION
+=========================================================*/
+
+.ysr-summary-row{
+
+    margin-bottom:2rem;
+
+}
+
+.ysr-summary-card{
+
+    background:var(--card-bg);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    padding:2rem;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+    height:100%;
+
+}
+
+.ysr-summary-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-md);
+
+    border-color:var(--primary);
+
+}
+
+/*=========================================================
+SUMMARY TEXT
+=========================================================*/
+
+.ysr-summary-value{
+
+    margin:0;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+.ysr-summary-title{
+
+    margin:.75rem 0 .35rem;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:var(--text-color);
+
+}
+
+.ysr-summary-growth{
+
+    color:var(--primary);
+
+    font-size:.85rem;
+
+}
+
+/*=========================================================
+MONTHLY REVENUE CHART
+=========================================================*/
+
+.ysr-chart-card{
+
+    background:var(--card-bg);
+
+    border:1px solid var(--border-color);
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:var(--shadow-sm);
+
+    overflow:hidden;
+
+    transition:var(--transition);
+
+    animation:ysrChartFade .6s ease;
+
+}
+
+.ysr-chart-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+/*=========================================================
+CHART HEADER
+=========================================================*/
+
+.ysr-chart-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:1.5rem 1.75rem;
+
+    border-bottom:1px solid var(--border-color);
+
+}
+
+.ysr-chart-title{
+
+    margin:0;
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+}
+
+/*=========================================================
+CHART CONTAINER
+=========================================================*/
+
+.ysr-chart-container{
+
+    position:relative;
+
+    width:100%;
+
+    height:420px;
+
+    padding:1.5rem;
+
+}
+
+#ysrRevenueChart{
+
+    width:100% !important;
+
+    height:100% !important;
+
+}
+
+/*=========================================================
+MONTHLY SUMMARY
+=========================================================*/
+
+.ysr-chart-summary{
+
+    display:grid;
+
+    grid-template-columns:repeat(6,1fr);
+
+    gap:1rem;
+
+    padding:1.5rem;
+
+    border-top:1px solid var(--border-color);
+
+    background:var(--bg-color);
+
+}
+
+/*=========================================================
+MONTH ITEM
+=========================================================*/
+
+.ysr-month-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:1rem;
+
+    border-radius:var(--radius-md);
+
+    transition:var(--transition);
+
+    cursor:default;
+
+}
+
+.ysr-month-item:hover{
+
+    background:var(--card-bg);
+
+    transform:translateY(-4px);
+
+}
+
+/*=========================================================
+MONTH VALUE
+=========================================================*/
+
+.ysr-month-value{
+
+    font-size:1.15rem;
+
+    font-weight:700;
+
+    color:var(--primary-color);
+
+    margin-bottom:.35rem;
+
+}
+
+/*=========================================================
+MONTH LABEL
+=========================================================*/
+
+.ysr-month-name{
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    color:var(--text-muted);
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+
+}
+
+/*=========================================================
+CHART ANIMATION
+=========================================================*/
+
+@keyframes ysrChartFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+RESPONSIVE
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .ysr-chart-container{
+
+        height:360px;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .ysr-chart-summary{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+}
+
+@media (max-width:576px){
+
+    .ysr-chart-header{
+
+        padding:1.25rem;
+
+    }
+
+    .ysr-chart-title{
+
+        font-size:1rem;
+
+    }
+
+    .ysr-chart-container{
+
+        height:300px;
+
+        padding:1rem;
+
+    }
+
+    .ysr-chart-summary{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:.75rem;
+
+        padding:1rem;
+
+    }
+
+    .ysr-month-item{
+
+        padding:.85rem;
+
+    }
+
+    .ysr-month-value{
+
+        font-size:1rem;
+
+    }
+
+}
+
+/*=========================================================
+FOOTER
+=========================================================*/
+
+.ysr-footer{
+
+    margin-top:5rem;
+
+    background:var(--card-bg);
+
+    border-top:1px solid var(--border-color);
+
+    padding:4rem 0 2rem;
+
+}
+
+/*=========================================================
+FOOTER BRAND
+=========================================================*/
+
+.ysr-footer-brand{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1.25rem;
+
+}
+
+.ysr-footer-logo-placeholder{
+
+    width:170px;
+
+    height:50px;
+
+    border:2px dashed var(--border);
+
+    border-radius:var(--radius-md);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    color:var(--text-muted);
+
+    transition:var(--transition);
+
+}
+
+.ysr-footer-logo-placeholder:hover{
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+.ysr-footer-text{
+
+    margin:0;
+
+    color:var(--text-muted);
+
+    font-size:.95rem;
+
+    line-height:1.8;
+
+}
+
+/*=========================================================
+FOOTER TITLES
+=========================================================*/
+
+.ysr-footer-title{
+
+    margin-bottom:1.4rem;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+}
+
+/*=========================================================
+FOOTER LINKS
+=========================================================*/
+
+.ysr-footer-links{
+
+    margin:0;
+
+    padding:0;
+
+    list-style:none;
+
+}
+
+.ysr-footer-links li{
+
+    margin-bottom:.85rem;
+
+}
+
+.ysr-footer-links a{
+
+    color:var(--text-muted);
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    transition:var(--transition);
+
+}
+
+.ysr-footer-links a:hover{
+
+    color:var(--primary);
+
+    padding-left:8px;
+
+}
+
+/*=========================================================
+SOCIAL LINKS
+=========================================================*/
+
+.ysr-social-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.75rem;
+
+}
+
+.ysr-social-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--bg-color);
+
+    color:var(--text-color);
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+}
+
+.ysr-social-icon:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+    transform:translateY(-5px);
+
+}
+
+/*=========================================================
+NEWSLETTER
+=========================================================*/
+
+.ysr-newsletter-form{
+
+    margin-top:1rem;
+
+}
+
+.ysr-newsletter-form .form-control{
+
+    height:50px;
+
+    border:1px solid var(--border);
+
+    background:var(--border);
+
+    color:var(--text);
+
+    box-shadow:none;
+
+}
+
+.ysr-newsletter-form .form-control::placeholder{
+
+    color:var(--text-muted);
+
+}
+
+.ysr-newsletter-form .form-control:focus{
+
+    border-color:var(--primary);
+
+}
+
+.ysr-newsletter-btn{
+
+    width:54px;
+
+    border:none;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    transition:var(--transition);
+
+}
+
+.ysr-newsletter-btn:hover{
+
+    background:var(--primary-dark);
+
+    color: #ffffff;
+
+}
+
+/*=========================================================
+FOOTER DIVIDER
+=========================================================*/
+
+.ysr-footer-divider{
+
+    margin:3rem 0 1.5rem;
+
+    border-color:var(--border-color);
+
+}
+
+/*=========================================================
+COPYRIGHT
+=========================================================*/
+
+.ysr-footer .text-center{
+
+    color:var(--text-muted);
+
+    font-size:.9rem;
+
+}
+
+.ysr-footer .text-center small{
+
+    font-weight:500;
+
+}
+
+/*=========================================================
+FOOTER ENTRANCE ANIMATION
+=========================================================*/
+
+.ysr-footer{
+
+    animation:ysrFooterFade .7s ease;
+
+}
+
+@keyframes ysrFooterFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+RESPONSIVE FOOTER
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .ysr-footer{
+
+        text-align:center;
+
+    }
+
+    .ysr-footer-logo-placeholder{
+
+        margin:0 auto;
+
+    }
+
+    .ysr-social-links{
+
+        justify-content:center;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .ysr-footer{
+
+        padding:3rem 0 2rem;
+
+    }
+
+    .ysr-footer-title{
+
+        margin-top:1rem;
+
+    }
+
+    .ysr-newsletter-form{
+
+        max-width:420px;
+
+        margin:1rem auto 0;
+
+    }
+
+}
+
+/*=========================================================
+LOADING SKELETON
+=========================================================*/
+
+.ysr-skeleton{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--border-color);
+
+    border-radius:var(--radius-md);
+
+}
+
+.ysr-skeleton::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    transform:translateX(-100%);
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+
+    animation:ysrSkeletonLoading 1.4s infinite;
+
+}
+
+@keyframes ysrSkeletonLoading{
+
+    100%{
+
+        transform:translateX(100%);
+
+    }
+
+}
+
+/*=========================================================
+CHART LOADING PLACEHOLDER
+=========================================================*/
+
+.ysr-chart-loading{
+
+    position:relative;
+
+    min-height:420px;
+
+    background:var(--body);
+
+    border-radius:var(--radius-md);
+
+}
+
+.ysr-chart-loading::before{
+
+    content:"Loading Revenue Chart...";
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    color:var(--text-muted);
+
+    font-weight:600;
+
+    font-size:.95rem;
+
+}
+
+/*=========================================================
+CARD PERFORMANCE
+=========================================================*/
+
+.ysr-summary-card,
+
+.ysr-chart-card{
+
+    will-change:transform;
+
+    backface-visibility:hidden;
+
+    transform:translateZ(0);
+
+}
+
+.ysr-summary-card:active,
+
+.ysr-chart-card:active{
+
+    transform:scale(.99);
+
+}
+
+/*=========================================================
+CUSTOM SCROLLBAR
+=========================================================*/
+
+.ysr-main::-webkit-scrollbar,
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+    height:8px;
+
+}
+
+.ysr-main::-webkit-scrollbar-track,
+
+::-webkit-scrollbar-track{
+
+    background:var(--bg-color);
+
+}
+
+.ysr-main::-webkit-scrollbar-thumb,
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--border-color);
+
+    border-radius:20px;
+
+}
+
+.ysr-main::-webkit-scrollbar-thumb:hover,
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary);
+
+}
+
+/* Firefox */
+
+*{
+
+    scrollbar-width:thin;
+
+    scrollbar-color:
+
+        var(--primary)
+
+        var(--bg-color);
+
+}
+
+/*=========================================================
+ACCESSIBILITY
+=========================================================*/
+
+.ysr-nav-icon:focus,
+
+.ysr-profile-btn:focus,
+
+.ysr-breadcrumb:focus,
+
+.ysr-newsletter-btn:focus,
+
+.ysr-footer-links a:focus{
+
+    outline:none;
+
+    box-shadow:0 0 0 3px rgba(13,110,253,.18);
+
+}
+
+/*=========================================================
+UTILITY CLASSES
+=========================================================*/
+
+.ysr-hidden{
+
+    display:none !important;
+
+}
+
+.ysr-disabled{
+
+    pointer-events:none;
+
+    opacity:.6;
+
+}
+
+.ysr-clickable{
+
+    cursor:pointer;
+
+}
+
+.ysr-text-primary{
+
+    color:var(--primary);
+
+}
+
+.ysr-text-success{
+
+    color:var(--success-color);
+
+}
+
+.ysr-text-warning{
+
+    color:var(--warning-color);
+
+}
+
+.ysr-text-danger{
+
+    color:var(--danger-color);
+
+}
+
+/*=========================================================
+PRINT STYLES
+=========================================================*/
+
+@media print{
+
+    .ysr-navbar,
+
+    .ysr-footer,
+
+    .ysr-nav-right,
+
+    .ysr-breadcrumb{
+
+        display:none !important;
+
+    }
+
+    .ysr-main{
+
+        padding:0;
+
+    }
+
+    .ysr-summary-card,
+
+    .ysr-chart-card{
+
+        box-shadow:none;
+
+        border:1px solid #ccc;
+
+        page-break-inside:avoid;
+
+    }
+
+}
+
+/*=========================================================
+REDUCED MOTION
+=========================================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+/*=========================================================
+TABLET OPTIMIZATION
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .ysr-main{
+
+        padding:1.5rem;
+
+    }
+
+}
+
+/*=========================================================
+MOBILE OPTIMIZATION
+=========================================================*/
+
+@media (max-width:576px){
+
+    .ysr-summary-card{
+
+        padding:1.4rem;
+
+    }
+
+    .ysr-summary-value{
+
+        font-size:1.7rem;
+
+    }
+
+    .ysr-summary-title{
+
+        font-size:.95rem;
+
+    }
+
+}
+
+/*=========================================================
+SUMMARY CARD HOVER ENHANCEMENTS
+=========================================================*/
+
+.ysr-summary-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.ysr-summary-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-100%;
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.12),
+        transparent
+    );
+
+    transition:left .7s ease;
+
+}
+
+.ysr-summary-card:hover::before{
+
+    left:100%;
+
+}
+
+.ysr-summary-card:hover .ysr-summary-value{
+
+    transform:scale(1.04);
+
+}
+
+.ysr-summary-value{
+
+    transition:var(--transition);
+
+}
+
+/*=========================================================
+CHART CARD EFFECTS
+=========================================================*/
+
+.ysr-chart-card{
+
+    position:relative;
+
+}
+
+.ysr-chart-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:inherit;
+
+    pointer-events:none;
+
+    border:1px solid transparent;
+
+    transition:var(--transition);
+
+}
+
+.ysr-chart-card:hover::after{
+
+    border-color:var(--primary-color);
+
+}
+
+/*=========================================================
+MONTH ITEM INTERACTION
+=========================================================*/
+
+.ysr-month-item{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.ysr-month-item::before{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    width:0;
+
+    height:3px;
+
+    background:var(--primary);
+
+    transition:var(--transition);
+
+}
+
+.ysr-month-item:hover::before{
+
+    width:100%;
+
+}
+
+.ysr-month-item:hover .ysr-month-value{
+
+    color:var(--secondary-color);
+
+}
+
+.ysr-month-value{
+
+    transition:var(--transition);
+
+}
+
+/*=========================================================
+BUTTON RIPPLE SUPPORT
+=========================================================*/
+
+.ysr-nav-icon,
+
+.ysr-profile-btn,
+
+.ysr-newsletter-btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.ysr-ripple{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.4);
+
+    transform:scale(0);
+
+    pointer-events:none;
+
+    animation:ysrRipple .6s linear;
+
+}
+
+@keyframes ysrRipple{
+
+    to{
+
+        transform:scale(4);
+
+        opacity:0;
+
+    }
+
+}
+
+/*=========================================================
+NOTIFICATION BADGE
+=========================================================*/
+
+.ysr-notification-dot{
+
+    box-shadow:0 0 0 rgba(220,53,69,.45);
+
+}
+
+.ysr-nav-icon:hover .ysr-notification-dot{
+
+    animation:ysrBadgePulse 1s infinite;
+
+}
+
+@keyframes ysrBadgePulse{
+
+    0%{
+
+        box-shadow:0 0 0 0 rgba(220,53,69,.45);
+
+    }
+
+    70%{
+
+        box-shadow:0 0 0 10px rgba(220,53,69,0);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 0 rgba(220,53,69,0);
+
+    }
+
+}
+
+/*=========================================================
+EMPTY STATE
+=========================================================*/
+
+.ysr-empty-state{
+
+    text-align:center;
+
+    padding:5rem 1rem;
+
+}
+
+.ysr-empty-state i{
+
+    font-size:4rem;
+
+    color:var(--text-muted);
+
+    margin-bottom:1rem;
+
+}
+
+.ysr-empty-state h4{
+
+    margin-bottom:.75rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+}
+
+.ysr-empty-state p{
+
+    max-width:460px;
+
+    margin:0 auto 2rem;
+
+    color:var(--text-muted);
+
+}
+
+/*=========================================================
+SEARCH (FUTURE SUPPORT)
+=========================================================*/
+
+.ysr-search-box{
+
+    position:relative;
+
+}
+
+.ysr-search-box input{
+
+    height:48px;
+
+    padding-left:45px;
+
+    border:1px solid var(--border-color);
+
+    border-radius:var(--radius-md);
+
+    background:var(--card-bg);
+
+    color:var(--text-color);
+
+    transition:var(--transition);
+
+}
+
+.ysr-search-box input:focus{
+
+    border-color:var(--primary-color);
+
+    box-shadow:none;
+
+}
+
+.ysr-search-box i{
+
+    position:absolute;
+
+    top:50%;
+
+    left:15px;
+
+    transform:translateY(-50%);
+
+    color:var(--text-muted);
+
+}
+
+/*=========================================================
+FILTER BUTTON (FUTURE SUPPORT)
+=========================================================*/
+
+.ysr-filter-btn{
+
+    padding:.75rem 1.25rem;
+
+    border:1px solid var(--border-color);
+
+    border-radius:var(--radius-md);
+
+    background:var(--card-bg);
+
+    color:var(--text-color);
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.ysr-filter-btn:hover{
+
+    background:var(--primary);
+
+    border-color:var(--primary);
+
+    color:#fff;
+
+}
+
+/*=========================================================
+SUMMARY COUNTER BADGE
+=========================================================*/
+
+.ysr-counter-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:34px;
+
+    height:34px;
+
+    padding:0 .75rem;
+
+    border-radius:50px;
+
+    background:var(--primary);
+
+    color:var(--primary);
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+}
+
+/*=========================================================
+FADE IN UTILITY
+=========================================================*/
+
+.ysr-fade-in{
+
+    animation:ysrFadeIn .45s ease;
+
+}
+
+@keyframes ysrFadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(16px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+PAGE LOAD ANIMATION
+=========================================================*/
+
+.ysr-page{
+
+    animation:ysrPageFadeIn .5s ease;
+
+}
+
+@keyframes ysrPageFadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+BUTTON ACTIVE STATES
+=========================================================*/
+
+.ysr-nav-icon:active,
+
+.ysr-profile-btn:active,
+
+.ysr-newsletter-btn:active,
+
+.ysr-breadcrumb:active{
+
+    transform:scale(.96);
+
+}
+
+/*=========================================================
+PROFILE IMAGE
+=========================================================*/
+
+.ysr-profile-image{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+/*=========================================================
+CURSOR HELPERS
+=========================================================*/
+
+.ysr-summary-card,
+
+.ysr-chart-card,
+
+.ysr-month-item,
+
+.ysr-nav-icon,
+
+.ysr-profile-btn,
+
+.ysr-social-icon,
+
+.ysr-footer-links a,
+
+.ysr-breadcrumb{
+
+    cursor:pointer;
+
+}
+
+/*=========================================================
+TEXT SELECTION
+=========================================================*/
+
+#ysrSellerRevenuePage ::selection{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+}
+
+/*=========================================================
+GPU ACCELERATION
+=========================================================*/
+
+.ysr-summary-card,
+
+.ysr-chart-card,
+
+.ysr-month-item,
+
+.ysr-nav-icon,
+
+.ysr-profile-image,
+
+.ysr-social-icon{
+
+    transform:translateZ(0);
+
+    backface-visibility:hidden;
+
+    will-change:transform;
+
+}
+
+/*=========================================================
+DESKTOP (LARGE)
+=========================================================*/
+
+@media (min-width:1400px){
+
+    .ysr-main{
+
+        max-width:1320px;
+
+        margin:auto;
+
+    }
+
+}
+
+/*=========================================================
+LAPTOP
+=========================================================*/
+
+@media (max-width:1200px){
+
+    .ysr-page-title{
+
+        font-size:1.8rem;
+
+    }
+
+}
+
+/*=========================================================
+TABLET
+=========================================================*/
+
+@media (max-width:992px){
+
+    .ysr-navbar{
+
+        padding:.75rem;
+
+    }
+
+    .ysr-nav-right{
+
+        margin-top:1rem;
+
+        justify-content:center;
+
+        width:100%;
+
+    }
+
+    .ysr-summary-row{
+
+        row-gap:1rem;
+
+    }
+
+}
+
+/*=========================================================
+MOBILE
+=========================================================*/
+
+@media (max-width:768px){
+
+    .ysr-page-title{
+
+        font-size:1.5rem;
+
+    }
+
+    .ysr-brand-placeholder{
+
+        width:120px;
+
+        height:38px;
+
+        font-size:.72rem;
+
+    }
+
+    .ysr-summary-value{
+
+        font-size:1.6rem;
+
+    }
+
+    .ysr-chart-container{
+
+        height:280px;
+
+    }
+
+}
+
+/*=========================================================
+SMALL MOBILE
+=========================================================*/
+
+@media (max-width:576px){
+
+    .ysr-main{
+
+        padding:1rem .75rem;
+
+    }
+
+    .ysr-breadcrumb{
+
+        font-size:.85rem;
+
+    }
+
+    .ysr-summary-card{
+
+        padding:1.25rem;
+
+    }
+
+    .ysr-summary-title{
+
+        font-size:.92rem;
+
+    }
+
+    .ysr-summary-growth{
+
+        font-size:.8rem;
+
+    }
+
+    .ysr-chart-header{
+
+        padding:1rem;
+
+    }
+
+    .ysr-chart-title{
+
+        font-size:1rem;
+
+    }
+
+    .ysr-chart-container{
+
+        height:240px;
+
+        padding:.75rem;
+
+    }
+
+    .ysr-chart-summary{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:.75rem;
+
+    }
+
+    .ysr-footer{
+
+        text-align:center;
+
+    }
+
+    .ysr-social-links{
+
+        justify-content:center;
+
+    }
+
+}
+
+/*=========================================================
+HIGH RESOLUTION SCREENS
+=========================================================*/
+
+@media (min-resolution:2dppx){
+
+    .ysr-profile-image{
+
+        image-rendering:auto;
+
+    }
+
+}
+
+/*=========================================================
+PRINT OPTIMIZATION
+=========================================================*/
+
+@media print{
+
+    .ysr-chart-container{
+
+        min-height:320px;
+
+    }
+
+}
+
+/*=========================================================
+END OF SELLER REVENUE PAGE
+=========================================================*/
+
+
+/*=========================================================
+SELLER INVENTORY PAGE
+=========================================================*/
+
+/*=========================================================
+PAGE WRAPPER
+=========================================================*/
+
+#ysiInventoryPage{
+
+    min-height:100vh;
+
+    background:var(--body);
+
+    color:var(--text);
+
+}
+
+#ysiInventoryPage a{
+
+    text-decoration:none;
+
+    transition:var(--transition);
+
+}
+
+/*=========================================================
+TOP NAVBAR
+=========================================================*/
+
+.ysi-navbar{
+
+    background:var(--card-bg);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-sm);
+
+    padding:.85rem 0;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+/*=========================================================
+BRAND PLACEHOLDER
+=========================================================*/
+
+.ysi-brand-placeholder{
+
+    width:150px;
+
+    height:46px;
+
+    border:2px dashed var(--border);
+
+    border-radius:var(--radius-md);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    color:var(--text-muted);
+
+    transition:var(--transition);
+
+}
+
+.ysi-brand-placeholder:hover{
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+NAVIGATION LINKS
+=========================================================*/
+
+.ysi-navbar .nav-link{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+    margin:0 .45rem;
+
+    transition:var(--transition);
+
+}
+
+.ysi-navbar .nav-link:hover,
+
+.ysi-navbar .nav-link.active{
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+RIGHT NAVIGATION
+=========================================================*/
+
+.ysi-nav-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.8rem;
+
+}
+
+.ysi-nav-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--bg-color);
+
+    color:var(--text);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:var(--transition);
+
+}
+
+.ysi-nav-icon:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+    transform:translateY(-3px);
+
+}
+
+/*=========================================================
+NOTIFICATION DOT
+=========================================================*/
+
+.ysi-notification-dot{
+
+    position:absolute;
+
+    top:8px;
+
+    right:8px;
+
+    width:9px;
+
+    height:9px;
+
+    background:var(--danger);
+
+    border-radius:50%;
+
+    border:2px solid #fff;
+
+    animation:ysiNotificationPulse 2s infinite;
+
+}
+
+@keyframes ysiNotificationPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.35);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/*=========================================================
+PROFILE
+=========================================================*/
+
+.ysi-profile-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.75rem;
+
+    background:transparent;
+
+    border:none;
+
+    color:var(--text);
+
+    font-weight:600;
+
+}
+
+.ysi-profile-image{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid var(--border);
+
+}
+
+.ysi-profile-name{
+
+    font-size:.95rem;
+
+}
+
+/*=========================================================
+MAIN CONTENT
+=========================================================*/
+
+.ysi-main{
+
+    padding:2rem 1rem 4rem;
+
+}
+
+/*=========================================================
+BREADCRUMB
+=========================================================*/
+
+.ysi-breadcrumb{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:.5rem;
+
+    border:none;
+
+    background:none;
+
+    color:var(--text-muted);
+
+    font-size:.92rem;
+
+    font-weight:600;
+
+    margin-bottom:1.5rem;
+
+    transition:var(--transition);
+
+}
+
+.ysi-breadcrumb:hover{
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+PAGE TITLE
+=========================================================*/
+
+.ysi-page-title{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+}
+
+/*=========================================================
+HEADER BUTTONS
+=========================================================*/
+
+.ysi-export-btn{
+
+    background:transparent;
+
+    border:1px solid var(--border);
+
+    color:var(--text);
+
+    font-weight:600;
+
+    padding:.7rem 1.4rem;
+
+    border-radius:var(--radius-md);
+
+    transition:var(--transition);
+
+}
+
+.ysi-export-btn:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+.ysi-add-stock-btn{
+
+    background:var(--primary);
+
+    color:#fff;
+
+    border:none;
+
+    font-weight:600;
+
+    padding:.75rem 1.5rem;
+
+    border-radius:var(--radius-md);
+
+    transition:var(--transition);
+
+}
+
+.ysi-add-stock-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-md);
+
+    background: var(--primary-dark);
+
+    color: #ffffff;
+
+}
+
+/*=========================================================
+SUMMARY CARDS
+=========================================================*/
+
+.ysi-summary-card{
+
+    background:var(--card-bg);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    padding:2rem;
+
+    height:100%;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+}
+
+.ysi-summary-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-md);
+
+    border-color:var(--primary);
+
+}
+
+.ysi-summary-value{
+
+    margin:0;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+}
+
+.ysi-summary-title{
+
+    margin:.75rem 0 .35rem;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+.ysi-summary-note{
+
+    color:var(--text-muted);
+
+    font-size:.85rem;
+
+}
+
+/*=========================================================
+INVENTORY PANEL
+=========================================================*/
+
+.ysi-inventory-panel{
+
+    background:var(--card-bg);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:var(--shadow-sm);
+
+    overflow:hidden;
+
+    animation:ysiFadeUp .6s ease;
+
+}
+
+/*=========================================================
+PANEL HEADER
+=========================================================*/
+
+.ysi-panel-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:1rem;
+
+    padding:1.5rem;
+
+    border-bottom:1px solid var(--border);
+
+    flex-wrap:wrap;
+
+}
+
+/*=========================================================
+SEARCH
+=========================================================*/
+
+.ysi-search-wrapper{
+
+    position:relative;
+
+    flex:1;
+
+    min-width:260px;
+
+}
+
+.ysi-search-icon{
+
+    position:absolute;
+
+    left:16px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:var(--text-muted);
+
+    font-size:.95rem;
+
+    pointer-events:none;
+
+}
+
+.ysi-search-input{
+
+    height:48px;
+
+    padding-left:46px;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--border);
+
+    color:var(--text);
+
+    transition:var(--transition);
+
+}
+
+.ysi-search-input:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:none;
+
+    background:var(--body);
+
+}
+
+.ysi-search-input::placeholder{
+
+    color:var(--text-muted);
+
+}
+
+/*=========================================================
+FILTER BUTTON
+=========================================================*/
+
+.ysi-filter-btn{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:var(--radius-md);
+
+    background:var(--primary);
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:var(--transition);
+
+}
+
+.ysi-filter-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-md);
+
+    background: var(--primary-dark);
+
+}
+
+/*=========================================================
+TABLE
+=========================================================*/
+
+.ysi-inventory-table{
+
+    margin-bottom:0;
+
+}
+
+.ysi-inventory-table thead{
+
+    background:var(--bg-color);
+
+}
+
+.ysi-inventory-table thead th{
+
+    border:none;
+
+    padding:1rem 1.5rem;
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+    color:var(--text-muted);
+
+    letter-spacing:.06em;
+
+    white-space:nowrap;
+
+    text-transform:uppercase;
+
+}
+
+.ysi-inventory-table tbody td{
+
+    padding:1.25rem 1.5rem;
+
+    border-top:1px solid var(--border-color);
+
+    vertical-align:middle;
+
+    font-size:.94rem;
+
+    color:var(--text);
+
+    transition:var(--transition);
+
+}
+
+.ysi-inventory-table tbody tr{
+
+    transition:var(--transition);
+
+}
+
+.ysi-inventory-table tbody tr:hover{
+
+    background:rgba(0,0,0,.02);
+
+}
+
+/*=========================================================
+PRODUCT CELL
+=========================================================*/
+
+.ysi-product-cell{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:1rem;
+
+    min-width:260px;
+
+}
+
+.ysi-product-image{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:12px;
+
+    object-fit:cover;
+
+    border:1px solid var(--border-color);
+
+    flex-shrink:0;
+
+    transition:var(--transition);
+
+}
+
+.ysi-product-cell:hover .ysi-product-image{
+
+    transform:scale(1.05);
+
+}
+
+/*=========================================================
+SKU
+=========================================================*/
+
+.ysi-inventory-table tbody td:nth-child(2){
+
+    color:var(--text-muted);
+
+    font-weight:600;
+
+    letter-spacing:.03em;
+
+}
+
+/*=========================================================
+STATUS BADGES
+=========================================================*/
+
+.ysi-status-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:.42rem .9rem;
+
+    border-radius:999px;
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+    letter-spacing:.02em;
+
+    white-space:nowrap;
+
+}
+
+.ysi-status-success{
+
+    background:rgba(25,135,84,.12);
+
+    color:#198754;
+
+}
+
+.ysi-status-warning{
+
+    background:rgba(255,193,7,.15);
+
+    color:#b78103;
+
+}
+
+.ysi-status-danger{
+
+    background:rgba(220,53,69,.12);
+
+    color:#dc3545;
+
+}
+
+/*=========================================================
+ACTION BUTTONS
+=========================================================*/
+
+.ysi-action-btn{
+
+    width:38px;
+
+    height:38px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:transparent;
+
+    color:var(--text-muted);
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:0 .18rem;
+
+    transition:var(--transition);
+
+}
+
+.ysi-edit-product:hover{
+
+    background:rgba(13,110,253,.12);
+
+    color:var(--primary-color);
+
+    transform:translateY(-2px);
+
+}
+
+.ysi-delete-product:hover{
+
+    background:rgba(220,53,69,.12);
+
+    color:#dc3545;
+
+    transform:translateY(-2px);
+
+}
+
+/*=========================================================
+TABLE ANIMATIONS
+=========================================================*/
+
+.ysi-inventory-table tbody tr{
+
+    animation:ysiTableFade .45s ease;
+
+}
+
+@keyframes ysiTableFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(12px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes ysiFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(24px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+TABLE SCROLLBAR
+=========================================================*/
+
+.table-responsive::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+.table-responsive::-webkit-scrollbar-thumb{
+
+    background:var(--border-color);
+
+    border-radius:20px;
+
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary-color);
+
+}
+
+/*=========================================================
+TABLE RESPONSIVE
+=========================================================*/
+
+.table-responsive{
+
+    overflow-x:auto;
+
+    -webkit-overflow-scrolling:touch;
+
+}
+
+/*=========================================================
+LOADING STATE
+=========================================================*/
+
+.ysi-loading-row td{
+
+    padding:1.5rem;
+
+}
+
+.ysi-loading-bar{
+
+    width:100%;
+
+    height:14px;
+
+    border-radius:20px;
+
+    background:linear-gradient(
+
+        90deg,
+
+        rgba(0,0,0,.05) 25%,
+
+        rgba(0,0,0,.10) 50%,
+
+        rgba(0,0,0,.05) 75%
+
+    );
+
+    background-size:200% 100%;
+
+    animation:ysiLoading 1.2s infinite linear;
+
+}
+
+@keyframes ysiLoading{
+
+    from{
+
+        background-position:200% 0;
+
+    }
+
+    to{
+
+        background-position:-200% 0;
+
+    }
+
+}
+
+/*=========================================================
+EMPTY STATE
+=========================================================*/
+
+.ysi-empty-state{
+
+    padding:4rem 1rem;
+
+    text-align:center;
+
+    color:var(--text-muted);
+
+}
+
+.ysi-empty-state i{
+
+    display:block;
+
+    font-size:3rem;
+
+    margin-bottom:1rem;
+
+    color:var(--border-color);
+
+}
+
+.ysi-empty-state h4{
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    margin-bottom:.5rem;
+
+}
+
+.ysi-empty-state p{
+
+    margin:0;
+
+    font-size:.95rem;
+
+}
+
+/*=========================================================
+PRODUCT IMAGE HOVER
+=========================================================*/
+
+.ysi-product-image:hover{
+
+    box-shadow:var(--shadow-md);
+
+    cursor:pointer;
+
+}
+
+/*=========================================================
+FOOTER
+=========================================================*/
+
+.ysi-footer{
+
+    margin-top:5rem;
+
+    background:var(--card-bg);
+
+    border-top:1px solid var(--border-color);
+
+    padding:4rem 0 2rem;
+
+}
+
+.ysi-footer-logo-placeholder{
+
+    width:160px;
+
+    height:50px;
+
+    border:2px dashed var(--border-color);
+
+    border-radius:var(--radius-md);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--text-muted);
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    margin-bottom:1.25rem;
+
+}
+
+.ysi-footer-text{
+
+    color:var(--text-muted);
+
+    line-height:1.8;
+
+    font-size:.92rem;
+
+    margin-bottom:1.25rem;
+
+}
+
+/*=========================================================
+FOOTER TITLES
+=========================================================*/
+
+.ysi-footer-title{
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+    margin-bottom:1.2rem;
+
+}
+
+/*=========================================================
+FOOTER LINKS
+=========================================================*/
+
+.ysi-footer-links{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+}
+
+.ysi-footer-links li{
+
+    margin-bottom:.85rem;
+
+}
+
+.ysi-footer-links a{
+
+    color:var(--text-muted);
+
+    transition:var(--transition);
+
+    font-size:.92rem;
+
+}
+
+.ysi-footer-links a:hover{
+
+    color:var(--primary);
+
+    padding-left:6px;
+
+}
+
+/*=========================================================
+SOCIAL ICONS
+=========================================================*/
+
+.ysi-social-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.85rem;
+
+}
+
+.ysi-social-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:var(--bg-color);
+
+    color:var(--text-color);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:var(--transition);
+
+}
+
+.ysi-social-icon:hover{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    transform:translateY(-4px) rotate(6deg);
+
+}
+
+/*=========================================================
+NEWSLETTER
+=========================================================*/
+
+.ysi-newsletter-form{
+
+    margin-top:1rem;
+
+}
+
+.ysi-newsletter-form .form-control{
+
+    border:1px solid var(--border-color);
+
+    background:var(--bg-color);
+
+    color:var(--text-color);
+
+    box-shadow:none;
+
+    height:48px;
+
+}
+
+.ysi-newsletter-form .form-control:focus{
+
+    border-color:var(--primary);
+
+}
+
+.ysi-newsletter-btn{
+
+    width:52px;
+
+    border:none;
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    transition:var(--transition);
+
+}
+
+.ysi-newsletter-btn:hover{
+
+    background:var(--primary-dark);
+
+    color: #ffffff;
+
+}
+
+.ysi-footer-divider{
+
+    margin:2.5rem 0 1.5rem;
+
+    border-color:var(--border-color);
+
+}
+
+/*=========================================================
+BUTTON TRANSITIONS
+=========================================================*/
+
+.ysi-export-btn,
+
+.ysi-add-stock-btn,
+
+.ysi-filter-btn,
+
+.ysi-newsletter-btn,
+
+.ysi-action-btn,
+
+.ysi-nav-icon{
+
+    transition:
+
+        background .3s ease,
+
+        color .3s ease,
+
+        transform .3s ease,
+
+        box-shadow .3s ease;
+
+}
+
+/*=========================================================
+FOCUS ACCESSIBILITY
+=========================================================*/
+
+.ysi-export-btn:focus-visible,
+
+.ysi-add-stock-btn:focus-visible,
+
+.ysi-filter-btn:focus-visible,
+
+.ysi-search-input:focus-visible,
+
+.ysi-newsletter-btn:focus-visible,
+
+.ysi-nav-icon:focus-visible,
+
+.ysi-action-btn:focus-visible{
+
+    outline:3px solid var(--primary);
+
+    outline-offset:2px;
+
+}
+
+/*=========================================================
+RIPPLE SUPPORT
+=========================================================*/
+
+.ysi-ripple{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    transform:scale(0);
+
+    animation:ysiRipple .6s linear;
+
+    background:rgba(255,255,255,.45);
+
+    pointer-events:none;
+
+}
+
+@keyframes ysiRipple{
+
+    to{
+
+        transform:scale(4);
+
+        opacity:0;
+
+    }
+
+}
+
+/*=========================================================
+PRINT
+=========================================================*/
+
+@media print{
+
+    .ysi-navbar,
+
+    .ysi-footer,
+
+    .ysi-export-btn,
+
+    .ysi-add-stock-btn,
+
+    .ysi-filter-btn{
+
+        display:none !important;
+
+    }
+
+    .ysi-main{
+
+        padding:0;
+
+    }
+
+}
+
+/*=========================================================
+TABLET RESPONSIVE
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .ysi-main{
+
+        padding:1.75rem 1rem 3rem;
+
+    }
+
+    .ysi-page-title{
+
+        font-size:1.75rem;
+
+    }
+
+    .ysi-panel-header{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .ysi-search-wrapper{
+
+        width:100%;
+
+    }
+
+    .ysi-filter-btn{
+
+        width:100%;
+
+        height:48px;
+
+        border-radius:var(--radius-md);
+
+    }
+
+    .ysi-summary-card{
+
+        padding:1.5rem;
+
+    }
+
+    .ysi-summary-value{
+
+        font-size:1.75rem;
+
+    }
+
+    .ysi-product-cell{
+
+        min-width:220px;
+
+    }
+
+    .ysi-navbar .navbar-nav{
+
+        margin-top:1rem;
+
+        gap:.35rem;
+
+    }
+
+    .ysi-nav-right{
+
+        margin-top:1rem;
+
+        justify-content:flex-start;
+
+        flex-wrap:wrap;
+
+    }
+
+}
+
+/*=========================================================
+MOBILE RESPONSIVE
+=========================================================*/
+
+@media (max-width:767.98px){
+
+    .ysi-main{
+
+        padding:1.5rem .85rem 2.5rem;
+
+    }
+
+    .ysi-page-title{
+
+        font-size:1.5rem;
+
+    }
+
+    .ysi-summary-card{
+
+        text-align:center;
+
+    }
+
+    .ysi-summary-value{
+
+        font-size:1.55rem;
+
+    }
+
+    .ysi-export-btn,
+
+    .ysi-add-stock-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .ysi-panel-header{
+
+        padding:1rem;
+
+    }
+
+    .ysi-search-input{
+
+        font-size:.92rem;
+
+    }
+
+    .ysi-product-cell{
+
+        gap:.75rem;
+
+        min-width:200px;
+
+    }
+
+    .ysi-product-image{
+
+        width:52px;
+
+        height:52px;
+
+    }
+
+    .ysi-inventory-table thead th{
+
+        font-size:.72rem;
+
+        padding:.9rem;
+
+    }
+
+    .ysi-inventory-table tbody td{
+
+        font-size:.88rem;
+
+        padding:1rem .9rem;
+
+    }
+
+    .ysi-profile-name{
+
+        display:none;
+
+    }
+
+    .ysi-brand-placeholder{
+
+        width:120px;
+
+        height:42px;
+
+        font-size:.72rem;
+
+    }
+
+}
+
+/*=========================================================
+SMALL MOBILE DEVICES
+=========================================================*/
+
+@media (max-width:575.98px){
+
+    .ysi-footer{
+
+        text-align:center;
+
+    }
+
+    .ysi-social-links{
+
+        justify-content:center;
+
+    }
+
+    .ysi-footer-logo-placeholder{
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+    }
+
+    .ysi-newsletter-form{
+
+        flex-direction:column;
+
+        gap:.75rem;
+
+    }
+
+    .ysi-newsletter-form .form-control,
+
+    .ysi-newsletter-btn{
+
+        width:100%;
+
+        border-radius:var(--radius-md) !important;
+
+    }
+
+    .ysi-product-cell span{
+
+        font-size:.85rem;
+
+        line-height:1.4;
+
+    }
+
+}
+
+/*=========================================================
+REDUCED MOTION
+=========================================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+    *,
+
+    *::before,
+
+    *::after{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+/*=========================================================
+HIGH DPI IMAGE RENDERING
+=========================================================*/
+
+.ysi-product-image,
+
+.ysi-profile-image{
+
+    image-rendering:auto;
+
+    backface-visibility:hidden;
+
+    transform:translateZ(0);
+
+}
+
+/*=========================================================
+LANDSCAPE MOBILE
+=========================================================*/
+
+@media (max-width:932px) and (orientation:landscape){
+
+    .ysi-main{
+
+        padding-top:1.25rem;
+
+    }
+
+}
+
+/*=========================================================
+UTILITY CLASSES
+=========================================================*/
+
+.ysi-hidden{
+
+    display:none !important;
+
+}
+
+.ysi-flex-center{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.ysi-text-muted{
+
+    color:var(--text-muted) !important;
+
+}
+
+.ysi-fw-600{
+
+    font-weight:600 !important;
+
+}
+
+.ysi-fw-700{
+
+    font-weight:700 !important;
+
+}
+
+.ysi-rounded{
+
+    border-radius:var(--radius-md);
+
+}
+
+/*=========================================================
+FADE ANIMATIONS
+=========================================================*/
+
+.ysi-fade-in{
+
+    animation:ysiFadeIn .45s ease;
+
+}
+
+@keyframes ysiFadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+.ysi-slide-up{
+
+    animation:ysiSlideUp .45s ease;
+
+}
+
+@keyframes ysiSlideUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+STATUS PULSE
+=========================================================*/
+
+.ysi-status-danger{
+
+    animation:ysiDangerPulse 2s infinite;
+
+}
+
+@keyframes ysiDangerPulse{
+
+    0%{
+
+        box-shadow:0 0 0 0 rgba(220,53,69,.30);
+
+    }
+
+    70%{
+
+        box-shadow:0 0 0 10px rgba(220,53,69,0);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 0 rgba(220,53,69,0);
+
+    }
+
+}
+
+/*=========================================================
+BUTTON LOADING
+=========================================================*/
+
+.ysi-btn-loading{
+
+    pointer-events:none;
+
+    opacity:.7;
+
+}
+
+.ysi-btn-loading::after{
+
+    content:"";
+
+    width:16px;
+
+    height:16px;
+
+    margin-left:.6rem;
+
+    border:2px solid rgba(255,255,255,.35);
+
+    border-top-color:#ffffff;
+
+    border-radius:50%;
+
+    display:inline-block;
+
+    animation:ysiSpinner .8s linear infinite;
+
+}
+
+@keyframes ysiSpinner{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/*=========================================================
+FLOATING ACTION BUTTON
+=========================================================*/
+
+.ysi-floating-btn{
+
+    position:fixed;
+
+    right:24px;
+
+    bottom:24px;
+
+    width:56px;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:var(--shadow-lg);
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+    z-index:998;
+
+}
+
+.ysi-floating-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-xl);
+
+}
+
+/*=========================================================
+SKELETON PLACEHOLDER
+=========================================================*/
+
+.ysi-skeleton{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:rgba(0,0,0,.06);
+
+}
+
+.ysi-skeleton::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    transform:translateX(-100%);
+
+    background:linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,255,255,.45),
+
+        transparent
+
+    );
+
+    animation:ysiSkeletonMove 1.2s infinite;
+
+}
+
+@keyframes ysiSkeletonMove{
+
+    100%{
+
+        transform:translateX(100%);
+
+    }
+
+}
+
+/*=========================================================
+DARK MODE SUPPORT
+Uses your existing root variables only
+=========================================================*/
+
+@media (prefers-color-scheme:dark){
+
+    .ysi-summary-card,
+
+    .ysi-inventory-panel,
+
+    .ysi-navbar,
+
+    .ysi-footer{
+
+        background:var(--card-bg);
+
+        border-color:var(--border-color);
+
+    }
+
+}
+
+/*=========================================================
+PERFORMANCE
+=========================================================*/
+
+.ysi-summary-card,
+
+.ysi-product-image,
+
+.ysi-action-btn,
+
+.ysi-export-btn,
+
+.ysi-add-stock-btn,
+
+.ysi-filter-btn{
+
+    will-change:transform;
+
+}
+
+.ysi-summary-card,
+
+.ysi-inventory-panel{
+
+    contain:layout paint;
+
+}
+
+/*=========================================================
+TEXT SELECTION
+=========================================================*/
+
+#ysiInventoryPage ::selection{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+}
+
+/*=========================================================
+FINAL RESPONSIVE TWEAKS
+=========================================================*/
+
+@media (max-width:420px){
+
+    .ysi-page-title{
+
+        font-size:1.3rem;
+
+    }
+
+    .ysi-summary-card{
+
+        padding:1.2rem;
+
+    }
+
+    .ysi-summary-value{
+
+        font-size:1.35rem;
+
+    }
+
+    .ysi-product-image{
+
+        width:46px;
+
+        height:46px;
+
+    }
+
+    .ysi-action-btn{
+
+        width:34px;
+
+        height:34px;
+
+        margin:0 .1rem;
+
+    }
+
+}
+
+/*=========================================================
+END OF SELLER INVENTORY STYLES
+=========================================================*/
+
+/*=========================================================
+SELLER ANALYTICS
+PART 2A
+=========================================================*/
+
+#ysaAnalyticsPage{
+
+    background:var(--bg-color);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+}
+
+/*=========================================================
+NAVBAR
+=========================================================*/
+
+.ysa-navbar{
+
+    top:0;
+
+    z-index:1030;
+
+    background:var(--card-bg);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.ysa-brand-placeholder{
+
+    width:150px;
+
+    height:48px;
+
+    border:2px dashed var(--border);
+
+    border-radius:var(--radius-md);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    color:var(--text-muted);
+
+    transition:var(--transition);
+
+}
+
+.ysa-brand-placeholder:hover{
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+.ysa-navbar .nav-link{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+    margin:0 .45rem;
+
+    transition:var(--transition);
+
+}
+
+.ysa-navbar .nav-link:hover,
+
+.ysa-navbar .nav-link.active{
+
+    color:var(--primary);
+
+}
+
+.ysa-nav-right{
+
+    gap:1rem;
+
+}
+
+.ysa-nav-icon{
+
+    width:44px;
+
+    height:44px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:transparent;
+
+    color:var(--text);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:var(--transition);
+
+}
+
+.ysa-nav-icon:hover{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    transform:translateY(-2px);
+
+}
+
+.ysa-notification-dot{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#dc3545;
+
+}
+
+.ysa-profile-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.75rem;
+
+    border:none;
+
+    background:transparent;
+
+    color:var(--text);
+
+    font-weight:600;
+
+}
+
+.ysa-profile-image{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid var(--border);
+
+}
+
+/*=========================================================
+MAIN
+=========================================================*/
+
+.ysa-main{
+
+    padding:2rem 0 4rem;
+
+}
+
+.ysa-breadcrumb{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:.5rem;
+
+    border:none;
+
+    background:transparent;
+
+    font-weight:600;
+
+    margin-bottom:1.75rem;
+
+    transition:var(--transition);
+
+}
+
+.ysa-breadcrumb:hover{
+
+    transform:translateX(-4px);
+
+    color:var(--primary);
+
+}
+
+.ysa-page-title{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    margin-bottom:0;
+
+    color:var(--text);
+
+}
+
+/*=========================================================
+STATISTICS CARDS
+=========================================================*/
+
+.ysa-stat-card{
+
+    background:var(--card-bg);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    padding:1.5rem;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+    height:100%;
+
+    animation:ysaFadeUp .45s ease;
+
+}
+
+.ysa-stat-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.ysa-stat-value{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    margin-bottom:.45rem;
+
+    color:var(--text);
+
+}
+
+.ysa-stat-title{
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    margin-bottom:.35rem;
+
+    color:var(--text);
+
+}
+
+.ysa-stat-meta{
+
+    font-size:.85rem;
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+ANALYTICS CONTENT CARDS
+=========================================================*/
+
+.ysa-card{
+
+    background:var(--card-bg);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    padding:1.75rem;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+    height:100%;
+
+    animation:ysaFadeUp .55s ease;
+
+}
+
+.ysa-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.ysa-card-title{
+
+    font-size:1.15rem;
+
+    font-weight:700;
+
+    color:var(--text);
+
+    margin-bottom:1.5rem;
+
+}
+
+/*=========================================================
+SALES BY CATEGORY
+=========================================================*/
+
+.ysa-category-item{
+
+    margin-bottom:1.35rem;
+
+}
+
+.ysa-category-item:last-child{
+
+    margin-bottom:0;
+
+}
+
+.ysa-category-item .d-flex{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+    margin-bottom:.55rem;
+
+}
+
+.ysa-progress{
+
+    height:10px;
+
+    border-radius:999px;
+
+    background:rgba(0,0,0,.06);
+
+    overflow:hidden;
+
+}
+
+.ysa-progress .progress-bar{
+
+    border-radius:999px;
+
+    transition:width .8s ease;
+
+}
+
+/*=========================================================
+CONVERSION FUNNEL
+=========================================================*/
+
+.ysa-funnel{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1rem;
+
+}
+
+.ysa-funnel-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:1rem 1.25rem;
+
+    border-radius:var(--radius-md);
+
+    color:#ffffff;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.ysa-funnel-item:hover{
+
+    transform:translateX(6px);
+
+}
+
+.ysa-funnel-item strong{
+
+    font-weight:700;
+
+    color:#ffffff;
+
+}
+
+.ysa-funnel-blue{
+
+    background:#2563eb;
+
+}
+
+.ysa-funnel-purple{
+
+    background:#7c3aed;
+
+}
+
+.ysa-funnel-orange{
+
+    background:#f59e0b;
+
+}
+
+.ysa-funnel-green{
+
+    background:#16a34a;
+
+}
+
+/*=========================================================
+SECTION SPACING
+=========================================================*/
+
+.ysa-card,
+
+.ysa-stat-card{
+
+    margin-bottom:0;
+
+}
+
+.ysa-main .row+.row{
+
+    margin-top:1rem;
+
+}
+
+/*=========================================================
+ENTRANCE ANIMATION
+=========================================================*/
+
+@keyframes ysaFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(22px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+TOP PERFORMING PRODUCTS TABLE
+=========================================================*/
+
+.ysa-table-card{
+
+    background:var(--card-bg);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow-sm);
+
+    animation:ysaFadeUp .6s ease;
+
+}
+
+.ysa-table-card .table{
+
+    margin-bottom:0;
+
+    vertical-align:middle;
+
+}
+
+.ysa-table-card thead th{
+
+    background:var(--card-bg);
+
+    color:var(--text-muted);
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.04em;
+
+    border-bottom:1px solid var(--border);
+
+    padding:1rem 1.25rem;
+
+    white-space:nowrap;
+
+}
+
+.ysa-table-card tbody td{
+
+    padding:1rem 1.25rem;
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    color:var(--text-color);
+
+    border-color:var(--border);
+
+    transition:var(--transition);
+
+}
+
+.ysa-table-card tbody tr{
+
+    transition:var(--transition);
+
+}
+
+.ysa-table-card tbody tr:hover{
+
+    background:rgba(0,0,0,.03);
+
+}
+
+/*=========================================================
+PRODUCT CELL
+=========================================================*/
+
+.ysa-product-cell{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:1rem;
+
+    min-width:240px;
+
+}
+
+.ysa-product-image{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:var(--radius-md);
+
+    object-fit:cover;
+
+    flex-shrink:0;
+
+    border:1px solid var(--border);
+
+    background:var(--body);
+
+    transition:var(--transition);
+
+}
+
+.ysa-product-image:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.ysa-product-cell span{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+    line-height:1.45;
+
+}
+
+/*=========================================================
+RATING
+=========================================================*/
+
+.ysa-rating{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:.35rem;
+
+    font-weight:700;
+
+    color:#f59e0b;
+
+}
+
+.ysa-rating i{
+
+    font-size:.9rem;
+
+}
+
+/*=========================================================
+TABLE VALUE STYLING
+=========================================================*/
+
+.ysa-table-card strong{
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+.ysa-table-card tbody td:nth-child(2),
+
+.ysa-table-card tbody td:nth-child(3),
+
+.ysa-table-card tbody td:nth-child(4),
+
+.ysa-table-card tbody td:nth-child(5){
+
+    white-space:nowrap;
+
+}
+
+/*=========================================================
+TABLE SCROLLBAR
+=========================================================*/
+
+.table-responsive{
+
+    scrollbar-width:thin;
+
+}
+
+.table-responsive::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+.table-responsive::-webkit-scrollbar-thumb{
+
+    background:var(--border);
+
+    border-radius:999px;
+
+}
+
+.table-responsive::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+/*=========================================================
+FOOTER
+=========================================================*/
+
+.ysa-footer{
+
+    margin-top:5rem;
+
+    background:var(--body);
+
+    border-top:1px solid var(--border);
+
+    padding:4rem 0 2rem;
+
+}
+
+.ysa-footer-logo-placeholder{
+
+    width:160px;
+
+    height:50px;
+
+    border:2px dashed var(--border);
+
+    border-radius:var(--radius-md);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    color:var(--text-muted);
+
+    margin-bottom:1.25rem;
+
+    transition:var(--transition);
+
+}
+
+.ysa-footer-logo-placeholder:hover{
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+.ysa-footer-text{
+
+    font-size:.92rem;
+
+    line-height:1.8;
+
+    color:var(--text-muted);
+
+    margin-bottom:1.25rem;
+
+}
+
+/*=========================================================
+FOOTER TITLES
+=========================================================*/
+
+.ysa-footer-title{
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+    margin-bottom:1.15rem;
+
+}
+
+/*=========================================================
+FOOTER LINKS
+=========================================================*/
+
+.ysa-footer-links{
+
+    list-style:none;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+.ysa-footer-links li{
+
+    margin-bottom:.8rem;
+
+}
+
+.ysa-footer-links a{
+
+    color:var(--text-muted);
+
+    font-size:.92rem;
+
+    transition:var(--transition);
+
+}
+
+.ysa-footer-links a:hover{
+
+    color:var(--primary);
+
+    padding-left:6px;
+
+}
+
+/*=========================================================
+SOCIAL LINKS
+=========================================================*/
+
+.ysa-social-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.8rem;
+
+}
+
+.ysa-social-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--body);
+
+    color:var(--text);
+
+    transition:var(--transition);
+
+}
+
+.ysa-social-icon:hover{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    transform:translateY(-4px) rotate(8deg);
+
+}
+
+/*=========================================================
+NEWSLETTER
+=========================================================*/
+
+.ysa-newsletter-form{
+
+    margin-top:1rem;
+
+}
+
+.ysa-newsletter-form .form-control{
+
+    height:48px;
+
+    border:1px solid var(--border);
+
+    background:var(--body);
+
+    color:var(--text);
+
+    box-shadow:none;
+
+}
+
+.ysa-newsletter-form .form-control:focus{
+
+    border-color:var(--primary);
+
+}
+
+.ysa-newsletter-btn{
+
+    width:52px;
+
+    border:none;
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    transition:var(--transition);
+
+}
+
+.ysa-newsletter-btn:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+}
+
+.ysa-footer-divider{
+
+    margin:2.5rem 0 1.5rem;
+
+    border-color:var(--border);
+
+}
+
+.ysa-footer-copy{
+
+    color:var(--text-muted);
+
+    font-size:.9rem;
+
+}
+
+/*=========================================================
+ACCESSIBILITY
+=========================================================*/
+
+.ysa-nav-icon:focus-visible,
+
+.ysa-profile-btn:focus-visible,
+
+.ysa-newsletter-btn:focus-visible,
+
+.ysa-newsletter-form .form-control:focus-visible,
+
+.ysa-breadcrumb:focus-visible{
+
+    outline:3px solid var(--primary);
+
+    outline-offset:3px;
+
+}
+
+/*=========================================================
+GLOBAL TRANSITIONS
+=========================================================*/
+
+.ysa-card,
+
+.ysa-stat-card,
+
+.ysa-table-card,
+
+.ysa-product-image,
+
+.ysa-social-icon,
+
+.ysa-nav-icon,
+
+.ysa-newsletter-btn{
+
+    transition:
+
+        transform .3s ease,
+
+        background .3s ease,
+
+        color .3s ease,
+
+        box-shadow .3s ease,
+
+        border-color .3s ease;
+
+}
+
+/*=========================================================
+PRINT STYLES
+=========================================================*/
+
+@media print{
+
+    .ysa-navbar,
+
+    .ysa-footer,
+
+    .ysa-breadcrumb,
+
+    .ysa-nav-right{
+
+        display:none !important;
+
+    }
+
+    .ysa-main{
+
+        padding:0;
+
+    }
+
+}
+
+/*=========================================================
+TABLET RESPONSIVE
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .ysa-main{
+
+        padding:1.75rem 0 3rem;
+
+    }
+
+    .ysa-page-title{
+
+        font-size:1.75rem;
+
+    }
+
+    .ysa-stat-card{
+
+        padding:1.35rem;
+
+    }
+
+    .ysa-stat-value{
+
+        font-size:1.75rem;
+
+    }
+
+    .ysa-card{
+
+        padding:1.5rem;
+
+    }
+
+    .ysa-card-title{
+
+        font-size:1.05rem;
+
+    }
+
+    .ysa-funnel-item{
+
+        padding:.9rem 1rem;
+
+        font-size:.9rem;
+
+    }
+
+    .ysa-navbar .navbar-nav{
+
+        margin-top:1rem;
+
+        gap:.35rem;
+
+    }
+
+    .ysa-nav-right{
+
+        margin-top:1rem;
+
+        justify-content:flex-start;
+
+        flex-wrap:wrap;
+
+    }
+
+}
+
+/*=========================================================
+MOBILE RESPONSIVE
+=========================================================*/
+
+@media (max-width:767.98px){
+
+    .ysa-main{
+
+        padding:1.5rem 0 2.5rem;
+
+    }
+
+    .ysa-page-title{
+
+        font-size:1.5rem;
+
+    }
+
+    .ysa-stat-card{
+
+        text-align:center;
+
+    }
+
+    .ysa-stat-value{
+
+        font-size:1.5rem;
+
+    }
+
+    .ysa-card{
+
+        padding:1.25rem;
+
+    }
+
+    .ysa-card-title{
+
+        text-align:center;
+
+    }
+
+    .ysa-funnel{
+
+        gap:.75rem;
+
+    }
+
+    .ysa-funnel-item{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:.4rem;
+
+    }
+
+    .ysa-product-cell{
+
+        min-width:220px;
+
+        gap:.8rem;
+
+    }
+
+    .ysa-product-image{
+
+        width:52px;
+
+        height:52px;
+
+    }
+
+    .ysa-table-card thead th{
+
+        font-size:.74rem;
+
+        padding:.9rem;
+
+    }
+
+    .ysa-table-card tbody td{
+
+        padding:.9rem;
+
+        font-size:.88rem;
+
+    }
+
+    .ysa-profile-name{
+
+        display:none;
+
+    }
+
+    .ysa-brand-placeholder{
+
+        width:120px;
+
+        height:42px;
+
+        font-size:.72rem;
+
+    }
+
+}
+
+/*=========================================================
+SMALL MOBILE
+=========================================================*/
+
+@media (max-width:575.98px){
+
+    .ysa-footer{
+
+        text-align:center;
+
+    }
+
+    .ysa-footer-logo-placeholder{
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+    }
+
+    .ysa-social-links{
+
+        justify-content:center;
+
+    }
+
+    .ysa-newsletter-form{
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:.75rem;
+
+    }
+
+    .ysa-newsletter-form .form-control,
+
+    .ysa-newsletter-btn{
+
+        width:100%;
+
+        border-radius:var(--radius-md) !important;
+
+    }
+
+    .ysa-product-cell{
+
+        min-width:200px;
+
+    }
+
+    .ysa-product-cell span{
+
+        font-size:.85rem;
+
+        line-height:1.4;
+
+    }
+
+    .ysa-table-card{
+
+        border-radius:var(--radius-md);
+
+    }
+
+}
+
+/*=========================================================
+REDUCED MOTION
+=========================================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+    *,
+
+    *::before,
+
+    *::after{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+/*=========================================================
+HIGH DPI IMAGES
+=========================================================*/
+
+.ysa-product-image,
+
+.ysa-profile-image{
+
+    image-rendering:auto;
+
+    backface-visibility:hidden;
+
+    transform:translateZ(0);
+
+}
+
+/*=========================================================
+LANDSCAPE MOBILE
+=========================================================*/
+
+@media (max-width:932px) and (orientation:landscape){
+
+    .ysa-main{
+
+        padding-top:1.25rem;
+
+    }
+
+}
+
+/*=========================================================
+UTILITY CLASSES
+=========================================================*/
+
+.ysa-hidden{
+
+    display:none !important;
+
+}
+
+.ysa-flex-center{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.ysa-fw-600{
+
+    font-weight:600 !important;
+
+}
+
+.ysa-fw-700{
+
+    font-weight:700 !important;
+
+}
+
+.ysa-text-muted{
+
+    color:var(--text-muted) !important;
+
+}
+
+.ysa-rounded{
+
+    border-radius:var(--radius-md);
+
+}
+
+/*=========================================================
+ANIMATION HELPERS
+=========================================================*/
+
+.ysa-fade-in{
+
+    animation:ysaFadeIn .45s ease;
+
+}
+
+.ysa-slide-up{
+
+    animation:ysaSlideUp .45s ease;
+
+}
+
+@keyframes ysaFadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes ysaSlideUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+SKELETON LOADER
+=========================================================*/
+
+.ysa-skeleton{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:rgba(0,0,0,.06);
+
+}
+
+.ysa-skeleton::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    transform:translateX(-100%);
+
+    background:linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,255,255,.45),
+
+        transparent
+
+    );
+
+    animation:ysaSkeleton 1.2s linear infinite;
+
+}
+
+@keyframes ysaSkeleton{
+
+    to{
+
+        transform:translateX(100%);
+
+    }
+
+}
+
+/*=========================================================
+BUTTON LOADING
+=========================================================*/
+
+.ysa-btn-loading{
+
+    pointer-events:none;
+
+    opacity:.75;
+
+}
+
+.ysa-btn-loading::after{
+
+    content:"";
+
+    display:inline-block;
+
+    width:16px;
+
+    height:16px;
+
+    margin-left:.6rem;
+
+    border:2px solid rgba(255,255,255,.35);
+
+    border-top-color:#ffffff;
+
+    border-radius:50%;
+
+    animation:ysaSpinner .8s linear infinite;
+
+}
+
+@keyframes ysaSpinner{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/*=========================================================
+FLOATING ACTION BUTTON
+=========================================================*/
+
+.ysa-floating-btn{
+
+    position:fixed;
+
+    right:24px;
+
+    bottom:24px;
+
+    width:58px;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:var(--shadow-lg);
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+    z-index:999;
+
+}
+
+.ysa-floating-btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-xl);
+
+}
+
+/*=========================================================
+TEXT SELECTION
+=========================================================*/
+
+#ysaAnalyticsPage ::selection{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+}
+
+/*=========================================================
+DARK MODE SUPPORT
+Uses existing global variables only
+=========================================================*/
+
+@media (prefers-color-scheme:dark){
+
+    .ysa-card,
+
+    .ysa-stat-card,
+
+    .ysa-table-card,
+
+    .ysa-navbar,
+
+    .ysa-footer{
+
+        background:var(--body);
+
+        border-color:var(--border);
+
+    }
+
+}
+
+/*=========================================================
+PERFORMANCE OPTIMIZATION
+=========================================================*/
+
+.ysa-card,
+
+.ysa-stat-card,
+
+.ysa-table-card,
+
+.ysa-product-image,
+
+.ysa-nav-icon,
+
+.ysa-social-icon{
+
+    will-change:transform;
+
+}
+
+.ysa-card,
+
+.ysa-table-card{
+
+    contain:layout paint;
+
+}
+
+/*=========================================================
+EXTRA SMALL DEVICES
+=========================================================*/
+
+@media (max-width:420px){
+
+    .ysa-page-title{
+
+        font-size:1.3rem;
+
+    }
+
+    .ysa-stat-value{
+
+        font-size:1.3rem;
+
+    }
+
+    .ysa-card{
+
+        padding:1rem;
+
+    }
+
+    .ysa-product-image{
+
+        width:46px;
+
+        height:46px;
+
+    }
+
+    .ysa-product-cell{
+
+        gap:.65rem;
+
+    }
+
+    .ysa-product-cell span{
+
+        font-size:.82rem;
+
+    }
+
+}
+
+/*=========================================================
+END OF SELLER ANALYTICS STYLES
+=========================================================*/
+
+
+
+
+
 /*==================================================
 BUYER DONE PAGE (2A)
 Page Layout • Brand • Success Illustration

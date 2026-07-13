@@ -4077,10 +4077,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /*==================================================
-PROFILE SETUP PAGE (3A)
-Initialization • Image Upload • Bio Counter
-Unique Prefix: yps-
-Append to global.js
+PROFILE SETUP PAGE 
 ==================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -4239,9 +4236,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 /*==================================================
-PROFILE SETUP PAGE (3B)
-Validation • Session Storage • Form Submission
-Append after Part 3A
+PROFILE SETUP PAGE 
 ==================================================*/
 
     /*=========================================
@@ -4397,27 +4392,32 @@ Append after Part 3A
 
             const accountType = sessionStorage.getItem("yoviAccountType");
 
+
             setTimeout(() => {
 
-                if (
-                    accountType &&
-                    accountType.toLowerCase().includes("service")
-                ) {
+                if (accountType === "buyer") {
 
-                    window.location.href = "service-setup.html";
+                    window.location.href = "../../auth/buyer-done.html";
+
+                } else if (accountType === "seller") {
+
+                    window.location.href = "../../auth/seller-done.html";
+
+                } else if (accountType === "service-provider") {
+
+                    window.location.href = "../../auth/service-setup.html";
 
                 } else {
 
-                    window.location.href =
-                        "index.html";
+                    window.location.href = "";
 
                 }
 
-            }, 700);
+            }, 1000);
 
-        }, 1000);
+            });
 
-    });
+        });
 
     /*=========================================
     AUTO SAVE
@@ -5446,7 +5446,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 window.location.href =
 
-                    "provider/provider-dashboard.html";
+                    "../../auth/service-provider-done.html";
 
             }, 800);
 
@@ -6345,7 +6345,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
 
-            window.location.href = "";
+            window.location.href = "../../provider/provider-dashboard.html";
 
                 nextPage.value;
 
@@ -7120,9 +7120,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /*==================================================
 SELLER DONE PAGE (3A)
-Initialization • Elements • Navigation
-Unique Prefix: ysd-
-File: seller-done.js
+
 ==================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -8080,6 +8078,5093 @@ Append after Part 3A
     );
 
 });
+
+
+/*=========================================================
+  YOVI SELLER DASHBOARD
+  PART 3A
+=========================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /*=====================================================
+    PAGE CHECK
+    Prevents this script from running on other pages
+    =====================================================*/
+
+    const ysdPage = document.getElementById("ysdSellerDashboardPage");
+
+    if (!ysdPage) return;
+
+    console.log("Seller Dashboard Loaded");
+
+    /*=====================================================
+    ELEMENTS
+    =====================================================*/
+
+    const ysdAddProductBtn =
+        document.getElementById("ysdAddProductBtn");
+
+    const ysdLogoutBtn =
+        document.getElementById("ysdLogoutBtn");
+
+    const ysdSidebarLogout =
+        document.getElementById("ysdSidebarLogout");
+
+    const ysdNewsletterForm =
+        document.getElementById("ysdNewsletterForm");
+
+    const ysdNewsletterEmail =
+        document.getElementById("ysdNewsletterEmail");
+
+    /*=====================================================
+    DASHBOARD DATA
+    =====================================================*/
+
+    const ysdDashboardData = {
+
+        revenue: 2250000,
+
+        products: 47,
+
+        orders: 138,
+
+        rating: 4.9
+
+    };
+
+    /*=====================================================
+    FORMAT NAIRA
+    =====================================================*/
+
+    function ysdFormatCurrency(amount){
+
+        return new Intl.NumberFormat(
+
+            "en-NG",
+
+            {
+
+                style:"currency",
+
+                currency:"NGN",
+
+                maximumFractionDigits:0
+
+            }
+
+        ).format(amount);
+
+    }
+
+    /*=====================================================
+    BUTTON RIPPLE EFFECT
+    =====================================================*/
+
+    function ysdRipple(button,event){
+
+        const circle =
+            document.createElement("span");
+
+        const diameter =
+            Math.max(
+
+                button.clientWidth,
+
+                button.clientHeight
+
+            );
+
+        circle.style.width =
+            circle.style.height =
+            diameter + "px";
+
+        circle.classList.add("ysd-ripple");
+
+        const rect =
+            button.getBoundingClientRect();
+
+        circle.style.left =
+            event.clientX -
+            rect.left -
+            diameter / 2 + "px";
+
+        circle.style.top =
+            event.clientY -
+            rect.top -
+            diameter / 2 + "px";
+
+        button.appendChild(circle);
+
+        setTimeout(function(){
+
+            circle.remove();
+
+        },600);
+
+    }
+
+    /*=====================================================
+    ADD PRODUCT
+    =====================================================*/
+
+    if(ysdAddProductBtn){
+
+        ysdAddProductBtn.addEventListener(
+
+            "click",
+
+            function(event){
+
+                ysdRipple(this,event);
+
+                setTimeout(function(){
+
+                    window.location.href =
+                    "../Products/add-product.html";
+
+                },250);
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    NEWSLETTER
+    =====================================================*/
+
+    if(ysdNewsletterForm){
+
+        ysdNewsletterForm.addEventListener(
+
+            "submit",
+
+            function(event){
+
+                event.preventDefault();
+
+                const email =
+                    ysdNewsletterEmail.value.trim();
+
+                if(email===""){
+
+                    alert(
+
+                        "Please enter your email."
+
+                    );
+
+                    ysdNewsletterEmail.focus();
+
+                    return;
+
+                }
+
+                alert(
+
+                    "Newsletter subscription successful."
+
+                );
+
+                ysdNewsletterForm.reset();
+
+            }
+
+        );
+
+    }
+
+       /*=====================================================
+    SIGN OUT
+    =====================================================*/
+
+    function ysdSignOut(){
+
+        const confirmLogout = confirm(
+            "Are you sure you want to sign out?"
+        );
+
+        if(!confirmLogout){
+
+            return;
+
+        }
+
+        sessionStorage.clear();
+
+        localStorage.removeItem("currentUser");
+
+        localStorage.removeItem("authToken");
+
+        window.location.href="../index.html";
+
+    }
+
+    if(ysdLogoutBtn){
+
+        ysdLogoutBtn.addEventListener(
+
+            "click",
+
+            function(event){
+
+                event.preventDefault();
+
+                ysdSignOut();
+
+            }
+
+        );
+
+    }
+
+    if(ysdSidebarLogout){
+
+        ysdSidebarLogout.addEventListener(
+
+            "click",
+
+            function(event){
+
+                event.preventDefault();
+
+                ysdSignOut();
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    STATISTICS CARD ANIMATION
+    =====================================================*/
+
+    const ysdStatCards =
+
+        document.querySelectorAll(
+
+            ".ysd-stat-card"
+
+        );
+
+    ysdStatCards.forEach(function(card,index){
+
+        card.style.animationDelay=
+
+            (index*0.15)+"s";
+
+    });
+
+    /*=====================================================
+    REVENUE CHART ANIMATION
+    =====================================================*/
+
+    const ysdChartBars =
+
+        document.querySelectorAll(
+
+            ".ysd-chart-line span"
+
+        );
+
+    ysdChartBars.forEach(function(bar,index){
+
+        const finalHeight=
+
+            bar.style.height;
+
+        bar.style.height="0";
+
+        setTimeout(function(){
+
+            bar.style.height=
+
+                finalHeight;
+
+        },250+(index*120));
+
+    });
+
+    /*=====================================================
+    PRODUCT TABLE HOVER
+    =====================================================*/
+
+    const ysdProductRows=
+
+        document.querySelectorAll(
+
+            ".ysd-product-table tbody tr"
+
+        );
+
+    ysdProductRows.forEach(function(row){
+
+        row.addEventListener(
+
+            "mouseenter",
+
+            function(){
+
+                this.style.cursor="pointer";
+
+            }
+
+        );
+
+    });
+
+    /*=====================================================
+    EDIT PRODUCT
+    =====================================================*/
+
+    const ysdEditButtons=
+
+        document.querySelectorAll(
+
+            ".ysd-edit-btn"
+
+        );
+
+    ysdEditButtons.forEach(function(button){
+
+        button.addEventListener(
+
+            "click",
+
+            function(event){
+
+                event.stopPropagation();
+
+                window.location.href=
+
+                "../Products/edit-product.html";
+
+            }
+
+        );
+
+    });
+
+    /*=====================================================
+    TABLE ROW CLICK
+    =====================================================*/
+
+    ysdProductRows.forEach(function(row){
+
+        row.addEventListener(
+
+            "click",
+
+            function(){
+
+                window.location.href=
+
+                "../Products/product-details.html";
+
+            }
+
+        );
+
+    });
+
+    /*=====================================================
+    ACTIVE SIDEBAR
+    =====================================================*/
+
+    const ysdCurrentPage=
+
+        window.location.pathname
+
+        .split("/")
+
+        .pop();
+
+    document
+
+        .querySelectorAll(
+
+            ".ysd-menu a"
+
+        )
+
+        .forEach(function(link){
+
+            const href=
+
+                link.getAttribute("href");
+
+            if(
+
+                href &&
+
+                href.includes(
+
+                    ysdCurrentPage
+
+                )
+
+            ){
+
+                link.classList.add(
+
+                    "active"
+
+                );
+
+            }
+
+        });
+
+       /*=====================================================
+    DASHBOARD CARD HOVER EFFECT
+    =====================================================*/
+
+    const ysdDashboardCards = document.querySelectorAll(
+
+        ".ysd-card, .ysd-stat-card"
+
+    );
+
+    ysdDashboardCards.forEach(function(card){
+
+        card.addEventListener("mouseenter", function(){
+
+            this.style.transform = "translateY(-6px)";
+
+        });
+
+        card.addEventListener("mouseleave", function(){
+
+            this.style.transform = "";
+
+        });
+
+    });
+
+    /*=====================================================
+    NOTIFICATION BUTTON
+    =====================================================*/
+
+    const ysdNotificationBtn =
+
+        document.querySelector(
+
+            ".ysd-nav-icon.position-relative"
+
+        );
+
+    if(ysdNotificationBtn){
+
+        ysdNotificationBtn.addEventListener(
+
+            "click",
+
+            function(){
+
+                alert(
+
+                    "You have no new notifications."
+
+                );
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    CART BUTTON
+    =====================================================*/
+
+    const ysdCartBtn =
+
+        document.querySelector(
+
+            ".ysd-nav-icon:not(.position-relative)"
+
+        );
+
+    if(ysdCartBtn){
+
+        ysdCartBtn.addEventListener(
+
+            "click",
+
+            function(){
+
+                window.location.href =
+
+                "../Cart/cart.html";
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    VIEW ALL ORDERS
+    =====================================================*/
+
+    document.querySelectorAll(
+
+        ".ysd-view-all"
+
+    ).forEach(function(link){
+
+        link.addEventListener(
+
+            "click",
+
+            function(){
+
+                console.log(
+
+                    "Opening page..."
+
+                );
+
+            }
+
+        );
+
+    });
+
+    /*=====================================================
+    NEWSLETTER EMAIL VALIDATION
+    =====================================================*/
+
+    if(ysdNewsletterEmail){
+
+        ysdNewsletterEmail.addEventListener(
+
+            "input",
+
+            function(){
+
+                const value =
+
+                    this.value.trim();
+
+                const emailPattern =
+
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if(
+
+                    value === ""
+
+                ){
+
+                    this.style.borderColor = "";
+
+                }
+
+                else if(
+
+                    emailPattern.test(value)
+
+                ){
+
+                    this.style.borderColor =
+
+                    "#198754";
+
+                }
+
+                else{
+
+                    this.style.borderColor =
+
+                    "#dc3545";
+
+                }
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    PAGE FADE-IN
+    =====================================================*/
+
+    document.body.style.opacity = "0";
+
+    setTimeout(function(){
+
+        document.body.style.transition =
+
+        "opacity .35s ease";
+
+        document.body.style.opacity = "1";
+
+    },100);
+
+    /*=====================================================
+    ESC KEY SUPPORT
+    =====================================================*/
+
+    document.addEventListener(
+
+        "keydown",
+
+        function(event){
+
+            if(event.key === "Escape"){
+
+                const dropdown =
+
+                document.activeElement;
+
+                if(dropdown){
+
+                    dropdown.blur();
+
+                }
+
+            }
+
+        }
+
+    );
+
+    /*=====================================================
+    WINDOW RESIZE
+    =====================================================*/
+
+    window.addEventListener(
+
+        "resize",
+
+        function(){
+
+            console.log(
+
+                "Dashboard resized:",
+
+                window.innerWidth
+
+            );
+
+        }
+
+    );
+
+       /*=====================================================
+    QUICK SEARCH
+    =====================================================*/
+
+    const ysdSearchInput =
+        document.getElementById("ysdSearchInput");
+
+    if(ysdSearchInput){
+
+        ysdSearchInput.addEventListener(
+
+            "keyup",
+
+            function(){
+
+                const keyword =
+                    this.value
+                        .toLowerCase()
+                        .trim();
+
+                const rows =
+                    document.querySelectorAll(
+                        ".ysd-product-table tbody tr"
+                    );
+
+                rows.forEach(function(row){
+
+                    const text =
+                        row.textContent.toLowerCase();
+
+                    row.style.display =
+                        text.includes(keyword)
+                        ? ""
+                        : "none";
+
+                });
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    REFRESH DASHBOARD
+    =====================================================*/
+
+    const ysdRefreshBtn =
+        document.getElementById("ysdRefreshBtn");
+
+    if(ysdRefreshBtn){
+
+        ysdRefreshBtn.addEventListener(
+
+            "click",
+
+            function(){
+
+                this.disabled = true;
+
+                this.innerHTML =
+                    '<i class="bi bi-arrow-clockwise"></i> Refreshing...';
+
+                setTimeout(() => {
+
+                    location.reload();
+
+                },800);
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    COPY REVENUE
+    =====================================================*/
+
+    const ysdRevenueAmount =
+        document.getElementById("ysdRevenueAmount");
+
+    if(ysdRevenueAmount){
+
+        ysdRevenueAmount.addEventListener(
+
+            "click",
+
+            async function(){
+
+                try{
+
+                    await navigator.clipboard.writeText(
+
+                        this.innerText
+
+                    );
+
+                    alert(
+
+                        "Revenue copied successfully."
+
+                    );
+
+                }
+
+                catch(error){
+
+                    console.error(error);
+
+                }
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    KEYBOARD SHORTCUTS
+    =====================================================*/
+
+    document.addEventListener(
+
+        "keydown",
+
+        function(event){
+
+            if(event.ctrlKey && event.key==="n"){
+
+                event.preventDefault();
+
+                if(ysdAddProductBtn){
+
+                    ysdAddProductBtn.click();
+
+                }
+
+            }
+
+            if(event.ctrlKey && event.key==="r"){
+
+                event.preventDefault();
+
+                location.reload();
+
+            }
+
+        }
+
+    );
+
+    /*=====================================================
+    AUTO CLOSE DROPDOWN
+    =====================================================*/
+
+    document.addEventListener(
+
+        "click",
+
+        function(){
+
+            const dropdowns =
+                document.querySelectorAll(
+
+                    ".dropdown-menu.show"
+
+                );
+
+            dropdowns.forEach(function(menu){
+
+                menu.classList.remove("show");
+
+            });
+
+        }
+
+    );
+
+    /*=====================================================
+    PRODUCT COUNTER
+    =====================================================*/
+
+    const ysdTotalProducts =
+        document.getElementById("ysdTotalProducts");
+
+    if(ysdTotalProducts){
+
+        const totalRows =
+            document.querySelectorAll(
+
+                ".ysd-product-table tbody tr"
+
+            ).length;
+
+        ysdTotalProducts.textContent =
+            totalRows;
+
+    }
+
+    /*=====================================================
+    SCROLL TO TOP
+    =====================================================*/
+
+    const ysdScrollTop =
+        document.getElementById("ysdScrollTop");
+
+    if(ysdScrollTop){
+
+        window.addEventListener(
+
+            "scroll",
+
+            function(){
+
+                if(window.scrollY>300){
+
+                    ysdScrollTop.classList.remove(
+
+                        "d-none"
+
+                    );
+
+                }
+
+                else{
+
+                    ysdScrollTop.classList.add(
+
+                        "d-none"
+
+                    );
+
+                }
+
+            }
+
+        );
+
+        ysdScrollTop.addEventListener(
+
+            "click",
+
+            function(){
+
+                window.scrollTo({
+
+                    top:0,
+
+                    behavior:"smooth"
+
+                });
+
+            }
+
+        );
+
+    }
+
+       /*=====================================================
+    SAVE DASHBOARD STATE
+    =====================================================*/
+
+    function ysdSaveDashboardState(){
+
+        const dashboardState = {
+
+            lastVisited: new Date().toISOString(),
+
+            activePage: "seller-dashboard",
+
+            sellerLoggedIn: true
+
+        };
+
+        localStorage.setItem(
+
+            "ysdDashboardState",
+
+            JSON.stringify(dashboardState)
+
+        );
+
+    }
+
+    ysdSaveDashboardState();
+
+    /*=====================================================
+    RESTORE SCROLL POSITION
+    =====================================================*/
+
+    const savedScroll = sessionStorage.getItem(
+
+        "ysdScrollPosition"
+
+    );
+
+    if(savedScroll){
+
+        window.scrollTo(
+
+            0,
+
+            parseInt(savedScroll)
+
+        );
+
+    }
+
+    window.addEventListener(
+
+        "beforeunload",
+
+        function(){
+
+            sessionStorage.setItem(
+
+                "ysdScrollPosition",
+
+                window.scrollY
+
+            );
+
+        }
+
+    );
+
+    /*=====================================================
+    PAGE VISIT LOGGER
+    =====================================================*/
+
+    console.log(
+
+        "Seller Dashboard opened:",
+
+        new Date().toLocaleString()
+
+    );
+
+    /*=====================================================
+    CONNECTION STATUS
+    =====================================================*/
+
+    window.addEventListener(
+
+        "online",
+
+        function(){
+
+            console.log(
+
+                "Internet connection restored."
+
+            );
+
+        }
+
+    );
+
+    window.addEventListener(
+
+        "offline",
+
+        function(){
+
+            alert(
+
+                "No internet connection."
+
+            );
+
+        }
+
+    );
+
+    /*=====================================================
+    LAZY LOAD PLACEHOLDER IMAGES
+    =====================================================*/
+
+    const ysdImages =
+
+        document.querySelectorAll(
+
+            "img"
+
+        );
+
+    ysdImages.forEach(function(image){
+
+        image.loading = "lazy";
+
+    });
+
+    /*=====================================================
+    PREVENT MULTIPLE FORM SUBMISSIONS
+    =====================================================*/
+
+    document.querySelectorAll(
+
+        "form"
+
+    ).forEach(function(form){
+
+        form.addEventListener(
+
+            "submit",
+
+            function(){
+
+                const submitButton =
+
+                    this.querySelector(
+
+                        'button[type="submit"]'
+
+                    );
+
+                if(submitButton){
+
+                    submitButton.disabled = true;
+
+                    setTimeout(function(){
+
+                        submitButton.disabled = false;
+
+                    },1500);
+
+                }
+
+            }
+
+        );
+
+    });
+
+    /*=====================================================
+    INITIALIZE TOOLTIPS
+    =====================================================*/
+
+    const tooltipTriggerList =
+
+        document.querySelectorAll(
+
+            '[data-bs-toggle="tooltip"]'
+
+        );
+
+    tooltipTriggerList.forEach(function(element){
+
+        new bootstrap.Tooltip(element);
+
+    });
+
+    /*=====================================================
+    INITIALIZE POPOVERS
+    =====================================================*/
+
+    const popoverTriggerList =
+
+        document.querySelectorAll(
+
+            '[data-bs-toggle="popover"]'
+
+        );
+
+    popoverTriggerList.forEach(function(element){
+
+        new bootstrap.Popover(element);
+
+    });
+
+    /*=====================================================
+    PERFORMANCE TIMER
+    =====================================================*/
+
+    window.addEventListener(
+
+        "load",
+
+        function(){
+
+            console.log(
+
+                "Dashboard fully loaded."
+
+            );
+
+        }
+
+    );
+
+    /*=====================================================
+    SELLER SESSION CHECK
+    =====================================================*/
+
+    // const sellerSession =
+
+    //     localStorage.getItem(
+
+    //         "sellerLoggedIn"
+
+    //     );
+
+    // if(
+
+    //     sellerSession !== "true"
+
+    // ){
+
+    //     window.location.href =
+
+    //     "../../seller/seller-dashboard.html";
+
+    // }
+
+    /*=====================================================
+    END OF DASHBOARD INITIALIZATION
+    =====================================================*/
+
+    console.log(
+
+        "YOVI Seller Dashboard initialized successfully."
+
+    );
+
+});
+
+
+/*=========================================================
+YOVI SELLER REVENUE
+PART 3A
+=========================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /*=====================================================
+    PAGE VALIDATION
+    =====================================================*/
+
+    const ysrPage = document.getElementById(
+
+        "ysrSellerRevenuePage"
+
+    );
+
+    if (!ysrPage) return;
+
+    console.log("Seller Revenue Page Loaded");
+
+    /*=====================================================
+    ELEMENTS
+    =====================================================*/
+
+    const ysrBackDashboard =
+
+        document.getElementById(
+
+            "ysrBackDashboard"
+
+        );
+
+    const ysrLogoutBtn =
+
+        document.getElementById(
+
+            "ysrLogoutBtn"
+
+        );
+
+    const ysrCartBtn =
+
+        document.getElementById(
+
+            "ysrCartBtn"
+
+        );
+
+    const ysrNotificationBtn =
+
+        document.getElementById(
+
+            "ysrNotificationBtn"
+
+        );
+
+    const ysrNewsletterForm =
+
+        document.getElementById(
+
+            "ysrNewsletterForm"
+
+        );
+
+    const ysrNewsletterEmail =
+
+        document.getElementById(
+
+            "ysrNewsletterEmail"
+
+        );
+
+    const ysrRevenueChart =
+
+        document.getElementById(
+
+            "ysrRevenueChart"
+
+        );
+
+    /*=====================================================
+    RIPPLE EFFECT
+    =====================================================*/
+
+    function ysrCreateRipple(button, event){
+
+        const ripple =
+
+            document.createElement("span");
+
+        const diameter = Math.max(
+
+            button.clientWidth,
+
+            button.clientHeight
+
+        );
+
+        ripple.classList.add(
+
+            "ysr-ripple"
+
+        );
+
+        ripple.style.width =
+
+            ripple.style.height =
+
+            diameter + "px";
+
+        const rect =
+
+            button.getBoundingClientRect();
+
+        ripple.style.left =
+
+            event.clientX -
+
+            rect.left -
+
+            diameter / 2 +
+
+            "px";
+
+        ripple.style.top =
+
+            event.clientY -
+
+            rect.top -
+
+            diameter / 2 +
+
+            "px";
+
+        button.appendChild(
+
+            ripple
+
+        );
+
+        setTimeout(function(){
+
+            ripple.remove();
+
+        },600);
+
+    }
+
+    /*=====================================================
+    BUTTON RIPPLE
+    =====================================================*/
+
+    document.querySelectorAll(
+
+        ".ysr-nav-icon, .ysr-newsletter-btn"
+
+    ).forEach(function(button){
+
+        button.addEventListener(
+
+            "click",
+
+            function(event){
+
+                ysrCreateRipple(
+
+                    this,
+
+                    event
+
+                );
+
+            }
+
+        );
+
+    });
+
+    /*=====================================================
+    BACK TO DASHBOARD
+    =====================================================*/
+
+    if(ysrBackDashboard){
+
+        ysrBackDashboard.addEventListener(
+
+            "click",
+
+            function(){
+
+                window.location.href =
+
+                "../Dashboard/seller-dashboard.html";
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    NEWSLETTER
+    =====================================================*/
+
+    if(ysrNewsletterForm){
+
+        ysrNewsletterForm.addEventListener(
+
+            "submit",
+
+            function(event){
+
+                event.preventDefault();
+
+                const email =
+
+                    ysrNewsletterEmail.value.trim();
+
+                if(email === ""){
+
+                    alert(
+
+                        "Please enter your email."
+
+                    );
+
+                    ysrNewsletterEmail.focus();
+
+                    return;
+
+                }
+
+                alert(
+
+                    "Newsletter subscription successful."
+
+                );
+
+                ysrNewsletterForm.reset();
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    MONTHLY REVENUE CHART
+    =====================================================*/
+
+    if(ysrRevenueChart){
+
+        new Chart(
+
+            ysrRevenueChart,
+
+            {
+
+                type:"line",
+
+                data:{
+
+                    labels:[
+
+                        "Jan",
+
+                        "Feb",
+
+                        "Mar",
+
+                        "Apr",
+
+                        "May",
+
+                        "Jun"
+
+                    ],
+
+                    datasets:[{
+
+                        label:"Revenue (₦)",
+
+                        data:[
+
+                            285000,
+
+                            342000,
+
+                            298000,
+
+                            412000,
+
+                            389000,
+
+                            524000
+
+                        ],
+
+                        borderColor:"#0d6efd",
+
+                        backgroundColor:
+
+                            "rgba(13,110,253,.15)",
+
+                        borderWidth:3,
+
+                        tension:.4,
+
+                        fill:true,
+
+                        pointRadius:5,
+
+                        pointHoverRadius:7
+
+                    }]
+
+                },
+
+                options:{
+
+                    responsive:true,
+
+                    maintainAspectRatio:false,
+
+                    plugins:{
+
+                        legend:{
+
+                            display:false
+
+                        }
+
+                    },
+
+                    scales:{
+
+                        y:{
+
+                            beginAtZero:true
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        );
+
+    }
+
+       /*=====================================================
+    SIGN OUT
+    =====================================================*/
+
+    function ysrSignOut(){
+
+        const confirmLogout = confirm(
+
+            "Are you sure you want to sign out?"
+
+        );
+
+        if(!confirmLogout){
+
+            return;
+
+        }
+
+        sessionStorage.clear();
+
+        localStorage.removeItem(
+
+            "currentUser"
+
+        );
+
+        localStorage.removeItem(
+
+            "authToken"
+
+        );
+
+        localStorage.removeItem(
+
+            "sellerLoggedIn"
+
+        );
+
+        window.location.href =
+
+        "../index.html";
+
+    }
+
+    if(ysrLogoutBtn){
+
+        ysrLogoutBtn.addEventListener(
+
+            "click",
+
+            function(event){
+
+                event.preventDefault();
+
+                ysrSignOut();
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    CART NAVIGATION
+    =====================================================*/
+
+    if(ysrCartBtn){
+
+        ysrCartBtn.addEventListener(
+
+            "click",
+
+            function(){
+
+                window.location.href =
+
+                "../Checkout/cart.html";
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    NOTIFICATION BUTTON
+    =====================================================*/
+
+    if(ysrNotificationBtn){
+
+        ysrNotificationBtn.addEventListener(
+
+            "click",
+
+            function(){
+
+                alert(
+
+                    "You have no new notifications."
+
+                );
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    SUMMARY CARD ENTRANCE ANIMATION
+    =====================================================*/
+
+    const ysrSummaryCards =
+
+        document.querySelectorAll(
+
+            ".ysr-summary-card"
+
+        );
+
+    ysrSummaryCards.forEach(function(card,index){
+
+        card.style.opacity = "0";
+
+        card.style.transform =
+
+            "translateY(25px)";
+
+        setTimeout(function(){
+
+            card.style.transition =
+
+                "all .45s ease";
+
+            card.style.opacity = "1";
+
+            card.style.transform =
+
+                "translateY(0)";
+
+        },150 + (index * 150));
+
+    });
+
+    /*=====================================================
+    CHART CARD ENTRANCE
+    =====================================================*/
+
+    const ysrChartCard =
+
+        document.querySelector(
+
+            ".ysr-chart-card"
+
+        );
+
+    if(ysrChartCard){
+
+        ysrChartCard.style.opacity = "0";
+
+        ysrChartCard.style.transform =
+
+            "translateY(35px)";
+
+        setTimeout(function(){
+
+            ysrChartCard.style.transition =
+
+                "all .55s ease";
+
+            ysrChartCard.style.opacity = "1";
+
+            ysrChartCard.style.transform =
+
+                "translateY(0)";
+
+        },650);
+
+    }
+
+    /*=====================================================
+    SUMMARY CARD HOVER EFFECT
+    =====================================================*/
+
+    ysrSummaryCards.forEach(function(card){
+
+        card.addEventListener(
+
+            "mouseenter",
+
+            function(){
+
+                this.style.cursor = "pointer";
+
+            }
+
+        );
+
+    });
+
+    /*=====================================================
+    ANIMATE REVENUE NUMBERS
+    =====================================================*/
+
+    const ysrRevenueValues =
+
+        document.querySelectorAll(
+
+            ".ysr-summary-value"
+
+        );
+
+    ysrRevenueValues.forEach(function(item){
+
+        item.style.transition =
+
+            "transform .3s ease";
+
+        item.addEventListener(
+
+            "mouseenter",
+
+            function(){
+
+                this.style.transform =
+
+                    "scale(1.05)";
+
+            }
+
+        );
+
+        item.addEventListener(
+
+            "mouseleave",
+
+            function(){
+
+                this.style.transform =
+
+                    "scale(1)";
+
+            }
+
+        );
+
+    });
+
+    /*=====================================================
+    CHART CONTAINER INTERACTION
+    =====================================================*/
+
+    if(ysrChartCard){
+
+        ysrChartCard.addEventListener(
+
+            "mouseenter",
+
+            function(){
+
+                this.style.boxShadow =
+
+                    "0 18px 40px rgba(0,0,0,.12)";
+
+            }
+
+        );
+
+        ysrChartCard.addEventListener(
+
+            "mouseleave",
+
+            function(){
+
+                this.style.boxShadow = "";
+
+            }
+
+        );
+
+    }
+
+       /*=====================================================
+    NEWSLETTER EMAIL VALIDATION
+    =====================================================*/
+
+    if(ysrNewsletterEmail){
+
+        ysrNewsletterEmail.addEventListener(
+
+            "input",
+
+            function(){
+
+                const email =
+
+                    this.value.trim();
+
+                const emailPattern =
+
+                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if(email === ""){
+
+                    this.style.borderColor = "";
+
+                    return;
+
+                }
+
+                if(emailPattern.test(email)){
+
+                    this.style.borderColor =
+
+                        "#198754";
+
+                }
+
+                else{
+
+                    this.style.borderColor =
+
+                        "#dc3545";
+
+                }
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    PAGE FADE IN
+    =====================================================*/
+
+    document.body.style.opacity = "0";
+
+    setTimeout(function(){
+
+        document.body.style.transition =
+
+            "opacity .4s ease";
+
+        document.body.style.opacity = "1";
+
+    },100);
+
+    /*=====================================================
+    KEYBOARD SHORTCUTS
+    =====================================================*/
+
+    document.addEventListener(
+
+        "keydown",
+
+        function(event){
+
+            /* Ctrl + B = Dashboard */
+
+            if(
+
+                event.ctrlKey &&
+
+                event.key.toLowerCase() === "b"
+
+            ){
+
+                event.preventDefault();
+
+                if(ysrBackDashboard){
+
+                    ysrBackDashboard.click();
+
+                }
+
+            }
+
+            /* Ctrl + H = Home */
+
+            if(
+
+                event.ctrlKey &&
+
+                event.key.toLowerCase() === "h"
+
+            ){
+
+                event.preventDefault();
+
+                window.location.href =
+
+                "../index.html";
+
+            }
+
+        }
+
+    );
+
+    /*=====================================================
+    ACTIVE NAVIGATION
+    =====================================================*/
+
+    const ysrCurrentPage =
+
+        window.location.pathname
+
+        .split("/")
+
+        .pop();
+
+    document
+
+        .querySelectorAll(
+
+            ".navbar-nav .nav-link"
+
+        )
+
+        .forEach(function(link){
+
+            const href =
+
+                link.getAttribute("href");
+
+            if(
+
+                href &&
+
+                href.includes(
+
+                    ysrCurrentPage
+
+                )
+
+            ){
+
+                link.classList.add(
+
+                    "active"
+
+                );
+
+            }
+
+        });
+
+    /*=====================================================
+    CHART EXPORT (Future Compatible)
+    =====================================================*/
+
+    const ysrExportChartBtn =
+
+        document.getElementById(
+
+            "ysrExportChartBtn"
+
+        );
+
+    if(
+
+        ysrExportChartBtn &&
+
+        ysrRevenueChart
+
+    ){
+
+        ysrExportChartBtn.addEventListener(
+
+            "click",
+
+            function(){
+
+                const chartCanvas =
+
+                    document
+
+                    .getElementById(
+
+                        "ysrRevenueChart"
+
+                    );
+
+                const image =
+
+                    chartCanvas.toDataURL(
+
+                        "image/png"
+
+                    );
+
+                const link =
+
+                    document.createElement(
+
+                        "a"
+
+                    );
+
+                link.download =
+
+                    "monthly-revenue.png";
+
+                link.href = image;
+
+                link.click();
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    SUMMARY CARD CLICK
+    =====================================================*/
+
+    ysrSummaryCards.forEach(function(card){
+
+        card.addEventListener(
+
+            "click",
+
+            function(){
+
+                this.classList.add(
+
+                    "ysr-fade-in"
+
+                );
+
+            }
+
+        );
+
+    });
+
+    /*=====================================================
+    WINDOW RESIZE LOGGER
+    =====================================================*/
+
+    window.addEventListener(
+
+        "resize",
+
+        function(){
+
+            console.log(
+
+                "Revenue Page Width:",
+
+                window.innerWidth
+
+            );
+
+        }
+
+    );
+
+       /*=====================================================
+    REFRESH REVENUE DATA
+    =====================================================*/
+
+    const ysrRefreshBtn =
+
+        document.getElementById(
+
+            "ysrRefreshBtn"
+
+        );
+
+    if(ysrRefreshBtn){
+
+        ysrRefreshBtn.addEventListener(
+
+            "click",
+
+            function(){
+
+                this.disabled = true;
+
+                this.innerHTML =
+
+                    '<i class="bi bi-arrow-clockwise"></i> Refreshing...';
+
+                setTimeout(function(){
+
+                    location.reload();
+
+                },800);
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    SCROLL TO TOP
+    =====================================================*/
+
+    const ysrScrollTop =
+
+        document.getElementById(
+
+            "ysrScrollTop"
+
+        );
+
+    if(ysrScrollTop){
+
+        window.addEventListener(
+
+            "scroll",
+
+            function(){
+
+                if(window.scrollY > 300){
+
+                    ysrScrollTop.classList.remove(
+
+                        "d-none"
+
+                    );
+
+                }
+
+                else{
+
+                    ysrScrollTop.classList.add(
+
+                        "d-none"
+
+                    );
+
+                }
+
+            }
+
+        );
+
+        ysrScrollTop.addEventListener(
+
+            "click",
+
+            function(){
+
+                window.scrollTo({
+
+                    top:0,
+
+                    behavior:"smooth"
+
+                });
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    ANIMATE MONTHLY REVENUE VALUES
+    =====================================================*/
+
+    const ysrMonthItems =
+
+        document.querySelectorAll(
+
+            ".ysr-month-item"
+
+        );
+
+    ysrMonthItems.forEach(function(item,index){
+
+        item.style.opacity = "0";
+
+        item.style.transform =
+
+            "translateY(15px)";
+
+        setTimeout(function(){
+
+            item.style.transition =
+
+                "all .4s ease";
+
+            item.style.opacity = "1";
+
+            item.style.transform =
+
+                "translateY(0)";
+
+        },300 + (index * 100));
+
+    });
+
+    /*=====================================================
+    ONLINE / OFFLINE STATUS
+    =====================================================*/
+
+    window.addEventListener(
+
+        "online",
+
+        function(){
+
+            console.log(
+
+                "Internet connection restored."
+
+            );
+
+        }
+
+    );
+
+    window.addEventListener(
+
+        "offline",
+
+        function(){
+
+            alert(
+
+                "You are currently offline."
+
+            );
+
+        }
+
+    );
+
+    /*=====================================================
+    SAVE LAST VISIT
+    =====================================================*/
+
+    localStorage.setItem(
+
+        "ysrLastVisit",
+
+        new Date().toISOString()
+
+    );
+
+    /*=====================================================
+    REVENUE CARD COUNTER
+    =====================================================*/
+
+    const ysrRevenueCounter =
+
+        document.getElementById(
+
+            "ysrRevenueCounter"
+
+        );
+
+    if(ysrRevenueCounter){
+
+        ysrRevenueCounter.textContent =
+
+            ysrSummaryCards.length;
+
+    }
+
+    /*=====================================================
+    COPY REVENUE VALUE
+    =====================================================*/
+
+    ysrRevenueValues.forEach(function(value){
+
+        value.addEventListener(
+
+            "dblclick",
+
+            async function(){
+
+                try{
+
+                    await navigator.clipboard.writeText(
+
+                        this.innerText
+
+                    );
+
+                    alert(
+
+                        "Revenue value copied."
+
+                    );
+
+                }
+
+                catch(error){
+
+                    console.error(error);
+
+                }
+
+            }
+
+        );
+
+    });
+
+       /*=====================================================
+    SAVE PAGE STATE
+    =====================================================*/
+
+    function ysrSavePageState(){
+
+        const pageState = {
+
+            page:"seller-revenue",
+
+            lastVisited:new Date().toISOString(),
+
+            totalCards:ysrSummaryCards.length
+
+        };
+
+        localStorage.setItem(
+
+            "ysrPageState",
+
+            JSON.stringify(pageState)
+
+        );
+
+    }
+
+    ysrSavePageState();
+
+    /*=====================================================
+    RESTORE SCROLL POSITION
+    =====================================================*/
+
+    const ysrSavedScroll =
+
+        sessionStorage.getItem(
+
+            "ysrScrollPosition"
+
+        );
+
+    if(ysrSavedScroll){
+
+        window.scrollTo(
+
+            0,
+
+            parseInt(ysrSavedScroll)
+
+        );
+
+    }
+
+    window.addEventListener(
+
+        "beforeunload",
+
+        function(){
+
+            sessionStorage.setItem(
+
+                "ysrScrollPosition",
+
+                window.scrollY
+
+            );
+
+        }
+
+    );
+
+    /*=====================================================
+    LAZY LOAD PROFILE IMAGE
+    =====================================================*/
+
+    const ysrProfileImage =
+
+        document.querySelector(
+
+            ".ysr-profile-image"
+
+        );
+
+    if(ysrProfileImage){
+
+        ysrProfileImage.loading = "lazy";
+
+        ysrProfileImage.decoding = "async";
+
+    }
+
+    /*=====================================================
+    PREVENT MULTIPLE FORM SUBMISSIONS
+    =====================================================*/
+
+    document.querySelectorAll("form")
+
+        .forEach(function(form){
+
+            form.addEventListener(
+
+                "submit",
+
+                function(){
+
+                    const submitButton =
+
+                        this.querySelector(
+
+                            'button[type="submit"]'
+
+                        );
+
+                    if(submitButton){
+
+                        submitButton.disabled = true;
+
+                        setTimeout(function(){
+
+                            submitButton.disabled = false;
+
+                        },1500);
+
+                    }
+
+                }
+
+            );
+
+        });
+
+    /*=====================================================
+    INITIALIZE BOOTSTRAP TOOLTIPS
+    =====================================================*/
+
+    document.querySelectorAll(
+
+        '[data-bs-toggle="tooltip"]'
+
+    ).forEach(function(element){
+
+        new bootstrap.Tooltip(
+
+            element
+
+        );
+
+    });
+
+    /*=====================================================
+    INITIALIZE BOOTSTRAP POPOVERS
+    =====================================================*/
+
+    document.querySelectorAll(
+
+        '[data-bs-toggle="popover"]'
+
+    ).forEach(function(element){
+
+        new bootstrap.Popover(
+
+            element
+
+        );
+
+    });
+
+    /*=====================================================
+    SELLER SESSION VALIDATION
+    =====================================================*/
+
+    const ysrSellerSession =
+
+        localStorage.getItem(
+
+            "sellerLoggedIn"
+
+        );
+
+    if(
+
+        ysrSellerSession !== "true"
+
+    ){
+
+        window.location.href =
+
+        "../auth/signin.html";
+
+    }
+
+    /*=====================================================
+    PAGE LOAD LOGGER
+    =====================================================*/
+
+    window.addEventListener(
+
+        "load",
+
+        function(){
+
+            console.log(
+
+                "Seller Revenue page fully loaded."
+
+            );
+
+        }
+
+    );
+
+    console.log(
+
+        "Seller Revenue initialized:",
+
+        new Date().toLocaleString()
+
+    );
+
+    /*=====================================================
+    CLEANUP BEFORE PAGE UNLOAD
+    =====================================================*/
+
+    window.addEventListener(
+
+        "beforeunload",
+
+        function(){
+
+            console.log(
+
+                "Leaving Seller Revenue page..."
+
+            );
+
+        }
+
+    );
+
+    /*=====================================================
+    FINAL INITIALIZATION
+    =====================================================*/
+
+    console.log(
+
+        "YOVI Seller Revenue module initialized successfully."
+
+    );
+
+});
+
+/*=====================================================
+SELLER INVENTORY
+PART 3A
+=====================================================*/
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    function(){
+
+        "use strict";
+
+        /*=====================================================
+        DOM REFERENCES
+        =====================================================*/
+
+        const ysiCartBtn =
+
+            document.getElementById(
+
+                "ysiCartBtn"
+
+            );
+
+        const ysiNotificationBtn =
+
+            document.getElementById(
+
+                "ysiNotificationBtn"
+
+            );
+
+        const ysiLogoutBtn =
+
+            document.getElementById(
+
+                "ysiLogoutBtn"
+
+            );
+
+        const ysiBackDashboard =
+
+            document.getElementById(
+
+                "ysiBackDashboard"
+
+            );
+
+        const ysiExportBtn =
+
+            document.getElementById(
+
+                "ysiExportBtn"
+
+            );
+
+        const ysiAddStockBtn =
+
+            document.getElementById(
+
+                "ysiAddStockBtn"
+
+            );
+
+        const ysiInventorySearch =
+
+            document.getElementById(
+
+                "ysiInventorySearch"
+
+            );
+
+        const ysiInventoryFilterBtn =
+
+            document.getElementById(
+
+                "ysiInventoryFilterBtn"
+
+            );
+
+        const ysiNewsletterForm =
+
+            document.getElementById(
+
+                "ysiNewsletterForm"
+
+            );
+
+        const ysiNewsletterEmail =
+
+            document.getElementById(
+
+                "ysiNewsletterEmail"
+
+            );
+
+        /*=====================================================
+        TABLE
+        =====================================================*/
+
+        const ysiInventoryTable =
+
+            document.querySelector(
+
+                ".ysi-inventory-table"
+
+            );
+
+        const ysiInventoryRows =
+
+            document.querySelectorAll(
+
+                ".ysi-inventory-table tbody tr"
+
+            );
+
+        /*=====================================================
+        ACTION BUTTONS
+        =====================================================*/
+
+        const ysiEditButtons =
+
+            document.querySelectorAll(
+
+                ".ysi-edit-product"
+
+            );
+
+        const ysiDeleteButtons =
+
+            document.querySelectorAll(
+
+                ".ysi-delete-product"
+
+            );
+
+        /*=====================================================
+        SUMMARY CARDS
+        =====================================================*/
+
+        const ysiSummaryCards =
+
+            document.querySelectorAll(
+
+                ".ysi-summary-card"
+
+            );
+
+        /*=====================================================
+        NAVIGATION
+        =====================================================*/
+
+        if(ysiBackDashboard){
+
+            ysiBackDashboard.addEventListener(
+
+                "click",
+
+                function(){
+
+                    window.location.href =
+
+                    "../Seller/seller-dashboard.html";
+
+                }
+
+            );
+
+        }
+
+        if(ysiCartBtn){
+
+            ysiCartBtn.addEventListener(
+
+                "click",
+
+                function(){
+
+                    window.location.href =
+
+                    "../Cart/cart.html";
+
+                }
+
+            );
+
+        }
+
+        if(ysiNotificationBtn){
+
+            ysiNotificationBtn.addEventListener(
+
+                "click",
+
+                function(){
+
+                    window.location.href =
+
+                    "../Notifications/notifications.html";
+
+                }
+
+            );
+
+        }
+
+        if(ysiLogoutBtn){
+
+            ysiLogoutBtn.addEventListener(
+
+                "click",
+
+                function(){
+
+                    const confirmLogout =
+
+                        confirm(
+
+                            "Are you sure you want to sign out?"
+
+                        );
+
+                    if(confirmLogout){
+
+                        localStorage.removeItem(
+
+                            "sellerLoggedIn"
+
+                        );
+
+                        window.location.href =
+
+                        "../index.html";
+
+                    }
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        SEARCH INVENTORY
+        =====================================================*/
+
+        if(
+
+            ysiInventorySearch &&
+
+            ysiInventoryRows.length
+
+        ){
+
+            ysiInventorySearch.addEventListener(
+
+                "keyup",
+
+                function(){
+
+                    const keyword =
+
+                        this.value
+
+                        .toLowerCase()
+
+                        .trim();
+
+                    ysiInventoryRows.forEach(
+
+                        function(row){
+
+                            const content =
+
+                                row.innerText
+
+                                .toLowerCase();
+
+                            row.style.display =
+
+                                content.includes(keyword)
+
+                                ? ""
+
+                                : "none";
+
+                        }
+
+                    );
+
+                }
+
+            );
+
+        }
+
+               /*=====================================================
+        EXPORT INVENTORY AS CSV
+        =====================================================*/
+
+        if(ysiExportBtn){
+
+            ysiExportBtn.addEventListener(
+
+                "click",
+
+                function(){
+
+                    let csv =
+
+                        "Product,SKU,Stock,Sold,Status\n";
+
+                    ysiInventoryRows.forEach(
+
+                        function(row){
+
+                            if(row.style.display === "none"){
+
+                                return;
+
+                            }
+
+                            const cells =
+
+                                row.querySelectorAll("td");
+
+                            if(cells.length < 6){
+
+                                return;
+
+                            }
+
+                            const product =
+
+                                cells[0]
+
+                                .innerText
+
+                                .trim()
+
+                                .replace(/\n/g," ");
+
+                            const sku =
+
+                                cells[1].innerText.trim();
+
+                            const stock =
+
+                                cells[2].innerText.trim();
+
+                            const sold =
+
+                                cells[3].innerText.trim();
+
+                            const status =
+
+                                cells[4].innerText.trim();
+
+                            csv += `"${product}","${sku}","${stock}","${sold}","${status}"\n`;
+
+                        }
+
+                    );
+
+                    const blob =
+
+                        new Blob(
+
+                            [csv],
+
+                            {
+
+                                type:"text/csv;charset=utf-8;"
+
+                            }
+
+                        );
+
+                    const url =
+
+                        URL.createObjectURL(blob);
+
+                    const link =
+
+                        document.createElement("a");
+
+                    link.href = url;
+
+                    link.download =
+
+                        "inventory.csv";
+
+                    document.body.appendChild(link);
+
+                    link.click();
+
+                    document.body.removeChild(link);
+
+                    URL.revokeObjectURL(url);
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        ADD STOCK
+        =====================================================*/
+
+        if(ysiAddStockBtn){
+
+            ysiAddStockBtn.addEventListener(
+
+                "click",
+
+                function(){
+
+                    alert(
+
+                        "Add Stock form will be connected here."
+
+                    );
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        FILTER BUTTON
+        =====================================================*/
+
+        if(ysiInventoryFilterBtn){
+
+            ysiInventoryFilterBtn.addEventListener(
+
+                "click",
+
+                function(){
+
+                    alert(
+
+                        "Inventory filters coming soon."
+
+                    );
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        EDIT PRODUCT
+        =====================================================*/
+
+        ysiEditButtons.forEach(
+
+            function(button){
+
+                button.addEventListener(
+
+                    "click",
+
+                    function(){
+
+                        const row =
+
+                            this.closest("tr");
+
+                        const product =
+
+                            row.querySelector(
+
+                                ".ysi-product-cell span"
+
+                            ).innerText;
+
+                        alert(
+
+                            "Edit Product:\n\n" +
+
+                            product
+
+                        );
+
+                    }
+
+                );
+
+            }
+
+        );
+
+        /*=====================================================
+        DELETE PRODUCT
+        =====================================================*/
+
+        ysiDeleteButtons.forEach(
+
+            function(button){
+
+                button.addEventListener(
+
+                    "click",
+
+                    function(){
+
+                        const row =
+
+                            this.closest("tr");
+
+                        const product =
+
+                            row.querySelector(
+
+                                ".ysi-product-cell span"
+
+                            ).innerText;
+
+                        const confirmed =
+
+                            confirm(
+
+                                `Delete "${product}" from inventory?`
+
+                            );
+
+                        if(confirmed){
+
+                            row.remove();
+
+                        }
+
+                    }
+
+                );
+
+            }
+
+        );
+
+        /*=====================================================
+        NEWSLETTER SUBMISSION
+        =====================================================*/
+
+        if(ysiNewsletterForm){
+
+            ysiNewsletterForm.addEventListener(
+
+                "submit",
+
+                function(event){
+
+                    event.preventDefault();
+
+                    const email =
+
+                        ysiNewsletterEmail.value.trim();
+
+                    const emailPattern =
+
+                        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                    if(
+
+                        !emailPattern.test(email)
+
+                    ){
+
+                        alert(
+
+                            "Please enter a valid email address."
+
+                        );
+
+                        return;
+
+                    }
+
+                    alert(
+
+                        "Thank you for subscribing!"
+
+                    );
+
+                    this.reset();
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        SUMMARY CARD ANIMATION
+        =====================================================*/
+
+        ysiSummaryCards.forEach(
+
+            function(card,index){
+
+                card.style.opacity = "0";
+
+                card.style.transform =
+
+                    "translateY(25px)";
+
+                setTimeout(
+
+                    function(){
+
+                        card.style.transition =
+
+                            "all .5s ease";
+
+                        card.style.opacity = "1";
+
+                        card.style.transform =
+
+                            "translateY(0)";
+
+                    },
+
+                    index * 120
+
+                );
+
+            }
+
+        );
+
+              /*=====================================================
+        RIPPLE EFFECT
+        =====================================================*/
+
+        function ysiCreateRipple(event){
+
+            const button = event.currentTarget;
+
+            const ripple =
+
+                document.createElement("span");
+
+            ripple.classList.add(
+
+                "ysi-ripple"
+
+            );
+
+            const rect =
+
+                button.getBoundingClientRect();
+
+            const size =
+
+                Math.max(
+
+                    rect.width,
+
+                    rect.height
+
+                );
+
+            ripple.style.width =
+
+                size + "px";
+
+            ripple.style.height =
+
+                size + "px";
+
+            ripple.style.left =
+
+                (event.clientX - rect.left - size / 2) + "px";
+
+            ripple.style.top =
+
+                (event.clientY - rect.top - size / 2) + "px";
+
+            button.style.position = "relative";
+
+            button.style.overflow = "hidden";
+
+            button.appendChild(ripple);
+
+            ripple.addEventListener(
+
+                "animationend",
+
+                function(){
+
+                    ripple.remove();
+
+                }
+
+            );
+
+        }
+
+        document.querySelectorAll(
+
+            ".ysi-export-btn, .ysi-add-stock-btn, .ysi-filter-btn, .ysi-action-btn, .ysi-nav-icon"
+
+        ).forEach(
+
+            function(button){
+
+                button.addEventListener(
+
+                    "click",
+
+                    ysiCreateRipple
+
+                );
+
+            }
+
+        );
+
+        /*=====================================================
+        TABLE ROW HOVER
+        =====================================================*/
+
+        ysiInventoryRows.forEach(
+
+            function(row){
+
+                row.addEventListener(
+
+                    "mouseenter",
+
+                    function(){
+
+                        this.style.transition =
+
+                            "all .25s ease";
+
+                    }
+
+                );
+
+            }
+
+        );
+
+        /*=====================================================
+        PRODUCT IMAGE CLICK
+        =====================================================*/
+
+        document.querySelectorAll(
+
+            ".ysi-product-image"
+
+        ).forEach(
+
+            function(image){
+
+                image.addEventListener(
+
+                    "click",
+
+                    function(){
+
+                        const product =
+
+                            this.closest("tr")
+
+                            .querySelector(
+
+                                ".ysi-product-cell span"
+
+                            )
+
+                            .innerText;
+
+                        alert(
+
+                            "Preview for:\n\n" +
+
+                            product
+
+                        );
+
+                    }
+
+                );
+
+            }
+
+        );
+
+        /*=====================================================
+        BUTTON LOADING EFFECT
+        =====================================================*/
+
+        function ysiButtonLoading(
+
+            button,
+
+            duration = 800
+
+        ){
+
+            if(!button) return;
+
+            button.classList.add(
+
+                "ysi-btn-loading"
+
+            );
+
+            button.disabled = true;
+
+            setTimeout(
+
+                function(){
+
+                    button.classList.remove(
+
+                        "ysi-btn-loading"
+
+                    );
+
+                    button.disabled = false;
+
+                },
+
+                duration
+
+            );
+
+        }
+
+        if(ysiExportBtn){
+
+            ysiExportBtn.addEventListener(
+
+                "click",
+
+                function(){
+
+                    ysiButtonLoading(this);
+
+                }
+
+            );
+
+        }
+
+        if(ysiAddStockBtn){
+
+            ysiAddStockBtn.addEventListener(
+
+                "click",
+
+                function(){
+
+                    ysiButtonLoading(this);
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        KEYBOARD SHORTCUTS
+        =====================================================*/
+
+        document.addEventListener(
+
+            "keydown",
+
+            function(event){
+
+                if(
+
+                    event.ctrlKey &&
+
+                    event.key.toLowerCase() === "f"
+
+                ){
+
+                    event.preventDefault();
+
+                    ysiInventorySearch.focus();
+
+                }
+
+                if(
+
+                    event.altKey &&
+
+                    event.key.toLowerCase() === "a"
+
+                ){
+
+                    event.preventDefault();
+
+                    ysiAddStockBtn.click();
+
+                }
+
+                if(
+
+                    event.altKey &&
+
+                    event.key.toLowerCase() === "e"
+
+                ){
+
+                    event.preventDefault();
+
+                    ysiExportBtn.click();
+
+                }
+
+            }
+
+        );
+
+               /*=====================================================
+        SAVE INVENTORY PAGE STATE
+        =====================================================*/
+
+        function ysiSavePageState(){
+
+            const pageState = {
+
+                searchValue:
+
+                    ysiInventorySearch
+
+                    ? ysiInventorySearch.value
+
+                    : "",
+
+                lastVisited:
+
+                    new Date().toISOString()
+
+            };
+
+            localStorage.setItem(
+
+                "ysiInventoryPageState",
+
+                JSON.stringify(pageState)
+
+            );
+
+        }
+
+        function ysiRestorePageState(){
+
+            const savedState =
+
+                localStorage.getItem(
+
+                    "ysiInventoryPageState"
+
+                );
+
+            if(!savedState){
+
+                return;
+
+            }
+
+            try{
+
+                const pageState =
+
+                    JSON.parse(savedState);
+
+                if(
+
+                    ysiInventorySearch &&
+
+                    pageState.searchValue
+
+                ){
+
+                    ysiInventorySearch.value =
+
+                        pageState.searchValue;
+
+                    ysiInventorySearch.dispatchEvent(
+
+                        new Event("keyup")
+
+                    );
+
+                }
+
+            }
+
+            catch(error){
+
+                console.error(error);
+
+            }
+
+        }
+
+        ysiRestorePageState();
+
+        window.addEventListener(
+
+            "beforeunload",
+
+            ysiSavePageState
+
+        );
+
+        /*=====================================================
+        INVENTORY SUMMARY REFRESH
+        =====================================================*/
+
+        function ysiRefreshInventoryStats(){
+
+            const rows =
+
+                document.querySelectorAll(
+
+                    ".ysi-inventory-table tbody tr"
+
+                );
+
+            const totalProducts = rows.length;
+
+            const lowStockProducts =
+
+                Array.from(rows).filter(
+
+                    function(row){
+
+                        const stock = parseInt(
+
+                            row.children[2]
+
+                            .innerText
+
+                        );
+
+                        return stock <= 10;
+
+                    }
+
+                ).length;
+
+            const summaryValues =
+
+                document.querySelectorAll(
+
+                    ".ysi-summary-value"
+
+                );
+
+            if(summaryValues.length >= 2){
+
+                summaryValues[0].textContent =
+
+                    totalProducts;
+
+                summaryValues[1].textContent =
+
+                    lowStockProducts;
+
+            }
+
+        }
+
+        ysiRefreshInventoryStats();
+
+        /*=====================================================
+        EMPTY TABLE CHECK
+        =====================================================*/
+
+        function ysiCheckEmptyInventory(){
+
+            const visibleRows =
+
+                Array.from(
+
+                    document.querySelectorAll(
+
+                        ".ysi-inventory-table tbody tr"
+
+                    )
+
+                ).filter(
+
+                    function(row){
+
+                        return row.style.display !== "none";
+
+                    }
+
+                );
+
+            let emptyState =
+
+                document.getElementById(
+
+                    "ysiEmptyState"
+
+                );
+
+            if(
+
+                visibleRows.length === 0
+
+            ){
+
+                if(!emptyState){
+
+                    emptyState =
+
+                        document.createElement(
+
+                            "div"
+
+                        );
+
+                    emptyState.id =
+
+                        "ysiEmptyState";
+
+                    emptyState.className =
+
+                        "ysi-empty-state";
+
+                    emptyState.innerHTML =
+
+                        '<i class="bi bi-box-seam"></i>' +
+
+                        '<h4>No Products Found</h4>' +
+
+                        '<p>Try another search keyword.</p>';
+
+                    ysiInventoryTable
+
+                        .parentElement
+
+                        .appendChild(
+
+                            emptyState
+
+                        );
+
+                }
+
+            }
+
+            else if(emptyState){
+
+                emptyState.remove();
+
+            }
+
+        }
+
+        if(ysiInventorySearch){
+
+            ysiInventorySearch.addEventListener(
+
+                "keyup",
+
+                ysiCheckEmptyInventory
+
+            );
+
+        }
+
+        /*=====================================================
+        SMOOTH SCROLL TO TABLE
+        =====================================================*/
+
+        if(ysiInventorySearch){
+
+            ysiInventorySearch.addEventListener(
+
+                "focus",
+
+                function(){
+
+                    ysiInventoryTable.scrollIntoView({
+
+                        behavior:"smooth",
+
+                        block:"start"
+
+                    });
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        SIMPLE TOAST NOTIFICATION
+        =====================================================*/
+
+        function ysiShowToast(message){
+
+            const toast =
+
+                document.createElement(
+
+                    "div"
+
+                );
+
+            toast.className =
+
+                "ysi-floating-btn";
+
+            toast.style.width =
+
+                "auto";
+
+            toast.style.height =
+
+                "auto";
+
+            toast.style.padding =
+
+                "14px 20px";
+
+            toast.style.borderRadius =
+
+                "12px";
+
+            toast.style.cursor =
+
+                "default";
+
+            toast.textContent =
+
+                message;
+
+            document.body.appendChild(
+
+                toast
+
+            );
+
+            setTimeout(function(){
+
+                toast.remove();
+
+            },2500);
+
+        }
+
+        /*=====================================================
+        DELETE SUCCESS TOAST
+        =====================================================*/
+
+        ysiDeleteButtons.forEach(
+
+            function(button){
+
+                button.addEventListener(
+
+                    "click",
+
+                    function(){
+
+                        setTimeout(function(){
+
+                            ysiRefreshInventoryStats();
+
+                            ysiCheckEmptyInventory();
+
+                            ysiShowToast(
+
+                                "Inventory updated."
+
+                            );
+
+                        },100);
+
+                    }
+
+                );
+
+            }
+
+        );
+
+               /*=====================================================
+        SESSION VALIDATION
+        =====================================================*/
+
+        // const ysiSellerSession =
+
+        //     localStorage.getItem(
+
+        //         "sellerLoggedIn"
+
+        //     );
+
+        // if(ysiSellerSession !== "true"){
+
+        //     window.location.href =
+
+        //     "../auth/signin.html";
+
+        // }
+
+        /*=====================================================
+        RESTORE SCROLL POSITION
+        =====================================================*/
+
+        const ysiSavedScroll =
+
+            sessionStorage.getItem(
+
+                "ysiInventoryScroll"
+
+            );
+
+        if(ysiSavedScroll){
+
+            window.scrollTo(
+
+                0,
+
+                parseInt(ysiSavedScroll,10)
+
+            );
+
+        }
+
+        window.addEventListener(
+
+            "beforeunload",
+
+            function(){
+
+                sessionStorage.setItem(
+
+                    "ysiInventoryScroll",
+
+                    window.scrollY
+
+                );
+
+            }
+
+        );
+
+        /*=====================================================
+        BOOTSTRAP TOOLTIPS
+        =====================================================*/
+
+        document.querySelectorAll(
+
+            '[data-bs-toggle="tooltip"]'
+
+        ).forEach(function(element){
+
+            new bootstrap.Tooltip(
+
+                element
+
+            );
+
+        });
+
+        /*=====================================================
+        BOOTSTRAP POPOVERS
+        =====================================================*/
+
+        document.querySelectorAll(
+
+            '[data-bs-toggle="popover"]'
+
+        ).forEach(function(element){
+
+            new bootstrap.Popover(
+
+                element
+
+            );
+
+        });
+
+        /*=====================================================
+        PAGE FADE-IN
+        =====================================================*/
+
+        document.body.style.opacity = "0";
+
+        window.addEventListener(
+
+            "load",
+
+            function(){
+
+                document.body.style.transition =
+
+                    "opacity .35s ease";
+
+                document.body.style.opacity = "1";
+
+            }
+
+        );
+
+        /*=====================================================
+        IMAGE FALLBACKS
+        =====================================================*/
+
+        document.querySelectorAll(
+
+            ".ysi-product-image, .ysi-profile-image"
+
+        ).forEach(function(image){
+
+            image.addEventListener(
+
+                "error",
+
+                function(){
+
+                    this.src =
+
+                        "https://placehold.co/60x60?text=Image";
+
+                }
+
+            );
+
+        });
+
+        /*=====================================================
+        PERFORMANCE LOGGER
+        =====================================================*/
+
+        window.addEventListener(
+
+            "load",
+
+            function(){
+
+                console.log(
+
+                    "Seller Inventory page loaded successfully."
+
+                );
+
+                if(
+
+                    performance &&
+
+                    performance.now
+
+                ){
+
+                    console.log(
+
+                        "Load Time:",
+
+                        Math.round(
+
+                            performance.now()
+
+                        ) + "ms"
+
+                    );
+
+                }
+
+            }
+
+        );
+
+        /*=====================================================
+        PAGE VISIT HISTORY
+        =====================================================*/
+
+        localStorage.setItem(
+
+            "ysiLastVisitedPage",
+
+            "seller-inventory"
+
+        );
+
+        localStorage.setItem(
+
+            "ysiLastVisitTime",
+
+            new Date().toISOString()
+
+        );
+
+        /*=====================================================
+        CLEANUP
+        =====================================================*/
+
+        window.addEventListener(
+
+            "beforeunload",
+
+            function(){
+
+                console.log(
+
+                    "Leaving Seller Inventory page..."
+
+                );
+
+            }
+
+        );
+
+        /*=====================================================
+        MODULE INITIALIZED
+        =====================================================*/
+
+        console.log(
+
+            "YOVI Seller Inventory module initialized successfully."
+
+        );
+
+    }
+
+);
+
+
+/*==================================
+   SELLER ANALYTICS PAGE 
+ ===================================*/
+
+"use strict";
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    function(){
+
+        /*=====================================================
+        PAGE ELEMENTS
+        =====================================================*/
+
+        const ysaAnalyticsPage =
+
+            document.getElementById(
+
+                "ysaAnalyticsPage"
+
+            );
+
+        const ysaBackDashboard =
+
+            document.getElementById(
+
+                "ysaBackDashboard"
+
+            );
+
+        const ysaCartBtn =
+
+            document.getElementById(
+
+                "ysaCartBtn"
+
+            );
+
+        const ysaNotificationBtn =
+
+            document.getElementById(
+
+                "ysaNotificationBtn"
+
+            );
+
+        const ysaLogoutBtn =
+
+            document.getElementById(
+
+                "ysaLogoutBtn"
+
+            );
+
+        const ysaNewsletterForm =
+
+            document.getElementById(
+
+                "ysaNewsletterForm"
+
+            );
+
+        const ysaNewsletterEmail =
+
+            document.getElementById(
+
+                "ysaNewsletterEmail"
+
+            );
+
+        const ysaStatCards =
+
+            document.querySelectorAll(
+
+                ".ysa-stat-card"
+
+            );
+
+        const ysaAnalyticsCards =
+
+            document.querySelectorAll(
+
+                ".ysa-card"
+
+            );
+
+        const ysaProductRows =
+
+            document.querySelectorAll(
+
+                ".ysa-table-card tbody tr"
+
+            );
+
+        const ysaProgressBars =
+
+            document.querySelectorAll(
+
+                ".ysa-progress .progress-bar"
+
+            );
+
+        const ysaFunnelItems =
+
+            document.querySelectorAll(
+
+                ".ysa-funnel-item"
+
+            );
+
+        const ysaProductImages =
+
+            document.querySelectorAll(
+
+                ".ysa-product-image"
+
+            );
+
+        /*=====================================================
+        PAGE NAVIGATION
+        =====================================================*/
+
+        if(ysaBackDashboard){
+
+            ysaBackDashboard.addEventListener(
+
+                "click",
+
+                function(){
+
+                    window.location.href =
+
+                        "../../seller/seller-dashboard.html";
+
+                }
+
+            );
+
+        }
+
+        if(ysaCartBtn){
+
+            ysaCartBtn.addEventListener(
+
+                "click",
+
+                function(){
+
+                    window.location.href =
+
+                        "../cart.html";
+
+                }
+
+            );
+
+        }
+
+        if(ysaNotificationBtn){
+
+            ysaNotificationBtn.addEventListener(
+
+                "click",
+
+                function(){
+
+                    window.location.href =
+
+                        "../notifications.html";
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        LOGOUT
+        =====================================================*/
+
+        if(ysaLogoutBtn){
+
+            ysaLogoutBtn.addEventListener(
+
+                "click",
+
+                function(){
+
+                    const confirmLogout =
+
+                        confirm(
+
+                            "Are you sure you want to sign out?"
+
+                        );
+
+                    if(!confirmLogout){
+
+                        return;
+
+                    }
+
+                    localStorage.removeItem(
+
+                        "sellerLoggedIn"
+
+                    );
+
+                    window.location.href =
+
+                        "../auth/login.html";
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        NEWSLETTER SUBSCRIPTION
+        =====================================================*/
+
+        if(ysaNewsletterForm){
+
+            ysaNewsletterForm.addEventListener(
+
+                "submit",
+
+                function(event){
+
+                    event.preventDefault();
+
+                    const email =
+
+                        ysaNewsletterEmail.value.trim();
+
+                    if(email === ""){
+
+                        alert(
+
+                            "Please enter your email address."
+
+                        );
+
+                        return;
+
+                    }
+
+                    alert(
+
+                        "Newsletter subscription successful!"
+
+                    );
+
+                    this.reset();
+
+                }
+
+            );
+
+        }
+
+              /*=====================================================
+        STATISTICS CARD ANIMATION
+        =====================================================*/
+
+        ysaStatCards.forEach(function(card, index){
+
+            card.style.opacity = "0";
+
+            card.style.transform = "translateY(30px)";
+
+            setTimeout(function(){
+
+                card.style.transition =
+
+                    "all .45s ease";
+
+                card.style.opacity = "1";
+
+                card.style.transform =
+
+                    "translateY(0)";
+
+            }, index * 120);
+
+        });
+
+        /*=====================================================
+        CONTENT CARD ANIMATION
+        =====================================================*/
+
+        ysaAnalyticsCards.forEach(function(card, index){
+
+            card.style.opacity = "0";
+
+            card.style.transform = "translateY(35px)";
+
+            setTimeout(function(){
+
+                card.style.transition =
+
+                    "all .5s ease";
+
+                card.style.opacity = "1";
+
+                card.style.transform =
+
+                    "translateY(0)";
+
+            }, 450 + (index * 180));
+
+        });
+
+        /*=====================================================
+        PROGRESS BAR ANIMATION
+        =====================================================*/
+
+        ysaProgressBars.forEach(function(bar){
+
+            const targetWidth =
+
+                bar.style.width;
+
+            bar.style.width = "0";
+
+            setTimeout(function(){
+
+                bar.style.width = targetWidth;
+
+            }, 700);
+
+        });
+
+        /*=====================================================
+        CONVERSION FUNNEL ANIMATION
+        =====================================================*/
+
+        ysaFunnelItems.forEach(function(item, index){
+
+            item.style.opacity = "0";
+
+            item.style.transform =
+
+                "translateX(-25px)";
+
+            setTimeout(function(){
+
+                item.style.transition =
+
+                    "all .45s ease";
+
+                item.style.opacity = "1";
+
+                item.style.transform =
+
+                    "translateX(0)";
+
+            }, 900 + (index * 150));
+
+        });
+
+        /*=====================================================
+        PRODUCT TABLE ROW HOVER EFFECT
+        =====================================================*/
+
+        ysaProductRows.forEach(function(row){
+
+            row.addEventListener(
+
+                "mouseenter",
+
+                function(){
+
+                    this.style.transform =
+
+                        "scale(1.01)";
+
+                }
+
+            );
+
+            row.addEventListener(
+
+                "mouseleave",
+
+                function(){
+
+                    this.style.transform =
+
+                        "scale(1)";
+
+                }
+
+            );
+
+        });
+
+        /*=====================================================
+        PRODUCT IMAGE INTERACTION
+        =====================================================*/
+
+        ysaProductImages.forEach(function(image){
+
+            image.addEventListener(
+
+                "click",
+
+                function(){
+
+                    alert(
+
+                        "Product preview will be available in a future update."
+
+                    );
+
+                }
+
+            );
+
+        });
+
+               /*=====================================================
+        INTERSECTION OBSERVER
+        Animate cards when they enter the viewport
+        =====================================================*/
+
+        const ysaObserver = new IntersectionObserver(
+
+            function(entries){
+
+                entries.forEach(function(entry){
+
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add(
+
+                            "ysa-fade-in"
+
+                        );
+
+                    }
+
+                });
+
+            },
+
+            {
+
+                threshold:0.20
+
+            }
+
+        );
+
+        ysaAnalyticsCards.forEach(function(card){
+
+            ysaObserver.observe(card);
+
+        });
+
+        ysaStatCards.forEach(function(card){
+
+            ysaObserver.observe(card);
+
+        });
+
+        /*=====================================================
+        PRODUCT ROW RIPPLE EFFECT
+        =====================================================*/
+
+        ysaProductRows.forEach(function(row){
+
+            row.addEventListener(
+
+                "click",
+
+                function(){
+
+                    this.animate(
+
+                        [
+
+                            {
+
+                                transform:"scale(1)"
+
+                            },
+
+                            {
+
+                                transform:"scale(.98)"
+
+                            },
+
+                            {
+
+                                transform:"scale(1)"
+
+                            }
+
+                        ],
+
+                        {
+
+                            duration:220,
+
+                            easing:"ease"
+
+                        }
+
+                    );
+
+                }
+
+            );
+
+        });
+
+        /*=====================================================
+        REFRESH ANALYTICS
+        =====================================================*/
+
+        function ysaRefreshAnalytics(){
+
+            ysaProgressBars.forEach(function(bar){
+
+                const width = bar.style.width;
+
+                bar.style.width = "0";
+
+                setTimeout(function(){
+
+                    bar.style.width = width;
+
+                },250);
+
+            });
+
+        }
+
+        /*=====================================================
+        AUTO REFRESH
+        =====================================================*/
+
+        const ysaRefreshInterval =
+
+            setInterval(function(){
+
+                ysaRefreshAnalytics();
+
+            },30000);
+
+        /*=====================================================
+        PRODUCT IMAGE LOADING
+        =====================================================*/
+
+        ysaProductImages.forEach(function(image){
+
+            image.addEventListener(
+
+                "load",
+
+                function(){
+
+                    image.classList.remove(
+
+                        "ysa-skeleton"
+
+                    );
+
+                }
+
+            );
+
+        });
+
+        /*=====================================================
+        CONSOLE INFO
+        =====================================================*/
+
+        console.log(
+
+            "Seller Analytics initialized successfully."
+
+        );
+
+               /*=====================================================
+        PRODUCT TABLE ROW SELECTION
+        =====================================================*/
+
+        ysaProductRows.forEach(function (row) {
+
+            row.addEventListener("click", function () {
+
+                ysaProductRows.forEach(function (item) {
+
+                    item.classList.remove("ysa-row-selected");
+
+                });
+
+                this.classList.add("ysa-row-selected");
+
+            });
+
+        });
+
+        /*=====================================================
+        PRODUCT ROW DOUBLE CLICK
+        =====================================================*/
+
+        ysaProductRows.forEach(function (row) {
+
+            row.addEventListener("dblclick", function () {
+
+                alert("Opening product details...");
+
+                window.location.href = "seller-products.html";
+
+            });
+
+        });
+
+        /*=====================================================
+        KEYBOARD SHORTCUTS
+        =====================================================*/
+
+        document.addEventListener("keydown", function (event) {
+
+            /* Alt + D → Dashboard */
+
+            if (event.altKey && event.key.toLowerCase() === "d") {
+
+                event.preventDefault();
+
+                window.location.href = "seller-dashboard.html";
+
+            }
+
+            /* Alt + P → Products */
+
+            if (event.altKey && event.key.toLowerCase() === "p") {
+
+                event.preventDefault();
+
+                window.location.href = "seller-products.html";
+
+            }
+
+            /* Alt + I → Inventory */
+
+            if (event.altKey && event.key.toLowerCase() === "i") {
+
+                event.preventDefault();
+
+                window.location.href = "seller-inventory.html";
+
+            }
+
+            /* Alt + R → Revenue */
+
+            if (event.altKey && event.key.toLowerCase() === "r") {
+
+                event.preventDefault();
+
+                window.location.href = "seller-revenue.html";
+
+            }
+
+        });
+
+        /*=====================================================
+        PAGE VISIBILITY
+        =====================================================*/
+
+        document.addEventListener(
+
+            "visibilitychange",
+
+            function () {
+
+                if (document.hidden) {
+
+                    console.log("Analytics page hidden.");
+
+                } else {
+
+                    console.log("Analytics page active.");
+
+                }
+
+            }
+
+        );
+
+        /*=====================================================
+        SIMPLE PAGE TIMER
+        =====================================================*/
+
+        let ysaVisitSeconds = 0;
+
+        setInterval(function () {
+
+            ysaVisitSeconds++;
+
+        }, 1000);
+
+        window.addEventListener("beforeunload", function () {
+
+            console.log(
+
+                "Time spent:",
+
+                ysaVisitSeconds,
+
+                "seconds"
+
+            );
+
+        });
+
+               /*=====================================================
+        RESTORE SCROLL POSITION
+        =====================================================*/
+
+        const ysaSavedScroll =
+
+            sessionStorage.getItem(
+
+                "ysaAnalyticsScroll"
+
+            );
+
+        if(ysaSavedScroll){
+
+            window.scrollTo(
+
+                0,
+
+                parseInt(
+
+                    ysaSavedScroll,
+
+                    10
+
+                )
+
+            );
+
+        }
+
+        window.addEventListener(
+
+            "beforeunload",
+
+            function(){
+
+                sessionStorage.setItem(
+
+                    "ysaAnalyticsScroll",
+
+                    window.scrollY
+
+                );
+
+            }
+
+        );
+
+        /*=====================================================
+        SESSION VALIDATION
+        =====================================================*/
+
+        // const ysaSellerSession =
+
+        //     localStorage.getItem(
+
+        //         "sellerLoggedIn"
+
+        //     );
+
+        // if(ysaSellerSession !== "true"){
+
+        //     window.location.href =
+
+        //         "../auth/signin.html";
+
+        // }
+
+        /*=====================================================
+        BOOTSTRAP TOOLTIPS
+        =====================================================*/
+
+        document.querySelectorAll(
+
+            '[data-bs-toggle="tooltip"]'
+
+        ).forEach(function(element){
+
+            new bootstrap.Tooltip(
+
+                element
+
+            );
+
+        });
+
+        /*=====================================================
+        BOOTSTRAP POPOVERS
+        =====================================================*/
+
+        document.querySelectorAll(
+
+            '[data-bs-toggle="popover"]'
+
+        ).forEach(function(element){
+
+            new bootstrap.Popover(
+
+                element
+
+            );
+
+        });
+
+        /*=====================================================
+        PAGE FADE-IN
+        =====================================================*/
+
+        document.body.style.opacity = "0";
+
+        window.addEventListener(
+
+            "load",
+
+            function(){
+
+                document.body.style.transition =
+
+                    "opacity .35s ease";
+
+                document.body.style.opacity = "1";
+
+            }
+
+        );
+
+        /*=====================================================
+        IMAGE FALLBACK
+        =====================================================*/
+
+        ysaProductImages.forEach(function(image){
+
+            image.addEventListener(
+
+                "error",
+
+                function(){
+
+                    this.src =
+
+                        "https://placehold.co/60x60?text=Image";
+
+                }
+
+            );
+
+        });
+
+        /*=====================================================
+        SAVE LAST VISITED PAGE
+        =====================================================*/
+
+        localStorage.setItem(
+
+            "ysaLastVisitedPage",
+
+            "seller-analytics"
+
+        );
+
+        localStorage.setItem(
+
+            "ysaLastVisitTime",
+
+            new Date().toISOString()
+
+        );
+
+        /*=====================================================
+        CLEANUP
+        =====================================================*/
+
+        window.addEventListener(
+
+            "beforeunload",
+
+            function(){
+
+                clearInterval(
+
+                    ysaRefreshInterval
+
+                );
+
+                console.log(
+
+                    "Leaving Seller Analytics page..."
+
+                );
+
+            }
+
+        );
+
+        /*=====================================================
+        MODULE INITIALIZED
+        =====================================================*/
+
+        console.log(
+
+            "YOVI Seller Analytics module initialized successfully."
+
+        );
+
+    }
+
+);
+
+
 
 
 
