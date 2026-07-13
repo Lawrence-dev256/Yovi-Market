@@ -10750,6 +10750,10 @@ const SellerPromoteListings = {
 
         this.initializeAnimations();
 
+        this.initializeIntersectionObserver();
+
+        this.animateSelectedPackage();
+
     },
 
     /*=====================================================
