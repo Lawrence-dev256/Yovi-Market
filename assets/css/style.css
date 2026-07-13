@@ -21497,6 +21497,2021 @@ TOUCH DEVICE OPTIMIZATION
 END OF SELLER PROMOTE LISTINGS STYLES
 =========================================================*/
 
+/*=========================================================
+SELLER WALLET PAGE
+PART 2A
+=========================================================*/
+
+/*=========================================================
+PAGE WRAPPER
+=========================================================*/
+
+#yswWalletPage{
+
+    background:var(--bg-color);
+
+    min-height:100vh;
+
+}
+
+.ysw-wallet-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    animation:yswPageFade .45s ease;
+
+}
+
+@keyframes yswPageFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(12px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+TOP HEADER
+=========================================================*/
+
+.ysw-header{
+
+    background:#ffffff;
+
+    border-bottom:1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    padding:14px 0;
+
+}
+
+.ysw-header .container-fluid{
+
+    padding-left:32px;
+
+    padding-right:32px;
+
+}
+
+/*=========================================================
+LOGO
+=========================================================*/
+
+.ysw-logo-link{
+
+    display:inline-flex;
+
+    text-decoration:none;
+
+}
+
+.ysw-logo-placeholder{
+
+    width:145px;
+
+    height:48px;
+
+    border:2px dashed var(--border);
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#ffffff;
+
+    color:var(--text-muted);
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.ysw-logo-placeholder:hover{
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+NAVIGATION
+=========================================================*/
+
+.ysw-navigation-list{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:34px;
+
+    margin:0;
+
+    padding:0;
+
+    list-style:none;
+
+}
+
+.ysw-navigation-list li a{
+
+    text-decoration:none;
+
+    color:var(--text-secondary);
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    transition:var(--transition);
+
+    position:relative;
+
+}
+
+.ysw-navigation-list li a:hover{
+
+    color:var(--primary);
+
+}
+
+.ysw-navigation-list li a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--primary);
+
+    transition:.3s ease;
+
+}
+
+.ysw-navigation-list li a:hover::after{
+
+    width:100%;
+
+}
+
+/*=========================================================
+HEADER ACTIONS
+=========================================================*/
+
+.ysw-header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    gap:16px;
+
+}
+
+.ysw-header-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    border:1px solid var(--border);
+
+    background:#ffffff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:var(--transition);
+
+}
+
+.ysw-header-icon i{
+
+    font-size:1.15rem;
+
+    color:var(--text-secondary);
+
+}
+
+.ysw-header-icon:hover{
+
+    background:var(--primary);
+
+    border-color:var(--primary);
+
+    transform:translateY(-2px);
+
+}
+
+.ysw-header-icon:hover i{
+
+    color:#ffffff;
+
+}
+
+.ysw-notification-indicator{
+
+    width:9px;
+
+    height:9px;
+
+    background:#ef4444;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    top:8px;
+
+    right:9px;
+
+    border:2px solid #ffffff;
+
+}
+
+/*=========================================================
+USER PROFILE
+=========================================================*/
+
+.ysw-user-button{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:6px 10px;
+
+    border-radius:12px;
+
+    border:1px solid transparent;
+
+    transition:var(--transition);
+
+}
+
+.ysw-user-button:hover{
+
+    border-color:var(--border);
+
+    background:#f8fafc;
+
+}
+
+.ysw-user-avatar{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.ysw-user-name{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+/*=========================================================
+PAGE CONTENT
+=========================================================*/
+
+.ysw-content{
+
+    padding:42px 0 70px;
+
+    flex:1;
+
+}
+
+.ysw-breadcrumb{
+
+    margin-bottom:18px;
+
+}
+
+.ysw-breadcrumb a{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--text-muted);
+
+    text-decoration:none;
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    transition:var(--transition);
+
+}
+
+.ysw-breadcrumb a:hover{
+
+    color:var(--primary);
+
+}
+
+.ysw-page-header{
+
+    margin-bottom:34px;
+
+}
+
+.ysw-page-title{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--text);
+
+    margin:0;
+
+}
+
+/*=========================================================
+WALLET SUMMARY
+=========================================================*/
+
+.ysw-wallet-summary{
+
+    margin-bottom:2rem;
+
+}
+
+.ysw-wallet-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:24px;
+
+    padding:2.5rem;
+
+    background:linear-gradient(135deg,#14D495 0%,#10B981 100%);
+
+    color:#ffffff;
+
+    box-shadow:0 20px 45px rgba(16,185,129,.22);
+
+    transition:var(--transition);
+
+}
+
+.ysw-wallet-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 28px 60px rgba(16,185,129,.30);
+
+}
+
+/*=========================================================
+BACKGROUND DECORATION
+=========================================================*/
+
+.ysw-wallet-circle{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.10);
+
+    pointer-events:none;
+
+}
+
+.ysw-wallet-circle-top{
+
+    width:220px;
+
+    height:220px;
+
+    top:-90px;
+
+    right:-70px;
+
+}
+
+.ysw-wallet-circle-bottom{
+
+    width:170px;
+
+    height:170px;
+
+    bottom:-70px;
+
+    left:-45px;
+
+}
+
+/*=========================================================
+CONTENT
+=========================================================*/
+
+.ysw-wallet-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.ysw-wallet-label{
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    color:rgba(255,255,255,.90);
+
+    margin-bottom:.75rem;
+
+}
+
+.ysw-wallet-balance{
+
+    font-size:3rem;
+
+    font-weight:700;
+
+    line-height:1.1;
+
+    margin-bottom:2rem;
+
+    color:#ffffff;
+
+}
+
+/*=========================================================
+STATS
+=========================================================*/
+
+.ysw-wallet-stats{
+
+    display:flex;
+
+    gap:3rem;
+
+    flex-wrap:wrap;
+
+    margin-bottom:2rem;
+
+}
+
+.ysw-wallet-stat{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.ysw-stat-title{
+
+    font-size:.85rem;
+
+    color:rgba(255,255,255,.82);
+
+    margin-bottom:.4rem;
+
+}
+
+.ysw-wallet-stat h6{
+
+    margin:0;
+
+    color:#ffffff;
+
+    font-size:1.15rem;
+
+    font-weight:700;
+
+}
+
+/*=========================================================
+ACTION BUTTONS
+=========================================================*/
+
+.ysw-wallet-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:1rem;
+
+    flex-wrap:wrap;
+
+}
+
+.ysw-btn-primary{
+
+    border:none;
+
+    background:#ffffff;
+
+    color:#10B981;
+
+    padding:.95rem 2rem;
+
+    border-radius:12px;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+}
+
+.ysw-btn-primary:hover{
+
+    transform:translateY(-3px);
+
+    background:#f8fafc;
+
+}
+
+.ysw-btn-secondary{
+
+    border:2px solid rgba(255,255,255,.35);
+
+    background:transparent;
+
+    color:#ffffff;
+
+    padding:.95rem 2rem;
+
+    border-radius:12px;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.ysw-btn-secondary:hover{
+
+    background:rgba(255,255,255,.18);
+
+    border-color:#ffffff;
+
+    transform:translateY(-3px);
+
+}
+
+/*=========================================================
+CARD ENTRANCE
+=========================================================*/
+
+.ysw-wallet-card{
+
+    animation:yswWalletSlide .7s ease;
+
+}
+
+@keyframes yswWalletSlide{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+WITHDRAW SECTION
+=========================================================*/
+
+.ysw-withdraw-section{
+
+    margin-bottom:2rem;
+
+}
+
+.ysw-card{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:2rem;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow-md);
+
+    transition:var(--transition);
+
+}
+
+.ysw-card:hover{
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.ysw-card-title{
+
+    font-size:1.35rem;
+
+    font-weight:700;
+
+    color:var(--text);
+
+    margin-bottom:1.5rem;
+
+}
+
+.ysw-card-subtitle{
+
+    font-size:.9rem;
+
+    color:var(--text-muted);
+
+    margin-top:.35rem;
+
+}
+
+/*=========================================================
+FORM LABELS
+=========================================================*/
+
+.ysw-label{
+
+    display:block;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text-secondary);
+
+    margin-bottom:.7rem;
+
+}
+
+/*=========================================================
+INPUT FIELD
+=========================================================*/
+
+.ysw-input{
+
+    height:58px;
+
+    border:1.5px solid var(--border);
+
+    border-radius:14px;
+
+    background:#ffffff;
+
+    padding:0 1rem;
+
+    font-size:1rem;
+
+    font-weight:500;
+
+    color:var(--text);
+
+    transition:var(--transition);
+
+    box-shadow:none;
+
+}
+
+.ysw-input::placeholder{
+
+    color:#9ca3af;
+
+}
+
+.ysw-input:focus{
+
+    border-color:#10B981;
+
+    box-shadow:0 0 0 .2rem rgba(16,185,129,.15);
+
+}
+
+/*=========================================================
+BANK ACCOUNT CARD
+=========================================================*/
+
+.ysw-bank-card{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:1rem;
+
+    background:#f8fafc;
+
+    border:1px solid var(--border-light);
+
+    border-radius:16px;
+
+    padding:1rem 1.2rem;
+
+    transition:var(--transition);
+
+}
+
+.ysw-bank-card:hover{
+
+    border-color:#10B981;
+
+    background:#f0fdf4;
+
+}
+
+.ysw-bank-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:1rem;
+
+}
+
+.ysw-bank-icon{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:14px;
+
+    background:#10B981;
+
+    color:#ffffff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.3rem;
+
+}
+
+.ysw-bank-left h6{
+
+    margin:0;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+.ysw-bank-left small{
+
+    color:var(--text-muted);
+
+    font-size:.85rem;
+
+}
+
+.ysw-change-bank{
+
+    border:none;
+
+    background:transparent;
+
+    color:#10B981;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.ysw-change-bank:hover{
+
+    color:#0f9f72;
+
+    transform:translateX(3px);
+
+}
+
+/*=========================================================
+PROCESSING INFO
+=========================================================*/
+
+.ysw-processing-info{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:1rem;
+
+    padding:1rem 1.25rem;
+
+    border-radius:16px;
+
+    background:#ecfdf5;
+
+    border:1px solid rgba(16,185,129,.15);
+
+    margin:1.8rem 0;
+
+}
+
+.ysw-processing-icon{
+
+    width:44px;
+
+    height:44px;
+
+    border-radius:50%;
+
+    background:#10B981;
+
+    color:#ffffff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+}
+
+.ysw-processing-content h6{
+
+    margin:0 0 .35rem;
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+.ysw-processing-content p{
+
+    margin:0;
+
+    font-size:.9rem;
+
+    color:var(--text-muted);
+
+    line-height:1.6;
+
+}
+
+/*=========================================================
+CONFIRM BUTTON
+=========================================================*/
+
+.ysw-withdraw-action{
+
+    margin-top:2rem;
+
+}
+
+.ysw-confirm-btn{
+
+    width:100%;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#10B981;
+
+    color:#ffffff;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+    box-shadow:0 12px 25px rgba(16,185,129,.22);
+
+}
+
+.ysw-confirm-btn:hover{
+
+    background:#0ea874;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 16px 30px rgba(16,185,129,.28);
+
+}
+
+.ysw-confirm-btn:active{
+
+    transform:scale(.98);
+
+}
+
+/*=========================================================
+RECENT TRANSACTIONS
+=========================================================*/
+
+.ysw-transactions-section{
+
+    margin-bottom:2.5rem;
+
+}
+
+.ysw-section-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:1rem;
+
+    margin-bottom:1.75rem;
+
+    flex-wrap:wrap;
+
+}
+
+.ysw-view-all-btn{
+
+    border:none;
+
+    background:transparent;
+
+    color:#10B981;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.ysw-view-all-btn:hover{
+
+    color:#0f9f72;
+
+    transform:translateX(4px);
+
+}
+
+/*=========================================================
+TRANSACTION ITEM
+=========================================================*/
+
+.ysw-transaction-item{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:1rem;
+
+    padding:1.25rem 0;
+
+    border-bottom:1px solid var(--border-light);
+
+    transition:var(--transition);
+
+}
+
+.ysw-transaction-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.ysw-transaction-item:hover{
+
+    padding-left:.5rem;
+
+    padding-right:.5rem;
+
+    background:#f8fafc;
+
+    border-radius:14px;
+
+}
+
+.ysw-transaction-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:1rem;
+
+    min-width:0;
+
+}
+
+.ysw-transaction-right{
+
+    text-align:right;
+
+    flex-shrink:0;
+
+}
+
+/*=========================================================
+TRANSACTION ICON
+=========================================================*/
+
+.ysw-transaction-icon{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+}
+
+.ysw-transaction-icon i{
+
+    font-size:1.25rem;
+
+}
+
+.ysw-transaction-icon.success{
+
+    background:rgba(16,185,129,.12);
+
+    color:#10B981;
+
+}
+
+.ysw-transaction-icon.danger{
+
+    background:rgba(239,68,68,.12);
+
+    color:#ef4444;
+
+}
+
+.ysw-transaction-icon.warning{
+
+    background:rgba(245,158,11,.12);
+
+    color:#f59e0b;
+
+}
+
+.ysw-transaction-icon.primary{
+
+    background:rgba(37,99,235,.12);
+
+    color:#2563eb;
+
+}
+
+/*=========================================================
+TRANSACTION TEXT
+=========================================================*/
+
+.ysw-transaction-left h6{
+
+    margin:0;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+.ysw-transaction-left span{
+
+    display:block;
+
+    margin-top:.35rem;
+
+    font-size:.88rem;
+
+    color:var(--text-muted);
+
+}
+
+.ysw-transaction-right h6{
+
+    margin:0;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+}
+
+.ysw-transaction-right small{
+
+    display:block;
+
+    margin-top:.35rem;
+
+    font-size:.82rem;
+
+    color:var(--text-muted);
+
+}
+
+/*=========================================================
+TRANSACTION STATUS COLORS
+=========================================================*/
+
+.ysw-credit{
+
+    color:#10B981;
+
+}
+
+.ysw-debit{
+
+    color:#ef4444;
+
+}
+
+.ysw-pending{
+
+    color:#f59e0b;
+
+}
+
+/*=========================================================
+HOVER ANIMATION
+=========================================================*/
+
+.ysw-transaction-item:hover .ysw-transaction-icon{
+
+    transform:scale(1.08);
+
+}
+
+.ysw-transaction-icon{
+
+    transition:transform .3s ease;
+
+}
+
+/*=========================================================
+FADE-IN ANIMATION
+=========================================================*/
+
+.ysw-transaction-item{
+
+    animation:yswTransactionFade .5s ease both;
+
+}
+
+.ysw-transaction-item:nth-child(2){
+
+    animation-delay:.08s;
+
+}
+
+.ysw-transaction-item:nth-child(3){
+
+    animation-delay:.16s;
+
+}
+
+.ysw-transaction-item:nth-child(4){
+
+    animation-delay:.24s;
+
+}
+
+.ysw-transaction-item:nth-child(5){
+
+    animation-delay:.32s;
+
+}
+
+@keyframes yswTransactionFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+RESPONSIVE DESIGN
+=========================================================*/
+
+/*=========================================================
+LARGE DEVICES
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .ysw-header .container-fluid{
+
+        padding-left:20px;
+
+        padding-right:20px;
+
+    }
+
+    .ysw-content{
+
+        padding:32px 0 60px;
+
+    }
+
+    .ysw-page-title{
+
+        font-size:1.8rem;
+
+    }
+
+    .ysw-wallet-card{
+
+        padding:2rem;
+
+    }
+
+    .ysw-wallet-balance{
+
+        font-size:2.5rem;
+
+    }
+
+    .ysw-wallet-stats{
+
+        gap:2rem;
+
+    }
+
+    .ysw-wallet-actions{
+
+        width:100%;
+
+    }
+
+    .ysw-btn-primary,
+
+    .ysw-btn-secondary{
+
+        flex:1;
+
+        justify-content:center;
+
+        text-align:center;
+
+    }
+
+    .ysw-card{
+
+        padding:1.75rem;
+
+    }
+
+}
+
+/*=========================================================
+TABLETS
+=========================================================*/
+
+@media (max-width:767.98px){
+
+    .ysw-content{
+
+        padding:24px 0 50px;
+
+    }
+
+    .ysw-page-title{
+
+        font-size:1.6rem;
+
+    }
+
+    .ysw-wallet-card{
+
+        padding:1.75rem;
+
+        border-radius:20px;
+
+    }
+
+    .ysw-wallet-balance{
+
+        font-size:2.2rem;
+
+    }
+
+    .ysw-wallet-stats{
+
+        flex-direction:column;
+
+        gap:1.25rem;
+
+    }
+
+    .ysw-wallet-actions{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .ysw-btn-primary,
+
+    .ysw-btn-secondary{
+
+        width:100%;
+
+    }
+
+    .ysw-bank-card{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .ysw-change-bank{
+
+        width:100%;
+
+        margin-top:12px;
+
+        text-align:left;
+
+    }
+
+    .ysw-section-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .ysw-view-all-btn{
+
+        padding:0;
+
+    }
+
+}
+
+/*=========================================================
+MOBILE DEVICES
+=========================================================*/
+
+@media (max-width:575.98px){
+
+    .ysw-header{
+
+        padding:12px 0;
+
+    }
+
+    .ysw-header .container-fluid{
+
+        padding-left:16px;
+
+        padding-right:16px;
+
+    }
+
+    .ysw-logo-placeholder{
+
+        width:120px;
+
+        height:42px;
+
+        font-size:.8rem;
+
+    }
+
+    .ysw-user-name{
+
+        display:none;
+
+    }
+
+    .ysw-header-actions{
+
+        gap:10px;
+
+    }
+
+    .ysw-header-icon{
+
+        width:38px;
+
+        height:38px;
+
+    }
+
+    .ysw-page-title{
+
+        font-size:1.45rem;
+
+    }
+
+    .ysw-wallet-card{
+
+        padding:1.5rem;
+
+    }
+
+    .ysw-wallet-balance{
+
+        font-size:2rem;
+
+    }
+
+    .ysw-wallet-label{
+
+        font-size:.9rem;
+
+    }
+
+    .ysw-wallet-stat h6{
+
+        font-size:1rem;
+
+    }
+
+    .ysw-card{
+
+        padding:1.25rem;
+
+        border-radius:18px;
+
+    }
+
+    .ysw-input{
+
+        height:54px;
+
+        font-size:.95rem;
+
+    }
+
+    .ysw-confirm-btn{
+
+        height:54px;
+
+        font-size:.95rem;
+
+    }
+
+    .ysw-processing-info{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .ysw-processing-icon{
+
+        margin-bottom:.5rem;
+
+    }
+
+    .ysw-transaction-item{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .ysw-transaction-right{
+
+        width:100%;
+
+        text-align:left;
+
+        margin-left:68px;
+
+    }
+
+}
+
+/*=========================================================
+SMALL MOBILE DEVICES
+=========================================================*/
+
+@media (max-width:380px){
+
+    .ysw-wallet-balance{
+
+        font-size:1.75rem;
+
+    }
+
+    .ysw-page-title{
+
+        font-size:1.3rem;
+
+    }
+
+    .ysw-wallet-card{
+
+        padding:1.25rem;
+
+    }
+
+    .ysw-card{
+
+        padding:1rem;
+
+    }
+
+    .ysw-bank-left{
+
+        gap:.75rem;
+
+    }
+
+    .ysw-bank-icon{
+
+        width:44px;
+
+        height:44px;
+
+        font-size:1rem;
+
+    }
+
+}
+
+/*=========================================================
+ACCESSIBILITY
+=========================================================*/
+
+.ysw-btn-primary:focus-visible,
+.ysw-btn-secondary:focus-visible,
+.ysw-confirm-btn:focus-visible,
+.ysw-change-bank:focus-visible,
+.ysw-view-all-btn:focus-visible,
+.ysw-header-icon:focus-visible,
+.ysw-navigation-list li a:focus-visible,
+.ysw-user-button:focus-visible{
+
+    outline:3px solid rgba(16,185,129,.30);
+
+    outline-offset:3px;
+
+}
+
+.ysw-input:focus-visible{
+
+    outline:none;
+
+}
+
+/*=========================================================
+BUTTON ACTIVE STATES
+=========================================================*/
+
+.ysw-btn-primary:active,
+.ysw-btn-secondary:active,
+.ysw-confirm-btn:active,
+.ysw-header-icon:active{
+
+    transform:scale(.97);
+
+}
+
+/*=========================================================
+SMOOTH IMAGE RENDERING
+=========================================================*/
+
+.ysw-user-avatar{
+
+    image-rendering:auto;
+
+    backface-visibility:hidden;
+
+}
+
+/*=========================================================
+DROPDOWN MENU
+=========================================================*/
+
+.dropdown-menu{
+
+    border:none;
+
+    border-radius:16px;
+
+    box-shadow:var(--shadow-lg);
+
+    padding:.65rem;
+
+    min-width:220px;
+
+}
+
+.dropdown-item{
+
+    border-radius:10px;
+
+    padding:.75rem 1rem;
+
+    font-size:.92rem;
+
+    font-weight:500;
+
+    transition:var(--transition-fast);
+
+}
+
+.dropdown-item:hover{
+
+    background:#ecfdf5;
+
+    color:#10B981;
+
+}
+
+.dropdown-divider{
+
+    margin:.45rem 0;
+
+}
+
+/*=========================================================
+CUSTOM SCROLLBAR
+=========================================================*/
+
+.ysw-transactions-section::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.ysw-transactions-section::-webkit-scrollbar-track{
+
+    background:#f3f4f6;
+
+    border-radius:20px;
+
+}
+
+.ysw-transactions-section::-webkit-scrollbar-thumb{
+
+    background:#10B981;
+
+    border-radius:20px;
+
+}
+
+.ysw-transactions-section::-webkit-scrollbar-thumb:hover{
+
+    background:#0f9f72;
+
+}
+
+/*=========================================================
+REDUCED MOTION
+=========================================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+/*=========================================================
+DARK MODE SUPPORT
+=========================================================*/
+
+@media (prefers-color-scheme:dark){
+
+    #yswWalletPage{
+
+        background:#0f172a;
+
+    }
+
+    .ysw-header{
+
+        background:#111827;
+
+        border-color:#1f2937;
+
+    }
+
+    .ysw-card{
+
+        background:#1e293b;
+
+        border-color:#334155;
+
+    }
+
+    .ysw-page-title,
+    .ysw-card-title,
+    .ysw-bank-left h6,
+    .ysw-transaction-left h6,
+    .ysw-user-name{
+
+        color:#ffffff;
+
+    }
+
+    .ysw-label,
+    .ysw-card-subtitle,
+    .ysw-processing-content p,
+    .ysw-transaction-left span,
+    .ysw-transaction-right small{
+
+        color:#cbd5e1;
+
+    }
+
+    .ysw-input{
+
+        background:#0f172a;
+
+        border-color:#334155;
+
+        color:#ffffff;
+
+    }
+
+    .ysw-bank-card{
+
+        background:#0f172a;
+
+        border-color:#334155;
+
+    }
+
+    .ysw-transaction-item{
+
+        border-color:#334155;
+
+    }
+
+    .ysw-transaction-item:hover{
+
+        background:#273449;
+
+    }
+
+    .dropdown-menu{
+
+        background:#1e293b;
+
+    }
+
+    .dropdown-item{
+
+        color:#e5e7eb;
+
+    }
+
+}
+
+/*=========================================================
+PRINT STYLES
+=========================================================*/
+
+@media print{
+
+    .ysw-header,
+    .ysw-wallet-actions,
+    .ysw-confirm-btn,
+    .ysw-change-bank,
+    .ysw-view-all-btn{
+
+        display:none !important;
+
+    }
+
+    .ysw-card,
+    .ysw-wallet-card{
+
+        box-shadow:none !important;
+
+        border:1px solid #d1d5db;
+
+    }
+
+    body{
+
+        background:#ffffff !important;
+
+    }
+
+}
+
+/*=========================================================
+UTILITY ANIMATIONS
+=========================================================*/
+
+.ysw-fade-up{
+
+    animation:yswFadeUp .6s ease both;
+
+}
+
+@keyframes yswFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.ysw-scale-in{
+
+    animation:yswScaleIn .35s ease both;
+
+}
+
+@keyframes yswScaleIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.95);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+/*=========================================================
+PERFORMANCE
+=========================================================*/
+
+.ysw-wallet-card,
+.ysw-card,
+.ysw-transaction-item,
+.ysw-btn-primary,
+.ysw-btn-secondary,
+.ysw-confirm-btn{
+
+    will-change:transform;
+
+}
+
+/*=========================================================
+END OF SELLER WALLET STYLES
+=========================================================*/
+
+
+
 
 /*=========================================================
 SELLER INVENTORY PAGE
@@ -27120,6 +29135,2200 @@ ACCESSIBILITY
 /*=========================================
 END OF BUYER DONE STYLES
 =========================================*/
+
+/*=========================================================
+BUYER NEIGHBORHOOD
+PART 2A
+=========================================================*/
+
+/*=========================================================
+PAGE
+=========================================================*/
+
+#cbnhPage{
+
+    background:#F8FAFC;
+
+    min-height:100vh;
+
+    color:var(--text-color);
+
+}
+
+.cbnh-main{
+
+    padding:36px 0 70px;
+
+    animation:cbnhPageFade .45s ease;
+
+}
+
+@keyframes cbnhPageFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(16px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+HEADER
+=========================================================*/
+
+.cbnh-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1030;
+
+    background:#FFFFFF;
+
+    border-bottom:1px solid var(--border-color);
+
+    box-shadow:0 2px 12px rgba(15,23,42,.04);
+
+}
+
+.cbnh-navbar-container{
+
+    padding:14px 28px;
+
+}
+
+/*=========================================================
+LOGO
+=========================================================*/
+
+.cbnh-logo-wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.cbnh-logo-placeholder{
+
+    width:150px;
+
+    height:48px;
+
+    border:2px dashed var(--border-color);
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    color:var(--text-muted);
+
+    background:#FFFFFF;
+
+    transition:all .3s ease;
+
+}
+
+.cbnh-logo-placeholder:hover{
+
+    border-color:#14D495;
+
+    color:#14D495;
+
+}
+
+/*=========================================================
+NAVIGATION
+=========================================================*/
+
+.cbnh-nav-links{
+
+    gap:14px;
+
+}
+
+.cbnh-nav-links .nav-link{
+
+    position:relative;
+
+    color:var(--text-secondary);
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    transition:.3s ease;
+
+}
+
+.cbnh-nav-links .nav-link:hover{
+
+    color:#14D495;
+
+}
+
+.cbnh-nav-links .nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:#14D495;
+
+    transition:.3s ease;
+
+}
+
+.cbnh-nav-links .nav-link:hover::after{
+
+    width:100%;
+
+}
+
+/*=========================================================
+RIGHT NAVIGATION
+=========================================================*/
+
+.cbnh-navbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.cbnh-nav-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:#F3F4F6;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    transition:.3s ease;
+
+    position:relative;
+
+}
+
+.cbnh-nav-icon i{
+
+    font-size:1.1rem;
+
+    color:var(--text-secondary);
+
+}
+
+.cbnh-nav-icon:hover{
+
+    background:#14D495;
+
+    transform:translateY(-2px);
+
+}
+
+.cbnh-nav-icon:hover i{
+
+    color:#FFFFFF;
+
+}
+
+.cbnh-notification-dot{
+
+    position:absolute;
+
+    top:9px;
+
+    right:10px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#EF4444;
+
+    border:2px solid #FFFFFF;
+
+}
+
+/*=========================================================
+PROFILE
+=========================================================*/
+
+.cbnh-user-profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+}
+
+.cbnh-user-avatar{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+}
+
+.cbnh-user-avatar img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.cbnh-user-name{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text-color);
+
+}
+
+/*=========================================================
+LOCATION
+=========================================================*/
+
+.cbnh-location-wrapper{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:26px;
+
+    font-size:.9rem;
+
+}
+
+.cbnh-location-wrapper i{
+
+    color:#14D495;
+
+    font-size:1rem;
+
+}
+
+.cbnh-current-location{
+
+    color:var(--text-secondary);
+
+    font-weight:500;
+
+}
+
+.cbnh-location-change{
+
+    text-decoration: none;
+
+    color:#14D495;
+
+    font-weight:600;
+
+    transition:.3s ease;
+
+}
+
+.cbnh-location-change:hover{
+
+    color:#10B981;
+
+}
+
+/*=========================================================
+PAGE HEADER
+=========================================================*/
+
+.cbnh-page-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    margin-bottom:34px;
+
+}
+
+.cbnh-page-title{
+
+    margin:0;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+}
+
+.cbnh-page-subtitle{
+
+    margin-top:6px;
+
+    margin-bottom:0;
+
+    color:var(--text-muted);
+
+    font-size:.95rem;
+
+}
+
+/*=========================================================
+LIVE FEED BUTTON
+=========================================================*/
+
+.cbnh-live-feed-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:#14D495;
+
+    color:#FFFFFF;
+
+    border-radius:50px;
+
+    padding:12px 26px;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:.3s ease;
+
+    box-shadow:0 10px 24px rgba(20,212,149,.18);
+
+}
+
+.cbnh-live-feed-btn:hover{
+
+    background:#10B981;
+
+    color:#FFFFFF;
+
+    transform:translateY(-2px);
+
+}
+
+/*=========================================================
+STATISTICS SECTION
+=========================================================*/
+
+.cbnh-stats-row{
+
+    margin-bottom:42px;
+
+}
+
+.cbnh-stat-card{
+
+    position:relative;
+
+    background:#FFFFFF;
+
+    border:1px solid var(--border-color);
+
+    border-radius:20px;
+
+    padding:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    overflow:hidden;
+
+    transition:all .35s ease;
+
+    box-shadow:0 8px 24px rgba(15,23,42,.05);
+
+}
+
+.cbnh-stat-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:5px;
+
+    height:100%;
+
+    background:#14D495;
+
+    transform:scaleY(0);
+
+    transform-origin: top;
+
+    transition:.35s ease;
+
+}
+
+.cbnh-stat-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#14D495;
+
+    box-shadow:0 18px 40px rgba(20,212,149,.12);
+
+}
+
+.cbnh-stat-card:hover::before{
+
+    transform:scaleY(1);
+
+}
+
+.cbnh-stat-icon{
+
+    width:68px;
+
+    height:68px;
+
+    border-radius:18px;
+
+    background:#ECFDF5;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+}
+
+.cbnh-stat-icon img{
+
+    width:42px;
+
+    height:42px;
+
+    object-fit:contain;
+
+}
+
+.cbnh-stat-content{
+
+    flex:1;
+
+}
+
+.cbnh-stat-content h3{
+
+    margin:0;
+
+    font-size:1.85rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+    line-height:1;
+
+}
+
+.cbnh-stat-content h6{
+
+    margin:10px 0 4px;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:var(--text-color);
+
+}
+
+.cbnh-stat-content p{
+
+    margin:0;
+
+    font-size:.85rem;
+
+    color:var(--text-muted);
+
+}
+
+/*=========================================================
+CONTENT AREA
+=========================================================*/
+
+.cbnh-content-row{
+
+    align-items:flex-start;
+
+}
+
+.cbnh-content-row>.col-xl-6{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/*=========================================================
+SECTION HEADER
+=========================================================*/
+
+.cbnh-section-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:18px;
+
+}
+
+.cbnh-section-title{
+
+    margin:0;
+
+    font-size:1.25rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+}
+
+.cbnh-see-all{
+
+    color:#14D495;
+
+    font-size:.92rem;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    transition:all .3s ease;
+
+}
+
+.cbnh-see-all:hover{
+
+    color:#10B981;
+
+    text-decoration:underline;
+
+}
+
+/*=========================================================
+TRENDING PRODUCTS
+=========================================================*/
+
+.cbnh-products-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+.cbnh-product-card{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:16px;
+
+    background:#FFFFFF;
+
+    border:1px solid var(--border-color);
+
+    border-radius:18px;
+
+    padding:18px;
+
+    text-decoration:none;
+
+    transition:all .35s ease;
+
+    box-shadow:0 8px 20px rgba(15,23,42,.04);
+
+}
+
+.cbnh-product-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:#14D495;
+
+    box-shadow:0 16px 34px rgba(20,212,149,.10);
+
+}
+
+.cbnh-product-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+/*=========================================================
+PRODUCT IMAGE
+=========================================================*/
+
+.cbnh-product-image{
+
+    width:68px;
+
+    height:68px;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    background:#F8FAFC;
+
+    border:1px solid #E5E7EB;
+
+    flex-shrink:0;
+
+    transition:all .35s ease;
+
+}
+
+.cbnh-product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform .35s ease;
+
+}
+
+.cbnh-product-card:hover .cbnh-product-image{
+
+    border-color:#14D495;
+
+}
+
+.cbnh-product-card:hover .cbnh-product-image img{
+
+    transform:scale(1.08);
+
+}
+
+/*=========================================================
+PRODUCT DETAILS
+=========================================================*/
+
+.cbnh-product-info{
+
+    min-width:0;
+
+    flex:1;
+
+}
+
+.cbnh-product-info h4{
+
+    margin:0 0 6px;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:var(--text-color);
+
+    line-height:1.45;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    display:-webkit-box;
+
+    -webkit-line-clamp:2;
+
+    -webkit-box-orient:vertical;
+
+}
+
+.cbnh-product-info p{
+
+    margin:0;
+
+    font-size:.88rem;
+
+    color:var(--text-muted);
+
+}
+
+.cbnh-product-price{
+
+    color:#14D495;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+}
+
+/*=========================================================
+POPULAR PROVIDERS
+=========================================================*/
+
+.cbnh-provider-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+.cbnh-provider-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    background:#FFFFFF;
+
+    border:1px solid var(--border-color);
+
+    border-radius:18px;
+
+    padding:18px;
+
+    text-decoration:none;
+
+    box-shadow:0 8px 20px rgba(15,23,42,.04);
+
+    transition:all .35s ease;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.cbnh-provider-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:4px;
+
+    height:100%;
+
+    background:#14D495;
+
+    transform:scaleY(0);
+
+    transform-origin:top;
+
+    transition:transform .35s ease;
+
+}
+
+.cbnh-provider-card:hover{
+
+    border-color:#14D495;
+
+    transform:translateY(-4px);
+
+    box-shadow:0 16px 34px rgba(20,212,149,.10);
+
+}
+
+.cbnh-provider-card:hover::before{
+
+    transform:scaleY(1);
+
+}
+
+/*=========================================================
+PROVIDER IMAGE
+=========================================================*/
+
+.cbnh-provider-image{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+    background:#F8FAFC;
+
+    border:2px solid #ECFDF5;
+
+    transition:all .35s ease;
+
+}
+
+.cbnh-provider-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform .35s ease;
+
+}
+
+.cbnh-provider-card:hover .cbnh-provider-image{
+
+    border-color:#14D495;
+
+}
+
+.cbnh-provider-card:hover .cbnh-provider-image img{
+
+    transform:scale(1.08);
+
+}
+
+/*=========================================================
+PROVIDER CONTENT
+=========================================================*/
+
+.cbnh-provider-content{
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+.cbnh-provider-content h4{
+
+    margin:0 0 6px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+    line-height:1.4;
+
+}
+
+.cbnh-provider-content p{
+
+    margin:0 0 10px;
+
+    color:var(--text-muted);
+
+    font-size:.9rem;
+
+}
+
+.cbnh-provider-rating{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+.cbnh-provider-rating i{
+
+    color:#FBBF24;
+
+    font-size:.95rem;
+
+}
+
+.cbnh-provider-rating span{
+
+    font-size:.88rem;
+
+    font-weight:600;
+
+    color:var(--text-secondary);
+
+}
+
+/*=========================================================
+CHEVRON
+=========================================================*/
+
+.cbnh-provider-arrow{
+
+    color:#9CA3AF;
+
+    font-size:1.15rem;
+
+    transition:all .3s ease;
+
+    flex-shrink:0;
+
+}
+
+.cbnh-provider-card:hover .cbnh-provider-arrow{
+
+    color:#14D495;
+
+    transform:translateX(4px);
+
+}
+
+/*=========================================================
+CARD ENTRANCE ANIMATION
+=========================================================*/
+
+.cbnh-stat-card,
+
+.cbnh-product-card,
+
+.cbnh-provider-card{
+
+    animation:cbnhCardFade .45s ease both;
+
+}
+
+.cbnh-stat-card:nth-child(1){
+
+    animation-delay:.05s;
+
+}
+
+.cbnh-stat-card:nth-child(2){
+
+    animation-delay:.10s;
+
+}
+
+.cbnh-stat-card:nth-child(3){
+
+    animation-delay:.15s;
+
+}
+
+.cbnh-stat-card:nth-child(4){
+
+    animation-delay:.20s;
+
+}
+
+.cbnh-product-card:nth-child(1),
+
+.cbnh-provider-card:nth-child(1){
+
+    animation-delay:.10s;
+
+}
+
+.cbnh-product-card:nth-child(2),
+
+.cbnh-provider-card:nth-child(2){
+
+    animation-delay:.15s;
+
+}
+
+.cbnh-product-card:nth-child(3),
+
+.cbnh-provider-card:nth-child(3){
+
+    animation-delay:.20s;
+
+}
+
+.cbnh-product-card:nth-child(4),
+
+.cbnh-provider-card:nth-child(4){
+
+    animation-delay:.25s;
+
+}
+
+@keyframes cbnhCardFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(24px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+FOOTER
+=========================================================*/
+
+.cbnh-footer{
+
+    background:#FFFFFF;
+
+    border-top:1px solid var(--border-color);
+
+    margin-top:70px;
+
+    padding:24px 0;
+
+}
+
+.cbnh-footer-content{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.cbnh-footer-content p{
+
+    margin:0;
+
+    font-size:.9rem;
+
+    color:var(--text-muted);
+
+}
+
+.cbnh-footer-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
+
+    flex-wrap:wrap;
+
+}
+
+.cbnh-footer-links a{
+
+    color:var(--text-secondary);
+
+    text-decoration:none;
+
+    font-size:.9rem;
+
+    transition:.3s ease;
+
+}
+
+.cbnh-footer-links a:hover{
+
+    color:#14D495;
+
+}
+
+/*=========================================================
+LARGE TABLETS (≤1199px)
+=========================================================*/
+
+@media (max-width:1199.98px){
+
+    .cbnh-navbar-container{
+
+        padding:14px 22px;
+
+    }
+
+    .cbnh-page-title{
+
+        font-size:1.85rem;
+
+    }
+
+    .cbnh-stat-card{
+
+        padding:20px;
+
+    }
+
+    .cbnh-product-card,
+
+    .cbnh-provider-card{
+
+        padding:16px;
+
+    }
+
+}
+
+/*=========================================================
+TABLETS (≤991px)
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .cbnh-main{
+
+        padding:30px 0 60px;
+
+    }
+
+    .cbnh-navbar-container{
+
+        padding:14px 18px;
+
+    }
+
+    .cbnh-nav-links{
+
+        gap:0;
+
+        margin:20px 0;
+
+    }
+
+    .cbnh-nav-links .nav-item{
+
+        margin-bottom:6px;
+
+    }
+
+    .cbnh-navbar-right{
+
+        justify-content:flex-start;
+
+        margin-top:18px;
+
+        padding-top:18px;
+
+        border-top:1px solid var(--border-color);
+
+    }
+
+    .cbnh-page-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .cbnh-live-feed-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .cbnh-content-row{
+
+        row-gap:40px;
+
+    }
+
+    .cbnh-footer-content{
+
+        flex-direction:column;
+
+        justify-content:center;
+
+        text-align:center;
+
+    }
+
+}
+
+/*=========================================================
+MOBILE (≤767px)
+=========================================================*/
+
+@media (max-width:767.98px){
+
+    .cbnh-main{
+
+        padding:24px 0 50px;
+
+    }
+
+    .cbnh-page-title{
+
+        font-size:1.55rem;
+
+    }
+
+    .cbnh-page-subtitle{
+
+        font-size:.9rem;
+
+    }
+
+    .cbnh-location-wrapper{
+
+        flex-wrap:wrap;
+
+        row-gap:4px;
+
+    }
+
+    .cbnh-stat-card{
+
+        padding:18px;
+
+    }
+
+    .cbnh-stat-icon{
+
+        width:58px;
+
+        height:58px;
+
+    }
+
+    .cbnh-stat-icon img{
+
+        width:34px;
+
+        height:34px;
+
+    }
+
+    .cbnh-stat-content h3{
+
+        font-size:1.5rem;
+
+    }
+
+    .cbnh-product-card{
+
+        align-items:flex-start;
+
+    }
+
+    .cbnh-provider-card{
+
+        align-items:flex-start;
+
+    }
+
+    .cbnh-product-left{
+
+        align-items:flex-start;
+
+    }
+
+    .cbnh-product-image{
+
+        width:60px;
+
+        height:60px;
+
+    }
+
+    .cbnh-provider-image{
+
+        width:64px;
+
+        height:64px;
+
+    }
+
+    .cbnh-product-price{
+
+        font-size:.95rem;
+
+    }
+
+}
+
+/*=========================================================
+SMALL MOBILE (≤575px)
+=========================================================*/
+
+@media (max-width:575.98px){
+
+    .cbnh-navbar-container{
+
+        padding:12px 15px;
+
+    }
+
+    .cbnh-logo-placeholder{
+
+        width:120px;
+
+        height:42px;
+
+        font-size:.8rem;
+
+    }
+
+    .cbnh-user-name{
+
+        display:none;
+
+    }
+
+    .cbnh-page-header{
+
+        margin-bottom:28px;
+
+    }
+
+    .cbnh-page-title{
+
+        font-size:1.4rem;
+
+    }
+
+    .cbnh-section-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:8px;
+
+    }
+
+    .cbnh-product-card{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:16px;
+
+    }
+
+    .cbnh-product-left{
+
+        width:100%;
+
+    }
+
+    .cbnh-product-price{
+
+        width:100%;
+
+        text-align:left;
+
+    }
+
+    .cbnh-provider-card{
+
+        gap:14px;
+
+    }
+
+    .cbnh-provider-content h4{
+
+        font-size:.95rem;
+
+    }
+
+    .cbnh-provider-content p{
+
+        font-size:.85rem;
+
+    }
+
+    .cbnh-provider-rating span{
+
+        font-size:.82rem;
+
+    }
+
+    .cbnh-footer-links{
+
+        justify-content:center;
+
+        gap:14px;
+
+    }
+
+}
+
+/*=========================================================
+EXTRA SMALL DEVICES (≤360px)
+=========================================================*/
+
+@media (max-width:360px){
+
+    .cbnh-page-title{
+
+        font-size:1.25rem;
+
+    }
+
+    .cbnh-page-subtitle{
+
+        font-size:.82rem;
+
+    }
+
+    .cbnh-stat-card{
+
+        gap:14px;
+
+        padding:16px;
+
+    }
+
+    .cbnh-stat-content h3{
+
+        font-size:1.35rem;
+
+    }
+
+    .cbnh-stat-content h6{
+
+        font-size:.9rem;
+
+    }
+
+    .cbnh-product-info h4,
+
+    .cbnh-provider-content h4{
+
+        font-size:.9rem;
+
+    }
+
+    .cbnh-product-price{
+
+        font-size:.9rem;
+
+    }
+
+}
+
+/*=========================================================
+ACCESSIBILITY
+=========================================================*/
+
+.cbnh-nav-links .nav-link:focus-visible,
+.cbnh-nav-icon:focus-visible,
+.cbnh-user-profile:focus-visible,
+.cbnh-location-change:focus-visible,
+.cbnh-live-feed-btn:focus-visible,
+.cbnh-product-card:focus-visible,
+.cbnh-provider-card:focus-visible,
+.cbnh-see-all:focus-visible{
+
+    outline:3px solid rgba(20,212,149,.35);
+
+    outline-offset:3px;
+
+    border-radius:12px;
+
+}
+
+/*=========================================================
+CUSTOM SCROLLBAR
+=========================================================*/
+
+#cbnhPage::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+#cbnhPage::-webkit-scrollbar-track{
+
+    background:#F1F5F9;
+
+}
+
+#cbnhPage::-webkit-scrollbar-thumb{
+
+    background:#14D495;
+
+    border-radius:999px;
+
+}
+
+#cbnhPage::-webkit-scrollbar-thumb:hover{
+
+    background:#10B981;
+
+}
+
+/*=========================================================
+LOADING / SKELETON STATE
+=========================================================*/
+
+.cbnh-loading{
+
+    pointer-events:none;
+
+    user-select:none;
+
+}
+
+.cbnh-skeleton{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#E5E7EB;
+
+    border-radius:12px;
+
+}
+
+.cbnh-skeleton::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    transform:translateX(-100%);
+
+    background:linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,255,255,.65),
+
+        transparent
+
+    );
+
+    animation:cbnhSkeleton 1.4s infinite;
+
+}
+
+@keyframes cbnhSkeleton{
+
+    100%{
+
+        transform:translateX(100%);
+
+    }
+
+}
+
+/*=========================================================
+BUTTON LOADING
+=========================================================*/
+
+.cbnh-btn-loading{
+
+    position:relative;
+
+    color:transparent !important;
+
+    pointer-events:none;
+
+}
+
+.cbnh-btn-loading::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    width:18px;
+
+    height:18px;
+
+    margin-top:-9px;
+
+    margin-left:-9px;
+
+    border:2px solid rgba(255,255,255,.35);
+
+    border-top-color:#FFFFFF;
+
+    border-radius:50%;
+
+    animation:cbnhSpin .7s linear infinite;
+
+}
+
+@keyframes cbnhSpin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/*=========================================================
+DARK MODE
+=========================================================*/
+
+@media (prefers-color-scheme:dark){
+
+    #cbnhPage{
+
+        background:#0F172A;
+
+    }
+
+    .cbnh-header,
+
+    .cbnh-footer,
+
+    .cbnh-stat-card,
+
+    .cbnh-product-card,
+
+    .cbnh-provider-card{
+
+        background:#1E293B;
+
+        border-color:#334155;
+
+    }
+
+    .cbnh-page-title,
+
+    .cbnh-section-title,
+
+    .cbnh-product-info h4,
+
+    .cbnh-provider-content h4,
+
+    .cbnh-user-name,
+
+    .cbnh-stat-content h3,
+
+    .cbnh-stat-content h6{
+
+        color:#F8FAFC;
+
+    }
+
+    .cbnh-page-subtitle,
+
+    .cbnh-current-location,
+
+    .cbnh-product-info p,
+
+    .cbnh-provider-content p,
+
+    .cbnh-provider-rating span,
+
+    .cbnh-footer-content p,
+
+    .cbnh-footer-links a{
+
+        color:#CBD5E1;
+
+    }
+
+    .cbnh-nav-icon{
+
+        background:#334155;
+
+    }
+
+    .cbnh-nav-icon i{
+
+        color:#F8FAFC;
+
+    }
+
+    .cbnh-logo-placeholder{
+
+        background:#1E293B;
+
+        border-color:#475569;
+
+        color:#CBD5E1;
+
+    }
+
+}
+
+/*=========================================================
+PRINT
+=========================================================*/
+
+@media print{
+
+    .cbnh-header,
+
+    .cbnh-footer,
+
+    .cbnh-live-feed-btn,
+
+    .cbnh-nav-icon,
+
+    .cbnh-location-change,
+
+    .navbar-toggler{
+
+        display:none !important;
+
+    }
+
+    #cbnhPage{
+
+        background:#FFFFFF;
+
+    }
+
+    .cbnh-stat-card,
+
+    .cbnh-product-card,
+
+    .cbnh-provider-card{
+
+        box-shadow:none;
+
+        border:1px solid #D1D5DB;
+
+        page-break-inside:avoid;
+
+    }
+
+}
+
+/*=========================================================
+REDUCED MOTION
+=========================================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+/*=========================================================
+PERFORMANCE
+=========================================================*/
+
+.cbnh-stat-card,
+
+.cbnh-product-card,
+
+.cbnh-provider-card,
+
+.cbnh-live-feed-btn,
+
+.cbnh-nav-icon{
+
+    will-change:transform;
+
+}
+
+.cbnh-product-image img,
+
+.cbnh-provider-image img{
+
+    backface-visibility:hidden;
+
+    transform:translateZ(0);
+
+}
+
+/*=========================================================
+UTILITY CLASSES
+=========================================================*/
+
+.cbnh-hidden{
+
+    display:none !important;
+
+}
+
+.cbnh-visible{
+
+    display:block !important;
+
+}
+
+.cbnh-flex{
+
+    display:flex !important;
+
+}
+
+.cbnh-flex-center{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.cbnh-w-100{
+
+    width:100% !important;
+
+}
+
+.cbnh-text-center{
+
+    text-align:center !important;
+
+}
+
+.cbnh-text-success{
+
+    color:#14D495 !important;
+
+}
+
+.cbnh-rounded{
+
+    border-radius:18px !important;
+
+}
+
+.cbnh-shadow{
+
+    box-shadow:0 16px 36px rgba(15,23,42,.08);
+
+}
+
+/*=========================================================
+LIVE FEED BUTTON ANIMATION
+=========================================================*/
+
+.cbnh-live-feed-btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.cbnh-live-feed-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+
+    transform:translateX(-150%);
+
+}
+
+.cbnh-live-feed-btn:hover::before{
+
+    animation:cbnhButtonShine .9s ease;
+
+}
+
+@keyframes cbnhButtonShine{
+
+    from{
+
+        transform:translateX(-150%);
+
+    }
+
+    to{
+
+        transform:translateX(150%);
+
+    }
+
+}
+
+.cbnh-live-feed-btn i{
+
+    animation:cbnhPulse 2s infinite;
+
+}
+
+@keyframes cbnhPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.15);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/*=========================================================
+IMAGE HOVER EFFECTS
+=========================================================*/
+
+.cbnh-product-card:hover .cbnh-product-image,
+
+.cbnh-provider-card:hover .cbnh-provider-image{
+
+    box-shadow:0 10px 24px rgba(20,212,149,.18);
+
+}
+
+/*=========================================================
+CARD ACTIVE STATE
+=========================================================*/
+
+.cbnh-product-card:active,
+
+.cbnh-provider-card:active,
+
+.cbnh-stat-card:active{
+
+    transform:scale(.98);
+
+}
+
+/*=========================================================
+TEXT SELECTION
+=========================================================*/
+
+#cbnhPage ::selection{
+
+    background:#14D495;
+
+    color:#FFFFFF;
+
+}
+
+#cbnhPage ::-moz-selection{
+
+    background:#14D495;
+
+    color:#FFFFFF;
+
+}
+
+/*=========================================================
+SMOOTH SCROLL
+=========================================================*/
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/*=========================================================
+HIGH DPI DISPLAY OPTIMIZATION
+=========================================================*/
+
+@media (-webkit-min-device-pixel-ratio:2),
+(min-resolution:192dpi){
+
+    .cbnh-product-image img,
+
+    .cbnh-provider-image img,
+
+    .cbnh-user-avatar img{
+
+        image-rendering:auto;
+
+    }
+
+}
+
+/*=========================================================
+LANDSCAPE MOBILE
+=========================================================*/
+
+@media (max-width:767.98px) and (orientation:landscape){
+
+    .cbnh-main{
+
+        padding-top:20px;
+
+    }
+
+    .cbnh-page-header{
+
+        flex-direction:row;
+
+        align-items:center;
+
+    }
+
+    .cbnh-live-feed-btn{
+
+        width:auto;
+
+    }
+
+}
+
+/*=========================================================
+EXTRA TOUCH IMPROVEMENTS
+=========================================================*/
+
+@media (hover:none){
+
+    .cbnh-nav-icon,
+
+    .cbnh-live-feed-btn,
+
+    .cbnh-product-card,
+
+    .cbnh-provider-card,
+
+    .cbnh-stat-card{
+
+        -webkit-tap-highlight-color:transparent;
+
+    }
+
+}
+
+/*=========================================================
+END OF BUYER NEIGHBORHOOD STYLES
+=========================================================*/
 
 
 

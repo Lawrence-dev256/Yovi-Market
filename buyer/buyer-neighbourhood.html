@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Buyer Neighborhood | YOVI</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet"
+          href="../assets/css/style.css">
+
+</head>
+
+<body id="cbnhPage">
+
+    <!-- =====================================
+         TOP NAVIGATION
+    ====================================== -->
+
+    <header class="cbnh-header">
+
+        <nav class="navbar navbar-expand-lg navbar-light">
+
+            <div class="container-fluid cbnh-navbar-container">
+
+                <!-- Logo Placeholder -->
+                <a href="../index.html"
+                   class="navbar-brand cbnh-logo-wrapper">
+
+                    <div class="cbnh-logo-placeholder">
+
+                        <!-- Replace with your logo image -->
+                        Brand Logo
+
+                    </div>
+
+                </a>
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#cbnhNavbar">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <div class="collapse navbar-collapse"
+                     id="cbnhNavbar">
+
+                    <ul class="navbar-nav mx-auto cbnh-nav-links">
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="../buyer/buyer-dashboard.html">
+                                Home
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="products.html">
+                                Products
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="services.html">
+                                Services
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="orders.html">
+                                Orders
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="bookings.html">
+                                Bookings
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="messages.html">
+                                Messages
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <!-- Right Navigation -->
+
+                    <div class="cbnh-navbar-right">
+
+                        <a href="cart.html"
+                           class="cbnh-nav-icon">
+
+                            <i class="bi bi-cart3"></i>
+
+                        </a>
+
+                        <a href="notifications.html"
+                           class="cbnh-nav-icon cbnh-notification">
+
+                            <i class="bi bi-bell"></i>
+
+                            <span class="cbnh-notification-dot"></span>
+
+                        </a>
+
+                        <a href="buyer-profile.html"
+                           class="cbnh-user-profile">
+
+                            <div class="cbnh-user-avatar">
+
+                                <!-- Placeholder -->
+                                <img src="https://placehold.co/40x40"
+                                     alt="Profile">
+
+                            </div>
+
+                            <span class="cbnh-user-name">
+
+                                Adaeze
+
+                            </span>
+
+                            <i class="bi bi-chevron-down"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- =====================================
+         PAGE CONTENT
+    ====================================== -->
+
+    <main class="cbnh-main">
+
+        <div class="container">
+
+            <!-- Location -->
+
+            <div class="cbnh-location-wrapper">
+
+                <i class="bi bi-geo-alt-fill"></i>
+
+                <span class="cbnh-current-location">
+
+                    Ikeja, Lagos
+
+                </span>
+
+                <a href="buyer-change-location.html"
+                   class="cbnh-location-change">
+
+                    Change
+
+                </a>
+
+            </div>
+
+            <!-- Page Header -->
+
+            <div class="cbnh-page-header">
+
+                <div>
+
+                    <h1 class="cbnh-page-title">
+
+                        My Neighbourhood
+
+                    </h1>
+
+                    <p class="cbnh-page-subtitle">
+
+                        What's happening near you right now
+
+                    </p>
+
+                </div>
+
+                <a href="buyer-live-feed.html"
+                   class="btn cbnh-live-feed-btn">
+
+                    <i class="bi bi-broadcast"></i>
+
+                    Live Feed
+
+                </a>
+
+            </div>
+
+            <!-- Statistics Cards -->
+
+            <div class="row g-4 cbnh-stats-row">
+
+                <!-- ==========================
+                     Statistics Card 01
+                =========================== -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="cbnh-stat-card">
+
+                        <div class="cbnh-stat-icon">
+
+                            <img src="https://placehold.co/48x48"
+                                 alt="Listings">
+
+                        </div>
+
+                        <div class="cbnh-stat-content">
+
+                            <h3>124</h3>
+
+                            <h6>New Listings</h6>
+
+                            <p>today</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ==========================
+                     Statistics Card 02
+                =========================== -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="cbnh-stat-card">
+
+                        <div class="cbnh-stat-icon">
+
+                            <img src="https://placehold.co/48x48"
+                                 alt="Providers">
+
+                        </div>
+
+                        <div class="cbnh-stat-content">
+
+                            <h3>43</h3>
+
+                            <h6>Active Providers</h6>
+
+                            <p>available now</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ==========================
+                     Statistics Card 03
+                =========================== -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="cbnh-stat-card">
+
+                        <div class="cbnh-stat-icon">
+
+                            <img src="https://placehold.co/48x48"
+                                 alt="Reviews">
+
+                        </div>
+
+                        <div class="cbnh-stat-content">
+
+                            <h3>89</h3>
+
+                            <h6>Reviews</h6>
+
+                            <p>this week</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ==========================
+                     Statistics Card 04
+                =========================== -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="cbnh-stat-card">
+
+                        <div class="cbnh-stat-icon">
+
+                            <img src="https://placehold.co/48x48"
+                                 alt="Deals">
+
+                        </div>
+
+                        <div class="cbnh-stat-content">
+
+                            <h3>17</h3>
+
+                            <h6>Deals</h6>
+
+                            <p>nearby</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- =====================================
+                 CONTENT ROW
+            ====================================== -->
+
+            <div class="row g-4 cbnh-content-row">
+
+                <!-- =====================================
+                     TRENDING PRODUCTS
+                ====================================== -->
+
+                <div class="col-xl-6">
+
+                    <div class="cbnh-section-header">
+
+                        <h2 class="cbnh-section-title">
+
+                            Trending Products Nearby
+
+                        </h2>
+
+                        <a href="products.html"
+                           class="cbnh-see-all">
+
+                            See all
+
+                        </a>
+
+                    </div>
+
+                    <div class="cbnh-products-list">
+
+                        <!-- Product 01 -->
+
+                        <a href="product-details.html"
+                           class="cbnh-product-card">
+
+                            <div class="cbnh-product-left">
+
+                                <div class="cbnh-product-image">
+
+                                    <img src="https://placehold.co/60x60"
+                                         alt="Product">
+
+                                </div>
+
+                                <div class="cbnh-product-info">
+
+                                    <h4>
+
+                                        Samsung Galaxy A54 – 256GB
+
+                                    </h4>
+
+                                    <p>
+
+                                        Lagos
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <span class="cbnh-product-price">
+
+                                ₦185,000
+
+                            </span>
+
+                        </a>
+
+                        <!-- Product 02 -->
+
+                        <a href="product-details.html"
+                           class="cbnh-product-card">
+
+                            <div class="cbnh-product-left">
+
+                                <div class="cbnh-product-image">
+
+                                    <img src="https://placehold.co/60x60"
+                                         alt="Product">
+
+                                </div>
+
+                                <div class="cbnh-product-info">
+
+                                    <h4>
+
+                                        iPhone 14 Pro – 128GB Space Black
+
+                                    </h4>
+
+                                    <p>
+
+                                        Abuja
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <span class="cbnh-product-price">
+
+                                ₦620,000
+
+                            </span>
+
+                        </a>
+
+                        <!-- Product 03 -->
+
+                        <a href="product-details.html"
+                           class="cbnh-product-card">
+
+                            <div class="cbnh-product-left">
+
+                                <div class="cbnh-product-image">
+
+                                    <img src="https://placehold.co/60x60"
+                                         alt="Product">
+
+                                </div>
+
+                                <div class="cbnh-product-info">
+
+                                    <h4>
+
+                                        LG 43" Smart UHD TV
+
+                                    </h4>
+
+                                    <p>
+
+                                        Ikeja, Lagos
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <span class="cbnh-product-price">
+
+                                ₦265,000
+
+                            </span>
+
+                        </a>
+
+                        <!-- Product 04 -->
+
+                        <a href="product-details.html"
+                           class="cbnh-product-card">
+
+                            <div class="cbnh-product-left">
+
+                                <div class="cbnh-product-image">
+
+                                    <img src="https://placehold.co/60x60"
+                                         alt="Product">
+
+                                </div>
+
+                                <div class="cbnh-product-info">
+
+                                    <h4>
+
+                                        HP EliteBook 840 G8 Laptop
+
+                                    </h4>
+
+                                    <p>
+
+                                        Victoria Island
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <span class="cbnh-product-price">
+
+                                ₦480,000
+
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- =====================================
+                     POPULAR PROVIDERS
+                ====================================== -->
+
+                <div class="col-xl-6">
+
+                    <div class="cbnh-section-header">
+
+                        <h2 class="cbnh-section-title">
+
+                            Popular Providers Nearby
+
+                        </h2>
+
+                        <a href="services.html"
+                           class="cbnh-see-all">
+
+                            See all
+
+                        </a>
+
+                    </div>
+
+                    <div class="cbnh-provider-list">
+
+                        <!-- Provider 01 -->
+
+                        <a href="provider-profile.html"
+                           class="cbnh-provider-card">
+
+                            <div class="cbnh-provider-image">
+
+                                <img src="https://placehold.co/70x70"
+                                     alt="Provider">
+
+                            </div>
+
+                            <div class="cbnh-provider-content">
+
+                                <h4>
+
+                                    Bright Electrical Services
+
+                                </h4>
+
+                                <p>
+
+                                    Electrician • 1.2 km away
+
+                                </p>
+
+                                <div class="cbnh-provider-rating">
+
+                                    <i class="bi bi-star-fill"></i>
+
+                                    <span>
+
+                                        4.9 (328 Reviews)
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <i class="bi bi-chevron-right cbnh-provider-arrow"></i>
+
+                        </a>
+
+                        <!-- Provider 02 -->
+
+                        <a href="provider-profile.html"
+                           class="cbnh-provider-card">
+
+                            <div class="cbnh-provider-image">
+
+                                <img src="https://placehold.co/70x70"
+                                     alt="Provider">
+
+                            </div>
+
+                            <div class="cbnh-provider-content">
+
+                                <h4>
+
+                                    Classic Home Cleaning
+
+                                </h4>
+
+                                <p>
+
+                                    Cleaning • 800 m away
+
+                                </p>
+
+                                <div class="cbnh-provider-rating">
+
+                                    <i class="bi bi-star-fill"></i>
+
+                                    <span>
+
+                                        4.8 (214 Reviews)
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <i class="bi bi-chevron-right cbnh-provider-arrow"></i>
+
+                        </a>
+
+                        <!-- ==========================
+                             Provider 03
+                        =========================== -->
+
+                        <a href="provider-profile.html"
+                           class="cbnh-provider-card">
+
+                            <div class="cbnh-provider-image">
+
+                                <img src="https://placehold.co/70x70"
+                                     alt="Provider">
+
+                            </div>
+
+                            <div class="cbnh-provider-content">
+
+                                <h4>
+
+                                    Fresh Mart Grocery
+
+                                </h4>
+
+                                <p>
+
+                                    Grocery Store • 2.3 km away
+
+                                </p>
+
+                                <div class="cbnh-provider-rating">
+
+                                    <i class="bi bi-star-fill"></i>
+
+                                    <span>
+
+                                        4.7 (185 Reviews)
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <i class="bi bi-chevron-right cbnh-provider-arrow"></i>
+
+                        </a>
+
+                        <!-- ==========================
+                             Provider 04
+                        =========================== -->
+
+                        <a href="provider-profile.html"
+                           class="cbnh-provider-card">
+
+                            <div class="cbnh-provider-image">
+
+                                <img src="https://placehold.co/70x70"
+                                     alt="Provider">
+
+                            </div>
+
+                            <div class="cbnh-provider-content">
+
+                                <h4>
+
+                                    Prime Auto Repairs
+
+                                </h4>
+
+                                <p>
+
+                                    Mechanic • 3.1 km away
+
+                                </p>
+
+                                <div class="cbnh-provider-rating">
+
+                                    <i class="bi bi-star-fill"></i>
+
+                                    <span>
+
+                                        4.9 (401 Reviews)
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <i class="bi bi-chevron-right cbnh-provider-arrow"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer class="cbnh-footer">
+
+        <div class="container">
+
+            <div class="cbnh-footer-content">
+
+                <p>
+
+                    © 2026 YOVI. All rights reserved.
+
+                </p>
+
+                <div class="cbnh-footer-links">
+
+                    <a href="privacy-policy.html">
+
+                        Privacy Policy
+
+                    </a>
+
+                    <a href="terms-and-conditions.html">
+
+                        Terms & Conditions
+
+                    </a>
+
+                    <a href="contact-us.html">
+
+                        Contact Us
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- =====================================
+         BOOTSTRAP JS
+    ====================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- =====================================
+         GLOBAL JAVASCRIPT
+    ====================================== -->
+
+    <script src="../assets/js/app.js"></script>
+
+</body>
+
+</html>

@@ -11681,6 +11681,886 @@ document.addEventListener(
 
 );
 
+
+"use strict";
+
+/*=========================================================
+SELLER WALLET
+PART 3A
+=========================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    initializeSellerWallet();
+
+});
+
+/*=========================================================
+INITIALIZE
+=========================================================*/
+
+function initializeSellerWallet() {
+
+    cacheWalletElements();
+
+    initializeWalletAnimations();
+
+    initializeNavigation();
+
+    initializeWalletActions();
+
+}
+
+/*=========================================================
+CACHE DOM ELEMENTS
+=========================================================*/
+
+let yswElements = {};
+
+function cacheWalletElements() {
+
+    yswElements = {
+
+        withdrawButton:
+            document.getElementById("yswWithdrawBtn"),
+
+        topupButton:
+            document.getElementById("yswTopupBtn"),
+
+        confirmButton:
+            document.getElementById("yswConfirmWithdrawalBtn"),
+
+        changeBankButton:
+            document.getElementById("yswChangeBank"),
+
+        amountInput:
+            document.getElementById("yswWithdrawAmount"),
+
+        viewAllButton:
+            document.getElementById("yswViewAllTransactions"),
+
+        walletCard:
+            document.querySelector(".ysw-wallet-card"),
+
+        transactionItems:
+            document.querySelectorAll(".ysw-transaction-item")
+
+    };
+
+}
+
+/*=========================================================
+PAGE ANIMATION
+=========================================================*/
+
+function initializeWalletAnimations() {
+
+    if (yswElements.walletCard) {
+
+        yswElements.walletCard.classList.add("ysw-scale-in");
+
+    }
+
+    yswElements.transactionItems.forEach((item, index) => {
+
+        item.style.animationDelay = `${index * 120}ms`;
+
+        item.classList.add("ysw-fade-up");
+
+    });
+
+}
+
+/*=========================================================
+NAVIGATION
+=========================================================*/
+
+function initializeNavigation() {
+
+    if (yswElements.topupButton) {
+
+        yswElements.topupButton.addEventListener("click", () => {
+
+            window.location.href = "wallet-topup.html";
+
+        });
+
+    }
+
+    if (yswElements.viewAllButton) {
+
+        yswElements.viewAllButton.addEventListener("click", () => {
+
+            window.location.href = "wallet-transactions.html";
+
+        });
+
+    }
+
+}
+
+/*=========================================================
+PRIMARY ACTIONS
+=========================================================*/
+
+function initializeWalletActions() {
+
+    if (yswElements.withdrawButton) {
+
+        yswElements.withdrawButton.addEventListener("click", () => {
+
+            if (yswElements.amountInput) {
+
+                yswElements.amountInput.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "center"
+
+                });
+
+                setTimeout(() => {
+
+                    yswElements.amountInput.focus();
+
+                }, 400);
+
+            }
+
+        });
+
+    }
+
+    if (yswElements.changeBankButton) {
+
+        yswElements.changeBankButton.addEventListener("click", () => {
+
+            window.location.href = "seller-bank-accounts.html";
+
+        });
+
+    }
+
+}
+
+/*=========================================================
+WITHDRAWAL VALIDATION
+=========================================================*/
+
+const YSW_MINIMUM_WITHDRAWAL = 1000;
+
+const YSW_AVAILABLE_BALANCE = 524000;
+
+/*=========================================================
+INITIALIZE VALIDATION
+=========================================================*/
+
+initializeWithdrawalValidation();
+
+function initializeWithdrawalValidation() {
+
+    if (!yswElements.amountInput) {
+
+        return;
+
+    }
+
+    yswElements.amountInput.addEventListener("input", handleAmountInput);
+
+    yswElements.amountInput.addEventListener("blur", validateWithdrawalAmount);
+
+}
+
+/*=========================================================
+HANDLE INPUT
+=========================================================*/
+
+function handleAmountInput(event) {
+
+    const input = event.target;
+
+    let value = input.value.replace(/[^\d]/g, "");
+
+    if (value === "") {
+
+        input.value = "";
+
+        return;
+
+    }
+
+    value = parseInt(value, 10);
+
+    input.value = value;
+
+}
+
+/*=========================================================
+VALIDATE AMOUNT
+=========================================================*/
+
+function validateWithdrawalAmount() {
+
+    if (!yswElements.amountInput) {
+
+        return false;
+
+    }
+
+    const amount = Number(yswElements.amountInput.value);
+
+    if (!amount) {
+
+        showWalletInputError(
+
+            "Please enter a withdrawal amount."
+
+        );
+
+        return false;
+
+    }
+
+    if (amount < YSW_MINIMUM_WITHDRAWAL) {
+
+        showWalletInputError(
+
+            `Minimum withdrawal is ₦${formatWalletCurrency(YSW_MINIMUM_WITHDRAWAL)}.`
+
+        );
+
+        return false;
+
+    }
+
+    if (amount > YSW_AVAILABLE_BALANCE) {
+
+        showWalletInputError(
+
+            "Withdrawal amount exceeds your available balance."
+
+        );
+
+        return false;
+
+    }
+
+    clearWalletInputError();
+
+    return true;
+
+}
+
+/*=========================================================
+INPUT ERROR
+=========================================================*/
+
+function showWalletInputError(message) {
+
+    if (!yswElements.amountInput) {
+
+        return;
+
+    }
+
+    yswElements.amountInput.classList.add("is-invalid");
+
+    let feedback = document.getElementById(
+
+        "yswAmountFeedback"
+
+    );
+
+    if (!feedback) {
+
+        feedback = document.createElement("div");
+
+        feedback.id = "yswAmountFeedback";
+
+        feedback.className = "invalid-feedback d-block";
+
+        yswElements.amountInput.insertAdjacentElement(
+
+            "afterend",
+
+            feedback
+
+        );
+
+    }
+
+    feedback.textContent = message;
+
+}
+
+function clearWalletInputError() {
+
+    if (!yswElements.amountInput) {
+
+        return;
+
+    }
+
+    yswElements.amountInput.classList.remove("is-invalid");
+
+    const feedback = document.getElementById(
+
+        "yswAmountFeedback"
+
+    );
+
+    if (feedback) {
+
+        feedback.remove();
+
+    }
+
+}
+
+/*=========================================================
+FORMAT CURRENCY
+=========================================================*/
+
+function formatWalletCurrency(amount) {
+
+    return Number(amount).toLocaleString(
+
+        "en-NG"
+
+    );
+
+}
+
+/*=========================================================
+CONFIRM WITHDRAWAL
+=========================================================*/
+
+initializeConfirmWithdrawal();
+
+function initializeConfirmWithdrawal() {
+
+    if (!yswElements.confirmButton) {
+
+        return;
+
+    }
+
+    yswElements.confirmButton.addEventListener(
+
+        "click",
+
+        processWithdrawal
+
+    );
+
+}
+
+/*=========================================================
+PROCESS WITHDRAWAL
+=========================================================*/
+
+function processWithdrawal() {
+
+    if (!validateWithdrawalAmount()) {
+
+        return;
+
+    }
+
+    const amount = Number(
+
+        yswElements.amountInput.value
+
+    );
+
+    const originalText =
+
+        yswElements.confirmButton.textContent;
+
+    yswElements.confirmButton.disabled = true;
+
+    yswElements.confirmButton.innerHTML =
+
+        `<span class="spinner-border spinner-border-sm me-2"></span>
+         Processing...`;
+
+    setTimeout(() => {
+
+        completeWithdrawal(amount);
+
+        yswElements.confirmButton.disabled = false;
+
+        yswElements.confirmButton.textContent =
+
+            originalText;
+
+    }, 1800);
+
+}
+
+/*=========================================================
+COMPLETE WITHDRAWAL
+=========================================================*/
+
+function completeWithdrawal(amount) {
+
+    const updatedBalance =
+
+        YSW_AVAILABLE_BALANCE - amount;
+
+    updateWalletBalance(updatedBalance);
+
+    saveWalletTransaction({
+
+        id: Date.now(),
+
+        type: "Withdrawal",
+
+        amount: amount,
+
+        account: "GTBank ••••4532",
+
+        status: "Completed",
+
+        date: new Date().toISOString()
+
+    });
+
+    showWalletToast(
+
+        `₦${formatWalletCurrency(amount)} withdrawal request submitted successfully.`,
+
+        "success"
+
+    );
+
+    yswElements.amountInput.value = "";
+
+}
+
+/*=========================================================
+UPDATE WALLET BALANCE
+=========================================================*/
+
+function updateWalletBalance(balance) {
+
+    const balanceElement =
+
+        document.querySelector(
+
+            ".ysw-wallet-balance"
+
+        );
+
+    if (!balanceElement) {
+
+        return;
+
+    }
+
+    balanceElement.textContent =
+
+        `₦${formatWalletCurrency(balance)}`;
+
+}
+
+/*=========================================================
+SAVE TRANSACTION
+===========================*/
+
+    saveWalletState(updatedBalance);
+
+    prependLatestTransaction(amount);
+
+}
+
+/*=========================================================
+LOCAL STORAGE
+=========================================================*/
+
+function saveWalletState(balance) {
+
+    const walletState = {
+
+        availableBalance: balance,
+
+        updatedAt: new Date().toISOString()
+
+    };
+
+    localStorage.setItem(
+
+        "yswSellerWalletState",
+
+        JSON.stringify(walletState)
+
+    );
+
+}
+
+function saveWalletTransaction(transaction) {
+
+    const transactions = JSON.parse(
+
+        localStorage.getItem("yswWalletTransactions") || "[]"
+
+    );
+
+    transactions.unshift(transaction);
+
+    localStorage.setItem(
+
+        "yswWalletTransactions",
+
+        JSON.stringify(transactions)
+
+    );
+
+}
+
+/*=========================================================
+PREPEND NEW TRANSACTION
+=========================================================*/
+
+function prependLatestTransaction(amount) {
+
+    const transactionsContainer = document.querySelector(
+
+        ".ysw-transactions-section .ysw-card"
+
+    );
+
+    if (!transactionsContainer) {
+
+        return;
+
+    }
+
+    const transaction = document.createElement("div");
+
+    transaction.className =
+
+        "ysw-transaction-item ysw-scale-in";
+
+    transaction.innerHTML = `
+
+        <div class="ysw-transaction-left">
+
+            <div class="ysw-transaction-icon danger">
+
+                <i class="bi bi-arrow-up-circle-fill"></i>
+
+            </div>
+
+            <div>
+
+                <h6>
+
+                    Withdrawal
+
+                </h6>
+
+                <span>
+
+                    GTBank ••••4532
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="ysw-transaction-right">
+
+            <h6 class="ysw-debit">
+
+                - ₦${formatWalletCurrency(amount)}
+
+            </h6>
+
+            <small>
+
+                Just now
+
+            </small>
+
+        </div>
+
+    `;
+
+    const firstTransaction = transactionsContainer.querySelector(
+
+        ".ysw-transaction-item"
+
+    );
+
+    if (firstTransaction) {
+
+        firstTransaction.before(transaction);
+
+    }
+
+}
+
+/*=========================================================
+RESTORE WALLET
+=========================================================*/
+
+restoreWalletState();
+
+function restoreWalletState() {
+
+    const walletState = JSON.parse(
+
+        localStorage.getItem("yswSellerWalletState")
+
+    );
+
+    if (
+
+        walletState &&
+
+        walletState.availableBalance
+
+    ) {
+
+        updateWalletBalance(
+
+            walletState.availableBalance
+
+        );
+
+    }
+
+}
+
+/*=========================================================
+TOAST NOTIFICATION
+=========================================================*/
+
+function showWalletToast(message, type = "success") {
+
+    let toast = document.getElementById("yswWalletToast");
+
+    if (!toast) {
+
+        toast = document.createElement("div");
+
+        toast.id = "yswWalletToast";
+
+        toast.className = "toast align-items-center border-0 position-fixed";
+
+        toast.style.top = "20px";
+        toast.style.right = "20px";
+        toast.style.zIndex = "9999";
+
+        document.body.appendChild(toast);
+
+    }
+
+    const backgroundColor = type === "success"
+        ? "bg-success"
+        : "bg-danger";
+
+    toast.className = `toast align-items-center text-white ${backgroundColor} border-0 position-fixed`;
+
+    toast.innerHTML = `
+
+        <div class="d-flex">
+
+            <div class="toast-body">
+
+                ${message}
+
+            </div>
+
+            <button
+                type="button"
+                class="btn-close btn-close-white me-2 m-auto"
+                data-bs-dismiss="toast">
+
+            </button>
+
+        </div>
+
+    `;
+
+    const bsToast = new bootstrap.Toast(toast, {
+
+        delay: 3500
+
+    });
+
+    bsToast.show();
+
+}
+
+/*=========================================================
+KEYBOARD SHORTCUTS
+=========================================================*/
+
+document.addEventListener("keydown", (event) => {
+
+    if (
+
+        event.key === "Enter" &&
+
+        document.activeElement === yswElements.amountInput
+
+    ) {
+
+        event.preventDefault();
+
+        processWithdrawal();
+
+    }
+
+});
+
+/*=========================================================
+AUTO FORMAT ON BLUR
+=========================================================*/
+
+if (yswElements.amountInput) {
+
+    yswElements.amountInput.addEventListener("blur", () => {
+
+        const amount = Number(
+
+            yswElements.amountInput.value
+
+        );
+
+        if (amount > 0) {
+
+            yswElements.amountInput.value = amount;
+
+        }
+
+    });
+
+}
+
+/*=========================================================
+GLOBAL ERROR HANDLER
+=========================================================*/
+
+window.addEventListener("error", (event) => {
+
+    console.error(
+
+        "[Seller Wallet]",
+
+        event.message
+
+    );
+
+});
+
+/*=========================================================
+HELPER FUNCTIONS
+=========================================================*/
+
+function getCurrentWalletBalance() {
+
+    const balanceElement = document.querySelector(
+
+        ".ysw-wallet-balance"
+
+    );
+
+    if (!balanceElement) {
+
+        return 0;
+
+    }
+
+    return Number(
+
+        balanceElement.textContent
+
+            .replace(/[₦,\s]/g, "")
+
+    );
+
+}
+
+function resetWithdrawalForm() {
+
+    clearWalletInputError();
+
+    if (yswElements.amountInput) {
+
+        yswElements.amountInput.value = "";
+
+    }
+
+}
+
+function scrollToTopSmooth() {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+/*=========================================================
+PAGE EVENTS
+=========================================================*/
+
+window.addEventListener("beforeunload", () => {
+
+    console.info(
+
+        "Seller Wallet page unloaded."
+
+    );
+
+});
+
+/*=========================================================
+SELLER DASHBOARD LINKS
+=========================================================*/
+
+const yswSidebarLinks = {
+
+    dashboard: "../../seller/seller-dashboard.html",
+
+    orders: "../../seller/seller-order.html",
+
+    products: "../../seller/seller-product.html",
+
+    inventory: "../../seller/seller-inventory.html",
+
+    analytics: "../../seller/seller-analytics.html",
+
+    revenue: "../../seller/seller-revenue.html",
+
+    wallet: "../../seller/seller-wallet.html",
+
+    settings: "../../seller/seller-setting.html"
+
+};
+
+/*=========================================================
+END OF SELLER WALLET JAVASCRIPT
+=========================================================*/
+
+
+
+
+
+
+
+
+
+
+
 /*=====================================================
 SELLER INVENTORY
 PART 3A
@@ -15166,6 +16046,946 @@ Append after Part 3D
     );
 
 });
+
+
+/*=========================================================
+BUYER NEIGHBOURHOOD
+PART 3A
+=========================================================*/
+
+const BuyerNeighbourhood = {
+
+    /*=====================================================
+    LOCAL STORAGE KEYS
+    =====================================================*/
+
+    storage: {
+
+        location: "yoviBuyerLocation",
+
+        favouriteProducts: "yoviFavouriteProducts",
+
+        recentProviders: "yoviRecentProviders"
+
+    },
+
+    /*=====================================================
+    APPLICATION STATE
+    =====================================================*/
+
+    state: {
+
+        currentLocation: "Ikeja, Lagos",
+
+        favouriteProducts: [],
+
+        recentProviders: [],
+
+        isLoading: false
+
+    },
+
+    /*=====================================================
+    DOM ELEMENTS
+    =====================================================*/
+
+    elements: {},
+
+    /*=====================================================
+    INITIALIZE
+    =====================================================*/
+
+    init() {
+
+        this.cacheDOM();
+
+        this.loadLocalStorage();
+
+        this.restoreLocation();
+
+        this.bindEvents();
+
+        this.initializeAnimations();
+
+    },
+
+    /*=====================================================
+    CACHE DOM
+    =====================================================*/
+
+    cacheDOM() {
+
+        this.elements.locationText =
+
+            document.querySelector(
+
+                ".cbnh-current-location"
+
+            );
+
+        this.elements.changeLocation =
+
+            document.querySelector(
+
+                ".cbnh-location-change"
+
+            );
+
+        this.elements.liveFeedButton =
+
+            document.querySelector(
+
+                ".cbnh-live-feed-btn"
+
+            );
+
+        this.elements.productCards =
+
+            document.querySelectorAll(
+
+                ".cbnh-product-card"
+
+            );
+
+        this.elements.providerCards =
+
+            document.querySelectorAll(
+
+                ".cbnh-provider-card"
+
+            );
+
+        this.elements.statCards =
+
+            document.querySelectorAll(
+
+                ".cbnh-stat-card"
+
+            );
+
+    },
+
+    /*=====================================================
+    LOAD LOCAL STORAGE
+    =====================================================*/
+
+    loadLocalStorage() {
+
+        const savedLocation =
+
+            localStorage.getItem(
+
+                this.storage.location
+
+            );
+
+        const favourites =
+
+            localStorage.getItem(
+
+                this.storage.favouriteProducts
+
+            );
+
+        const providers =
+
+            localStorage.getItem(
+
+                this.storage.recentProviders
+
+            );
+
+        if (savedLocation) {
+
+            this.state.currentLocation =
+
+                savedLocation;
+
+        }
+
+        this.state.favouriteProducts =
+
+            favourites
+
+                ? JSON.parse(favourites)
+
+                : [];
+
+        this.state.recentProviders =
+
+            providers
+
+                ? JSON.parse(providers)
+
+                : [];
+
+    },
+
+    /*=====================================================
+    SAVE LOCAL STORAGE
+    =====================================================*/
+
+    saveLocalStorage() {
+
+        localStorage.setItem(
+
+            this.storage.location,
+
+            this.state.currentLocation
+
+        );
+
+        localStorage.setItem(
+
+            this.storage.favouriteProducts,
+
+            JSON.stringify(
+
+                this.state.favouriteProducts
+
+            )
+
+        );
+
+        localStorage.setItem(
+
+            this.storage.recentProviders,
+
+            JSON.stringify(
+
+                this.state.recentProviders
+
+            )
+
+        );
+
+    },
+
+    /*=====================================================
+    RESTORE LOCATION
+    =====================================================*/
+
+    restoreLocation() {
+
+        if (
+
+            this.elements.locationText
+
+        ) {
+
+            this.elements.locationText.textContent =
+
+                this.state.currentLocation;
+
+        }
+
+    },
+
+    /*=====================================================
+    BIND EVENTS
+    =====================================================*/
+
+    bindEvents() {
+
+        /*-----------------------------------------
+        Change Location
+        -----------------------------------------*/
+
+        if (this.elements.changeLocation) {
+
+            this.elements.changeLocation.addEventListener(
+
+                "click",
+
+                this.handleLocationChange.bind(this)
+
+            );
+
+        }
+
+        /*-----------------------------------------
+        Live Feed
+        -----------------------------------------*/
+
+        if (this.elements.liveFeedButton) {
+
+            this.elements.liveFeedButton.addEventListener(
+
+                "click",
+
+                this.openLiveFeed.bind(this)
+
+            );
+
+        }
+
+        /*-----------------------------------------
+        Product Cards
+        -----------------------------------------*/
+
+        this.elements.productCards.forEach(card => {
+
+            card.addEventListener(
+
+                "click",
+
+                this.handleProductClick.bind(this)
+
+            );
+
+        });
+
+        /*-----------------------------------------
+        Provider Cards
+        -----------------------------------------*/
+
+        this.elements.providerCards.forEach(card => {
+
+            card.addEventListener(
+
+                "click",
+
+                this.handleProviderClick.bind(this)
+
+            );
+
+        });
+
+    },
+
+    /*=====================================================
+    CHANGE LOCATION
+    =====================================================*/
+
+    handleLocationChange(event) {
+
+        event.preventDefault();
+
+        window.location.href =
+
+            "buyer-change-location.html";
+
+    },
+
+    /*=====================================================
+    LIVE FEED
+    =====================================================*/
+
+    openLiveFeed(event) {
+
+        event.preventDefault();
+
+        this.elements.liveFeedButton.classList.add(
+
+            "cbnh-btn-loading"
+
+        );
+
+        setTimeout(() => {
+
+            window.location.href =
+
+                "buyer-live-feed.html";
+
+        }, 500);
+
+    },
+
+    /*=====================================================
+    PRODUCT CLICK
+    =====================================================*/
+
+    handleProductClick(event) {
+
+        const card = event.currentTarget;
+
+        card.classList.add("cbnh-card-active");
+
+        setTimeout(() => {
+
+            card.classList.remove(
+
+                "cbnh-card-active"
+
+            );
+
+        }, 180);
+
+    },
+
+    /*=====================================================
+    PROVIDER CLICK
+    =====================================================*/
+
+    handleProviderClick(event) {
+
+        const card = event.currentTarget;
+
+        const providerName =
+
+            card.querySelector("h4")?.textContent.trim();
+
+        if (
+
+            providerName &&
+
+            !this.state.recentProviders.includes(
+
+                providerName
+
+            )
+
+        ) {
+
+            this.state.recentProviders.unshift(
+
+                providerName
+
+            );
+
+            if (
+
+                this.state.recentProviders.length > 10
+
+            ) {
+
+                this.state.recentProviders.pop();
+
+            }
+
+            this.saveLocalStorage();
+
+        }
+
+        card.classList.add("cbnh-card-active");
+
+        setTimeout(() => {
+
+            card.classList.remove(
+
+                "cbnh-card-active"
+
+            );
+
+        }, 180);
+
+    },
+
+    /*=====================================================
+    INITIALIZE ANIMATIONS
+    =====================================================*/
+
+    initializeAnimations() {
+
+        const animatedItems = [
+
+            ...this.elements.statCards,
+
+            ...this.elements.productCards,
+
+            ...this.elements.providerCards
+
+        ];
+
+        animatedItems.forEach((item, index) => {
+
+            item.style.animationDelay =
+
+                `${index * 0.08}s`;
+
+        });
+
+    },
+
+    /*=====================================================
+    INITIALIZE INTERSECTION OBSERVER
+    =====================================================*/
+
+    initializeIntersectionObserver() {
+
+        const observer = new IntersectionObserver(
+
+            (entries) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+
+                            "cbnh-visible"
+
+                        );
+
+                        observer.unobserve(
+
+                            entry.target
+
+                        );
+
+                    }
+
+                });
+
+            },
+
+            {
+
+                threshold:0.15,
+
+                rootMargin:"0px 0px -40px 0px"
+
+            }
+
+        );
+
+        [
+
+            ...this.elements.statCards,
+
+            ...this.elements.productCards,
+
+            ...this.elements.providerCards
+
+        ].forEach(card => {
+
+            observer.observe(card);
+
+        });
+
+    },
+
+    /*=====================================================
+    ANIMATE STATISTICS
+    =====================================================*/
+
+    animateStatistics() {
+
+        this.elements.statCards.forEach(card => {
+
+            const numberElement =
+
+                card.querySelector("h3");
+
+            if (!numberElement) return;
+
+            const targetValue = parseInt(
+
+                numberElement.textContent.replace(/\D/g, ""),
+
+                10
+
+            );
+
+            if (isNaN(targetValue)) return;
+
+            let currentValue = 0;
+
+            const increment =
+
+                Math.max(1, Math.ceil(targetValue / 40));
+
+            const counter = setInterval(() => {
+
+                currentValue += increment;
+
+                if (currentValue >= targetValue) {
+
+                    currentValue = targetValue;
+
+                    clearInterval(counter);
+
+                }
+
+                numberElement.textContent =
+
+                    currentValue;
+
+            }, 25);
+
+        });
+
+    },
+
+    /*=====================================================
+    RESTORE RECENT PROVIDERS
+    =====================================================*/
+
+    restoreRecentProviders() {
+
+        if (
+
+            !this.state.recentProviders.length
+
+        ) {
+
+            return;
+
+        }
+
+        this.elements.providerCards.forEach(card => {
+
+            const providerName =
+
+                card.querySelector("h4")?.textContent.trim();
+
+            if (
+
+                this.state.recentProviders.includes(
+
+                    providerName
+
+                )
+
+            ) {
+
+                card.classList.add(
+
+                    "cbnh-recent-provider"
+
+                );
+
+            }
+
+        });
+
+    },
+
+    /*=====================================================
+    UPDATE LOCATION
+    =====================================================*/
+
+    updateLocation(location) {
+
+        this.state.currentLocation = location;
+
+        this.restoreLocation();
+
+        this.saveLocalStorage();
+
+    },
+
+    /*=====================================================
+    REFRESH PAGE STATE
+    =====================================================*/
+
+    refreshPageState() {
+
+        this.restoreLocation();
+
+        this.restoreRecentProviders();
+
+    },
+
+    /*=====================================================
+    SHOW TOAST MESSAGE
+    =====================================================*/
+
+    showToast(message, type = "success") {
+
+        const existingToast = document.querySelector("#cbnhToast");
+
+        if (existingToast) {
+
+            existingToast.remove();
+
+        }
+
+        const toast = document.createElement("div");
+
+        toast.id = "cbnhToast";
+
+        toast.className = `toast align-items-center text-bg-${type} border-0 position-fixed`;
+
+        toast.style.top = "20px";
+
+        toast.style.right = "20px";
+
+        toast.style.zIndex = "1080";
+
+        toast.innerHTML = `
+
+            <div class="d-flex">
+
+                <div class="toast-body">
+
+                    ${message}
+
+                </div>
+
+                <button type="button"
+                        class="btn-close btn-close-white me-2 m-auto"
+                        data-bs-dismiss="toast">
+
+                </button>
+
+            </div>
+
+        `;
+
+        document.body.appendChild(toast);
+
+        const bsToast = new bootstrap.Toast(toast, {
+
+            delay:2500
+
+        });
+
+        bsToast.show();
+
+        toast.addEventListener("hidden.bs.toast", () => {
+
+            toast.remove();
+
+        });
+
+    },
+
+    /*=====================================================
+    SAVE PRODUCT AS FAVOURITE
+    =====================================================*/
+
+    saveFavouriteProduct(card) {
+
+        const productName =
+
+            card.querySelector("h4")?.textContent.trim();
+
+        if (!productName) return;
+
+        if (
+
+            !this.state.favouriteProducts.includes(
+
+                productName
+
+            )
+
+        ) {
+
+            this.state.favouriteProducts.push(
+
+                productName
+
+            );
+
+            this.saveLocalStorage();
+
+            this.showToast(
+
+                "Product added to favourites."
+
+            );
+
+        }
+
+    },
+
+    /*=====================================================
+    TOGGLE LOADING STATE
+    =====================================================*/
+
+    setLoadingState(status) {
+
+        this.state.isLoading = status;
+
+        if (status) {
+
+            document.body.classList.add(
+
+                "cbnh-loading"
+
+            );
+
+        } else {
+
+            document.body.classList.remove(
+
+                "cbnh-loading"
+
+            );
+
+        }
+
+    },
+
+    /*=====================================================
+    SIMULATE DATA REFRESH
+    =====================================================*/
+
+    refreshNeighbourhoodData() {
+
+        this.setLoadingState(true);
+
+        setTimeout(() => {
+
+            this.setLoadingState(false);
+
+            this.showToast(
+
+                "Neighbourhood updated successfully."
+
+            );
+
+        }, 1200);
+
+    },
+
+    /*=====================================================
+    STORE RECENT PRODUCT
+    =====================================================*/
+
+    storeRecentProduct(card) {
+
+        const productName =
+
+            card.querySelector("h4")?.textContent.trim();
+
+        if (!productName) return;
+
+        let recentProducts = JSON.parse(
+
+            localStorage.getItem(
+
+                "yoviRecentProducts"
+
+            ) || "[]"
+
+        );
+
+        recentProducts = recentProducts.filter(
+
+            item => item !== productName
+
+        );
+
+        recentProducts.unshift(productName);
+
+        recentProducts = recentProducts.slice(0, 10);
+
+        localStorage.setItem(
+
+            "yoviRecentProducts",
+
+            JSON.stringify(recentProducts)
+
+        );
+
+    },
+
+    /*=====================================================
+    HANDLE PAGE VISIBILITY
+    =====================================================*/
+
+    handleVisibilityChange() {
+
+        if (document.hidden) {
+
+            this.saveLocalStorage();
+
+            return;
+
+        }
+
+        this.refreshPageState();
+
+    },
+
+    /*=====================================================
+    HANDLE WINDOW RESIZE
+    =====================================================*/
+
+    handleWindowResize() {
+
+        let resizeTimer;
+
+        window.addEventListener("resize", () => {
+
+            clearTimeout(resizeTimer);
+
+            resizeTimer = setTimeout(() => {
+
+                document.body.classList.add(
+
+                    "cbnh-resizing"
+
+                );
+
+                setTimeout(() => {
+
+                    document.body.classList.remove(
+
+                        "cbnh-resizing"
+
+                    );
+
+                }, 150);
+
+            }, 100);
+
+        });
+
+    },
+
+    /*=====================================================
+    REGISTER GLOBAL EVENTS
+    =====================================================*/
+
+    registerGlobalEvents() {
+
+        document.addEventListener(
+
+            "visibilitychange",
+
+            this.handleVisibilityChange.bind(this)
+
+        );
+
+        window.addEventListener(
+
+            "beforeunload",
+
+            () => {
+
+                this.saveLocalStorage();
+
+            }
+
+        );
+
+        this.handleWindowResize();
+
+    },
+
+    /*=====================================================
+    DESTROY
+    =====================================================*/
+
+    destroy() {
+
+        this.saveLocalStorage();
+
+    }
+
+};
+
+/*=========================================================
+APPLICATION START
+=========================================================*/
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    () => {
+
+        BuyerNeighbourhood.init();
+
+        BuyerNeighbourhood.registerGlobalEvents();
+
+    }
+
+);
 
 
 

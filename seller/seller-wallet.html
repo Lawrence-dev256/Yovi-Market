@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Seller Wallet | YOVI Marketplace</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet"
+          href="../assets/css/style.css">
+
+</head>
+
+<body id="yswWalletPage">
+
+    <!-- ==========================================
+         SELLER WALLET PAGE
+    =========================================== -->
+
+    <main class="ysw-wallet-page">
+
+        <!-- ======================================
+             TOP NAVIGATION
+        ======================================= -->
+
+        <header class="ysw-header">
+
+            <div class="container-fluid">
+
+                <div class="row align-items-center">
+
+                    <!-- Brand Logo -->
+
+                    <div class="col-lg-2 col-md-3 col-6">
+
+                        <a href="home.html"
+                           class="ysw-logo-link">
+
+                            <div id="yswBrandPlaceholder"
+                                 class="ysw-logo-placeholder">
+
+                                <!-- Replace with your logo -->
+
+                                Logo
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                    <!-- Desktop Navigation -->
+
+                    <div class="col-lg-7 d-none d-lg-block">
+
+                        <nav class="ysw-navigation">
+
+                            <ul class="ysw-navigation-list">
+
+                                <li>
+
+                                    <a href="home.html">
+
+                                        Home
+
+                                    </a>
+
+                                </li>
+
+                                <li>
+
+                                    <a href="products.html">
+
+                                        Products
+
+                                    </a>
+
+                                </li>
+
+                                <li>
+
+                                    <a href="services.html">
+
+                                        Services
+
+                                    </a>
+
+                                </li>
+
+                                <li>
+
+                                    <a href="orders.html">
+
+                                        Orders
+
+                                    </a>
+
+                                </li>
+
+                                <li>
+
+                                    <a href="bookings.html">
+
+                                        Bookings
+
+                                    </a>
+
+                                </li>
+
+                                <li>
+
+                                    <a href="messages.html">
+
+                                        Messages
+
+                                    </a>
+
+                                </li>
+
+                            </ul>
+
+                        </nav>
+
+                    </div>
+
+                    <!-- Right Navigation -->
+
+                    <div class="col-lg-3 col-md-9 col-6">
+
+                        <div class="ysw-header-actions">
+
+                            <button type="button"
+                                    class="ysw-header-icon">
+
+                                <i class="bi bi-cart3"></i>
+
+                            </button>
+
+                            <button type="button"
+                                    class="ysw-header-icon position-relative">
+
+                                <i class="bi bi-bell"></i>
+
+                                <span class="ysw-notification-indicator"></span>
+
+                            </button>
+
+                            <div class="dropdown">
+
+                                <button class="btn ysw-user-button dropdown-toggle"
+                                        type="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+
+                                    <img src="https://placehold.co/40x40"
+                                         alt="Profile"
+                                         class="ysw-user-avatar">
+
+                                    <span class="ysw-user-name">
+
+                                        Chidi
+
+                                    </span>
+
+                                </button>
+
+                                <ul class="dropdown-menu dropdown-menu-end">
+
+                                    <li>
+
+                                        <a class="dropdown-item"
+                                           href="../seller/seller-dashboard.html">
+
+                                            Dashboard
+
+                                        </a>
+
+                                    </li>
+
+                                    <li>
+
+                                        <a class="dropdown-item"
+                                           href="seller-profile.html">
+
+                                            Profile
+
+                                        </a>
+
+                                    </li>
+
+                                    <li>
+
+                                        <a class="dropdown-item"
+                                           href="settings.html">
+
+                                            Settings
+
+                                        </a>
+
+                                    </li>
+
+                                    <li>
+
+                                        <hr class="dropdown-divider">
+
+                                    </li>
+
+                                    <li>
+
+                                        <a class="dropdown-item"
+                                           href="../auth/login.html">
+
+                                            Logout
+
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- ======================================
+             PAGE CONTENT
+        ======================================= -->
+
+        <section class="ysw-content">
+
+            <div class="container">
+
+                <!-- Breadcrumb -->
+
+                <div class="ysw-breadcrumb">
+
+                    <a href="../seller/seller-dashboard.html">
+
+                        <i class="bi bi-chevron-left"></i>
+
+                        Seller Dashboard
+
+                    </a>
+
+                </div>
+
+                <!-- Page Heading -->
+
+                <div class="ysw-page-header">
+
+                    <h1 class="ysw-page-title">
+
+                        YOVI Wallet
+
+                    </h1>
+
+                </div>
+
+                            <!-- ======================================
+                     WALLET SUMMARY CARD
+                ======================================= -->
+
+                <section class="ysw-wallet-summary">
+
+                    <div class="ysw-wallet-card">
+
+                        <!-- Decorative Shapes -->
+
+                        <span class="ysw-wallet-circle ysw-wallet-circle-top"></span>
+
+                        <span class="ysw-wallet-circle ysw-wallet-circle-bottom"></span>
+
+                        <div class="ysw-wallet-content">
+
+                            <p class="ysw-wallet-label">
+
+                                Available Balance
+
+                            </p>
+
+                            <h2 class="ysw-wallet-balance">
+
+                                ₦524,000
+
+                            </h2>
+
+                            <div class="ysw-wallet-stats">
+
+                                <div class="ysw-wallet-stat">
+
+                                    <span class="ysw-stat-title">
+
+                                        Pending Escrow
+
+                                    </span>
+
+                                    <h6>
+
+                                        ₦185,000
+
+                                    </h6>
+
+                                </div>
+
+                                <div class="ysw-wallet-stat">
+
+                                    <span class="ysw-stat-title">
+
+                                        Total Earned
+
+                                    </span>
+
+                                    <h6>
+
+                                        ₦2,250,000
+
+                                    </h6>
+
+                                </div>
+
+                            </div>
+
+                            <div class="ysw-wallet-actions">
+
+                                <button id="yswWithdrawBtn"
+
+                                        class="ysw-btn-primary">
+
+                                    Withdraw Funds
+
+                                </button>
+
+                                <button id="yswTopupBtn"
+
+                                        class="ysw-btn-secondary">
+
+                                    Top Up
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ======================================
+                     WITHDRAW FUNDS CARD
+                ======================================= -->
+
+                <section class="ysw-withdraw-section">
+
+                    <div class="ysw-card">
+
+                        <h3 class="ysw-card-title">
+
+                            Withdraw Funds
+
+                        </h3>
+
+                        <!-- Amount -->
+
+                        <div class="mb-4">
+
+                            <label for="yswWithdrawAmount"
+
+                                   class="ysw-label">
+
+                                Amount
+
+                            </label>
+
+                            <input
+
+                                type="number"
+
+                                id="yswWithdrawAmount"
+
+                                class="form-control ysw-input"
+
+                                placeholder="₦ 5000"
+
+                                value="5000"
+
+                                min="1000">
+
+                        </div>
+
+                        <!-- Bank Account -->
+
+                        <div class="mb-3">
+
+                            <label class="ysw-label">
+
+                                Bank Account
+
+                            </label>
+
+                            <div class="ysw-bank-card">
+
+                                <div class="ysw-bank-left">
+
+                                    <div class="ysw-bank-icon">
+
+                                        <i class="bi bi-bank"></i>
+
+                                    </div>
+
+                                    <div>
+
+                                        <h6>
+
+                                            GTBank •••• 4532
+
+                                        </h6>
+
+                                        <small>
+
+                                            TechHub Lagos Ltd
+
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                                <button id="yswChangeBank"
+
+                                        class="ysw-change-bank">
+
+                                    Change
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                                       <!-- Processing Information -->
+
+                        <div class="ysw-processing-info">
+
+                            <div class="ysw-processing-icon">
+
+                                <i class="bi bi-info-circle-fill"></i>
+
+                            </div>
+
+                            <div class="ysw-processing-content">
+
+                                <h6>
+
+                                    Processing Time
+
+                                </h6>
+
+                                <p>
+
+                                    Withdrawals are processed within
+                                    <strong>24 hours</strong> to your
+                                    selected bank account.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Withdrawal Button -->
+
+                        <div class="ysw-withdraw-action">
+
+                            <button id="yswConfirmWithdrawalBtn"
+                                    type="button"
+                                    class="ysw-confirm-btn">
+
+                                Confirm Withdrawal
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ======================================
+                     RECENT TRANSACTIONS
+                ======================================= -->
+
+                <section class="ysw-transactions-section">
+
+                    <div class="ysw-card">
+
+                        <div class="ysw-section-header">
+
+                            <div>
+
+                                <h3 class="ysw-card-title">
+
+                                    Recent Transactions
+
+                                </h3>
+
+                                <p class="ysw-card-subtitle">
+
+                                    View your latest wallet activities.
+
+                                </p>
+
+                            </div>
+
+                            <button type="button"
+                                    id="yswViewAllTransactions"
+                                    class="ysw-view-all-btn">
+
+                                View All
+
+                            </button>
+
+                        </div>
+
+                        <!-- Transaction Item -->
+
+                        <div class="ysw-transaction-item">
+
+                            <div class="ysw-transaction-left">
+
+                                <div class="ysw-transaction-icon success">
+
+                                    <i class="bi bi-arrow-down-circle-fill"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <h6>
+
+                                        Payment Received
+
+                                    </h6>
+
+                                    <span>
+
+                                        Order #YOV-10325
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="ysw-transaction-right">
+
+                                <h6 class="ysw-credit">
+
+                                    + ₦35,000
+
+                                </h6>
+
+                                <small>
+
+                                    Today • 10:42 AM
+
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Transaction Item -->
+
+                        <div class="ysw-transaction-item">
+
+                            <div class="ysw-transaction-left">
+
+                                <div class="ysw-transaction-icon danger">
+
+                                    <i class="bi bi-arrow-up-circle-fill"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <h6>
+
+                                        Withdrawal
+
+                                    </h6>
+
+                                    <span>
+
+                                        GTBank ••••4532
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="ysw-transaction-right">
+
+                                <h6 class="ysw-debit">
+
+                                    - ₦15,000
+
+                                </h6>
+
+                                <small>
+
+                                    Yesterday
+
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Transaction Item -->
+
+                        <div class="ysw-transaction-item">
+
+                            <div class="ysw-transaction-left">
+
+                                <div class="ysw-transaction-icon warning">
+
+                                    <i class="bi bi-shield-lock-fill"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <h6>
+
+                                        Escrow Deposit
+
+                                    </h6>
+
+                                    <span>
+
+                                        Awaiting Buyer Confirmation
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="ysw-transaction-right">
+
+                                <h6 class="ysw-pending">
+
+                                    ₦85,000
+
+                                </h6>
+
+                                <small>
+
+                                    2 Days Ago
+
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                                           <!-- Transaction Item -->
+
+                        <div class="ysw-transaction-item">
+
+                            <div class="ysw-transaction-left">
+
+                                <div class="ysw-transaction-icon success">
+
+                                    <i class="bi bi-wallet2"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <h6>
+
+                                        Wallet Top Up
+
+                                    </h6>
+
+                                    <span>
+
+                                        Flutterwave Payment
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="ysw-transaction-right">
+
+                                <h6 class="ysw-credit">
+
+                                    + ₦50,000
+
+                                </h6>
+
+                                <small>
+
+                                    5 Days Ago
+
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Transaction Item -->
+
+                        <div class="ysw-transaction-item">
+
+                            <div class="ysw-transaction-left">
+
+                                <div class="ysw-transaction-icon primary">
+
+                                    <i class="bi bi-check-circle-fill"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <h6>
+
+                                        Escrow Released
+
+                                    </h6>
+
+                                    <span>
+
+                                        Order #YOV-10281
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="ysw-transaction-right">
+
+                                <h6 class="ysw-credit">
+
+                                    + ₦120,000
+
+                                </h6>
+
+                                <small>
+
+                                    1 Week Ago
+
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         BOOTSTRAP JAVASCRIPT
+    =========================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- ==========================================
+         GLOBAL JAVASCRIPT
+    =========================================== -->
+
+    <script src="../assets/js/app.js"></script>
+
+</body>
+
+</html>
