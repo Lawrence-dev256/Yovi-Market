@@ -94,6 +94,10 @@ html{
 
     scroll-behavior:smooth;
 
+    touch-action: manipulation;
+
+    --webkit-text-size-adjust: 100%;
+
 }
 
 
@@ -111,6 +115,10 @@ body{
     color:var(--text);
 
     overflow-x:hidden;
+
+    touch-action: manipulation;
+
+    --webkit-text-size-adjust: 100%;
 
 }
 
