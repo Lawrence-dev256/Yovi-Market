@@ -31776,7 +31776,7 @@ INPUT GROUP
 
 #sipSignInPage .sip-input-group:focus-within{
 
-    border-color:var(--black);
+    border-color:var(--primary);
 
 }
 
@@ -31804,7 +31804,7 @@ INPUT GROUP
 
     background:#FFFFFF;
 
-    color:var(--primary-dark);
+    color:var(--black);
 
     font-size:15px;
 
@@ -31872,7 +31872,7 @@ FORGOT PASSWORD
 
     font-weight:600;
 
-    color:var(--primary);
+    color:var(--secondary);
 
     transition:all .3s ease;
 
