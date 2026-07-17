@@ -1,6 +1,5 @@
 /*=========================================================
 YOVI REGISTER PAGE
-PART 3A
 =========================================================*/
 
 document.addEventListener("DOMContentLoaded", function () {

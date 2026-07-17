@@ -1,8 +1,5 @@
 /*==================================================
-PHONE VERIFICATION PAGE (3A)
-Initialization • OTP Navigation • Auto Focus
-Unique Prefix: yvp-
-Append to global.js
+PHONE VERIFICATION PAGE 
 ==================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {

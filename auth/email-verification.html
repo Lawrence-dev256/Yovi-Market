@@ -1,1 +1,126 @@
-, maximum-scale=1.0, user-scalable=no
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOVI — Check Your Email</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/email-verification.css" />
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- ── mail icon ── -->
+    <div class="mail-image">
+      <img src="/images/Container.png" alt="mail image">
+    </div>
+
+    <!-- ── Heading ── -->
+    <h1 class="main-heading">Check your email</h1>
+
+    <!-- ── Subtext ── -->
+    <p class="main-sub">
+      We sent a password reset link to<br />
+      <strong class="email-highlight">adaeze@example.com</strong>. It expires in 15 minutes.
+    </p>
+
+    <!-- ── White card ── -->
+    <div class="main-card">
+
+      <p class="card-section-title">Open your email app</p>
+
+      <!-- Gmail row -->
+      <a href="https://mail.google.com" target="_blank" rel="noopener" class="mail-row" id="gmailBtn">
+        <span class="mail-row__left">
+          <span class="mail-app-icon">
+            <!-- Gmail M icon built with SVG matching the coloured M in the design -->
+            <svg width="26" height="26" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#4caf50" d="M45 16.2l-5 2.75-5 4.75V40h7a3 3 0 003-3V16.2z"/>
+              <path fill="#1e88e5" d="M3 16.2l3.5 2.75L11 23.7V40H4a3 3 0 01-3-3V16.2z"/>
+              <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,28 24,37 36,28"/>
+              <path fill="#c62828" d="M3 12.298V16.2l8 6.5V11.2L7.898 9.084A3.22 3.22 0 003 12.298z"/>
+              <path fill="#fbc02d" d="M45 12.298V16.2l-8 6.5V11.2l3.102-2.116A3.22 3.22 0 0145 12.298z"/>
+            </svg>
+          </span>
+          <span class="mail-row__label">Open Gmail</span>
+        </span>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"
+             stroke="#9ca3af" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </a>
+
+      <!-- Outlook row -->
+      <a href="https://outlook.live.com" target="_blank" rel="noopener" class="mail-row" id="outlookBtn">
+        <span class="mail-row__left">
+          <span class="mail-app-icon">
+            <!-- Outlook icon -->
+            <svg width="26" height="26" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#1565c0" d="M28 8h15a1 1 0 011 1v30a1 1 0 01-1 1H28V8z"/>
+              <path fill="#fff" d="M28 18h16v12H28z"/>
+              <path fill="#1565c0" d="M32 22h8v4h-8z"/>
+              <rect x="4" y="10" width="26" height="28" rx="2" fill="#1e88e5"/>
+              <ellipse cx="17" cy="24" rx="6" ry="7" fill="#fff"/>
+              <ellipse cx="17" cy="24" rx="4" ry="5" fill="#1e88e5"/>
+            </svg>
+          </span>
+          <span class="mail-row__label">Open Outlook</span>
+        </span>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"
+             stroke="#9ca3af" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </a>
+
+      <!-- Yahoo Mail row -->
+      <a href="https://mail.yahoo.com" target="_blank" rel="noopener" class="mail-row" id="yahooBtn">
+        <span class="mail-row__left">
+          <span class="mail-app-icon">
+            <!-- Yahoo icon -->
+            <svg width="26" height="26" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="8" fill="#6001d2"/>
+              <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle"
+                    font-family="Georgia, serif" font-weight="900" font-size="28" fill="#fff">Y!</text>
+            </svg>
+          </span>
+          <span class="mail-row__label">Open Yahoo Mail</span>
+        </span>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"
+             stroke="#9ca3af" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </a>
+
+      <!-- Didn't receive it -->
+      <p class="resend-line">
+        Didn't receive it?&nbsp;<a href="../auth/email-verification.html" class="resend-link" id="resendBtn">Resend email</a>&nbsp;or&nbsp;<a href="../auth/forget password.html" class="try-link" id="tryOtherBtn">try another address</a>
+      </p>
+
+    </div>
+
+    <!-- ── Tip box ── -->
+    <div class="tip-box">
+      <span class="tip-label">Tip:</span>
+      <span style="color: #BB4D00;">Check your spam or junk folder if you don't see the email within 2 minutes. </span>
+    </div>
+
+    <!-- ── Back to login ── -->
+    <a href="#" class="back-link" id="backBtn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2.3"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+      Back to login
+    </a>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/email-verification.js"></script>
+</body>
+</html>

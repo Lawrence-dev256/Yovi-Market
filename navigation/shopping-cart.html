@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Shopping Cart | YOVI Marketplace</title>
+
+    <meta name="description"
+          content="Review items in your shopping cart before proceeding securely to checkout on YOVI Marketplace.">
+
+    <meta name="keywords"
+          content="YOVI, Shopping Cart, Checkout, Marketplace, Nigeria">
+
+    <meta name="author"
+          content="YOVI">
+
+    <link rel="icon"
+          href="../assets/images/favicon.png">
+
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- AOS -->
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+    <!-- Global Styles -->
+
+    <link rel="stylesheet"
+          href="../assets/css/style.css">
+
+</head>
+
+<body id="yscShoppingCartPage">
+
+<!--==================================================
+YOVI SHOPPING CART
+===================================================-->
+
+<header class="ysc-header">
+
+<nav class="navbar navbar-expand-lg ysc-navbar">
+
+<div class="container-fluid">
+
+<!--=====================================
+Brand Logo
+======================================-->
+
+<a href="../index.html"
+   class="navbar-brand ysc-brand">
+
+<div class="ysc-brand-placeholder">
+
+<!-- Brand Image Placeholder -->
+
+</div>
+
+</a>
+
+<button
+class="navbar-toggler"
+
+type="button"
+
+data-bs-toggle="collapse"
+
+data-bs-target="#yscNavbar">
+
+<span>
+
+<i class="fa-solid fa-bars"></i>
+
+</span>
+
+</button>
+
+<div
+class="collapse navbar-collapse"
+
+id="yscNavbar">
+
+<ul
+class="navbar-nav mx-auto align-items-lg-center">
+
+<li class="nav-item">
+
+<a
+href="../index.html"
+
+class="nav-link ysc-nav-link">
+
+Home
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a
+href="../products/products.html"
+
+class="nav-link ysc-nav-link">
+
+Products
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a
+href="../services/services.html"
+
+class="nav-link ysc-nav-link">
+
+Services
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a
+href="../orders/orders.html"
+
+class="nav-link ysc-nav-link">
+
+Orders
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a
+href="../booking/bookings.html"
+
+class="nav-link ysc-nav-link">
+
+Bookings
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a
+href="../messages/messages.html"
+
+class="nav-link ysc-nav-link">
+
+Messages
+
+</a>
+
+</li>
+
+</ul>
+
+<div
+class="ysc-navbar-actions">
+
+<a
+href="shopping-cart.html"
+
+class="ysc-cart-btn">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+<span
+id="yscCartBadge">
+
+1
+
+</span>
+
+</a>
+
+<a
+href="../notifications/notifications.html"
+
+class="ysc-notification-btn">
+
+<i class="fa-regular fa-bell"></i>
+
+<span
+class="ysc-notification-dot">
+
+</span>
+
+</a>
+
+<a
+href="../profile/profile.html"
+
+class="ysc-profile-link">
+
+<div
+class="ysc-profile-avatar">
+
+<!-- Profile Placeholder -->
+
+</div>
+
+<span>
+
+Adaeze
+
+</span>
+
+<i
+class="fa-solid fa-chevron-down">
+
+</i>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</nav>
+
+</header>
+
+<!--=====================================
+PAGE HEADER
+======================================-->
+
+<section
+class="ysc-page-header">
+
+<div
+class="container">
+
+<nav
+class="ysc-breadcrumb">
+
+<a
+href="../index.html">
+
+Home
+
+</a>
+
+<span>
+
+<i
+class="fa-solid fa-angle-right">
+
+</i>
+
+</span>
+
+<strong>
+
+Shopping Cart
+
+</strong>
+
+</nav>
+
+<h1
+class="ysc-page-title"
+data-aos="fade-up">
+
+Your Cart
+
+<span>
+
+(3 items)
+
+</span>
+
+</h1>
+
+</div>
+
+</section>
+
+<!--=====================================
+SHOPPING CART CONTENT
+======================================-->
+
+<section class="ysc-cart-section">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <!--=====================================
+            LEFT COLUMN
+            ======================================-->
+
+            <div class="col-xl-8 col-lg-7">
+
+                <!--=====================================
+                CART ITEM 01
+                ======================================-->
+
+                <div class="ysc-cart-card card shadow-sm"
+                     data-aos="fade-up"
+                     data-aos-delay="100">
+
+                    <div class="card-body">
+
+                        <div class="row align-items-center">
+
+                            <!-- Product Image -->
+
+                            <div class="col-md-3">
+
+                                <a href="../products/product-details.html">
+
+                                    <div class="ysc-product-image">
+
+                                        <!-- Product Placeholder Image -->
+
+                                    </div>
+
+                                </a>
+
+                            </div>
+
+                            <!-- Product Details -->
+
+                            <div class="col-md-6">
+
+                                <h4 class="ysc-product-title">
+
+                                    ErgoPro Series X Chair
+
+                                </h4>
+
+                                <p class="ysc-product-meta">
+
+                                    Color:
+
+                                    <span>
+
+                                        Deep Teal
+
+                                    </span>
+
+                                    |
+
+                                    Size:
+
+                                    <span>
+
+                                        Standard
+
+                                    </span>
+
+                                </p>
+
+                                <span class="ysc-stock-badge">
+
+                                    In Stock
+
+                                </span>
+
+                                <div class="ysc-quantity-wrapper">
+
+                                    <button
+                                            type="button"
+                                            class="ysc-qty-minus">
+
+                                        −
+
+                                    </button>
+
+                                    <input
+                                           id="yscQtyOne"
+                                           class="ysc-qty-input"
+                                           type="text"
+                                           value="1"
+                                           readonly>
+
+                                    <button
+                                            type="button"
+                                            class="ysc-qty-plus">
+
+                                        +
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Price -->
+
+                            <div class="col-md-3 text-md-end">
+
+                                <button
+                                        id="yscDeleteItemOne"
+                                        class="ysc-delete-btn">
+
+                                    <i class="fa-regular fa-trash-can"></i>
+
+                                </button>
+
+                                <h3
+                                    id="yscPriceOne"
+                                    class="ysc-product-price">
+
+                                    ₦40,000
+
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--=====================================
+                CART ITEM 02
+                ======================================-->
+
+                <div class="ysc-cart-card card shadow-sm"
+                     data-aos="fade-up"
+                     data-aos-delay="180">
+
+                    <div class="card-body">
+
+                        <div class="row align-items-center">
+
+                            <!-- Product Image -->
+
+                            <div class="col-md-3">
+
+                                <a href="../products/product-details.html">
+
+                                    <div class="ysc-product-image">
+
+                                        <!-- Product Placeholder -->
+
+                                    </div>
+
+                                </a>
+
+                            </div>
+
+                            <!-- Product Details -->
+
+                            <div class="col-md-6">
+
+                                <h4 class="ysc-product-title">
+
+                                    KitchenMaster Smart Blender
+
+                                </h4>
+
+                                <p class="ysc-product-meta">
+
+                                    Color:
+
+                                    <span>
+
+                                        Metallic Copper
+
+                                    </span>
+
+                                </p>
+
+                                <span class="ysc-stock-badge ysc-low-stock">
+
+                                    Low Stock
+
+                                </span>
+
+                                <div class="ysc-quantity-wrapper">
+
+                                    <button
+                                            class="ysc-qty-minus"
+                                            type="button">
+
+                                        −
+
+                                    </button>
+
+                                    <input
+                                           id="yscQtyTwo"
+                                           class="ysc-qty-input"
+                                           type="text"
+                                           value="2"
+                                           readonly>
+
+                                    <button
+                                            class="ysc-qty-plus"
+                                            type="button">
+
+                                        +
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Price -->
+
+                            <div class="col-md-3 text-md-end">
+
+                                <button
+                                        id="yscDeleteItemTwo"
+                                        class="ysc-delete-btn">
+
+                                    <i class="fa-regular fa-trash-can"></i>
+
+                                </button>
+
+                                <h3
+                                    id="yscPriceTwo"
+                                    class="ysc-product-price">
+
+                                    ₦55,000
+
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                              <!--=====================================
+                CART ITEM 03
+                ======================================-->
+
+                <div class="ysc-cart-card card shadow-sm"
+                     data-aos="fade-up"
+                     data-aos-delay="260">
+
+                    <div class="card-body">
+
+                        <div class="row align-items-center">
+
+                            <!-- Product Image -->
+
+                            <div class="col-md-3">
+
+                                <a href="../products/product-details.html">
+
+                                    <div class="ysc-product-image">
+
+                                        <!-- Product Placeholder Image -->
+
+                                    </div>
+
+                                </a>
+
+                            </div>
+
+                            <!-- Product Details -->
+
+                            <div class="col-md-6">
+
+                                <h4 class="ysc-product-title">
+
+                                    Aura Wireless Pro Headphones
+
+                                </h4>
+
+                                <p class="ysc-product-meta">
+
+                                    Style:
+
+                                    <span>
+
+                                        Midnight Black
+
+                                    </span>
+
+                                </p>
+
+                                <span class="ysc-stock-badge">
+
+                                    In Stock
+
+                                </span>
+
+                                <div class="ysc-quantity-wrapper">
+
+                                    <button
+                                            type="button"
+                                            class="ysc-qty-minus">
+
+                                        −
+
+                                    </button>
+
+                                    <input
+                                           id="yscQtyThree"
+                                           class="ysc-qty-input"
+                                           type="text"
+                                           value="1"
+                                           readonly>
+
+                                    <button
+                                            type="button"
+                                            class="ysc-qty-plus">
+
+                                        +
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Price -->
+
+                            <div class="col-md-3 text-md-end">
+
+                                <button
+                                        id="yscDeleteItemThree"
+                                        class="ysc-delete-btn">
+
+                                    <i class="fa-regular fa-trash-can"></i>
+
+                                </button>
+
+                                <h3
+                                    id="yscPriceThree"
+                                    class="ysc-product-price">
+
+                                    ₦15,000
+
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--=====================================
+                CART ACTIONS
+                ======================================-->
+
+                <div class="ysc-cart-actions">
+
+                    <a href="../products/products.html"
+                       id="yscContinueShopping"
+                       class="ysc-continue-shopping">
+
+                        <i class="fa-solid fa-arrow-left-long"></i>
+
+                        Continue Shopping
+
+                    </a>
+
+                    <button
+                            id="yscClearCartBtn"
+                            type="button"
+                            class="ysc-clear-cart">
+
+                        <i class="fa-solid fa-bars-staggered"></i>
+
+                        Clear Cart
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!--=====================================
+            RIGHT COLUMN
+            ======================================-->
+
+            <div class="col-xl-4 col-lg-5">
+
+                <aside
+                       class="ysc-order-summary card shadow-sm"
+                       data-aos="fade-left">
+
+                    <div class="card-body">
+
+                        <h2 class="ysc-summary-title">
+
+                            Order Summary
+
+                        </h2>
+
+                       <!--=====================================
+                        SUMMARY BREAKDOWN
+                        ======================================-->
+
+                        <div class="ysc-summary-row">
+
+                            <span>
+
+                                Subtotal (3 items)
+
+                            </span>
+
+                            <strong id="yscSubtotalAmount">
+
+                                ₦110,000
+
+                            </strong>
+
+                        </div>
+
+                        <div class="ysc-summary-row">
+
+                            <span>
+
+                                Estimated Shipping
+
+                            </span>
+
+                            <strong class="text-primary">
+
+                                FREE
+
+                            </strong>
+
+                        </div>
+
+                        <div class="ysc-summary-row">
+
+                            <span>
+
+                                Tax (Calculated at checkout)
+
+                            </span>
+
+                            <strong>
+
+                                ₦0.00
+
+                            </strong>
+
+                        </div>
+
+                        <hr class="ysc-summary-divider">
+
+                        <!--=====================================
+                        PROMO CODE
+                        ======================================-->
+
+                        <button
+                                id="yscPromoCodeBtn"
+                                type="button"
+                                class="ysc-promo-button">
+
+                            <i class="fa-solid fa-tags"></i>
+
+                            Add Promo Code
+
+                        </button>
+
+                        <div
+                             id="yscPromoWrapper"
+                             class="ysc-promo-wrapper d-none">
+
+                            <input
+                                   type="text"
+                                   id="yscPromoInput"
+                                   class="ysc-promo-input"
+                                   placeholder="Enter Promo Code">
+
+                            <button
+                                    id="yscApplyPromoBtn"
+                                    class="ysc-apply-promo">
+
+                                Apply
+
+                            </button>
+
+                        </div>
+
+                        <hr class="ysc-summary-divider">
+
+                        <!--=====================================
+                        TOTAL
+                        ======================================-->
+
+                        <div class="ysc-total-wrapper">
+
+                            <h3>
+
+                                Total
+
+                            </h3>
+
+                            <h1 id="yscGrandTotal">
+
+                                ₦110,000
+
+                            </h1>
+
+                        </div>
+
+                        <!--=====================================
+                        CHECKOUT BUTTON
+                        ======================================-->
+
+                        <button
+                                id="yscCheckoutBtn"
+                                class="ysc-checkout-btn">
+
+                            Proceed to Checkout
+
+                            <i class="fa-solid fa-cart-shopping"></i>
+
+                        </button>
+   
+                <!--=====================================
+                TRUST & PAYMENT CARD
+                ======================================-->
+
+                <div class="ysc-payment-card card shadow-sm"
+                     data-aos="fade-up"
+                     data-aos-delay="200">
+
+                    <div class="card-body">
+
+                        <div class="ysc-payment-icon">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                        </div>
+
+                        <h4 class="ysc-payment-title">
+
+                            Secure Payments
+
+                        </h4>
+
+                        <p class="ysc-payment-text">
+
+                            Every payment on YOVI is protected with secure
+                            encryption and verified payment gateways to
+                            ensure your transactions remain safe.
+
+                        </p>
+
+                        <div class="ysc-payment-methods">
+
+                            <span class="ysc-payment-badge">
+
+                                Visa
+
+                            </span>
+
+                            <span class="ysc-payment-badge">
+
+                                Mastercard
+
+                            </span>
+
+                            <span class="ysc-payment-badge">
+
+                                Verve
+
+                            </span>
+
+                            <span class="ysc-payment-badge">
+
+                                Bank Transfer
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--=====================================
+                NEED HELP
+                ======================================-->
+
+                <div class="ysc-help-card card shadow-sm"
+                     data-aos="fade-up"
+                     data-aos-delay="300">
+
+                    <div class="card-body">
+
+                        <h5>
+
+                            Need Help?
+
+                        </h5>
+
+                        <p>
+
+                            Our support team is available 24/7 to help you
+                            with your order, payment or delivery enquiries.
+
+                        </p>
+
+                        <a href="../support/contact-support.html"
+                           id="yscSupportBtn"
+                           class="ysc-support-btn">
+
+                            Contact Support
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--=====================================
+RECOMMENDED PRODUCTS
+======================================-->
+
+<section class="ysc-recommend-section">
+
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <h2 class="ysc-section-title">
+
+                You May Also Like
+
+            </h2>
+
+            <a href="../products/products.html"
+               class="ysc-view-all">
+
+                View All
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+        <div class="row g-4">
+
+                     <!--=====================================
+            PRODUCT 01
+            ======================================-->
+
+            <div class="col-xl-3 col-lg-4 col-md-6">
+
+                <div class="ysc-product-card"
+                     data-aos="fade-up"
+                     data-aos-delay="100">
+
+                    <a href="../products/product-details.html">
+
+                        <div class="ysc-product-thumb">
+
+                            <!-- Product Placeholder -->
+
+                        </div>
+
+                        <h5 class="ysc-product-name">
+
+                            Premium Office Chair
+
+                        </h5>
+
+                        <p class="ysc-product-price">
+
+                            ₦85,000
+
+                        </p>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!--=====================================
+            PRODUCT 02
+            ======================================-->
+
+            <div class="col-xl-3 col-lg-4 col-md-6">
+
+                <div class="ysc-product-card"
+                     data-aos="fade-up"
+                     data-aos-delay="180">
+
+                    <a href="../products/product-details.html">
+
+                        <div class="ysc-product-thumb">
+
+                            <!-- Product Placeholder -->
+
+                        </div>
+
+                        <h5 class="ysc-product-name">
+
+                            Smart LED Television
+
+                        </h5>
+
+                        <p class="ysc-product-price">
+
+                            ₦310,000
+
+                        </p>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!--=====================================
+            PRODUCT 03
+            ======================================-->
+
+            <div class="col-xl-3 col-lg-4 col-md-6">
+
+                <div class="ysc-product-card"
+                     data-aos="fade-up"
+                     data-aos-delay="260">
+
+                    <a href="../products/product-details.html">
+
+                        <div class="ysc-product-thumb">
+
+                            <!-- Product Placeholder -->
+
+                        </div>
+
+                        <h5 class="ysc-product-name">
+
+                            Wireless Noise Cancelling Headphones
+
+                        </h5>
+
+                        <p class="ysc-product-price">
+
+                            ₦65,000
+
+                        </p>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!--=====================================
+            PRODUCT 04
+            ======================================-->
+
+            <div class="col-xl-3 col-lg-4 col-md-6">
+
+                <div class="ysc-product-card"
+                     data-aos="fade-up"
+                     data-aos-delay="340">
+
+                    <a href="../products/product-details.html">
+
+                        <div class="ysc-product-thumb">
+
+                            <!-- Product Placeholder -->
+
+                        </div>
+
+                        <h5 class="ysc-product-name">
+
+                            Professional Blender
+
+                        </h5>
+
+                        <p class="ysc-product-price">
+
+                            ₦48,500
+
+                        </p>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--=====================================
+FOOTER
+======================================-->
+
+<footer class="ysc-footer">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <small>
+
+                © 2026 YOVI Marketplace. All Rights Reserved.
+
+            </small>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!--=====================================
+BOOTSTRAP
+======================================-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--=====================================
+AOS
+======================================-->
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<!--=====================================
+GLOBAL APP JS
+======================================-->
+
+<script src="../assets/js/cart.js"></script>
+
+</body>
+
+</html>

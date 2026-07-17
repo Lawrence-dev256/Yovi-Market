@@ -1,1 +1,709 @@
-, maximum-scale=1.0, user-scalable=no
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Seller Plans | YOVI</title>
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- Global CSS -->
+
+    <link rel="stylesheet"
+          href="../assets/css/style.css">
+
+</head>
+
+<body id="ysppPage">
+
+<!-- =====================================================
+HEADER
+====================================================== -->
+
+<header class="yspp-header">
+
+    <nav class="navbar navbar-expand-lg">
+
+        <div class="container-fluid yspp-navbar-container">
+
+            <!-- Brand Logo Placeholder -->
+
+            <a href="../index.html"
+               class="navbar-brand yspp-brand-placeholder">
+
+                BRAND LOGO
+
+            </a>
+
+            <!-- Mobile Toggle -->
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#ysppNavbar"
+                    aria-controls="ysppNavbar"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <!-- Navbar Content -->
+
+            <div class="collapse navbar-collapse"
+                 id="ysppNavbar">
+
+                <!-- Center Navigation -->
+
+                <ul class="navbar-nav mx-auto yspp-navigation">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="../index.html">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="buyer-products.html">
+
+                            Products
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="buyer-services.html">
+
+                            Services
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="buyer-orders.html">
+
+                            Orders
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="buyer-bookings.html">
+
+                            Bookings
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="buyer-messages.html">
+
+                            Messages
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+                           <!-- Right Navigation -->
+
+                <div class="d-flex align-items-center yspp-navbar-right">
+
+                    <!-- Cart -->
+
+                    <a href="buyer-cart.html"
+                       class="yspp-nav-icon">
+
+                        <i class="bi bi-cart3"></i>
+
+                    </a>
+
+                    <!-- Notifications -->
+
+                    <a href="buyer-notifications.html"
+                       class="yspp-nav-icon yspp-notification-icon">
+
+                        <i class="bi bi-bell"></i>
+
+                        <span class="yspp-notification-dot"></span>
+
+                    </a>
+
+                    <!-- User -->
+
+                    <div class="dropdown">
+
+                        <a href="#"
+                           class="dropdown-toggle yspp-user-dropdown"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
+
+                            <div class="yspp-user-avatar">
+
+                                <img src="https://placehold.co/100x100"
+                                     alt="User">
+
+                            </div>
+
+                            <span class="yspp-user-name">
+
+                                Chidi
+
+                            </span>
+
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+
+                            <li>
+
+                                <a class="dropdown-item"
+                                   href="../seller/seller-dashboard.html">
+
+                                    Dashboard
+
+                                </a>
+
+                            </li>
+
+                            <li>
+
+                                <a class="dropdown-item"
+                                   href="seller-profile.html">
+
+                                    Profile
+
+                                </a>
+
+                            </li>
+
+                            <li>
+
+                                <a class="dropdown-item"
+                                   href="settings.html">
+
+                                    Settings
+
+                                </a>
+
+                            </li>
+
+                            <li><hr class="dropdown-divider"></li>
+
+                            <li>
+
+                                <a class="dropdown-item"
+                                   href="../auth/login.html">
+
+                                    Logout
+
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+<!-- =====================================================
+MAIN CONTENT
+====================================================== -->
+
+<main class="yspp-main">
+
+    <div class="container">
+
+        <!-- Seller Dashboard Breadcrumb -->
+
+        <a href="../seller/seller-dashboard.html"
+           class="yspp-breadcrumb">
+
+            <i class="bi bi-chevron-left"></i>
+
+            <span>Seller Dashboard</span>
+
+        </a>
+
+        <!-- Page Heading -->
+
+        <div class="yspp-page-header text-center">
+
+            <h1 class="yspp-page-title">
+
+                Seller Plans
+
+            </h1>
+
+            <p class="yspp-page-subtitle">
+
+                Grow your store with the right plan
+
+            </p>
+
+        </div>
+
+        <!-- Billing Toggle -->
+
+        <div class="yspp-billing-toggle-wrapper">
+
+            <div class="yspp-billing-toggle">
+
+                <button
+                    type="button"
+                    id="ysppMonthlyBtn"
+                    class="yspp-toggle-btn yspp-toggle-active">
+
+                    Monthly
+
+                </button>
+
+                <a href="../tabs/seller-annual-plan.html">
+
+                <button
+                    type="button"
+                    id="ysppAnnualBtn"
+                    class="yspp-toggle-btn">
+
+                    Annual
+
+                    <span class="yspp-save-badge">
+
+                        Save 20%
+
+                    </span>
+
+                </button>
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Pricing Cards -->
+
+        <section class="row g-4 yspp-plans-row">
+
+            <!-- =====================================================
+                 FREE PLAN
+            ====================================================== -->
+
+            <div class="col-xl-4 col-lg-4 col-md-6">
+
+                <div class="yspp-plan-card">
+
+                    <div class="yspp-plan-header">
+
+                        <h3 class="yspp-plan-name">
+
+                            Free
+
+                        </h3>
+
+                        <p class="yspp-plan-description">
+
+                            Great for getting started
+
+                        </p>
+
+                    </div>
+
+                    <div class="yspp-plan-price">
+
+                        <span class="yspp-currency">
+
+                            ₦
+
+                        </span>
+
+                        <span class="yspp-price-value"
+                              data-monthly="0"
+                              data-annual="0">
+
+                            0
+
+                        </span>
+
+                        <span class="yspp-price-period">
+
+                            /month
+
+                        </span>
+
+                    </div>
+
+                    <button type="button"
+                            class="btn yspp-plan-btn yspp-current-plan-btn"
+                            disabled>
+
+                        Current Plan
+
+                    </button>
+
+                    <ul class="yspp-feature-list">
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Up to 10 active listings
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Basic analytics
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Standard customer support
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Community access
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- =====================================================
+                 PROFESSIONAL PLAN
+            ====================================================== -->
+
+            <div class="col-xl-4 col-lg-4 col-md-6">
+
+                <div class="yspp-plan-card yspp-popular-plan">
+
+                    <span class="yspp-plan-badge">
+
+                        Most Popular
+
+                    </span>
+
+                    <div class="yspp-plan-header">
+
+                        <h3 class="yspp-plan-name">
+
+                            Professional
+
+                        </h3>
+
+                        <p class="yspp-plan-description">
+
+                            Perfect for growing businesses
+
+                        </p>
+
+                    </div>
+
+                    <div class="yspp-plan-price">
+
+                        <span class="yspp-currency">
+
+                            ₦
+
+                        </span>
+
+                        <span class="yspp-price-value"
+                              data-monthly="5000"
+                              data-annual="48000">
+
+                            5,000
+
+                        </span>
+
+                        <span class="yspp-price-period">
+
+                            /month
+
+                        </span>
+
+                    </div>
+
+                    <button type="button"
+                            class="btn yspp-plan-btn yspp-upgrade-btn"
+                            data-plan="professional">
+
+                        Upgrade
+
+                    </button>
+
+                    <ul class="yspp-feature-list">
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Unlimited listings
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Advanced analytics
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Priority customer support
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Featured seller badge
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Promotional tools
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- =====================================================
+                 PREMIUM PLAN
+            ====================================================== -->
+
+            <div class="col-xl-4 col-lg-4 col-md-12">
+
+                <div class="yspp-plan-card yspp-premium-plan">
+
+                    <span class="yspp-plan-badge yspp-best-value-badge">
+
+                        Best Value
+
+                    </span>
+
+                    <div class="yspp-plan-header">
+
+                        <h3 class="yspp-plan-name">
+
+                            Premium
+
+                        </h3>
+
+                        <p class="yspp-plan-description">
+
+                            Everything you need to dominate the marketplace
+
+                        </p>
+
+                    </div>
+
+                    <div class="yspp-plan-price">
+
+                        <span class="yspp-currency">
+
+                            ₦
+
+                        </span>
+
+                        <span class="yspp-price-value"
+                              data-monthly="12000"
+                              data-annual="115200">
+
+                            12,000
+
+                        </span>
+
+                        <span class="yspp-price-period">
+
+                            /month
+
+                        </span>
+
+                    </div>
+
+                    <button type="button"
+                            class="btn yspp-plan-btn yspp-upgrade-btn"
+                            data-plan="premium">
+
+                        Upgrade
+
+                    </button>
+
+                    <ul class="yspp-feature-list">
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Everything in Professional
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Homepage featured placement
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Dedicated account manager
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Unlimited promotions
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Early access to new features
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            24/7 premium support
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Bottom Information -->
+
+        <section class="yspp-bottom-section">
+
+            <div class="yspp-bottom-card">
+
+                <h4 class="yspp-bottom-title">
+
+                    Need a custom enterprise solution?
+
+                </h4>
+
+                <p class="yspp-bottom-text">
+
+                    Contact the YOVI sales team for a tailored pricing plan
+                    designed for large businesses and organizations.
+
+                </p>
+
+                <a href="contact-us.html"
+                   class="btn yspp-contact-btn">
+
+                    Contact Sales
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+<!-- =====================================================
+BOOTSTRAP
+====================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Global JavaScript -->
+
+<script src="assets/js/script.js"></script>
+
+<!-- Seller Plans -->
+
+<script src="../assets/js/app.js"></script>
+
+</body>
+
+</html>
+
+

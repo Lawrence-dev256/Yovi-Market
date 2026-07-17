@@ -286,7 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             setTimeout(() => {
 
-                window.location.href = "services.html";
+                window.location.href = "../../navigation/services.html";
 
             }, 1000);
 
@@ -763,27 +763,8 @@ END OF YOVI HOMEPAGE
 ======================================*/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*=========================================================
   YOVI SELLER DASHBOARD
-  PART 3A
 =========================================================*/
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -1299,7 +1280,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 window.location.href =
 
-                "../Cart/cart.html";
+                "../../navigation/shopping-cart.html";
 
             }
 
@@ -5252,7 +5233,2389 @@ const yswSidebarLinks = {
 END OF SELLER WALLET JAVASCRIPT
 =========================================================*/
 
+/*=========================================================
+YOVI PAYMENT PLAN ANNUALLY
+APP.JS — PART 3A
+=========================================================*/
 
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    function(){
+
+        /*=====================================================
+        PAGE CHECK
+        Prevent this script from affecting other pages
+        =====================================================*/
+
+        const yppaPage =
+
+            document.getElementById(
+
+                "yppaPage"
+
+            );
+
+        if(!yppaPage){
+
+            return;
+
+        }
+
+        console.log(
+
+            "YOVI Annual Payment Plan Loaded"
+
+        );
+
+        /*=====================================================
+        ELEMENTS
+        =====================================================*/
+
+        const yppaMonthlyBtn =
+
+            document.getElementById(
+
+                "yppaMonthlyBtn"
+
+            );
+
+        const yppaAnnualBtn =
+
+            document.getElementById(
+
+                "yppaAnnualBtn"
+
+            );
+
+        const yppaBackDashboard =
+
+            document.getElementById(
+
+                "yppaBackDashboard"
+
+            );
+
+        const yppaUpgradeProBtn =
+
+            document.getElementById(
+
+                "yppaUpgradeProBtn"
+
+            );
+
+        const yppaPremiumBtn =
+
+            document.getElementById(
+
+                "yppaPremiumBtn"
+
+            );
+
+        const yppaCurrentPlanBtn =
+
+            document.getElementById(
+
+                "yppaCurrentPlanBtn"
+
+            );
+
+        const yppaLogoutBtn =
+
+            document.getElementById(
+
+                "yppaLogoutBtn"
+
+            );
+
+        const yppaNotificationBtn =
+
+            document.getElementById(
+
+                "yppaNotificationBtn"
+
+            );
+
+        const yppaCartBtn =
+
+            document.getElementById(
+
+                "yppaCartBtn"
+
+            );
+
+        const yppaCards =
+
+            document.querySelectorAll(
+
+                ".yppa-plan-card"
+
+            );
+
+        /*=====================================================
+        RIPPLE EFFECT
+        =====================================================*/
+
+        function yppaCreateRipple(
+
+            button,
+
+            event
+
+        ){
+
+            const ripple =
+
+                document.createElement(
+
+                    "span"
+
+                );
+
+            const diameter = Math.max(
+
+                button.clientWidth,
+
+                button.clientHeight
+
+            );
+
+            ripple.className =
+
+                "yppa-ripple";
+
+            ripple.style.width =
+
+                diameter + "px";
+
+            ripple.style.height =
+
+                diameter + "px";
+
+            const rect =
+
+                button.getBoundingClientRect();
+
+            ripple.style.left =
+
+                event.clientX -
+
+                rect.left -
+
+                diameter / 2 +
+
+                "px";
+
+            ripple.style.top =
+
+                event.clientY -
+
+                rect.top -
+
+                diameter / 2 +
+
+                "px";
+
+            button.appendChild(
+
+                ripple
+
+            );
+
+            setTimeout(
+
+                function(){
+
+                    ripple.remove();
+
+                },
+
+                600
+
+            );
+
+        }
+
+        /*=====================================================
+        MONTHLY PLAN
+        =====================================================*/
+
+        if(
+
+            yppaMonthlyBtn
+
+        ){
+
+            yppaMonthlyBtn.addEventListener(
+
+                "click",
+
+                function(event){
+
+                    yppaCreateRipple(
+
+                        this,
+
+                        event
+
+                    );
+
+                    setTimeout(
+
+                        function(){
+
+                            window.location.href =
+
+                            "seller-plan.html";
+
+                        },
+
+                        250
+
+                    );
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        ANNUAL BUTTON
+        =====================================================*/
+
+        if(
+
+            yppaAnnualBtn
+
+        ){
+
+            yppaAnnualBtn.classList.add(
+
+                "yppa-toggle-active"
+
+            );
+
+        }
+
+        /*=====================================================
+        BACK TO DASHBOARD
+        =====================================================*/
+
+        if(
+
+            yppaBackDashboard
+
+        ){
+
+            yppaBackDashboard.addEventListener(
+
+                "click",
+
+                function(event){
+
+                    event.preventDefault();
+
+                    window.location.href =
+
+                    "../Dashboard/seller-dashboard.html";
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        CURRENT PLAN
+        =====================================================*/
+
+        if(
+
+            yppaCurrentPlanBtn
+
+        ){
+
+            yppaCurrentPlanBtn.addEventListener(
+
+                "click",
+
+                function(event){
+
+                    event.preventDefault();
+
+                    alert(
+
+                        "You are currently using the Free Annual Plan."
+
+                    );
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        UPGRADE TO PROFESSIONAL
+        =====================================================*/
+
+        if(
+
+            yppaUpgradeProBtn
+
+        ){
+
+            yppaUpgradeProBtn.addEventListener(
+
+                "click",
+
+                function(event){
+
+                    event.preventDefault();
+
+                    yppaCreateRipple(
+
+                        this,
+
+                        event
+
+                    );
+
+                    this.classList.add(
+
+                        "yppa-btn-loading"
+
+                    );
+
+                    setTimeout(
+
+                        () => {
+
+                            window.location.href =
+
+                            "../Payments/professional-checkout.html";
+
+                        },
+
+                        350
+
+                    );
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        GO PREMIUM
+        =====================================================*/
+
+        if(
+
+            yppaPremiumBtn
+
+        ){
+
+            yppaPremiumBtn.addEventListener(
+
+                "click",
+
+                function(event){
+
+                    event.preventDefault();
+
+                    yppaCreateRipple(
+
+                        this,
+
+                        event
+
+                    );
+
+                    this.classList.add(
+
+                        "yppa-btn-loading"
+
+                    );
+
+                    setTimeout(
+
+                        () => {
+
+                            window.location.href =
+
+                            "../Payments/premium-checkout.html";
+
+                        },
+
+                        350
+
+                    );
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        CART
+        =====================================================*/
+
+        if(
+
+            yppaCartBtn
+
+        ){
+
+            yppaCartBtn.addEventListener(
+
+                "click",
+
+                function(){
+
+                    window.location.href =
+
+                    "../Cart/cart.html";
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        NOTIFICATION
+        =====================================================*/
+
+        if(
+
+            yppaNotificationBtn
+
+        ){
+
+            yppaNotificationBtn.addEventListener(
+
+                "click",
+
+                function(){
+
+                    alert(
+
+                        "You have no new notifications."
+
+                    );
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        SIGN OUT
+        =====================================================*/
+
+        function yppaSignOut(){
+
+            const confirmLogout =
+
+                confirm(
+
+                    "Are you sure you want to sign out?"
+
+                );
+
+            if(
+
+                !confirmLogout
+
+            ){
+
+                return;
+
+            }
+
+            sessionStorage.clear();
+
+            localStorage.removeItem(
+
+                "currentUser"
+
+            );
+
+            localStorage.removeItem(
+
+                "authToken"
+
+            );
+
+            localStorage.removeItem(
+
+                "sellerLoggedIn"
+
+            );
+
+            window.location.href =
+
+            "../auth/signin.html";
+
+        }
+
+        if(
+
+            yppaLogoutBtn
+
+        ){
+
+            yppaLogoutBtn.addEventListener(
+
+                "click",
+
+                function(event){
+
+                    event.preventDefault();
+
+                    yppaSignOut();
+
+                }
+
+            );
+
+        }
+
+        /*=====================================================
+        CARD ENTRANCE ANIMATION
+        =====================================================*/
+
+        yppaCards.forEach(
+
+            function(
+
+                card,
+
+                index
+
+            ){
+
+                card.style.opacity =
+
+                    "0";
+
+                card.style.transform =
+
+                    "translateY(35px)";
+
+                setTimeout(
+
+                    function(){
+
+                        card.style.transition =
+
+                            "all .5s ease";
+
+                        card.style.opacity =
+
+                            "1";
+
+                        card.style.transform =
+
+                            "translateY(0)";
+
+                    },
+
+                    150 +
+
+                    (
+
+                        index * 150
+
+                    )
+
+                );
+
+            }
+
+        );
+
+        /*=====================================================
+        NAVBAR SCROLL EFFECT
+        =====================================================*/
+
+        const yppaNavbar =
+
+            document.querySelector(
+
+                ".yppa-navbar"
+
+            );
+
+        window.addEventListener(
+
+            "scroll",
+
+            function(){
+
+                if(
+
+                    window.scrollY >
+
+                    30
+
+                ){
+
+                    yppaNavbar.classList.add(
+
+                        "yppa-navbar-scrolled"
+
+                    );
+
+                }
+
+                else{
+
+                    yppaNavbar.classList.remove(
+
+                        "yppa-navbar-scrolled"
+
+                    );
+
+                }
+
+            }
+
+        );
+
+        /*=====================================================
+        SAVE CURRENT PLAN
+        =====================================================*/
+
+        localStorage.setItem(
+
+            "yppaCurrentPlan",
+
+            "annual"
+
+        );
+
+        /*=====================================================
+        SAVE PAGE STATE
+        =====================================================*/
+
+        function yppaSavePageState(){
+
+            const pageState = {
+
+                page:
+
+                    "seller-plan-annual",
+
+                activePlan:
+
+                    "annual",
+
+                lastVisit:
+
+                    new Date()
+
+                    .toISOString()
+
+            };
+
+            localStorage.setItem(
+
+                "yppaPageState",
+
+                JSON.stringify(
+
+                    pageState
+
+                )
+
+            );
+
+        }
+
+        yppaSavePageState();
+
+        /*=====================================================
+        RESTORE LAST VISIT
+        =====================================================*/
+
+        const yppaLastVisit =
+
+            localStorage.getItem(
+
+                "yppaLastVisit"
+
+            );
+
+        if(
+
+            yppaLastVisit
+
+        ){
+
+            console.log(
+
+                "Last Visit:",
+
+                yppaLastVisit
+
+            );
+
+        }
+
+        localStorage.setItem(
+
+            "yppaLastVisit",
+
+            new Date()
+
+            .toISOString()
+
+        );
+
+        /*=====================================================
+        PAGE FADE IN
+        =====================================================*/
+
+        document.body.style.opacity =
+
+            "0";
+
+        window.addEventListener(
+
+            "load",
+
+            function(){
+
+                document.body.style.transition =
+
+                    "opacity .45s ease";
+
+                document.body.style.opacity =
+
+                    "1";
+
+            }
+
+        );
+
+        /*=====================================================
+        WINDOW RESIZE LOGGER
+        =====================================================*/
+
+        window.addEventListener(
+
+            "resize",
+
+            function(){
+
+                console.log(
+
+                    "Viewport:",
+
+                    window.innerWidth +
+
+                    "px"
+
+                );
+
+            }
+
+        );
+
+        /*=====================================================
+        KEYBOARD SHORTCUTS
+        =====================================================*/
+
+        document.addEventListener(
+
+            "keydown",
+
+            function(event){
+
+                /* Ctrl + M = Monthly Plan */
+
+                if(
+
+                    event.ctrlKey &&
+
+                    event.key.toLowerCase() === "m"
+
+                ){
+
+                    event.preventDefault();
+
+                    if(
+
+                        yppaMonthlyBtn
+
+                    ){
+
+                        yppaMonthlyBtn.click();
+
+                    }
+
+                }
+
+                /* Ctrl + P = Professional */
+
+                if(
+
+                    event.ctrlKey &&
+
+                    event.key.toLowerCase() === "p"
+
+                ){
+
+                    event.preventDefault();
+
+                    if(
+
+                        yppaUpgradeProBtn
+
+                    ){
+
+                        yppaUpgradeProBtn.click();
+
+                    }
+
+                }
+
+            }
+
+        );
+
+        /*=====================================================
+        RESTORE SCROLL POSITION
+        =====================================================*/
+
+        const yppaSavedScroll =
+
+            sessionStorage.getItem(
+
+                "yppaScrollPosition"
+
+            );
+
+        if(
+
+            yppaSavedScroll
+
+        ){
+
+            window.scrollTo(
+
+                0,
+
+                parseInt(
+
+                    yppaSavedScroll
+
+                )
+
+            );
+
+        }
+
+        window.addEventListener(
+
+            "beforeunload",
+
+            function(){
+
+                sessionStorage.setItem(
+
+                    "yppaScrollPosition",
+
+                    window.scrollY
+
+                );
+
+            }
+
+        );
+
+        /*=====================================================
+        ONLINE / OFFLINE STATUS
+        =====================================================*/
+
+        window.addEventListener(
+
+            "online",
+
+            function(){
+
+                console.log(
+
+                    "Internet connection restored."
+
+                );
+
+            }
+
+        );
+
+        window.addEventListener(
+
+            "offline",
+
+            function(){
+
+                alert(
+
+                    "You are currently offline."
+
+                );
+
+            }
+
+        );
+
+        /*=====================================================
+        INITIALIZE TOOLTIPS
+        =====================================================*/
+
+        document
+
+            .querySelectorAll(
+
+                '[data-bs-toggle="tooltip"]'
+
+            )
+
+            .forEach(
+
+                function(item){
+
+                    new bootstrap.Tooltip(
+
+                        item
+
+                    );
+
+                }
+
+            );
+
+        /*=====================================================
+        INITIALIZE POPOVERS
+        =====================================================*/
+
+        document
+
+            .querySelectorAll(
+
+                '[data-bs-toggle="popover"]'
+
+            )
+
+            .forEach(
+
+                function(item){
+
+                    new bootstrap.Popover(
+
+                        item
+
+                    );
+
+                }
+
+            );
+
+        /*=====================================================
+        BUTTON LOADING RESET
+        =====================================================*/
+
+        document
+
+            .querySelectorAll(
+
+                ".yppa-btn-loading"
+
+            )
+
+            .forEach(
+
+                function(button){
+
+                    setTimeout(
+
+                        function(){
+
+                            button.classList.remove(
+
+                                "yppa-btn-loading"
+
+                            );
+
+                        },
+
+                        2500
+
+                    );
+
+                }
+
+            );
+
+        /*=====================================================
+        PAGE VISIBILITY
+        =====================================================*/
+
+        document.addEventListener(
+
+            "visibilitychange",
+
+            function(){
+
+                if(
+
+                    document.hidden
+
+                ){
+
+                    console.log(
+
+                        "Annual Plan page hidden."
+
+                    );
+
+                }
+
+                else{
+
+                    console.log(
+
+                        "Annual Plan page active."
+
+                    );
+
+                }
+
+            }
+
+        );
+
+        /*=====================================================
+        SESSION VALIDATION
+        =====================================================*/
+
+        const yppaSellerSession =
+
+            localStorage.getItem(
+
+                "sellerLoggedIn"
+
+            );
+
+        if(
+
+            yppaSellerSession !==
+
+            "true"
+
+        ){
+
+            window.location.href =
+
+            "../auth/signin.html";
+
+        }
+
+        /*=====================================================
+        ACTIVE NAVIGATION
+        =====================================================*/
+
+        const yppaCurrentPage =
+
+            window.location.pathname
+
+            .split("/")
+
+            .pop();
+
+        document
+
+            .querySelectorAll(
+
+                ".yppa-nav-link"
+
+            )
+
+            .forEach(
+
+                function(link){
+
+                    const href =
+
+                        link.getAttribute(
+
+                            "href"
+
+                        );
+
+                    if(
+
+                        href &&
+
+                        href.includes(
+
+                            yppaCurrentPage
+
+                        )
+
+                    ){
+
+                        link.classList.add(
+
+                            "active"
+
+                        );
+
+                    }
+
+                }
+
+            );
+
+        /*=====================================================
+        PAGE LOAD LOGGER
+        =====================================================*/
+
+        window.addEventListener(
+
+            "load",
+
+            function(){
+
+                console.log(
+
+                    "Seller Annual Payment Plan fully loaded."
+
+                );
+
+            }
+
+        );
+
+        /*=====================================================
+        PERFORMANCE LOGGER
+        =====================================================*/
+
+        console.log(
+
+            "Page initialized at:",
+
+            new Date()
+
+            .toLocaleString()
+
+        );
+
+        console.log(
+
+            "Current Plan:",
+
+            "Annual"
+
+        );
+
+        console.log(
+
+            "Screen Width:",
+
+            window.innerWidth
+
+        );
+
+        /*=====================================================
+        CLEANUP BEFORE UNLOAD
+        =====================================================*/
+
+        window.addEventListener(
+
+            "beforeunload",
+
+            function(){
+
+                console.log(
+
+                    "Leaving Seller Annual Payment Plan..."
+
+                );
+
+            }
+
+        );
+
+        /*=====================================================
+        FINAL INITIALIZATION
+        =====================================================*/
+
+        console.log(
+
+            "YOVI Annual Payment Plan module initialized successfully."
+
+        );
+
+    }
+
+);
+
+/*=========================================================
+SELLER PLANS
+=========================================================*/
+
+const SellerPlans = {
+
+    /*=====================================================
+    LOCAL STORAGE KEYS
+    =====================================================*/
+
+    storage: {
+
+        billingCycle: "yoviSellerBillingCycle",
+
+        selectedPlan: "yoviSellerSelectedPlan"
+
+    },
+
+    /*=====================================================
+    APPLICATION STATE
+    =====================================================*/
+
+    state: {
+
+        billingCycle: "monthly",
+
+        selectedPlan: null,
+
+        isLoading: false
+
+    },
+
+    /*=====================================================
+    DOM ELEMENTS
+    =====================================================*/
+
+    elements: {},
+
+    /*=====================================================
+    INITIALIZE
+    =====================================================*/
+
+   init() {
+
+    this.cacheDOM();
+
+    this.loadLocalStorage();
+
+    this.restoreBillingCycle();
+
+    this.restoreSelectedPlan();
+
+    this.bindEvents();
+
+    this.initializeAnimations();
+
+    this.initializeIntersectionObserver();
+
+    this.animateSelectedPlan();
+
+},
+
+    /*=====================================================
+    CACHE DOM
+    =====================================================*/
+
+    cacheDOM() {
+
+        this.elements.monthlyButton =
+
+            document.getElementById(
+
+                "ysppMonthlyBtn"
+
+            );
+
+        this.elements.annualButton =
+
+            document.getElementById(
+
+                "ysppAnnualBtn"
+
+            );
+
+        this.elements.priceValues =
+
+            document.querySelectorAll(
+
+                ".yspp-price-value"
+
+            );
+
+        this.elements.pricePeriods =
+
+            document.querySelectorAll(
+
+                ".yspp-price-period"
+
+            );
+
+        this.elements.upgradeButtons =
+
+            document.querySelectorAll(
+
+                ".yspp-upgrade-btn"
+
+            );
+
+        this.elements.planCards =
+
+            document.querySelectorAll(
+
+                ".yspp-plan-card"
+
+            );
+
+        this.elements.breadcrumb =
+
+            document.querySelector(
+
+                ".yspp-breadcrumb"
+
+            );
+
+        this.elements.contactButton =
+
+            document.querySelector(
+
+                ".yspp-contact-btn"
+
+            );
+
+    },
+
+    /*=====================================================
+    LOAD LOCAL STORAGE
+    =====================================================*/
+
+    loadLocalStorage() {
+
+        const billingCycle =
+
+            localStorage.getItem(
+
+                this.storage.billingCycle
+
+            );
+
+        const selectedPlan =
+
+            localStorage.getItem(
+
+                this.storage.selectedPlan
+
+            );
+
+        if (billingCycle) {
+
+            this.state.billingCycle =
+
+                billingCycle;
+
+        }
+
+        if (selectedPlan) {
+
+            this.state.selectedPlan =
+
+                selectedPlan;
+
+        }
+
+    },
+
+    /*=====================================================
+    SAVE LOCAL STORAGE
+    =====================================================*/
+
+    saveLocalStorage() {
+
+        localStorage.setItem(
+
+            this.storage.billingCycle,
+
+            this.state.billingCycle
+
+        );
+
+        localStorage.setItem(
+
+            this.storage.selectedPlan,
+
+            this.state.selectedPlan || ""
+
+        );
+
+    },
+
+    /*=====================================================
+    RESTORE BILLING CYCLE
+    =====================================================*/
+
+    restoreBillingCycle() {
+
+        if (
+
+            this.state.billingCycle === "annual"
+
+        ) {
+
+            this.updateBillingCycle(
+
+                "annual"
+
+            );
+
+        } else {
+
+            this.updateBillingCycle(
+
+                "monthly"
+
+            );
+
+        }
+
+    },
+
+    /*=====================================================
+    RESTORE SELECTED PLAN
+    =====================================================*/
+
+    restoreSelectedPlan() {
+
+        this.elements.planCards.forEach(card => {
+
+            card.classList.remove(
+
+                "yspp-plan-selected"
+
+            );
+
+        });
+
+        if (!this.state.selectedPlan) return;
+
+        const selectedButton =
+
+            document.querySelector(
+
+                `[data-plan="${this.state.selectedPlan}"]`
+
+            );
+
+        if (!selectedButton) return;
+
+        selectedButton.closest(
+
+            ".yspp-plan-card"
+
+        ).classList.add(
+
+            "yspp-plan-selected"
+
+        );
+
+    },
+
+    /*=====================================================
+    BIND EVENTS
+    =====================================================*/
+
+    bindEvents() {
+
+        /*-----------------------------------------
+        Monthly Billing
+        -----------------------------------------*/
+
+        if (this.elements.monthlyButton) {
+
+            this.elements.monthlyButton.addEventListener(
+
+                "click",
+
+                () => {
+
+                    this.updateBillingCycle(
+
+                        "monthly"
+
+                    );
+
+                }
+
+            );
+
+        }
+
+        /*-----------------------------------------
+        Annual Billing
+        -----------------------------------------*/
+
+        if (this.elements.annualButton) {
+
+            this.elements.annualButton.addEventListener(
+
+                "click",
+
+                () => {
+
+                    this.updateBillingCycle(
+
+                        "annual"
+
+                    );
+
+                }
+
+            );
+
+        }
+
+        /*-----------------------------------------
+        Upgrade Buttons
+        -----------------------------------------*/
+
+        this.elements.upgradeButtons.forEach(button => {
+
+            button.addEventListener(
+
+                "click",
+
+                this.handlePlanSelection.bind(this)
+
+            );
+
+        });
+
+        /*-----------------------------------------
+        Contact Sales
+        -----------------------------------------*/
+
+        if (this.elements.contactButton) {
+
+            this.elements.contactButton.addEventListener(
+
+                "click",
+
+                this.handleContactSales.bind(this)
+
+            );
+
+        }
+
+        /*-----------------------------------------
+        Breadcrumb
+        -----------------------------------------*/
+
+        if (this.elements.breadcrumb) {
+
+            this.elements.breadcrumb.addEventListener(
+
+                "click",
+
+                this.handleBreadcrumb.bind(this)
+
+            );
+
+        }
+
+    },
+
+    /*=====================================================
+    UPDATE BILLING CYCLE
+    =====================================================*/
+
+    updateBillingCycle(cycle) {
+
+        this.state.billingCycle = cycle;
+
+        this.elements.monthlyButton.classList.toggle(
+
+            "yspp-toggle-active",
+
+            cycle === "monthly"
+
+        );
+
+        this.elements.annualButton.classList.toggle(
+
+            "yspp-toggle-active",
+
+            cycle === "annual"
+
+        );
+
+        this.elements.priceValues.forEach(price => {
+
+            const value =
+
+                cycle === "monthly"
+
+                ? price.dataset.monthly
+
+                : price.dataset.annual;
+
+            price.textContent =
+
+                Number(value).toLocaleString();
+
+        });
+
+        this.elements.pricePeriods.forEach(period => {
+
+            period.textContent =
+
+                cycle === "monthly"
+
+                ? "/month"
+
+                : "/year";
+
+        });
+
+        this.saveLocalStorage();
+
+    },
+
+    /*=====================================================
+    HANDLE PLAN SELECTION
+    =====================================================*/
+
+    handlePlanSelection(event) {
+
+    event.preventDefault();
+
+    const button = event.currentTarget;
+
+    this.state.selectedPlan =
+
+        button.dataset.plan;
+
+    this.elements.planCards.forEach(card => {
+
+        card.classList.remove(
+
+            "yspp-plan-selected"
+
+        );
+
+    });
+
+    const selectedCard =
+
+        button.closest(
+
+            ".yspp-plan-card"
+
+        );
+
+    selectedCard.classList.add(
+
+        "yspp-plan-selected"
+
+    );
+
+    if (!this.validatePlanSelection()) {
+
+        return;
+
+    }
+
+    this.setLoadingState(true);
+
+    this.autoSave();
+
+    this.animateSelection(
+
+        selectedCard
+
+    );
+
+    setTimeout(() => {
+
+        window.location.href =
+
+            "seller-checkout-plan.html";
+
+    }, 700);
+
+},
+
+    /*=====================================================
+    HANDLE CONTACT SALES
+    =====================================================*/
+
+    handleContactSales(event) {
+
+        event.preventDefault();
+
+        window.location.href =
+
+            "contact-us.html";
+
+    },
+
+    /*=====================================================
+    HANDLE BREADCRUMB
+    =====================================================*/
+
+    handleBreadcrumb(event) {
+
+        event.preventDefault();
+
+        window.location.href =
+
+            "seller-dashboard.html";
+
+    },
+
+    /*=====================================================
+    CARD SELECTION ANIMATION
+    =====================================================*/
+
+    animateSelection(card) {
+
+        card.animate(
+
+            [
+
+                {
+
+                    transform:"scale(.97)"
+
+                },
+
+                {
+
+                    transform:"scale(1.03)"
+
+                },
+
+                {
+
+                    transform:"scale(1)"
+
+                }
+
+            ],
+
+            {
+
+                duration:450,
+
+                easing:"ease"
+
+            }
+
+        );
+
+    },
+
+    /*=====================================================
+    INITIALIZE ANIMATIONS
+    =====================================================*/
+
+    initializeAnimations() {
+
+        this.elements.planCards.forEach(
+
+            (card, index) => {
+
+                card.style.animationDelay =
+
+                    `${index * 0.12}s`;
+
+            }
+
+        );
+
+    },
+
+    /*=====================================================
+    SHOW TOAST
+    =====================================================*/
+
+    showToast(message, type = "success") {
+
+        const existingToast =
+
+            document.getElementById(
+
+                "ysppToast"
+
+            );
+
+        if (existingToast) {
+
+            existingToast.remove();
+
+        }
+
+        const toast = document.createElement("div");
+
+        toast.id = "ysppToast";
+
+        toast.className =
+            `toast align-items-center text-bg-${type} border-0 position-fixed`;
+
+        toast.style.top = "20px";
+
+        toast.style.right = "20px";
+
+        toast.style.zIndex = "1080";
+
+        toast.innerHTML = `
+
+            <div class="d-flex">
+
+                <div class="toast-body">
+
+                    ${message}
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-close btn-close-white me-2 m-auto"
+                    data-bs-dismiss="toast">
+
+                </button>
+
+            </div>
+
+        `;
+
+        document.body.appendChild(toast);
+
+        const bsToast = new bootstrap.Toast(
+
+            toast,
+
+            {
+
+                delay:2500
+
+            }
+
+        );
+
+        bsToast.show();
+
+        toast.addEventListener(
+
+            "hidden.bs.toast",
+
+            () => toast.remove()
+
+        );
+
+    },
+
+    /*=====================================================
+    SAVE PLAN SUMMARY
+    =====================================================*/
+
+    savePlanSummary() {
+
+        const summary = {
+
+            plan: this.state.selectedPlan,
+
+            billingCycle: this.state.billingCycle,
+
+            selectedAt: new Date().toISOString()
+
+        };
+
+        localStorage.setItem(
+
+            "yoviSellerPlanSummary",
+
+            JSON.stringify(summary)
+
+        );
+
+    },
+
+    /*=====================================================
+    LOADING STATE
+    =====================================================*/
+
+    setLoadingState(status) {
+
+        this.state.isLoading = status;
+
+        document.body.classList.toggle(
+
+            "yspp-loading",
+
+            status
+
+        );
+
+    },
+
+    /*=====================================================
+    INTERSECTION OBSERVER
+    =====================================================*/
+
+    initializeIntersectionObserver() {
+
+        const observer = new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+
+                            "yspp-visible"
+
+                        );
+
+                        observer.unobserve(
+
+                            entry.target
+
+                        );
+
+                    }
+
+                });
+
+            },
+
+            {
+
+                threshold:0.15,
+
+                rootMargin:"0px 0px -40px 0px"
+
+            }
+
+        );
+
+        this.elements.planCards.forEach(card => {
+
+            observer.observe(card);
+
+        });
+
+    },
+
+    /*=====================================================
+    REFRESH PAGE STATE
+    =====================================================*/
+
+    refreshPageState() {
+
+        this.restoreBillingCycle();
+
+        this.restoreSelectedPlan();
+
+    },
+
+    /*=====================================================
+    RESTORE SELECTION ANIMATION
+    =====================================================*/
+
+    animateSelectedPlan() {
+
+        const selectedCard =
+
+            document.querySelector(
+
+                ".yspp-plan-selected"
+
+            );
+
+        if (!selectedCard) return;
+
+        selectedCard.animate(
+
+            [
+
+                {
+
+                    transform:"scale(.96)"
+
+                },
+
+                {
+
+                    transform:"scale(1.03)"
+
+                },
+
+                {
+
+                    transform:"scale(1)"
+
+                }
+
+            ],
+
+            {
+
+                duration:450,
+
+                easing:"ease"
+
+            }
+
+        );
+
+    },
+
+    /*=====================================================
+    AUTO SAVE
+    =====================================================*/
+
+    autoSave() {
+
+        this.saveLocalStorage();
+
+        this.savePlanSummary();
+
+    },
+
+    /*=====================================================
+    KEYBOARD ACCESSIBILITY
+    =====================================================*/
+
+    initializeKeyboardSupport() {
+
+        this.elements.upgradeButtons.forEach(button => {
+
+            button.setAttribute(
+
+                "tabindex",
+
+                "0"
+
+            );
+
+            button.addEventListener(
+
+                "keydown",
+
+                event => {
+
+                    if (
+
+                        event.key === "Enter" ||
+
+                        event.key === " "
+
+                    ) {
+
+                        event.preventDefault();
+
+                        button.click();
+
+                    }
+
+                }
+
+            );
+
+        });
+
+        if (this.elements.monthlyButton) {
+
+            this.elements.monthlyButton.addEventListener(
+
+                "keydown",
+
+                event => {
+
+                    if (
+
+                        event.key === "Enter" ||
+
+                        event.key === " "
+
+                    ) {
+
+                        event.preventDefault();
+
+                        this.elements.monthlyButton.click();
+
+                    }
+
+                }
+
+            );
+
+        }
+
+        if (this.elements.annualButton) {
+
+            this.elements.annualButton.addEventListener(
+
+                "keydown",
+
+                event => {
+
+                    if (
+
+                        event.key === "Enter" ||
+
+                        event.key === " "
+
+                    ) {
+
+                        event.preventDefault();
+
+                        this.elements.annualButton.click();
+
+                    }
+
+                }
+
+            );
+
+        }
+
+    },
+
+    /*=====================================================
+    WINDOW RESIZE
+    =====================================================*/
+
+    initializeResizeHandler() {
+
+        let resizeTimer;
+
+        window.addEventListener(
+
+            "resize",
+
+            () => {
+
+                clearTimeout(
+
+                    resizeTimer
+
+                );
+
+                resizeTimer = setTimeout(
+
+                    () => {
+
+                        document.body.classList.add(
+
+                            "yspp-resizing"
+
+                        );
+
+                        setTimeout(
+
+                            () => {
+
+                                document.body.classList.remove(
+
+                                    "yspp-resizing"
+
+                                );
+
+                            },
+
+                            150
+
+                        );
+
+                    },
+
+                    100
+
+                );
+
+            }
+
+        );
+
+    },
+
+    /*=====================================================
+    PAGE VISIBILITY
+    =====================================================*/
+
+    initializeVisibilityHandler() {
+
+        document.addEventListener(
+
+            "visibilitychange",
+
+            () => {
+
+                if (
+
+                    document.hidden
+
+                ) {
+
+                    this.autoSave();
+
+                } else {
+
+                    this.refreshPageState();
+
+                }
+
+            }
+
+        );
+
+    },
+
+    /*=====================================================
+    VALIDATE PLAN
+    =====================================================*/
+
+    validatePlanSelection() {
+
+        if (
+
+            !this.state.selectedPlan
+
+        ) {
+
+            this.showToast(
+
+                "Please choose a subscription plan.",
+
+                "warning"
+
+            );
+
+            return false;
+
+        }
+
+        return true;
+
+    },
+
+    /*=====================================================
+    GET SELECTED PLAN
+    =====================================================*/
+
+    getSelectedPlanCard() {
+
+        return document.querySelector(
+
+            ".yspp-plan-selected"
+
+        );
+
+    },
+
+    /*=====================================================
+    GET BILLING CYCLE
+    =====================================================*/
+
+    getCurrentBillingCycle() {
+
+        return this.state.billingCycle;
+
+    },
+
+    /*=====================================================
+    REGISTER GLOBAL EVENTS
+    =====================================================*/
+
+    registerGlobalEvents() {
+
+        this.initializeKeyboardSupport();
+
+        this.initializeResizeHandler();
+
+        this.initializeVisibilityHandler();
+
+        window.addEventListener(
+
+            "beforeunload",
+
+            () => {
+
+                this.autoSave();
+
+            }
+
+        );
+
+    },
+
+    /*=====================================================
+    RESET PLAN
+    =====================================================*/
+
+    resetPlanSelection() {
+
+        this.state.selectedPlan = null;
+
+        this.state.billingCycle = "monthly";
+
+        this.restoreBillingCycle();
+
+        this.restoreSelectedPlan();
+
+        this.autoSave();
+
+    },
+
+    /*=====================================================
+    DESTROY
+    =====================================================*/
+
+    destroy() {
+
+        this.autoSave();
+
+    }
+
+};
+
+/*=========================================================
+APPLICATION START
+=========================================================*/
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    () => {
+
+        SellerPlans.init();
+
+        SellerPlans.registerGlobalEvents();
+
+    }
+
+);
 
 
 
@@ -7734,1019 +10097,978 @@ document.addEventListener(
 );
 
 
+/*=========================================================
+BUYER REVIEWS CENTRE
+PART 3A
+=========================================================*/
 
+/*=========================================================
+APPLICATION
+=========================================================*/
 
-
-/*==================================================
-BUYER DONE PAGE (3A)
-Initialization • Elements • Navigation
-File: buyer-done.js
-Unique Prefix: ybd-
-==================================================*/
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    /*=========================================
-    PAGE CHECK
-    =========================================*/
-
-    const donePage = document.getElementById("ybdDonePage");
-
-    if (!donePage) return;
+const BuyerReviewsCentre = {
 
     /*=========================================
-    ELEMENT REFERENCES
+    LOCAL STORAGE KEYS
     =========================================*/
 
-    const loader = document.getElementById("ybdPageLoader");
+    storage: {
 
-    const toastElement = document.getElementById("ybdToast");
+        submittedReviews: "yoviSubmittedReviews",
 
-    const toastMessage = document.getElementById("ybdToastMessage");
+        pendingReviews: "yoviPendingReviews"
 
-    const confettiContainer = document.getElementById("ybdConfettiContainer");
-
-    const browseProductsBtn = document.getElementById("ybdBrowseProductsBtn");
-
-    const findServicesBtn = document.getElementById("ybdFindServicesBtn");
-
-    const homeBtn = document.getElementById("ybdBackHomeBtn");
-
-    const notificationBtn = document.getElementById("ybdViewNotificationsBtn");
-
-    const productsPage = document.getElementById("ybdProductsPage");
-
-    const servicesPage = document.getElementById("ybdServicesPage");
-
-    const dashboardPage = document.getElementById("ybdDashboardPage");
-
-    const accountStatus = document.getElementById("ybdAccountStatus");
-
-    const accountRole = document.getElementById("ybdAccountRole");
+    },
 
     /*=========================================
-    BOOTSTRAP TOAST
+    APPLICATION STATE
     =========================================*/
 
-    const successToast = new bootstrap.Toast(
+    state: {
 
-        toastElement,
+        activeTab: "pending",
 
-        {
+        selectedRatings: {},
 
-            delay:2500
+        submittedReviews: [],
 
-        }
+        pendingReviews: []
 
-    );
+    },
 
     /*=========================================
-    SHOW TOAST
+    DOM ELEMENTS
     =========================================*/
 
-    function showToast(message){
-
-        toastMessage.textContent = message;
-
-        successToast.show();
-
-    }
+    elements: {},
 
     /*=========================================
-    PAGE LOADER
+    INITIALIZE
     =========================================*/
 
-    function showLoader(){
+    init() {
 
-        loader.classList.add("show");
+        this.cacheDOM();
 
-    }
+        this.loadLocalStorage();
 
-    function hideLoader(){
+        this.restoreRatings();
 
-        loader.classList.remove("show");
+        this.restoreSubmittedReviews();
 
-    }
+        this.bindEvents();
+
+        this.updateTabCounts();
+
+        this.updateEmptyState();
+
+    },
 
     /*=========================================
-    INITIAL SESSION
+    CACHE DOM
     =========================================*/
 
-    sessionStorage.setItem(
+    cacheDOM() {
 
-        "yoviCurrentStep",
+        this.elements.pendingTab =
+            document.getElementById("cbrcPendingTab");
 
-        "buyer-done"
+        this.elements.submittedTab =
+            document.getElementById("cbrcSubmittedTab");
 
-    );
+        this.elements.tabs =
+            document.querySelectorAll(".cbrc-tab");
 
-    sessionStorage.setItem(
+        this.elements.reviewCards =
+            document.querySelectorAll(".cbrc-review-card");
 
-        "yoviBuyerStatus",
+        this.elements.starGroups =
+            document.querySelectorAll(".cbrc-rating-stars");
 
-        accountStatus.textContent.trim()
+        this.elements.textareas =
+            document.querySelectorAll(".cbrc-review-textarea");
 
-    );
+        this.elements.submitButtons =
+            document.querySelectorAll(".cbrc-submit-review-btn");
 
-    sessionStorage.setItem(
+        this.elements.remindButtons =
+            document.querySelectorAll(".cbrc-remind-btn");
 
-        "yoviUserRole",
+        this.elements.emptyState =
+            document.getElementById("cbrcEmptyState");
 
-        accountRole.value
+        this.elements.toast =
+            document.getElementById("cbrcSuccessToast");
 
-    );
+    },
 
     /*=========================================
-    SUCCESS MESSAGE
+    LOAD LOCAL STORAGE
     =========================================*/
 
-    setTimeout(() => {
+    loadLocalStorage() {
 
-        showToast(
+        const submitted =
+            localStorage.getItem(this.storage.submittedReviews);
 
-            "🎉 Congratulations! Your buyer account is now ready."
+        const pending =
+            localStorage.getItem(this.storage.pendingReviews);
+
+        this.state.submittedReviews =
+            submitted ? JSON.parse(submitted) : [];
+
+        this.state.pendingReviews =
+            pending ? JSON.parse(pending) : [];
+
+    },
+
+    /*=========================================
+    SAVE LOCAL STORAGE
+    =========================================*/
+
+    saveLocalStorage() {
+
+        localStorage.setItem(
+
+            this.storage.submittedReviews,
+
+            JSON.stringify(this.state.submittedReviews)
 
         );
 
-    },600);
+        localStorage.setItem(
+
+            this.storage.pendingReviews,
+
+            JSON.stringify(this.state.pendingReviews)
+
+        );
+
+    },
 
     /*=========================================
-    PAGE ENTRANCE
+    RESTORE SAVED RATINGS
     =========================================*/
 
-    donePage.classList.add(
+    restoreRatings() {
 
-        "ybd-page-loaded"
+        const ratings =
+            localStorage.getItem("yoviReviewRatings");
 
-    );
+        if (!ratings) return;
+
+        this.state.selectedRatings =
+            JSON.parse(ratings);
+
+    },
 
     /*=========================================
-    BROWSE PRODUCTS
+    SAVE RATINGS
     =========================================*/
 
-    browseProductsBtn.addEventListener("click", () => {
+    saveRatings() {
 
-        showLoader();
+        localStorage.setItem(
 
-        browseProductsBtn.disabled = true;
+            "yoviReviewRatings",
 
-        browseProductsBtn.innerHTML = `
+            JSON.stringify(this.state.selectedRatings)
 
-            <i class="bi bi-arrow-repeat me-2"></i>
+        );
 
-            Opening Products...
-
-        `;
-
-        setTimeout(() => {
-
-            window.location.href =
-
-                productsPage.value;
-
-        },800);
-
-    });
+    },
 
     /*=========================================
-    FIND SERVICES
+    BIND EVENTS
     =========================================*/
 
-    findServicesBtn.addEventListener("click", () => {
+    bindEvents() {
 
-        showLoader();
+        /*-------------------------------
+        Tabs
+        -------------------------------*/
 
-        findServicesBtn.disabled = true;
+        this.elements.tabs.forEach(tab => {
 
-        findServicesBtn.innerHTML = `
+            tab.addEventListener("click", () => {
 
-            <i class="bi bi-arrow-repeat me-2"></i>
+                this.switchTab(
 
-            Opening Services...
+                    tab.dataset.tab
 
-        `;
-
-        setTimeout(() => {
-
-            window.location.href =
-
-                servicesPage.value;
-
-        },800);
-
-    });
-
-/*==================================================
-BUYER DONE PAGE (3B)
-Footer Navigation • Confetti • Celebration
-Append after Part 3A
-==================================================*/
-
-    /*=========================================
-    BACK TO HOME
-    =========================================*/
-
-    homeBtn.addEventListener("click", () => {
-
-        showLoader();
-
-        setTimeout(() => {
-
-            window.location.href = "index.html";
-
-        }, 700);
-
-    });
-
-    /*=========================================
-    VIEW NOTIFICATIONS
-    =========================================*/
-
-    notificationBtn.addEventListener("click", () => {
-
-        showLoader();
-
-        setTimeout(() => {
-
-            window.location.href = "notifications.html";
-
-        }, 700);
-
-    });
-
-    /*=========================================
-    CONFETTI CELEBRATION
-    =========================================*/
-
-    function launchConfetti() {
-
-        const colors = [
-
-            "orange",
-
-            "green",
-
-            "blue",
-
-            "purple",
-
-            "yellow"
-
-        ];
-
-        for (let i = 0; i < 120; i++) {
-
-            const piece = document.createElement("div");
-
-            piece.className = `ybd-confetti ${
-
-                colors[Math.floor(Math.random() * colors.length)]
-
-            }`;
-
-            piece.style.left =
-
-                Math.random() * 100 + "%";
-
-            piece.style.animationDuration =
-
-                (Math.random() * 3 + 2) + "s";
-
-            piece.style.animationDelay =
-
-                Math.random() * .8 + "s";
-
-            piece.style.transform =
-
-                `rotate(${Math.random() * 360}deg)`;
-
-            confettiContainer.appendChild(piece);
-
-            piece.addEventListener("animationend", () => {
-
-                piece.remove();
+                );
 
             });
 
+        });
+
+        /*-------------------------------
+        Submit Review Buttons
+        -------------------------------*/
+
+        this.elements.submitButtons.forEach(button => {
+
+            button.addEventListener("click", (event) => {
+
+                this.submitReview(event);
+
+            });
+
+        });
+
+        /*-------------------------------
+        Remind Me Later
+        -------------------------------*/
+
+        this.elements.remindButtons.forEach(button => {
+
+            button.addEventListener("click", (event) => {
+
+                this.remindLater(event);
+
+            });
+
+        });
+
+        /*-------------------------------
+        Check Empty State
+        -------------------------------*/
+
+        this.updateEmptyState();
+
+    },
+
+    /*=========================================
+    SWITCH TAB
+    =========================================*/
+
+    switchTab(tabName) {
+
+        this.state.activeTab = tabName;
+
+        this.elements.tabs.forEach(tab => {
+
+            tab.classList.remove("active");
+
+        });
+
+        document
+            .querySelector(`[data-tab="${tabName}"]`)
+            .classList.add("active");
+
+        this.elements.pendingTab.classList.remove("active");
+
+        this.elements.submittedTab.classList.remove("active");
+
+        if (tabName === "pending") {
+
+            this.elements.pendingTab.classList.add("active");
+
+        } else {
+
+            this.elements.submittedTab.classList.add("active");
+
         }
 
-    }
+        this.updateEmptyState();
+
+    },
 
     /*=========================================
-    START CELEBRATION
+    UPDATE EMPTY STATE
     =========================================*/
 
-    setTimeout(() => {
+    updateEmptyState() {
 
-        launchConfetti();
+        if (!this.elements.emptyState) {
 
-    }, 500);
+            return;
 
-    /*=========================================
-    OPTIONAL SUCCESS SOUND
-    =========================================*/
+        }
 
-    function playSuccessSound() {
+        const pendingCount =
 
-        /*
-        Optional:
+            this.elements.pendingTab
+                ?.querySelectorAll(".cbrc-review-card")
+                .length || 0;
 
-        const audio = new Audio(
-            "assets/audio/success.mp3"
-        );
+        const submittedCount =
 
-        audio.play();
+            this.elements.submittedTab
+                ?.querySelectorAll(".cbrc-review-card")
+                .length || 0;
 
-        */
+        let showEmpty = false;
 
-    }
+        if (
 
-    playSuccessSound();
+            this.state.activeTab === "pending" &&
 
-    /*=========================================
-    SAVE COMPLETION STATUS
-    =========================================*/
+            pendingCount === 0
 
-    sessionStorage.setItem(
+        ) {
 
-        "yoviBuyerSetupCompleted",
-
-        "true"
-
-    );
-
-    sessionStorage.setItem(
-
-        "yoviBuyerDashboardReady",
-
-        "true"
-
-    );
-
-    /*=========================================
-    DEVELOPMENT LOG
-    =========================================*/
-
-    console.info(
-
-        "Buyer setup completed successfully."
-
-    );
-
-/*==================================================
-BUYER DONE PAGE (3C)
-Session Restore • Dashboard Preload • UX Enhancements
-Append after Part 3B
-==================================================*/
-
-    /*=========================================
-    RESTORE SESSION
-    =========================================*/
-
-    function restoreBuyerSession() {
-
-        const buyerStatus = sessionStorage.getItem(
-
-            "yoviBuyerStatus"
-
-        );
-
-        const currentStep = sessionStorage.getItem(
-
-            "yoviCurrentStep"
-
-        );
-
-        const dashboardReady = sessionStorage.getItem(
-
-            "yoviBuyerDashboardReady"
-
-        );
-
-        console.info(
-
-            "Buyer Status:",
-
-            buyerStatus
-
-        );
-
-        console.info(
-
-            "Current Step:",
-
-            currentStep
-
-        );
-
-        console.info(
-
-            "Dashboard Ready:",
-
-            dashboardReady
-
-        );
-
-    }
-
-    restoreBuyerSession();
-
-    /*=========================================
-    MARK ONBOARDING COMPLETE
-    =========================================*/
-
-    sessionStorage.setItem(
-
-        "yoviOnboardingCompleted",
-
-        "true"
-
-    );
-
-    sessionStorage.setItem(
-
-        "yoviLastCompletedPage",
-
-        "buyer-done"
-
-    );
-
-    sessionStorage.setItem(
-
-        "yoviAccountActivated",
-
-        "true"
-
-    );
-
-    /*=========================================
-    PRELOAD DASHBOARD
-    =========================================*/
-
-    function preloadDashboard() {
-
-        const preloadLink = document.createElement("link");
-
-        preloadLink.rel = "prefetch";
-
-        preloadLink.href = dashboardPage.value;
-
-        document.head.appendChild(preloadLink);
-
-    }
-
-    preloadDashboard();
-
-    /*=========================================
-    AUTO HIDE LOADER
-    =========================================*/
-
-    window.addEventListener("load", () => {
-
-        hideLoader();
-
-    });
-
-    /*=========================================
-    BUTTON HOVER EFFECT
-    =========================================*/
-
-    [
-
-        browseProductsBtn,
-
-        findServicesBtn
-
-    ].forEach(button => {
-
-        button.addEventListener("mouseenter", () => {
-
-            button.style.transform =
-
-                "translateY(-2px)";
-
-        });
-
-        button.addEventListener("mouseleave", () => {
-
-            button.style.transform = "";
-
-        });
-
-    });
-
-    /*=========================================
-    KEYBOARD SHORTCUTS
-    =========================================*/
-
-    document.addEventListener("keydown", event => {
-
-        if (event.key === "Enter") {
-
-            browseProductsBtn.click();
+            showEmpty = true;
 
         }
 
         if (
 
-            event.key.toLowerCase() === "s"
+            this.state.activeTab === "submitted" &&
+
+            submittedCount === 0
 
         ) {
 
-            findServicesBtn.click();
+            showEmpty = true;
 
         }
 
-    });
+        if (showEmpty) {
 
-    /*=========================================
-    PAGE VISIBILITY
-    =========================================*/
+            this.elements.emptyState.classList.remove("d-none");
 
-    document.addEventListener(
+        } else {
 
-        "visibilitychange",
-
-        () => {
-
-            if (!document.hidden) {
-
-                console.info(
-
-                    "Buyer returned to page."
-
-                );
-
-            }
+            this.elements.emptyState.classList.add("d-none");
 
         }
 
-    );
+    },
 
     /*=========================================
-    ANALYTICS PLACEHOLDER
+    RESTORE SUBMITTED REVIEWS
     =========================================*/
 
-    function trackCompletion() {
+    restoreSubmittedReviews() {
 
-        console.info(
+        if (
 
-            "Analytics Event:",
+            !this.state.submittedReviews ||
 
-            "Buyer Completed"
+            !this.state.submittedReviews.length
 
-        );
+        ) {
 
-        /*
-        Example:
+            return;
 
-        gtag('event','buyer_completed',{
+        }
 
-            role:'buyer'
+        this.state.submittedReviews.forEach(review => {
+
+            const card = document.querySelector(
+
+                `[data-review-id="${review.id}"]`
+
+            );
+
+            if (!card) return;
+
+            card.classList.add("cbrc-review-submitted");
 
         });
 
-        */
-
-    }
-
-    trackCompletion();
-
-/*==================================================
-BUYER DONE PAGE (3D)
-Accessibility • Navigation Guard • Session Finalization
-Append after Part 3C
-==================================================*/
+    },
 
     /*=========================================
-    PREVENT MULTIPLE CLICKS
+    INITIALIZE STAR RATING
     =========================================*/
 
-    let navigationInProgress = false;
+    initializeStarRatings() {
 
-    function beginNavigation(button) {
+        this.elements.starGroups.forEach(group => {
 
-        if (navigationInProgress) return false;
+            const stars = group.querySelectorAll("i");
 
-        navigationInProgress = true;
+            stars.forEach(star => {
 
-        button.disabled = true;
+                /*-------------------------------
+                Hover
+                -------------------------------*/
 
-        showLoader();
+                star.addEventListener("mouseenter", () => {
 
-        return true;
+                    const value = Number(star.dataset.value);
 
-    }
+                    this.previewRating(group, value);
+
+                });
+
+                /*-------------------------------
+                Click
+                -------------------------------*/
+
+                star.addEventListener("click", () => {
+
+                    const value = Number(star.dataset.value);
+
+                    const reviewCard = star.closest(".cbrc-review-card");
+
+                    const reviewId = reviewCard.dataset.reviewId;
+
+                    this.setRating(
+
+                        reviewId,
+
+                        group,
+
+                        value
+
+                    );
+
+                });
+
+            });
+
+            /*-------------------------------
+            Mouse Leave
+            -------------------------------*/
+
+            group.addEventListener("mouseleave", () => {
+
+                const reviewCard = group.closest(".cbrc-review-card");
+
+                const reviewId = reviewCard.dataset.reviewId;
+
+                const savedRating =
+
+                    this.state.selectedRatings[reviewId] || 0;
+
+                this.renderRating(
+
+                    group,
+
+                    savedRating
+
+                );
+
+            });
+
+        });
+
+    },
 
     /*=========================================
-    OVERRIDE PRIMARY BUTTONS
+    STAR HOVER PREVIEW
     =========================================*/
 
-    browseProductsBtn.addEventListener("click", function (event) {
+    previewRating(group, rating) {
 
-        event.stopImmediatePropagation();
+        const stars = group.querySelectorAll("i");
 
-        if (!beginNavigation(this)) return;
+        stars.forEach(star => {
 
-        this.innerHTML = `
+            const value = Number(star.dataset.value);
 
-            <i class="bi bi-arrow-repeat me-2"></i>
+            if (value <= rating) {
 
-            Redirecting...
+                star.classList.remove("bi-star");
 
-        `;
+                star.classList.add(
 
-        setTimeout(() => {
+                    "bi-star-fill",
 
-            window.location.href = productsPage.value;
+                    "cbrc-active"
 
-        }, 900);
+                );
 
-    });
+            } else {
 
-    findServicesBtn.addEventListener("click", function (event) {
+                star.classList.remove(
 
-        event.stopImmediatePropagation();
+                    "bi-star-fill",
 
-        if (!beginNavigation(this)) return;
+                    "cbrc-active"
 
-        this.innerHTML = `
+                );
 
-            <i class="bi bi-arrow-repeat me-2"></i>
+                star.classList.add("bi-star");
 
-            Redirecting...
+            }
 
-        `;
+        });
 
-        setTimeout(() => {
-
-            window.location.href = servicesPage.value;
-
-        }, 900);
-
-    });
+    },
 
     /*=========================================
-    AUTO FOCUS
+    SAVE RATING
     =========================================*/
 
-    window.addEventListener("load", () => {
+    setRating(reviewId, group, rating) {
 
-        browseProductsBtn.focus();
+        this.state.selectedRatings[reviewId] = rating;
 
-    });
+        this.saveRatings();
 
-    /*=========================================
-    ESC KEY SUPPORT
-    =========================================*/
+        this.renderRating(
 
-    document.addEventListener("keydown", event => {
+            group,
 
-        if (event.key === "Escape") {
+            rating
 
-            hideLoader();
+        );
+
+        const text = group.parentElement.querySelector(
+
+            ".cbrc-rating-text"
+
+        );
+
+        if (text) {
+
+            text.textContent =
+
+                `${rating} / 5 Selected`;
 
         }
 
-    });
+    },
 
     /*=========================================
-    NETWORK STATUS
+    RENDER STAR RATING
     =========================================*/
 
-    window.addEventListener("offline", () => {
+    renderRating(group, rating) {
 
-        showToast(
+        const stars = group.querySelectorAll("i");
 
-            "No internet connection detected."
+        stars.forEach(star => {
+
+            const value = Number(star.dataset.value);
+
+            if (value <= rating) {
+
+                star.classList.remove("bi-star");
+
+                star.classList.add(
+
+                    "bi-star-fill",
+
+                    "cbrc-active"
+
+                );
+
+            } else {
+
+                star.classList.remove(
+
+                    "bi-star-fill",
+
+                    "cbrc-active"
+
+                );
+
+                star.classList.add("bi-star");
+
+            }
+
+        });
+
+    },
+
+    /*=========================================
+    RESTORE SAVED STAR RATINGS
+    =========================================*/
+
+    restoreStarRatings() {
+
+        this.elements.starGroups.forEach(group => {
+
+            const reviewCard =
+
+                group.closest(".cbrc-review-card");
+
+            const reviewId =
+
+                reviewCard.dataset.reviewId;
+
+            const rating =
+
+                this.state.selectedRatings[reviewId] || 0;
+
+            this.renderRating(
+
+                group,
+
+                rating
+
+            );
+
+            const text = group.parentElement.querySelector(
+
+                ".cbrc-rating-text"
+
+            );
+
+            if (text && rating > 0) {
+
+                text.textContent =
+
+                    `${rating} / 5 Selected`;
+
+            }
+
+        });
+
+    },
+
+    /*=========================================
+    SUBMIT REVIEW
+    =========================================*/
+
+    submitReview(event) {
+
+        const button = event.currentTarget;
+
+        const reviewCard = button.closest(
+
+            ".cbrc-review-card"
 
         );
 
-    });
+        const reviewId = reviewCard.dataset.reviewId;
 
-    window.addEventListener("online", () => {
+        const textarea = reviewCard.querySelector(
 
-        showToast(
-
-            "Internet connection restored."
+            ".cbrc-review-textarea"
 
         );
 
-    });
+        const reviewText = textarea.value.trim();
+
+        const rating =
+
+            this.state.selectedRatings[reviewId] || 0;
+
+        /*-------------------------------
+        VALIDATION
+        -------------------------------*/
+
+        if (rating === 0) {
+
+            alert("Please select a star rating.");
+
+            return;
+
+        }
+
+        if (reviewText.length < 10) {
+
+            alert(
+
+                "Your review must contain at least 10 characters."
+
+            );
+
+            textarea.focus();
+
+            return;
+
+        }
+
+        /*-------------------------------
+        LOADING STATE
+        -------------------------------*/
+
+        reviewCard.classList.add("cbrc-loading");
+
+        button.disabled = true;
+
+        setTimeout(() => {
+
+            this.completeSubmission(
+
+                reviewCard,
+
+                reviewId,
+
+                rating,
+
+                reviewText
+
+            );
+
+        }, 1000);
+
+    },
 
     /*=========================================
-    PERFORMANCE LOG
+    COMPLETE SUBMISSION
     =========================================*/
 
-    window.addEventListener("load", () => {
+    completeSubmission(
 
-        if ("performance" in window) {
+        reviewCard,
 
-            console.info(
+        reviewId,
 
-                "Buyer Done loaded in",
+        rating,
 
-                Math.round(performance.now()),
+        reviewText
 
-                "ms"
+    ) {
+
+        reviewCard.classList.remove(
+
+            "cbrc-loading"
+
+        );
+
+        reviewCard.classList.add(
+
+            "cbrc-review-submitted"
+
+        );
+
+        this.state.submittedReviews.push({
+
+            id: reviewId,
+
+            rating,
+
+            review: reviewText,
+
+            submittedAt: Date.now()
+
+        });
+
+        this.saveLocalStorage();
+
+        /*-------------------------------
+        MOVE CARD
+        -------------------------------*/
+
+        if (this.elements.submittedTab) {
+
+            this.elements.submittedTab.appendChild(
+
+                reviewCard
 
             );
 
         }
 
-    });
+        /*-------------------------------
+        REMOVE INPUTS
+        -------------------------------*/
 
-    /*=========================================
-    PREFETCH COMMON PAGES
-    =========================================*/
+        const inputArea = reviewCard.querySelector(
 
-    fetch(productsPage.value, {
-
-        method: "GET",
-
-        cache: "force-cache"
-
-    }).catch(() => {});
-
-    fetch(servicesPage.value, {
-
-        method: "GET",
-
-        cache: "force-cache"
-
-    }).catch(() => {});
-
-    /*=========================================
-    FINALIZE SESSION
-    =========================================*/
-
-    function finalizeBuyerOnboarding() {
-
-        sessionStorage.setItem(
-
-            "yoviBuyerSetupFinished",
-
-            "true"
+            ".cbrc-review-input"
 
         );
 
-        sessionStorage.removeItem(
+        const actionArea = reviewCard.querySelector(
 
-            "yoviCurrentStep"
-
-        );
-
-    }
-
-    finalizeBuyerOnboarding();
-
-    /*=========================================
-    DEVELOPMENT LOG
-    =========================================*/
-
-    console.info(
-
-        "Buyer Done UX initialized."
-
-    );
-
-/*==================================================
-BUYER DONE PAGE (3E)
-Final Utilities • Cleanup • Developer Helpers
-Append after Part 3D
-==================================================*/
-
-    /*=========================================
-    SAVE COMPLETION RECORD
-    =========================================*/
-
-    function saveCompletionRecord() {
-
-        const completionData = {
-
-            completed: true,
-
-            role: "buyer",
-
-            completedAt: new Date().toISOString(),
-
-            nextPage: dashboardPage.value
-
-        };
-
-        localStorage.setItem(
-
-            "yoviBuyerCompletion",
-
-            JSON.stringify(completionData)
+            ".cbrc-review-actions"
 
         );
 
-    }
+        const ratingText = reviewCard.querySelector(
 
-    saveCompletionRecord();
-
-    /*=========================================
-    AUTO SAVE LAST ACTIVITY
-    =========================================*/
-
-    function updateLastActivity() {
-
-        sessionStorage.setItem(
-
-            "yoviLastActivity",
-
-            Date.now()
+            ".cbrc-rating-text"
 
         );
 
-    }
+        if (inputArea) {
 
-    updateLastActivity();
+            inputArea.remove();
 
-    document.addEventListener(
+        }
 
-        "click",
+        if (actionArea) {
 
-        updateLastActivity
+            actionArea.remove();
 
-    );
+        }
 
-    document.addEventListener(
+        if (ratingText) {
 
-        "keydown",
+            ratingText.textContent =
 
-        updateLastActivity
+                "Review Submitted";
 
-    );
+        }
 
-    /*=========================================
-    REMEMBER LAST PAGE
-    =========================================*/
+        this.showToast(
 
-    window.addEventListener("beforeunload", () => {
-
-        sessionStorage.setItem(
-
-            "yoviLastVisitedPage",
-
-            "buyer-done"
+            "Review submitted successfully."
 
         );
 
-    });
+        this.updateTabCounts();
+
+        this.updateEmptyState();
+
+    },
 
     /*=========================================
-    CLEAR TEMPORARY SETUP DATA
+    UPDATE TAB COUNTS
     =========================================*/
 
-    function clearTemporaryData() {
+    updateTabCounts() {
 
-        const temporaryKeys = [
+        const pendingCount =
 
-            "yoviBuyerProfile",
+            this.elements.pendingTab.querySelectorAll(
 
-            "yoviBuyerSetup",
+                ".cbrc-review-card"
 
-            "yoviCurrentStep"
+            ).length;
 
-        ];
+        const submittedCount =
 
-        temporaryKeys.forEach(key => {
+            this.elements.submittedTab.querySelectorAll(
 
-            sessionStorage.removeItem(key);
+                ".cbrc-review-card"
+
+            ).length;
+
+        const pendingTabButton = document.querySelector(
+
+            '[data-tab="pending"]'
+
+        );
+
+        const submittedTabButton = document.querySelector(
+
+            '[data-tab="submitted"]'
+
+        );
+
+        if (pendingTabButton) {
+
+            pendingTabButton.textContent =
+
+                `Pending Reviews (${pendingCount})`;
+
+        }
+
+        if (submittedTabButton) {
+
+            submittedTabButton.textContent =
+
+                `Submitted (${submittedCount})`;
+
+        }
+
+    },
+
+    /*=========================================
+    RESET REVIEW FORM
+    =========================================*/
+
+    resetReviewForm(card) {
+
+        const textarea = card.querySelector(
+
+            ".cbrc-review-textarea"
+
+        );
+
+        const stars = card.querySelector(
+
+            ".cbrc-rating-stars"
+
+        );
+
+        const ratingText = card.querySelector(
+
+            ".cbrc-rating-text"
+
+        );
+
+        if (textarea) {
+
+            textarea.value = "";
+
+        }
+
+        if (stars) {
+
+            this.renderRating(
+
+                stars,
+
+                0
+
+            );
+
+        }
+
+        if (ratingText) {
+
+            ratingText.textContent =
+
+                "Tap to rate";
+
+        }
+
+        const reviewId = card.dataset.reviewId;
+
+        delete this.state.selectedRatings[reviewId];
+
+        this.saveRatings();
+
+    },
+
+    /*=========================================
+    PAGE NAVIGATION
+    =========================================*/
+
+    navigate(page) {
+
+        window.location.href = page;
+
+    },
+
+    /*=========================================
+    GLOBAL EVENT HANDLERS
+    =========================================*/
+
+    registerGlobalEvents() {
+
+        window.addEventListener("beforeunload", () => {
+
+            this.saveLocalStorage();
+
+            this.saveRatings();
+
+        });
+
+        document.addEventListener("visibilitychange", () => {
+
+            if (!document.hidden) {
+
+                this.updateTabCounts();
+
+                this.updateEmptyState();
+
+            }
 
         });
 
     }
 
-    clearTemporaryData();
+};
 
-    /*=========================================
-    VERIFY BUYER ACCESS
-    =========================================*/
+/*=========================================================
+APPLICATION START
+=========================================================*/
 
-    function buyerAccessReady() {
+document.addEventListener("DOMContentLoaded", () => {
 
-        return (
+    BuyerReviewsCentre.init();
 
-            sessionStorage.getItem(
-
-                "yoviBuyerDashboardReady"
-
-            ) === "true"
-
-        );
-
-    }
-
-    console.info(
-
-        "Buyer Access:",
-
-        buyerAccessReady()
-
-    );
-
-    /*=========================================
-    PAGE TIMER
-    =========================================*/
-
-    const pageOpenedAt = Date.now();
-
-    window.addEventListener("pagehide", () => {
-
-        const duration = Math.round(
-
-            (Date.now() - pageOpenedAt) / 1000
-
-        );
-
-        console.info(
-
-            `Time spent on Buyer Done page: ${duration}s`
-
-        );
-
-    });
-
-    /*=========================================
-    GLOBAL DEBUG HELPERS
-    =========================================*/
-
-    window.yoviBuyerDone = {
-
-        showToast,
-
-        showLoader,
-
-        hideLoader,
-
-        buyerAccessReady,
-
-        saveCompletionRecord
-
-    };
-
-    /*=========================================
-    INITIALIZATION SUMMARY
-    =========================================*/
-
-    console.group(
-
-        "YOVI - Buyer Done"
-
-    );
-
-    console.log(
-
-        "Role:",
-
-        sessionStorage.getItem("yoviUserRole")
-
-    );
-
-    console.log(
-
-        "Status:",
-
-        sessionStorage.getItem("yoviBuyerStatus")
-
-    );
-
-    console.log(
-
-        "Products Page:",
-
-        productsPage.value
-
-    );
-
-    console.log(
-
-        "Services Page:",
-
-        servicesPage.value
-
-    );
-
-    console.log(
-
-        "Dashboard:",
-
-        dashboardPage.value
-
-    );
-
-    console.groupEnd();
-
-    console.info(
-
-        "✔ Buyer Done page initialized successfully."
-
-    );
+    BuyerReviewsCentre.registerGlobalEvents();
 
 });
+
+
+
+
+
+
 
 
 /*=========================================================
@@ -10666,8 +12988,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "Current User: Service Provider"
     );
 
+});
+
     /* ==========================================================
        END OF PROVIDER DASHBOARD
     ========================================================== */
 
-});
+

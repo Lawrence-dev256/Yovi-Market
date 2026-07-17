@@ -1,5 +1,5 @@
 /*==================================================
-SIGN IN PAGE 
+LOG IN PAGE 
 ==================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -237,13 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
         rememberMe.checked = true;
 
     }
-
-/*==================================================
-SIGN IN PAGE (3B)
-Validation • Form Submission • Authentication
-Append after Part 3A
-==================================================*/
-
+    
     /*=========================================
     LIVE EMAIL VALIDATION
     =========================================*/
@@ -542,7 +536,7 @@ Append after Part 3A
 
         setTimeout(()=>{
 
-            window.location.href = "/auth/forgot-password.html";
+            window.location.href = "../../auth/forget password.html";
 
                 forgotPasswordPage.value;
 

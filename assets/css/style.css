@@ -11367,9 +11367,7 @@ END OF SERVICE SETUP STYLES
 
 
 /*==================================================
-SERVICE PROVIDER DONE PAGE (2A)
-Page Layout • Brand • Success Illustration
-Unique Prefix: yspd-
+SERVICE PROVIDER DONE PAGE 
 ==================================================*/
 
 /*=========================================
@@ -11684,13 +11682,6 @@ ANIMATIONS
 
 }
 
-/*==================================================
-SERVICE PROVIDER DONE PAGE (2B)
-Success Card • Feature Cards • Action Buttons
-Unique Prefix: yspd-
-Append to service-provider-done.css
-==================================================*/
-
 /*=========================================
 SUCCESS CARD
 =========================================*/
@@ -11994,13 +11985,6 @@ CARD ANIMATION
     }
 
 }
-
-/*==================================================
-SERVICE PROVIDER DONE PAGE (2C)
-Footer • Toast • Loader • Confetti
-Unique Prefix: yspd-
-Append to service-provider-done.css
-==================================================*/
 
 /*=========================================
 FOOTER LINKS
@@ -12309,13 +12293,6 @@ BUTTON LOADING STATE
     }
 
 }
-
-/*==================================================
-SERVICE PROVIDER DONE PAGE (2D)
-Animations • Hover Effects • Success Effects
-Unique Prefix: yspd-
-Append to service-provider-done.css
-==================================================*/
 
 /*=========================================
 ENTRANCE ANIMATIONS
@@ -12628,13 +12605,6 @@ TEXT SELECTION
     color:#FFFFFF;
 
 }
-
-/*==================================================
-SERVICE PROVIDER DONE PAGE (2E)
-Responsive • Dark Mode • Accessibility
-Unique Prefix: yspd-
-Append to service-provider-done.css
-==================================================*/
 
 /*=========================================
 LARGE TABLETS
@@ -12969,13 +12939,6 @@ REDUCED MOTION
     }
 
 }
-
-/*==================================================
-SERVICE PROVIDER DONE PAGE (2F)
-Final Polish • Performance • Print • Scrollbar
-Unique Prefix: yspd-
-Append to service-provider-done.css
-==================================================*/
 
 /*=========================================
 GLOBAL OPTIMIZATION
@@ -13335,9 +13298,7 @@ END OF SERVICE PROVIDER DONE STYLES
 
 
 /*==================================================
-SELLER DONE PAGE (2A)
-Page Layout • Brand • Success Illustration
-Unique Prefix: ysd-
+SELLER DONE PAGE 
 ==================================================*/
 
 /*=========================================
@@ -13964,13 +13925,6 @@ CARD ENTRANCE
     }
 
 }
-
-/*==================================================
-SELLER DONE PAGE (2C)
-Footer • Toast • Loader • Confetti
-Unique Prefix: ysd-
-Append to seller-done.css
-==================================================*/
 
 /*=========================================
 FOOTER LINKS
@@ -25503,6 +25457,6127 @@ END OF SELLER INVENTORY STYLES
 =========================================================*/
 
 /*=========================================================
+YOVI PAYMENT PLAN ANNUALLY
+STYLE.CSS — PART 2A
+=========================================================*/
+
+/*=========================================================
+PAGE WRAPPER
+=========================================================*/
+
+.yppa-wrapper{
+
+    min-height:100vh;
+
+    background:var(--body);
+
+    overflow:hidden;
+
+}
+
+/*=========================================================
+NAVBAR
+=========================================================*/
+
+.yppa-navbar{
+
+    position:sticky;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    background:var(--white);
+
+    border-bottom:1px solid var(--border);
+
+    padding:16px 0;
+
+    transition:var(--transition);
+
+}
+
+/*=========================================================
+BRAND
+=========================================================*/
+
+.yppa-brand{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.yppa-logo-placeholder{
+
+    width:155px;
+
+    height:48px;
+
+    border:2px dashed var(--border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--surface);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--text-light);
+
+    font-size:.9rem;
+
+    font-weight:700;
+
+    letter-spacing:.08em;
+
+    transition:var(--transition);
+
+}
+
+.yppa-logo-placeholder:hover{
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+NAVIGATION LINKS
+=========================================================*/
+
+.yppa-nav-link{
+
+    position:relative;
+
+    color:var(--text);
+
+    font-size:.96rem;
+
+    font-weight:600;
+
+    padding:10px 18px !important;
+
+    transition:var(--transition);
+
+}
+
+.yppa-nav-link:hover{
+
+    color:var(--primary);
+
+}
+
+.yppa-nav-link.active{
+
+    color:var(--primary);
+
+}
+
+.yppa-nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:18px;
+
+    bottom:4px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--primary);
+
+    transition:var(--transition);
+
+}
+
+.yppa-nav-link:hover::after,
+
+.yppa-nav-link.active::after{
+
+    width:calc(100% - 36px);
+
+}
+
+/*=========================================================
+NAVIGATION ACTIONS
+=========================================================*/
+
+.yppa-nav-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+/*=========================================================
+ICON BUTTONS
+=========================================================*/
+
+.yppa-icon-btn{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:50%;
+
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:var(--shadow-xs);
+
+    transition:var(--transition);
+
+}
+
+.yppa-icon-btn i{
+
+    font-size:1.15rem;
+
+    color:var(--heading);
+
+}
+
+.yppa-icon-btn:hover{
+
+    background:var(--primary-light);
+
+    border-color:var(--primary);
+
+    transform:translateY(-2px);
+
+}
+
+.yppa-icon-btn:hover i{
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+NOTIFICATION DOT
+=========================================================*/
+
+.yppa-notification-dot{
+
+    position:absolute;
+
+    top:11px;
+
+    right:12px;
+
+    width:10px;
+
+    height:10px;
+
+    background:var(--danger);
+
+    border:2px solid var(--white);
+
+    border-radius:50%;
+
+}
+
+/*=========================================================
+USER PROFILE
+=========================================================*/
+
+.yppa-user-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    border:none;
+
+    background:transparent;
+
+    padding:0;
+
+}
+
+.yppa-user-btn img{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid var(--primary-light);
+
+}
+
+.yppa-user-btn span{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+/*=========================================================
+YOVI PAYMENT PLAN ANNUALLY
+STYLE.CSS — PART 2B
+=========================================================*/
+
+/*=========================================================
+HEADER SECTION
+=========================================================*/
+
+.yppa-header-section{
+
+    padding:60px 0 80px;
+
+    background:linear-gradient(
+        180deg,
+        var(--white) 0%,
+        var(--body) 100%
+    );
+
+}
+
+/*=========================================================
+BREADCRUMB
+=========================================================*/
+
+.yppa-breadcrumb-wrapper{
+
+    margin-bottom:40px;
+
+}
+
+.yppa-breadcrumb-link{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:var(--text);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.yppa-breadcrumb-link i{
+
+    font-size:1rem;
+
+    transition:var(--transition);
+
+}
+
+.yppa-breadcrumb-link:hover{
+
+    color:var(--primary);
+
+}
+
+.yppa-breadcrumb-link:hover i{
+
+    transform:translateX(-5px);
+
+}
+
+/*=========================================================
+PAGE HEADING
+=========================================================*/
+
+.yppa-page-heading{
+
+    margin-bottom:45px;
+
+}
+
+.yppa-title{
+
+    font-size:2.85rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+    margin-bottom:14px;
+
+    letter-spacing:-.03em;
+
+}
+
+.yppa-subtitle{
+
+    max-width:620px;
+
+    margin:0 auto;
+
+    color:var(--text-light);
+
+    font-size:1.05rem;
+
+    line-height:1.8;
+
+}
+
+/*=========================================================
+PLAN TOGGLE
+=========================================================*/
+
+.yppa-toggle-wrapper{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:60px;
+
+}
+
+.yppa-toggle{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px;
+
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-pill);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.yppa-toggle-btn{
+
+    position:relative;
+
+    min-width:165px;
+
+    padding:14px 28px;
+
+    border:none;
+
+    background:transparent;
+
+    border-radius:var(--radius-pill);
+
+    color:var(--text);
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.yppa-toggle-btn:hover{
+
+    color:var(--primary);
+
+}
+
+.yppa-toggle-active{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.yppa-toggle-active:hover{
+
+    color:var(--white);
+
+}
+
+/*=========================================================
+SAVE BADGE
+=========================================================*/
+
+.yppa-save-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-left:10px;
+
+    padding:4px 10px;
+
+    background:rgba(255,255,255,.18);
+
+    border-radius:999px;
+
+    font-size:.70rem;
+
+    font-weight:700;
+
+    letter-spacing:.03em;
+
+    color:var(--white);
+
+}
+
+/*=========================================================
+PLAN ROW
+=========================================================*/
+
+.yppa-plan-row{
+
+    align-items:stretch;
+
+}
+
+/*=========================================================
+ANIMATION
+=========================================================*/
+
+.yppa-page-heading,
+
+.yppa-toggle,
+
+.yppa-breadcrumb-wrapper{
+
+    animation:yppaFadeUp .8s ease both;
+
+}
+
+@keyframes yppaFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+YOVI PAYMENT PLAN ANNUALLY
+STYLE.CSS — PART 2C
+=========================================================*/
+
+/*=========================================================
+PLAN CARD
+=========================================================*/
+
+.yppa-plan-card{
+
+    position:relative;
+
+    height:100%;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    padding:38px 32px;
+
+    box-shadow:var(--shadow-sm);
+
+    overflow:hidden;
+
+    transition:var(--transition);
+
+}
+
+.yppa-plan-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:var(--shadow-lg);
+
+    border-color:var(--primary);
+
+}
+
+/*=========================================================
+POPULAR CARD
+=========================================================*/
+
+.yppa-popular-card{
+
+    border:2px solid var(--primary);
+
+    box-shadow:var(--shadow-md);
+
+    transform:scale(1.03);
+
+}
+
+.yppa-popular-card:hover{
+
+    transform:translateY(-10px) scale(1.03);
+
+}
+
+/*=========================================================
+PREMIUM CARD
+=========================================================*/
+
+.yppa-premium-card{
+
+    background:linear-gradient(
+
+        180deg,
+
+        #ffffff 0%,
+
+        #f9fffc 100%
+
+    );
+
+}
+
+/*=========================================================
+BADGES
+=========================================================*/
+
+.yppa-popular-badge,
+
+.yppa-best-value{
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    font-size:.72rem;
+
+    font-weight:700;
+
+    letter-spacing:.06em;
+
+    text-transform:uppercase;
+
+    color:var(--white);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.yppa-popular-badge{
+
+    background:var(--primary);
+
+}
+
+.yppa-best-value{
+
+    background:var(--secondary);
+
+}
+
+/*=========================================================
+PLAN LABEL
+=========================================================*/
+
+.yppa-plan-label{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:8px 16px;
+
+    background:var(--primary-light);
+
+    color:var(--primary-dark);
+
+    border-radius:var(--radius-pill);
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    margin-bottom:24px;
+
+}
+
+/*=========================================================
+PLAN PRICE
+=========================================================*/
+
+.yppa-plan-price{
+
+    color:var(--heading);
+
+    font-size:3rem;
+
+    font-weight:800;
+
+    line-height:1;
+
+    margin-bottom:18px;
+
+}
+
+.yppa-plan-price small{
+
+    font-size:1rem;
+
+    color:var(--text-light);
+
+    font-weight:600;
+
+}
+
+/*=========================================================
+PLAN DESCRIPTION
+=========================================================*/
+
+.yppa-plan-description{
+
+    color:var(--text-light);
+
+    font-size:.96rem;
+
+    line-height:1.8;
+
+    margin-bottom:32px;
+
+    min-height:72px;
+
+}
+
+/*=========================================================
+FEATURE LIST
+=========================================================*/
+
+.yppa-feature-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+    margin-bottom:36px;
+
+}
+
+.yppa-feature-list li{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+    color:var(--text);
+
+    font-size:.95rem;
+
+    line-height:1.6;
+
+}
+
+.yppa-feature-list li i{
+
+    font-size:1rem;
+
+    color:var(--success);
+
+    margin-top:3px;
+
+    flex-shrink:0;
+
+}
+
+.yppa-feature-list li.text-muted{
+
+    color:var(--text-muted)!important;
+
+}
+
+.yppa-feature-list li.text-muted i{
+
+    color:var(--danger);
+
+}
+
+/*=========================================================
+YOVI PAYMENT PLAN ANNUALLY
+STYLE.CSS — PART 2D
+=========================================================*/
+
+/*=========================================================
+CARD BODY
+=========================================================*/
+
+.yppa-plan-card .card-body{
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100%;
+
+}
+
+/*=========================================================
+BUTTONS
+=========================================================*/
+
+.yppa-outline-btn,
+
+.yppa-primary-btn,
+
+.yppa-secondary-btn{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:100%;
+
+    min-height:56px;
+
+    padding:14px 24px;
+
+    border-radius:var(--radius-md);
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    overflow:hidden;
+
+    transition:var(--transition);
+
+}
+
+/*=========================================================
+OUTLINE BUTTON
+=========================================================*/
+
+.yppa-outline-btn{
+
+    background:transparent;
+
+    color:var(--heading);
+
+    border:2px solid var(--border);
+
+}
+
+.yppa-outline-btn:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    border-color:var(--primary);
+
+    transform:translateY(-2px);
+
+}
+
+/*=========================================================
+PRIMARY BUTTON
+=========================================================*/
+
+.yppa-primary-btn{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    border:2px solid var(--primary);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.yppa-primary-btn:hover{
+
+    background:var(--primary-dark);
+
+    border-color:var(--primary-dark);
+
+    color:var(--white);
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+/*=========================================================
+SECONDARY BUTTON
+=========================================================*/
+
+.yppa-secondary-btn{
+
+    background:var(--secondary);
+
+    color:var(--white);
+
+    border:2px solid var(--secondary);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.yppa-secondary-btn:hover{
+
+    background:var(--secondary-dark);
+
+    border-color:var(--secondary-dark);
+
+    color:var(--white);
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+/*=========================================================
+BUTTON ACTIVE
+=========================================================*/
+
+.yppa-outline-btn:active,
+
+.yppa-primary-btn:active,
+
+.yppa-secondary-btn:active{
+
+    transform:scale(.98);
+
+}
+
+/*=========================================================
+BUTTON FOCUS
+=========================================================*/
+
+.yppa-outline-btn:focus,
+
+.yppa-primary-btn:focus,
+
+.yppa-secondary-btn:focus{
+
+    outline:none;
+
+    box-shadow:
+
+        0 0 0 4px rgba(24,195,126,.18);
+
+}
+
+/*=========================================================
+BUTTON ICON
+=========================================================*/
+
+.yppa-outline-btn i,
+
+.yppa-primary-btn i,
+
+.yppa-secondary-btn i{
+
+    margin-right:10px;
+
+    font-size:1rem;
+
+}
+
+/*=========================================================
+RIPPLE EFFECT
+=========================================================*/
+
+.yppa-ripple{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    transform:scale(0);
+
+    pointer-events:none;
+
+    background:rgba(255,255,255,.45);
+
+    animation:yppaRipple .65s linear;
+
+}
+
+@keyframes yppaRipple{
+
+    to{
+
+        transform:scale(4);
+
+        opacity:0;
+
+    }
+
+}
+
+/*=========================================================
+BUTTON LOADING
+=========================================================*/
+
+.yppa-btn-loading{
+
+    pointer-events:none;
+
+    opacity:.75;
+
+}
+
+.yppa-btn-loading .spinner-border{
+
+    width:1rem;
+
+    height:1rem;
+
+    margin-right:10px;
+
+}
+
+/*=========================================================
+CARD ENTRANCE ANIMATION
+=========================================================*/
+
+.yppa-plan-card{
+
+    animation:yppaCardFade .8s ease both;
+
+}
+
+@keyframes yppaCardFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+YOVI PAYMENT PLAN ANNUALLY
+STYLE.CSS — PART 2E
+=========================================================*/
+
+/*=========================================================
+DROPDOWN MENU
+=========================================================*/
+
+.yppa-user-dropdown{
+
+    min-width:220px;
+
+    border:none;
+
+    border-radius:var(--radius-lg);
+
+    background:var(--white);
+
+    box-shadow:var(--shadow-lg);
+
+    overflow:hidden;
+
+    padding:10px 0;
+
+}
+
+.yppa-user-dropdown .dropdown-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:12px 20px;
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    color:var(--text);
+
+    transition:var(--transition);
+
+}
+
+.yppa-user-dropdown .dropdown-item i{
+
+    font-size:1rem;
+
+    color:var(--text-light);
+
+    transition:var(--transition);
+
+}
+
+.yppa-user-dropdown .dropdown-item:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+}
+
+.yppa-user-dropdown .dropdown-item:hover i{
+
+    color:var(--primary);
+
+}
+
+.yppa-user-dropdown .dropdown-divider{
+
+    margin:8px 0;
+
+    border-color:var(--border);
+
+}
+
+/*=========================================================
+USER PROFILE
+=========================================================*/
+
+.yppa-user-btn{
+
+    border:none;
+
+    background:transparent;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:6px;
+
+    border-radius:var(--radius-pill);
+
+    transition:var(--transition);
+
+}
+
+.yppa-user-btn:hover{
+
+    background:var(--primary-light);
+
+}
+
+.yppa-user-btn img{
+
+    width:44px;
+
+    height:44px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:2px solid var(--primary-light);
+
+}
+
+.yppa-user-btn span{
+
+    color:var(--heading);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+}
+
+/*=========================================================
+NOTIFICATION ANIMATION
+=========================================================*/
+
+.yppa-notification-dot{
+
+    animation:yppaPulse 2s infinite;
+
+}
+
+@keyframes yppaPulse{
+
+    0%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        transform:scale(1.35);
+
+        opacity:.7;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/*=========================================================
+PREMIUM CARD GLOW
+=========================================================*/
+
+.yppa-premium-card{
+
+    position:relative;
+
+}
+
+.yppa-premium-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    border-radius:inherit;
+
+    background:linear-gradient(
+
+        135deg,
+
+        rgba(255,122,0,.25),
+
+        rgba(24,195,126,.18)
+
+    );
+
+    opacity:0;
+
+    z-index:-1;
+
+    transition:var(--transition);
+
+}
+
+.yppa-premium-card:hover::before{
+
+    opacity:1;
+
+}
+
+/*=========================================================
+POPULAR CARD GLOW
+=========================================================*/
+
+.yppa-popular-card{
+
+    position:relative;
+
+}
+
+.yppa-popular-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    border-radius:inherit;
+
+    background:rgba(24,195,126,.08);
+
+    opacity:0;
+
+    z-index:-1;
+
+    transition:var(--transition);
+
+}
+
+.yppa-popular-card:hover::after{
+
+    opacity:1;
+
+}
+
+/*=========================================================
+NAVBAR SCROLL EFFECT
+=========================================================*/
+
+.yppa-navbar.yppa-navbar-scrolled{
+
+    padding:12px 0;
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(16px);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+/*=========================================================
+ICON BUTTON ANIMATION
+=========================================================*/
+
+.yppa-icon-btn:active{
+
+    transform:scale(.92);
+
+}
+
+/*=========================================================
+HOVER TRANSITIONS
+=========================================================*/
+
+.yppa-plan-card,
+
+.yppa-icon-btn,
+
+.yppa-user-btn,
+
+.yppa-toggle-btn,
+
+.yppa-outline-btn,
+
+.yppa-primary-btn,
+
+.yppa-secondary-btn{
+
+    transition:all .3s ease;
+
+}
+
+/*=========================================================
+YOVI PAYMENT PLAN ANNUALLY
+STYLE.CSS — PART 2F
+=========================================================*/
+
+/*=========================================================
+LARGE TABLETS
+=========================================================*/
+
+@media (max-width:1199.98px){
+
+    .yppa-title{
+
+        font-size:2.4rem;
+
+    }
+
+    .yppa-plan-price{
+
+        font-size:2.5rem;
+
+    }
+
+    .yppa-plan-card{
+
+        padding:32px 26px;
+
+    }
+
+}
+
+/*=========================================================
+TABLETS
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .yppa-navbar{
+
+        padding:14px 0;
+
+    }
+
+    .yppa-nav-actions{
+
+        margin-top:20px;
+
+        justify-content:center;
+
+        flex-wrap:wrap;
+
+    }
+
+    .yppa-user-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .yppa-title{
+
+        font-size:2.2rem;
+
+    }
+
+    .yppa-subtitle{
+
+        font-size:1rem;
+
+    }
+
+    .yppa-toggle{
+
+        width:100%;
+
+        justify-content:center;
+
+        flex-wrap:wrap;
+
+    }
+
+    .yppa-toggle-btn{
+
+        flex:1;
+
+        min-width:180px;
+
+    }
+
+    .yppa-plan-card{
+
+        margin-bottom:30px;
+
+    }
+
+    .yppa-popular-card{
+
+        transform:none;
+
+    }
+
+    .yppa-popular-card:hover{
+
+        transform:translateY(-8px);
+
+    }
+
+}
+
+/*=========================================================
+MOBILE DEVICES
+=========================================================*/
+
+@media (max-width:767.98px){
+
+    .yppa-header-section{
+
+        padding:50px 0 60px;
+
+    }
+
+    .yppa-title{
+
+        font-size:1.9rem;
+
+    }
+
+    .yppa-subtitle{
+
+        font-size:.95rem;
+
+        line-height:1.7;
+
+    }
+
+    .yppa-plan-card{
+
+        padding:28px 22px;
+
+    }
+
+    .yppa-plan-price{
+
+        font-size:2.2rem;
+
+    }
+
+    .yppa-feature-list{
+
+        gap:14px;
+
+    }
+
+    .yppa-feature-list li{
+
+        font-size:.92rem;
+
+    }
+
+    .yppa-outline-btn,
+
+    .yppa-primary-btn,
+
+    .yppa-secondary-btn{
+
+        min-height:52px;
+
+        font-size:.95rem;
+
+    }
+
+    .yppa-save-badge{
+
+        display:block;
+
+        margin:8px auto 0;
+
+        width:max-content;
+
+    }
+
+}
+
+/*=========================================================
+SMALL MOBILE
+=========================================================*/
+
+@media (max-width:575.98px){
+
+    .yppa-logo-placeholder{
+
+        width:130px;
+
+        height:42px;
+
+        font-size:.8rem;
+
+    }
+
+    .yppa-title{
+
+        font-size:1.65rem;
+
+    }
+
+    .yppa-plan-price{
+
+        font-size:2rem;
+
+    }
+
+    .yppa-toggle{
+
+        padding:6px;
+
+    }
+
+    .yppa-toggle-btn{
+
+        min-width:100%;
+
+        padding:12px 18px;
+
+    }
+
+    .yppa-breadcrumb-link{
+
+        font-size:.88rem;
+
+    }
+
+    .yppa-user-btn span{
+
+        display:none;
+
+    }
+
+    .yppa-plan-card{
+
+        border-radius:var(--radius-lg);
+
+    }
+
+    .yppa-popular-badge,
+
+    .yppa-best-value{
+
+        top:14px;
+
+        right:14px;
+
+        font-size:.65rem;
+
+        padding:6px 10px;
+
+    }
+
+}
+
+/*=========================================================
+ACCESSIBILITY
+=========================================================*/
+
+.yppa-outline-btn:focus-visible,
+
+.yppa-primary-btn:focus-visible,
+
+.yppa-secondary-btn:focus-visible,
+
+.yppa-toggle-btn:focus-visible,
+
+.yppa-icon-btn:focus-visible,
+
+.yppa-user-btn:focus-visible{
+
+    outline:3px solid rgba(24,195,126,.25);
+
+    outline-offset:3px;
+
+}
+
+/*=========================================================
+UTILITY
+=========================================================*/
+
+.yppa-hidden{
+
+    display:none !important;
+
+}
+
+.yppa-visible{
+
+    display:block !important;
+
+}
+
+.yppa-text-primary{
+
+    color:var(--primary) !important;
+
+}
+
+.yppa-bg-primary{
+
+    background:var(--primary) !important;
+
+}
+
+.yppa-shadow{
+
+    box-shadow:var(--shadow-md);
+
+}
+
+/*=========================================================
+END OF YPPA STYLES
+=========================================================*/
+
+
+/*=========================================================
+SELLER PLANS
+PART 2A
+=========================================================*/
+
+/*=========================================================
+PAGE
+=========================================================*/
+
+#ysppPage{
+
+    background:#F8FAFC;
+
+    min-height:100vh;
+
+    color:var(--text-color);
+
+}
+
+.yspp-main{
+
+    padding:42px 0 80px;
+
+    animation:ysppFadeIn .45s ease;
+
+}
+
+@keyframes ysppFadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+HEADER
+=========================================================*/
+
+.yspp-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1030;
+
+    background:#FFFFFF;
+
+    border-bottom:1px solid var(--border-color);
+
+    box-shadow:0 5px 20px rgba(15,23,42,.05);
+
+}
+
+.yspp-navbar-container{
+
+    padding:14px 28px;
+
+}
+
+/*=========================================================
+BRAND
+=========================================================*/
+
+.yspp-brand-placeholder{
+
+    width:165px;
+
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:2px dashed var(--border-color);
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    color:var(--text-muted);
+
+    font-size:.9rem;
+
+    font-weight:700;
+
+    transition:.3s ease;
+
+}
+
+.yspp-brand-placeholder:hover{
+
+    border-color:#16C47F;
+
+    color:#16C47F;
+
+}
+
+/*=========================================================
+NAVIGATION
+=========================================================*/
+
+.yspp-navigation{
+
+    gap:14px;
+
+}
+
+.yspp-navigation .nav-link{
+
+    position:relative;
+
+    color:var(--text-secondary);
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    transition:.3s ease;
+
+}
+
+.yspp-navigation .nav-link:hover{
+
+    color:#16C47F;
+
+}
+
+.yspp-navigation .nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-7px;
+
+    width:0;
+
+    height:2px;
+
+    background:#16C47F;
+
+    transition:.3s ease;
+
+}
+
+.yspp-navigation .nav-link:hover::after{
+
+    width:100%;
+
+}
+
+/*=========================================================
+RIGHT NAVIGATION
+=========================================================*/
+
+.yspp-navbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.yspp-nav-icon{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#F3F4F6;
+
+    text-decoration:none;
+
+    position:relative;
+
+    transition:.3s ease;
+
+}
+
+.yspp-nav-icon i{
+
+    font-size:1.05rem;
+
+    color:var(--text-secondary);
+
+}
+
+.yspp-nav-icon:hover{
+
+    background:#16C47F;
+
+    transform:translateY(-2px);
+
+}
+
+.yspp-nav-icon:hover i{
+
+    color:#FFFFFF;
+
+}
+
+.yspp-notification-dot{
+
+    position:absolute;
+
+    top:8px;
+
+    right:9px;
+
+    width:8px;
+
+    height:8px;
+
+    background:#EF4444;
+
+    border:2px solid #FFFFFF;
+
+    border-radius:50%;
+
+}
+
+/*=========================================================
+USER PROFILE
+=========================================================*/
+
+.yspp-user-dropdown{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    color:var(--text-color);
+
+}
+
+.yspp-user-dropdown::after{
+
+    margin-left:6px;
+
+}
+
+.yspp-user-avatar{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+}
+
+.yspp-user-avatar img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.yspp-user-name{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+}
+
+/*=========================================================
+BREADCRUMB
+=========================================================*/
+
+.yspp-breadcrumb{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:28px;
+
+    text-decoration:none;
+
+    color:#6B7280;
+
+    font-size:.92rem;
+
+    font-weight:500;
+
+    transition:.3s ease;
+
+}
+
+.yspp-breadcrumb:hover{
+
+    color:#16C47F;
+
+}
+
+.yspp-breadcrumb i{
+
+    font-size:.85rem;
+
+}
+
+/*=========================================================
+PAGE HEADER
+=========================================================*/
+
+.yspp-page-header{
+
+    margin-bottom:36px;
+
+}
+
+.yspp-page-title{
+
+    margin:0;
+
+    font-size:2.3rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+}
+
+.yspp-page-subtitle{
+
+    margin-top:10px;
+
+    margin-bottom:0;
+
+    font-size:1rem;
+
+    color:var(--text-muted);
+
+}
+
+/*=========================================================
+BILLING TOGGLE
+=========================================================*/
+
+.yspp-billing-toggle-wrapper{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:48px;
+
+}
+
+.yspp-billing-toggle{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:6px;
+
+    background:#FFFFFF;
+
+    border:1px solid var(--border-color);
+
+    border-radius:50px;
+
+    box-shadow:0 10px 25px rgba(15,23,42,.05);
+
+}
+
+.yspp-toggle-btn{
+
+    border:none;
+
+    background:transparent;
+
+    padding:12px 28px;
+
+    border-radius:40px;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text-secondary);
+
+    transition:.3s ease;
+
+    position:relative;
+
+}
+
+.yspp-toggle-active{
+
+    background:#16C47F;
+
+    color:#FFFFFF;
+
+    box-shadow:0 8px 20px rgba(22,196,127,.25);
+
+}
+
+.yspp-save-badge{
+
+    margin-left:8px;
+
+    padding:3px 8px;
+
+    border-radius:30px;
+
+    background:#FEF3C7;
+
+    color:#D97706;
+
+    font-size:.72rem;
+
+    font-weight:700;
+
+}
+
+/*=========================================================
+PLANS SECTION
+=========================================================*/
+
+.yspp-plans-row{
+
+    margin-bottom:50px;
+
+}
+
+/*=========================================================
+PLAN CARDS
+=========================================================*/
+
+.yspp-plan-card{
+
+    position:relative;
+
+    height:100%;
+
+    background:#FFFFFF;
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    padding:36px 30px;
+
+    overflow:hidden;
+
+    transition:all .35s ease;
+
+    box-shadow:0 10px 28px rgba(15,23,42,.05);
+
+}
+
+.yspp-plan-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#16C47F;
+
+    box-shadow:0 22px 50px rgba(22,196,127,.15);
+
+}
+
+.yspp-plan-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:#16C47F;
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:.35s ease;
+
+}
+
+.yspp-plan-card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+/*=========================================================
+FEATURED PLANS
+=========================================================*/
+
+.yspp-popular-plan{
+
+    border:2px solid #16C47F;
+
+    transform:scale(1.03);
+
+    box-shadow:0 24px 60px rgba(22,196,127,.18);
+
+}
+
+.yspp-premium-plan{
+
+    border:2px solid #F59E0B;
+
+}
+
+.yspp-popular-plan::before,
+
+.yspp-premium-plan::before{
+
+    transform:scaleX(1);
+
+}
+
+/*=========================================================
+PLAN BADGES
+=========================================================*/
+
+.yspp-plan-badge{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:#16C47F;
+
+    color:#FFFFFF;
+
+    font-size:.76rem;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+    text-transform:uppercase;
+
+}
+
+.yspp-best-value-badge{
+
+    background:#F59E0B;
+
+}
+
+/*=========================================================
+PLAN HEADER
+=========================================================*/
+
+.yspp-plan-header{
+
+    margin-bottom:24px;
+
+}
+
+.yspp-plan-name{
+
+    margin:0;
+
+    font-size:1.7rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+}
+
+.yspp-plan-description{
+
+    margin:10px 0 0;
+
+    font-size:.95rem;
+
+    color:var(--text-muted);
+
+    line-height:1.7;
+
+}
+
+/*=========================================================
+PLAN PRICING
+=========================================================*/
+
+.yspp-plan-price{
+
+    display:flex;
+
+    align-items:flex-end;
+
+    margin-bottom:28px;
+
+}
+
+.yspp-currency{
+
+    font-size:1.4rem;
+
+    font-weight:700;
+
+    margin-right:4px;
+
+    color:#16C47F;
+
+}
+
+.yspp-price-value{
+
+    font-size:3rem;
+
+    font-weight: 800;
+
+    line-height:1;
+
+    color:var(--text);
+
+}
+
+.yspp-price-period{
+
+    margin-left:8px;
+
+    margin-bottom:6px;
+
+    font-size:.95rem;
+
+    color:var(--text-muted);
+
+}
+
+/*=========================================================
+PLAN BUTTONS
+=========================================================*/
+
+.yspp-plan-btn{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:16px;
+
+    padding:15px 22px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    transition:all .3s ease;
+
+}
+
+.yspp-current-plan-btn{
+
+    background:#E5E7EB;
+
+    color:#6B7280;
+
+    cursor:not-allowed;
+
+}
+
+.yspp-upgrade-btn{
+
+    background:#16C47F;
+
+    color:#FFFFFF;
+
+    box-shadow:0 12px 28px rgba(22,196,127,.20);
+
+}
+
+.yspp-upgrade-btn:hover{
+
+    background:#12A86D;
+
+    color:#FFFFFF;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 18px 36px rgba(22,196,127,.28);
+
+}
+
+.yspp-upgrade-btn:active{
+
+    transform:scale(.98);
+
+}
+
+/*=========================================================
+PLAN FEATURES
+=========================================================*/
+
+.yspp-feature-list{
+
+    list-style:none;
+
+    margin:30px 0 0;
+
+    padding:0;
+
+}
+
+.yspp-feature-list li{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+    padding:12px 0;
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    color:var(--text-color);
+
+    border-bottom:1px solid #F1F5F9;
+
+    line-height:1.6;
+
+}
+
+.yspp-feature-list li:last-child{
+
+    border-bottom:none;
+
+}
+
+.yspp-feature-list li i{
+
+    flex-shrink:0;
+
+    font-size:1rem;
+
+    color:#16C47F;
+
+    margin-top:3px;
+
+}
+
+/*=========================================================
+BOTTOM CTA SECTION
+=========================================================*/
+
+.yspp-bottom-section{
+
+    margin-top:60px;
+
+}
+
+.yspp-bottom-card{
+
+    background:#FFFFFF;
+
+    border:1px solid var(--border-color);
+
+    border-radius:24px;
+
+    padding:42px;
+
+    text-align:center;
+
+    box-shadow:0 14px 34px rgba(15,23,42,.05);
+
+    transition:all .35s ease;
+
+}
+
+.yspp-bottom-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 24px 50px rgba(15,23,42,.10);
+
+}
+
+.yspp-bottom-title{
+
+    margin:0;
+
+    font-size:1.7rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+}
+
+.yspp-bottom-text{
+
+    max-width:680px;
+
+    margin:18px auto 30px;
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+    color:var(--text-muted);
+
+}
+
+/*=========================================================
+CONTACT SALES BUTTON
+=========================================================*/
+
+.yspp-contact-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:220px;
+
+    padding:15px 34px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#16C47F;
+
+    color:#FFFFFF;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+    transition:all .3s ease;
+
+    box-shadow:0 14px 30px rgba(22,196,127,.22);
+
+}
+
+.yspp-contact-btn:hover{
+
+    background:#12A86D;
+
+    color:#FFFFFF;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 20px 42px rgba(22,196,127,.28);
+
+}
+
+.yspp-contact-btn:active{
+
+    transform:scale(.98);
+
+}
+
+/*=========================================================
+PLAN CARD ANIMATIONS
+=========================================================*/
+
+.yspp-plan-card{
+
+    animation:ysppCardFade .55s ease both;
+
+}
+
+.yspp-plan-card:nth-child(1){
+
+    animation-delay:.05s;
+
+}
+
+.yspp-plan-card:nth-child(2){
+
+    animation-delay:.15s;
+
+}
+
+.yspp-plan-card:nth-child(3){
+
+    animation-delay:.25s;
+
+}
+
+@keyframes ysppCardFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(24px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+PLAN HOVER GLOW
+=========================================================*/
+
+.yspp-popular-plan:hover{
+
+    box-shadow:0 28px 60px rgba(22,196,127,.22);
+
+}
+
+.yspp-premium-plan:hover{
+
+    box-shadow:0 28px 60px rgba(245,158,11,.20);
+
+}
+
+/*=========================================================
+LARGE TABLETS (≤1199px)
+=========================================================*/
+
+@media (max-width:1199.98px){
+
+    .yspp-navbar-container{
+
+        padding:14px 22px;
+
+    }
+
+    .yspp-page-title{
+
+        font-size:2.1rem;
+
+    }
+
+    .yspp-plan-card{
+
+        padding:32px 24px;
+
+    }
+
+    .yspp-price-value{
+
+        font-size:2.7rem;
+
+    }
+
+    .yspp-feature-list li{
+
+        font-size:.92rem;
+
+    }
+
+}
+
+/*=========================================================
+TABLETS (≤991px)
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .yspp-main{
+
+        padding:34px 0 65px;
+
+    }
+
+    .yspp-navigation{
+
+        gap:0;
+
+        margin:20px 0;
+
+    }
+
+    .yspp-navigation .nav-item{
+
+        margin-bottom:8px;
+
+    }
+
+    .yspp-navbar-right{
+
+        justify-content:flex-start;
+
+        margin-top:20px;
+
+        padding-top:20px;
+
+        border-top:1px solid var(--border-color);
+
+    }
+
+    .yspp-page-title{
+
+        font-size:2rem;
+
+    }
+
+    .yspp-page-subtitle{
+
+        max-width:600px;
+
+        margin:12px auto 0;
+
+    }
+
+    .yspp-billing-toggle-wrapper{
+
+        margin-bottom:40px;
+
+    }
+
+    .yspp-plan-card{
+
+        padding:30px 24px;
+
+    }
+
+    .yspp-popular-plan{
+
+        transform:none;
+
+    }
+
+    .yspp-bottom-card{
+
+        padding:36px 28px;
+
+    }
+
+}
+
+/*=========================================================
+MOBILE DEVICES (≤767px)
+=========================================================*/
+
+@media (max-width:767.98px){
+
+    .yspp-main{
+
+        padding:26px 0 55px;
+
+    }
+
+    .yspp-page-header{
+
+        margin-bottom:28px;
+
+    }
+
+    .yspp-page-title{
+
+        font-size:1.75rem;
+
+    }
+
+    .yspp-page-subtitle{
+
+        font-size:.92rem;
+
+    }
+
+    .yspp-breadcrumb{
+
+        margin-bottom:20px;
+
+    }
+
+    .yspp-billing-toggle{
+
+        width:100%;
+
+        max-width:360px;
+
+    }
+
+    .yspp-toggle-btn{
+
+        flex:1;
+
+        padding:12px 18px;
+
+        font-size:.9rem;
+
+    }
+
+    .yspp-save-badge{
+
+        display:block;
+
+        margin:6px auto 0;
+
+        width:max-content;
+
+    }
+
+    .yspp-plan-card{
+
+        padding:28px 22px;
+
+    }
+
+    .yspp-plan-name{
+
+        font-size:1.45rem;
+
+    }
+
+    .yspp-price-value{
+
+        font-size:2.5rem;
+
+    }
+
+    .yspp-plan-price{
+
+        justify-content:center;
+
+    }
+
+    .yspp-plan-header,
+
+    .yspp-feature-list{
+
+        text-align:center;
+
+    }
+
+    .yspp-feature-list li{
+
+        text-align:left;
+
+    }
+
+    .yspp-bottom-title{
+
+        font-size:1.45rem;
+
+    }
+
+}
+
+/*=========================================================
+SMALL MOBILE (≤575px)
+=========================================================*/
+
+@media (max-width:575.98px){
+
+    .yspp-navbar-container{
+
+        padding:12px 15px;
+
+    }
+
+    .yspp-brand-placeholder{
+
+        width:125px;
+
+        height:42px;
+
+        font-size:.78rem;
+
+    }
+
+    .yspp-user-name{
+
+        display:none;
+
+    }
+
+    .yspp-page-title{
+
+        font-size:1.55rem;
+
+    }
+
+    .yspp-page-subtitle{
+
+        font-size:.88rem;
+
+    }
+
+    .yspp-plan-card{
+
+        border-radius:20px;
+
+        padding:24px 18px;
+
+    }
+
+    .yspp-plan-badge{
+
+        position:static;
+
+        display:inline-flex;
+
+        margin-bottom:18px;
+
+    }
+
+    .yspp-plan-name{
+
+        font-size:1.3rem;
+
+    }
+
+    .yspp-price-value{
+
+        font-size:2.2rem;
+
+    }
+
+    .yspp-price-period{
+
+        font-size:.85rem;
+
+    }
+
+    .yspp-feature-list{
+
+        margin-top:24px;
+
+    }
+
+    .yspp-feature-list li{
+
+        font-size:.88rem;
+
+    }
+
+    .yspp-bottom-card{
+
+        padding:28px 20px;
+
+    }
+
+    .yspp-bottom-title{
+
+        font-size:1.3rem;
+
+    }
+
+    .yspp-bottom-text{
+
+        font-size:.9rem;
+
+        line-height:1.7;
+
+    }
+
+    .yspp-contact-btn{
+
+        width:100%;
+
+        min-width:100%;
+
+    }
+
+}
+
+/*=========================================================
+EXTRA SMALL DEVICES (≤360px)
+=========================================================*/
+
+@media (max-width:360px){
+
+    .yspp-page-title{
+
+        font-size:1.35rem;
+
+    }
+
+    .yspp-page-subtitle{
+
+        font-size:.82rem;
+
+    }
+
+    .yspp-toggle-btn{
+
+        padding:10px 12px;
+
+        font-size:.82rem;
+
+    }
+
+    .yspp-save-badge{
+
+        font-size:.65rem;
+
+    }
+
+    .yspp-plan-card{
+
+        padding:20px 16px;
+
+    }
+
+    .yspp-plan-name{
+
+        font-size:1.15rem;
+
+    }
+
+    .yspp-price-value{
+
+        font-size:2rem;
+
+    }
+
+    .yspp-feature-list li{
+
+        font-size:.82rem;
+
+    }
+
+    .yspp-contact-btn{
+
+        padding:14px 18px;
+
+        font-size:.9rem;
+
+    }
+
+}
+
+/*=========================================================
+ACCESSIBILITY
+=========================================================*/
+
+.yspp-toggle-btn:focus-visible,
+.yspp-plan-btn:focus-visible,
+.yspp-contact-btn:focus-visible,
+.yspp-nav-icon:focus-visible,
+.yspp-user-dropdown:focus-visible,
+.yspp-breadcrumb:focus-visible,
+.yspp-navigation .nav-link:focus-visible{
+
+    outline:3px solid rgba(22,196,127,.35);
+
+    outline-offset:4px;
+
+    border-radius:14px;
+
+}
+
+/*=========================================================
+CUSTOM SCROLLBAR
+=========================================================*/
+
+#ysppPage::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+#ysppPage::-webkit-scrollbar-track{
+
+    background:#F1F5F9;
+
+}
+
+#ysppPage::-webkit-scrollbar-thumb{
+
+    background:#16C47F;
+
+    border-radius:999px;
+
+}
+
+#ysppPage::-webkit-scrollbar-thumb:hover{
+
+    background:#12A86D;
+
+}
+
+/*=========================================================
+LOADING STATE
+=========================================================*/
+
+.yspp-loading{
+
+    pointer-events:none;
+
+    user-select:none;
+
+    opacity:.75;
+
+}
+
+.yspp-loading .yspp-plan-card{
+
+    filter:grayscale(.15);
+
+}
+
+/*=========================================================
+SKELETON PLACEHOLDER
+=========================================================*/
+
+.yspp-skeleton{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#E5E7EB;
+
+    border-radius:12px;
+
+}
+
+.yspp-skeleton::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.65),
+        transparent
+    );
+
+    transform:translateX(-100%);
+
+    animation:ysppSkeleton 1.3s linear infinite;
+
+}
+
+@keyframes ysppSkeleton{
+
+    to{
+
+        transform:translateX(100%);
+
+    }
+
+}
+
+/*=========================================================
+BUTTON LOADING
+=========================================================*/
+
+.yspp-btn-loading{
+
+    position:relative;
+
+    color:transparent !important;
+
+    pointer-events:none;
+
+}
+
+.yspp-btn-loading::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    width:18px;
+
+    height:18px;
+
+    margin-top:-9px;
+
+    margin-left:-9px;
+
+    border:2px solid rgba(255,255,255,.35);
+
+    border-top-color:#FFFFFF;
+
+    border-radius:50%;
+
+    animation:ysppSpin .7s linear infinite;
+
+}
+
+@keyframes ysppSpin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/*=========================================================
+DARK MODE
+=========================================================*/
+
+@media (prefers-color-scheme:dark){
+
+    #ysppPage{
+
+        background:#0F172A;
+
+    }
+
+    .yspp-header,
+
+    .yspp-plan-card,
+
+    .yspp-bottom-card{
+
+        background:#1E293B;
+
+        border-color:#334155;
+
+    }
+
+    .yspp-page-title,
+
+    .yspp-plan-name,
+
+    .yspp-bottom-title,
+
+    .yspp-price-value,
+
+    .yspp-user-name{
+
+        color:#F8FAFC;
+
+    }
+
+    .yspp-page-subtitle,
+
+    .yspp-plan-description,
+
+    .yspp-bottom-text,
+
+    .yspp-feature-list li,
+
+    .yspp-breadcrumb{
+
+        color:#CBD5E1;
+
+    }
+
+    .yspp-brand-placeholder{
+
+        background:#1E293B;
+
+        border-color:#475569;
+
+        color:#CBD5E1;
+
+    }
+
+    .yspp-nav-icon{
+
+        background:#334155;
+
+    }
+
+    .yspp-nav-icon i{
+
+        color:#F8FAFC;
+
+    }
+
+    .yspp-billing-toggle{
+
+        background:#1E293B;
+
+        border-color:#334155;
+
+    }
+
+}
+
+/*=========================================================
+PRINT STYLES
+=========================================================*/
+
+@media print{
+
+    .yspp-header,
+
+    .yspp-billing-toggle-wrapper,
+
+    .yspp-contact-btn,
+
+    .navbar-toggler{
+
+        display:none !important;
+
+    }
+
+    #ysppPage{
+
+        background:#FFFFFF;
+
+    }
+
+    .yspp-plan-card,
+
+    .yspp-bottom-card{
+
+        box-shadow:none;
+
+        border:1px solid #D1D5DB;
+
+        page-break-inside:avoid;
+
+    }
+
+}
+
+/*=========================================================
+REDUCED MOTION
+=========================================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+/*=========================================================
+PERFORMANCE
+=========================================================*/
+
+.yspp-plan-card,
+
+.yspp-plan-btn,
+
+.yspp-contact-btn{
+
+    will-change:transform;
+
+}
+
+.yspp-user-avatar img{
+
+    transform:translateZ(0);
+
+    backface-visibility:hidden;
+
+}
+
+/*=========================================================
+UTILITY CLASSES
+=========================================================*/
+
+.yspp-hidden{
+
+    display:none !important;
+
+}
+
+.yspp-visible{
+
+    display:block !important;
+
+}
+
+.yspp-flex{
+
+    display:flex !important;
+
+}
+
+.yspp-flex-center{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.yspp-w-100{
+
+    width:100% !important;
+
+}
+
+.yspp-text-center{
+
+    text-align:center !important;
+
+}
+
+.yspp-rounded{
+
+    border-radius:20px !important;
+
+}
+
+.yspp-shadow{
+
+    box-shadow:0 18px 42px rgba(15,23,42,.08);
+
+}
+
+/*=========================================================
+BUTTON SHINE EFFECT
+=========================================================*/
+
+.yspp-plan-btn,
+
+.yspp-contact-btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.yspp-plan-btn::before,
+
+.yspp-contact-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.28),
+
+        transparent
+
+    );
+
+    transform:translateX(-160%);
+
+}
+
+.yspp-plan-btn:hover::before,
+
+.yspp-contact-btn:hover::before{
+
+    animation:ysppButtonShine .9s ease;
+
+}
+
+@keyframes ysppButtonShine{
+
+    from{
+
+        transform:translateX(-160%);
+
+    }
+
+    to{
+
+        transform:translateX(160%);
+
+    }
+
+}
+
+/*=========================================================
+ACTIVE STATES
+=========================================================*/
+
+.yspp-plan-card:active{
+
+    transform:scale(.98);
+
+}
+
+.yspp-plan-selected{
+
+    border-color:#16C47F !important;
+
+    box-shadow:0 24px 55px rgba(22,196,127,.20);
+
+    animation:ysppPulse .5s ease;
+
+}
+
+@keyframes ysppPulse{
+
+    0%{
+
+        transform:scale(.97);
+
+    }
+
+    50%{
+
+        transform:scale(1.02);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/*=========================================================
+TEXT SELECTION
+=========================================================*/
+
+#ysppPage ::selection{
+
+    background:#16C47F;
+
+    color:#FFFFFF;
+
+}
+
+#ysppPage ::-moz-selection{
+
+    background:#16C47F;
+
+    color:#FFFFFF;
+
+}
+
+/*=========================================================
+SMOOTH SCROLL
+=========================================================*/
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/*=========================================================
+HIGH DPI IMAGE RENDERING
+=========================================================*/
+
+@media (-webkit-min-device-pixel-ratio:2),
+(min-resolution:192dpi){
+
+    .yspp-user-avatar img{
+
+        image-rendering:auto;
+
+    }
+
+}
+
+/*=========================================================
+LANDSCAPE MOBILE
+=========================================================*/
+
+@media (max-width:767.98px) and (orientation:landscape){
+
+    .yspp-main{
+
+        padding-top:20px;
+
+    }
+
+    .yspp-page-header{
+
+        margin-bottom:24px;
+
+    }
+
+    .yspp-bottom-section{
+
+        margin-top:40px;
+
+    }
+
+}
+
+/*=========================================================
+TOUCH DEVICE OPTIMIZATION
+=========================================================*/
+
+@media (hover:none){
+
+    .yspp-plan-card,
+
+    .yspp-plan-btn,
+
+    .yspp-contact-btn,
+
+    .yspp-nav-icon{
+
+        -webkit-tap-highlight-color:transparent;
+
+    }
+
+}
+
+/*=========================================================
+SAFE SPACING
+=========================================================*/
+
+.yspp-plan-card *{
+
+    word-break:break-word;
+
+}
+
+.yspp-feature-list{
+
+    overflow:hidden;
+
+}
+
+.yspp-feature-list li{
+
+    align-items:flex-start;
+
+}
+
+/*=========================================================
+END OF SELLER PLANS STYLES
+=========================================================*/
+
+/*==================================================
+    RESET
+==================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+    background:var(--background);
+    color:var(--text);
+    overflow-x:hidden;
+
+}
+
+a{
+    text-decoration:none;
+}
+
+ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+button,
+input,
+select,
+textarea{
+
+    font-family:'Inter',sans-serif;
+    outline:none;
+
+}
+
+/*==================================================
+    CUSTOM SCROLLBAR
+==================================================*/
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#f3f4f6;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#d1d5db;
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#9ca3af;
+
+}
+
+/*==================================================
+    NAVBAR
+==================================================*/
+
+.top-navbar{
+
+    background:#fff;
+    border-bottom:1px solid #ECECEC;
+    position:sticky;
+    top:0;
+    z-index:999;
+    animation:fadeDown .6s ease;
+
+}
+
+.navbar{
+
+    min-height:72px;
+    padding:.65rem 0;
+
+}
+
+.navbar-brand{
+
+    margin-right:40px;
+
+}
+
+/*==================================================
+    LOGO PLACEHOLDER
+==================================================*/
+
+.logo-placeholder{
+
+    width:92px;
+    height:40px;
+
+    border-radius:8px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#8B8B8B;
+    font-size:14px;
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.logo-placeholder:hover{
+
+    border-color:var(--primary);
+    color:var(--primary);
+
+}
+
+/*==================================================
+    NAV LINKS
+==================================================*/
+
+.navbar-nav{
+
+    gap:10px;
+
+}
+
+.nav-link{
+
+    position:relative;
+
+    color:#4B5563;
+    font-size:14px;
+    font-weight:500;
+
+    padding:12px 18px !important;
+
+    transition:var(--transition);
+
+}
+
+.nav-link:hover{
+
+    color:var(--primary);
+
+}
+
+.nav-link.active{
+
+    color:#111827;
+    font-weight:600;
+
+}
+
+/* Animated underline */
+
+.nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:18px;
+    bottom:6px;
+
+    width:0;
+    height:2px;
+
+    background:var(--primary);
+
+    transition:.3s;
+
+}
+
+.nav-link:hover::after{
+
+    width:55%;
+
+}
+
+/*==================================================
+    RIGHT MENU
+==================================================*/
+
+.right-menu{
+
+    gap:16px;
+
+}
+
+/*==================================================
+    ICON BUTTONS
+==================================================*/
+
+.icon-btn{
+
+    width:38px;
+    height:38px;
+
+    border:none;
+    background:transparent;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+
+    transition:.3s;
+
+}
+
+.icon-btn i{
+
+    font-size:18px;
+    color:#374151;
+
+}
+
+.icon-btn:hover{
+
+    background:#F3F4F6;
+
+    transform:translateY(-2px);
+
+}
+
+.icon-btn:hover i{
+
+    color:var(--primary);
+
+}
+
+/*==================================================
+    NOTIFICATION DOT
+==================================================*/
+
+.notification-btn{
+
+    position:relative;
+
+}
+
+.notification-dot{
+
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    background:#FF5A5F;
+
+    border-radius:50%;
+
+    right:8px;
+    top:8px;
+
+    border:2px solid #fff;
+
+    animation:pulse 2s infinite;
+
+}
+
+/*==================================================
+    PROFILE AREA
+==================================================*/
+
+.profile-area{
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+    padding-left:6px;
+
+}
+
+.profile-area img{
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid #F1F5F9;
+
+    transition:.3s;
+
+}
+
+.profile-area:hover img{
+
+    border-color:var(--primary);
+    transform:scale(1.05);
+
+}
+
+.user-name{
+
+    font-size:14px;
+    font-weight:500;
+    color:#374151;
+
+}
+
+.profile-area .bi-chevron-down{
+
+    font-size:12px;
+    color:#6B7280;
+
+}
+
+/*==================================================
+    MOBILE NAVBAR
+==================================================*/
+
+.navbar-toggler{
+
+    padding:6px;
+
+}
+
+.navbar-toggler:focus{
+
+    box-shadow:none;
+
+}
+
+/*==================================================
+    PAGE WRAPPER
+==================================================*/
+
+.verification-page{
+
+    padding:28px 0 80px;
+
+    min-height:calc(100vh - 72px);
+
+}
+
+/*==================================================
+    CONTAINER
+==================================================*/
+
+.container{
+
+    max-width:1200px;
+
+}
+
+/*==================================================
+    BREADCRUMB
+==================================================*/
+
+.breadcrumb-area{
+
+    margin-bottom:35px;
+
+    animation:fadeLeft .7s ease;
+
+}
+
+.breadcrumb-area a{
+
+    display:inline-flex;
+    align-items:center;
+
+    gap:10px;
+
+    font-size:14px;
+    font-weight:500;
+
+    color:#6B7280;
+
+    transition:.3s;
+
+}
+
+.breadcrumb-area a:hover{
+
+    color:var(--primary);
+
+}
+
+.breadcrumb-area i{
+
+    font-size:12px;
+
+}
+
+/*==================================================
+    CONTENT WRAPPER
+==================================================*/
+
+.verification-wrapper{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    animation:fadeUp .8s ease;
+
+}
+
+
+/*==================================================
+    VERIFICATION HEADER
+==================================================*/
+
+.verification-icon{
+
+    margin-bottom:18px;
+
+}
+
+.icon-circle{
+
+    width:64px;
+    height:64px;
+
+    background:#DDF8EE;
+    border-radius:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:auto;
+
+    animation:floatIcon 3s ease-in-out infinite;
+
+}
+
+.icon-circle i{
+
+    font-size:28px;
+    color:var(--primary);
+
+}
+
+.verification-title{
+
+    font-size:34px;
+    font-weight:700;
+    color:#111827;
+
+    margin-bottom:8px;
+
+    text-align:center;
+
+}
+
+.verification-subtitle{
+
+    font-size:15px;
+    font-weight:400;
+    color:#6B7280;
+
+    margin-bottom:38px;
+
+    text-align:center;
+
+}
+
+/*==================================================
+    PROGRESS STEPPER
+==================================================*/
+
+.verification-progress{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    margin-bottom:42px;
+
+    width:100%;
+    max-width:760px;
+
+}
+
+.step{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+}
+
+.step-circle{
+
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:13px;
+    font-weight:600;
+
+    background:#F3F4F6;
+    color:#9CA3AF;
+
+    transition:var(--transition);
+
+}
+
+.step span{
+
+    font-size:13px;
+    font-weight:500;
+    color:#9CA3AF;
+
+    white-space:nowrap;
+
+}
+
+.step.completed .step-circle{
+
+    background:var(--primary);
+    color:#fff;
+
+}
+
+.step.completed span{
+
+    color:#374151;
+
+}
+
+.step.current .step-circle{
+
+    background:#1F2937;
+    color:#fff;
+
+}
+
+.step.current span{
+
+    color:#111827;
+    font-weight:600;
+
+}
+
+.step-line{
+
+    width:62px;
+    height:2px;
+
+    background:#E5E7EB;
+
+    margin:0 10px;
+
+}
+
+.step-line.active{
+
+    background:var(--primary);
+
+}
+
+/*==================================================
+    VERIFICATION CARD
+==================================================*/
+
+.verification-card{
+
+    width:100%;
+    max-width:700px;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    border:1px solid #ECECEC;
+
+    padding:34px;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.verification-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 18px 45px rgba(15,23,42,.08);
+
+}
+
+.verification-card h4{
+
+    font-size:24px;
+    font-weight:700;
+
+    color:#111827;
+
+    margin-bottom:8px;
+
+}
+
+.verification-card>p{
+
+    font-size:14px;
+    color:#6B7280;
+
+    margin-bottom:28px;
+
+    line-height:1.7;
+
+}
+
+/*==================================================
+    FORM
+==================================================*/
+
+.form-label{
+
+    font-size:14px;
+    font-weight:600;
+
+    color:#374151;
+
+    margin-bottom:10px;
+
+}
+
+.form-label span{
+
+    color:#9CA3AF;
+    font-weight:400;
+
+}
+
+.form-control,
+.form-select{
+
+    height:52px;
+
+    border-radius:12px;
+
+    border:1px solid #E5E7EB;
+
+    padding:0 18px;
+
+    font-size:14px;
+    font-weight:500;
+
+    color:#374151;
+
+    transition:var(--transition);
+
+    box-shadow:none;
+
+}
+
+.form-control::placeholder{
+
+    color:#B5B5B5;
+
+}
+
+.form-control:focus,
+.form-select:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 .2rem rgba(22,199,132,.12);
+
+}
+
+.form-select{
+
+    cursor:pointer;
+
+}
+
+/*==================================================
+    UPLOAD BOX
+==================================================*/
+
+.upload-box{
+
+    border:2px dashed #E5E7EB;
+
+    border-radius:14px;
+
+    background:#FCFCFC;
+
+    transition:var(--transition);
+
+    overflow:hidden;
+
+}
+
+.upload-box:hover{
+
+    border-color:var(--primary);
+
+    background:#F4FFF9;
+
+}
+
+.upload-content{
+
+    cursor:pointer;
+
+    width:100%;
+
+    min-height:130px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:25px;
+
+}
+
+.upload-icon{
+
+    width:54px;
+    height:54px;
+
+    border-radius:50%;
+
+    background:#EEFDF6;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:14px;
+
+    transition:var(--transition);
+
+}
+
+.upload-icon i{
+
+    font-size:22px;
+
+    color:var(--primary);
+
+}
+
+.upload-box:hover .upload-icon{
+
+    transform:translateY(-4px);
+
+}
+
+.upload-content p{
+
+    font-size:13px;
+
+    color:#6B7280;
+
+    margin:0;
+
+    line-height:1.7;
+
+}
+
+/*==================================================
+    FORM BUTTONS
+==================================================*/
+
+.form-buttons{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    margin-top:35px;
+}
+
+.btn-back,
+.btn-submit{
+
+    height:50px;
+    border:none;
+    border-radius:12px;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    font-size:15px;
+    font-weight:600;
+
+    transition:var(--transition);
+
+    cursor:pointer;
+
+}
+
+/* Back Button */
+
+.btn-back{
+
+    min-width:120px;
+
+    background:#fff;
+    color:#374151;
+
+    border:1px solid #E5E7EB;
+
+}
+
+.btn-back:hover{
+
+    background:#F8FAFC;
+
+    transform:translateY(-2px);
+
+    border-color:#CBD5E1;
+
+}
+
+.btn-back i{
+
+    transition:.3s;
+
+}
+
+.btn-back:hover i{
+
+    transform:translateX(-4px);
+
+}
+
+/* Submit Button */
+
+.btn-submit{
+
+    min-width:220px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    box-shadow:0 12px 30px rgba(22,199,132,.28);
+
+}
+
+.btn-submit:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-3px);
+
+    box-shadow:0 18px 40px rgba(22,199,132,.35);
+
+}
+
+.btn-submit i{
+
+    transition:.3s;
+
+}
+
+.btn-submit:hover i{
+
+    transform:translateX(5px);
+
+}
+
+/*==================================================
+    FORM SPACING
+==================================================*/
+
+.mb-3{
+    margin-bottom:22px !important;
+}
+
+.mb-4{
+    margin-bottom:28px !important;
+}
+
+/*==================================================
+    ANIMATIONS
+==================================================*/
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes fadeLeft{
+
+    from{
+        opacity:0;
+        transform:translateX(-25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+    50%{
+        transform:scale(1.4);
+        opacity:.55;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+@keyframes floatIcon{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+/*==================================================
+    HOVER ANIMATIONS
+==================================================*/
+
+.form-control,
+.form-select,
+.upload-box,
+.verification-card,
+.icon-btn,
+.profile-area img,
+.logo-placeholder,
+.nav-link,
+.btn-back,
+.btn-submit{
+
+    transition:all .35s ease;
+
+}
+
+/*==================================================
+    TABLET RESPONSIVE
+==================================================*/
+
+@media (max-width:991px){
+
+    .navbar-collapse{
+
+        background:#fff;
+
+        padding:20px;
+        margin-top:15px;
+
+        border-radius:12px;
+
+        box-shadow:var(--shadow);
+
+    }
+
+    .navbar-nav{
+
+        gap:0;
+        margin-bottom:20px;
+
+    }
+
+    .nav-link{
+
+        padding:12px 0 !important;
+
+    }
+
+    .right-menu{
+
+        justify-content:flex-start;
+    }
+
+    .verification-title{
+
+        font-size:30px;
+
+    }
+
+    .verification-card{
+
+        padding:28px;
+
+    }
+
+    .step-line{
+
+        width:40px;
+
+    }
+
+}
+
+/*==================================================
+    MOBILE RESPONSIVE
+==================================================*/
+
+@media (max-width:768px){
+
+    .verification-page{
+
+        padding:20px 0 60px;
+
+    }
+
+    .verification-title{
+
+        font-size:26px;
+
+    }
+
+    .verification-subtitle{
+
+        font-size:14px;
+
+        padding:0 15px;
+
+    }
+
+    .verification-card{
+
+        padding:22px;
+
+        border-radius:16px;
+
+    }
+
+    .verification-card h4{
+
+        font-size:22px;
+
+    }
+
+    .form-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .btn-back,
+    .btn-submit{
+
+        width:100%;
+
+    }
+
+    .step{
+
+        flex-direction:column;
+        gap:8px;
+        text-align:center;
+
+    }
+
+    .step-line{
+
+        display:none;
+
+    }
+
+    .verification-progress{
+
+        gap:18px;
+        justify-content:space-between;
+
+    }
+
+}
+
+/*==================================================
+    SMALL MOBILE
+==================================================*/
+
+@media (max-width:576px){
+
+    .container{
+
+        padding-left:18px;
+        padding-right:18px;
+
+    }
+
+    .verification-title{
+
+        font-size:24px;
+
+    }
+
+    .verification-card{
+
+        padding:18px;
+
+    }
+
+    .verification-card h4{
+
+        font-size:20px;
+
+    }
+
+    .form-control,
+    .form-select{
+
+        height:48px;
+        font-size:14px;
+
+    }
+
+    .upload-content{
+
+        min-height:110px;
+        padding:20px;
+
+    }
+
+    .upload-icon{
+
+        width:48px;
+        height:48px;
+
+    }
+
+    .upload-icon i{
+
+        font-size:20px;
+
+    }
+
+    .user-name{
+
+        display:none;
+
+    }
+
+    .profile-area{
+
+        gap:6px;
+
+    }
+
+}
+
+/*==================================================
+    LARGE DESKTOP
+==================================================*/
+
+@media (min-width:1400px){
+
+    .container{
+
+        max-width:1240px;
+
+    }
+
+    .verification-card{
+
+        max-width:720px;
+
+    }
+
+}
+
+/*==================================================
+    ACCESSIBILITY
+==================================================*/
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible{
+
+    outline:3px solid rgba(22,199,132,.25);
+    outline-offset:3px;
+
+}
+
+/*==================================================
+    FILE SELECTED STATE
+    (Used by script.js)
+==================================================*/
+
+.upload-box.file-selected{
+
+    border-color:var(--primary);
+    background:#F0FFF7;
+
+}
+
+.upload-box.file-selected .upload-icon{
+
+    background:var(--primary);
+    color:#fff;
+
+}
+
+.upload-box.file-selected .upload-icon i{
+
+    color:#fff;
+
+}
+
+.upload-box.file-selected p{
+
+    color:#111827;
+    font-weight:600;
+
+}
+
+/*==================================================
+  RESET
+==================================================*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+    background:var(--background);
+    color:var(--text-dark);
+    overflow-x:hidden;
+    line-height:1.6;
+
+}
+
+/*==================================================
+  PAGE WRAPPER
+==================================================*/
+.verification-page{
+
+    min-height:100vh;
+    padding:48px 18px 80px;
+
+    animation:fadeIn .7s ease;
+
+}
+
+.container{
+
+    max-width:980px;
+
+}
+
+/*==================================================
+  HEADER
+==================================================*/
+.page-header{
+
+    margin-bottom:48px;
+
+}
+
+/*==================================================
+  BACK LINK
+==================================================*/
+.dashboard-link{
+
+    margin-bottom:55px;
+
+}
+
+.dashboard-link a{
+
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+
+    text-decoration:none;
+
+    color:#4B5563;
+
+    font-size:16px;
+    font-weight:500;
+
+    transition:var(--transition);
+
+}
+
+.dashboard-link a:hover{
+
+    color:var(--primary);
+
+}
+
+.dashboard-link i{
+
+    font-size:18px;
+    transition:.3s;
+
+}
+
+.dashboard-link a:hover i{
+
+    transform:translateX(-4px);
+
+}
+
+/*==================================================
+  TITLE SECTION
+==================================================*/
+.title-area{
+
+    text-align:center;
+
+}
+
+.icon-wrapper{
+
+    display:flex;
+    justify-content:center;
+
+    margin-bottom:22px;
+
+}
+
+.icon-box{
+
+    width:72px;
+    height:72px;
+
+    border-radius:20px;
+
+    background:#DCFCE7;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    animation:floatIcon 4s ease-in-out infinite;
+
+}
+
+.icon-box i{
+
+    font-size:34px;
+    color:var(--primary);
+
+}
+
+.title-area h1{
+
+    font-size:44px;
+    font-weight:800;
+
+    color:var(--text-dark);
+
+    letter-spacing:-1px;
+
+    margin-bottom:12px;
+
+}
+
+.title-area p{
+
+    font-size:18px;
+    font-weight:400;
+
+    color:var(--text-light);
+
+    margin:0;
+
+}
+
+/*==================================================
+  PROGRESS STEPPER
+==================================================*/
+.progress-wrapper{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    margin-bottom:50px;
+
+}
+
+.step{
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.circle{
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:#F1F5F9;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:16px;
+    font-weight:700;
+
+    color:#94A3B8;
+
+    transition:var(--transition);
+
+}
+
+.step span{
+
+    font-size:16px;
+    font-weight:500;
+
+    color:#9CA3AF;
+
+    white-space:nowrap;
+
+    transition:var(--transition);
+
+}
+
+/*==================================================
+  ACTIVE STEP
+==================================================*/
+.step.active .circle{
+
+    background:#111827;
+
+    color:#FFFFFF;
+
+    box-shadow:0 8px 18px rgba(17,24,39,.18);
+
+}
+
+.step.active span{
+
+    color:#111827;
+    font-weight:700;
+
+}
+
+/*==================================================
+  CONNECTOR LINE
+==================================================*/
+.line{
+
+    width:80px;
+    height:2px;
+
+    background:#E5E7EB;
+
+    margin:0 18px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.line::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:0;
+    height:100%;
+
+    background:var(--primary);
+
+    animation:progressLine 1.3s ease forwards;
+
+}
+
+/*==================================================
+  VERIFICATION CARD
+==================================================*/
+.verification-card{
+
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    padding:42px;
+
+    animation:slideUp .7s ease;
+
+}
+
+.verification-card h2{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:var(--text-dark);
+
+    margin-bottom:10px;
+
+}
+
+.verification-card .description{
+
+    font-size:16px;
+
+    color:var(--text-light);
+
+    line-height:1.7;
+
+    margin-bottom:35px;
+
+}
+
+/*==================================================
+  FORM
+==================================================*/
+.form-label{
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:var(--text-dark);
+
+    margin-bottom:10px;
+
+}
+
+.nin-input{
+
+    height:58px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    padding:0 18px;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    color:var(--text-dark);
+
+    background:#fff;
+
+    transition:var(--transition);
+
+    box-shadow:none;
+
+}
+
+.nin-input::placeholder{
+
+    color:#9CA3AF;
+
+    font-weight:400;
+
+}
+
+.nin-input:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 .18rem rgba(34,197,94,.15);
+
+    transform:translateY(-1px);
+
+}
+
+/*==================================================
+  UPLOAD AREA
+==================================================*/
+.upload-box{
+
+    width:100%;
+
+    min-height:240px;
+
+    border:2px dashed #D1D5DB;
+
+    border-radius:16px;
+
+    background:#FCFCFD;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:35px 25px;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+.upload-box:hover{
+
+    border-color:var(--primary);
+
+    background:#F7FFF9;
+
+}
+
+.upload-box.dragover{
+
+    border-color:var(--primary);
+
+    background:#ECFDF3;
+
+    transform:scale(1.01);
+
+}
+
+.upload-content{
+
+    width:100%;
+
+}
+
+.upload-icon{
+
+    width:72px;
+
+    height:72px;
+
+    margin:0 auto 20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.upload-icon img{
+
+    width:70px;
+
+    height:70px;
+
+    object-fit:contain;
+
+}
+
+.upload-content h5{
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:var(--text-dark);
+
+    margin-bottom:8px;
+
+}
+
+.upload-content p{
+
+    font-size:14px;
+
+    color:var(--text-light);
+
+    margin-bottom:0;
+
+}
+
+.selected-file{
+
+    margin-top:18px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:var(--primary);
+
+    word-break:break-word;
+
+}
+
+/*==================================================
+  VERIFICATION NOTICE
+==================================================*/
+.verification-note{
+
+    margin-top:28px;
+
+    background:#FFF8E8;
+
+    border:1px solid #F7DCA4;
+
+    border-radius:14px;
+
+    padding:18px 20px;
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+}
+
+.note-icon{
+
+    width:34px;
+
+    height:34px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    background:#FFF2CC;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.note-icon i{
+
+    color:#D97706;
+
+    font-size:18px;
+
+}
+
+.note-text{
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    color:#8A5A00;
+
+}
+
+/*==================================================
+  BUTTON
+==================================================*/
+.button-wrapper{
+
+    margin-top:36px;
+
+}
+
+.continue-btn{
+
+    width:100%;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    transition:var(--transition);
+
+}
+
+.continue-btn i{
+
+    font-size:18px;
+
+    transition:var(--transition);
+
+}
+
+.continue-btn:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+    box-shadow:0 14px 28px rgba(34,197,94,.25);
+
+}
+
+.continue-btn:hover i{
+
+    transform:translateX(4px);
+
+}
+
+.continue-btn:active{
+
+    transform:scale(.98);
+
+}
+
+/*==================================================
+  TABLET RESPONSIVE
+==================================================*/
+@media (max-width: 992px){
+
+    .verification-page{
+
+        padding:40px 18px 70px;
+
+    }
+
+    .container{
+
+        max-width:760px;
+
+    }
+
+    .title-area h1{
+
+        font-size:38px;
+
+    }
+
+    .title-area p{
+
+        font-size:17px;
+
+    }
+
+    .verification-card{
+
+        padding:35px;
+
+    }
+
+    .verification-card h2{
+
+        font-size:26px;
+
+    }
+
+    .line{
+
+        width:55px;
+
+        margin:0 12px;
+
+    }
+
+}
+
+/*==================================================
+  MOBILE RESPONSIVE
+==================================================*/
+@media (max-width:768px){
+
+    .verification-page{
+
+        padding:30px 15px 60px;
+
+    }
+
+    .dashboard-link{
+
+        margin-bottom:35px;
+
+    }
+
+    .dashboard-link a{
+
+        font-size:15px;
+
+        gap:10px;
+
+    }
+
+    .icon-box{
+
+        width:62px;
+
+        height:62px;
+
+        border-radius:16px;
+
+    }
+
+    .icon-box i{
+
+        font-size:30px;
+
+    }
+
+    .title-area h1{
+
+        font-size:32px;
+
+        line-height:1.25;
+
+    }
+
+    .title-area p{
+
+        font-size:15px;
+
+        max-width:320px;
+
+        margin:auto;
+
+    }
+
+    /* Progress */
+
+    .progress-wrapper{
+
+        justify-content:flex-start;
+
+        overflow-x:auto;
+
+        flex-wrap:nowrap;
+
+        padding-bottom:8px;
+
+        scrollbar-width:none;
+
+    }
+
+    .progress-wrapper::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
+    .step{
+
+        flex-shrink:0;
+
+    }
+
+    .line{
+
+        width:45px;
+
+        margin:0 10px;
+
+    }
+
+    .circle{
+
+        width:38px;
+
+        height:38px;
+
+        font-size:15px;
+
+    }
+
+    .step span{
+
+        font-size:14px;
+
+    }
+
+    /* Card */
+
+    .verification-card{
+
+        padding:25px;
+
+        border-radius:18px;
+
+    }
+
+    .verification-card h2{
+
+        font-size:24px;
+
+    }
+
+    .verification-card .description{
+
+        font-size:15px;
+
+        margin-bottom:28px;
+
+    }
+
+    .nin-input{
+
+        height:54px;
+
+        font-size:15px;
+
+    }
+
+    .upload-box{
+
+        min-height:210px;
+
+        padding:28px 18px;
+
+    }
+
+    .upload-icon{
+
+        width:60px;
+
+        height:60px;
+
+    }
+
+    .upload-icon img{
+
+        width:60px;
+
+        height:60px;
+
+    }
+
+    .upload-content h5{
+
+        font-size:16px;
+
+    }
+
+    .upload-content p{
+
+        font-size:13px;
+
+    }
+
+    .verification-note{
+
+        padding:16px;
+
+        gap:12px;
+
+    }
+
+    .note-text{
+
+        font-size:13px;
+
+    }
+
+    .continue-btn{
+
+        height:54px;
+
+        font-size:15px;
+
+    }
+
+}
+
+/*==================================================
+  SMALL MOBILE
+==================================================*/
+@media (max-width:480px){
+
+    .verification-page{
+
+        padding:25px 12px 50px;
+
+    }
+
+    .title-area h1{
+
+        font-size:28px;
+
+    }
+
+    .title-area p{
+
+        font-size:14px;
+
+    }
+
+    .verification-card{
+
+        padding:20px;
+
+    }
+
+    .verification-card h2{
+
+        font-size:22px;
+
+    }
+
+    .description{
+
+        font-size:14px;
+
+    }
+
+    .form-label{
+
+        font-size:14px;
+
+    }
+
+    .nin-input{
+
+        height:50px;
+
+        font-size:14px;
+
+    }
+
+    .upload-box{
+
+        min-height:190px;
+
+    }
+
+    .upload-content h5{
+
+        font-size:15px;
+
+    }
+
+    .upload-content p{
+
+        font-size:12px;
+
+    }
+
+    .verification-note{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .note-icon{
+
+        width:30px;
+
+        height:30px;
+
+    }
+
+    .continue-btn{
+
+        height:50px;
+
+        font-size:15px;
+
+    }
+
+}
+
+/*==================================================
+  ANIMATIONS
+==================================================*/
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes slideUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes floatIcon{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes progressLine{
+
+    from{
+
+        width:0;
+
+    }
+
+    to{
+
+        width:100%;
+
+    }
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.04);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes bounce{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-6px);
+
+    }
+
+}
+
+/*==================================================
+  OPTIONAL ANIMATION CLASSES
+==================================================*/
+.animate-fade{
+
+    animation:fadeIn .8s ease both;
+
+}
+
+.animate-slide{
+
+    animation:slideUp .8s ease both;
+
+}
+
+.animate-pulse{
+
+    animation:pulse 2.5s infinite;
+
+}
+
+.animate-bounce{
+
+    animation:bounce 2.5s infinite;
+
+}
+
+/*==================================================
+  SMOOTH TRANSITIONS
+==================================================*/
+a,
+button,
+input,
+.upload-box,
+.circle,
+.step span,
+.icon-box{
+
+    transition:all .3s ease;
+
+}
+
+/*=========================================================
 SELLER ANALYTICS
 PART 2A
 =========================================================*/
@@ -29145,6 +35220,2079 @@ END OF BUYER DONE STYLES
 =========================================*/
 
 /*=========================================================
+BUYER REVIEWS CENTRE
+PART 2A
+=========================================================*/
+
+/*=========================================================
+PAGE
+=========================================================*/
+
+#cbrcPage{
+
+    background:var(--bg-color);
+
+    min-height:100vh;
+
+}
+
+.cbrc-page-wrapper{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    animation:cbrcPageFade .45s ease;
+
+}
+
+@keyframes cbrcPageFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(16px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+HEADER
+=========================================================*/
+
+.cbrc-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    background:#ffffff;
+
+    border-bottom:1px solid var(--border-color);
+
+    padding:14px 0;
+
+    box-shadow:0 2px 12px rgba(15,23,42,.04);
+
+}
+
+.cbrc-header .container-fluid{
+
+    padding-left:32px;
+
+    padding-right:32px;
+
+}
+
+/*=========================================================
+LOGO
+=========================================================*/
+
+.cbrc-logo-link{
+
+    display:inline-flex;
+
+    text-decoration:none;
+
+}
+
+.cbrc-logo-placeholder{
+
+    width:150px;
+
+    height:48px;
+
+    border:2px dashed var(--border-color);
+
+    border-radius:12px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#ffffff;
+
+    color:var(--text-muted);
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    transition:all .3s ease;
+
+}
+
+.cbrc-logo-placeholder:hover{
+
+    border-color:#14D495;
+
+    color:#14D495;
+
+}
+
+/*=========================================================
+NAVIGATION
+=========================================================*/
+
+.cbrc-navigation{
+
+    list-style:none;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:34px;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+.cbrc-navigation li a{
+
+    position:relative;
+
+    text-decoration:none;
+
+    color:var(--text-secondary);
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    transition:all .3s ease;
+
+}
+
+.cbrc-navigation li a:hover{
+
+    color:#14D495;
+
+}
+
+.cbrc-navigation li a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:0;
+
+    height:2px;
+
+    background:#14D495;
+
+    transition:.3s ease;
+
+}
+
+.cbrc-navigation li a:hover::after{
+
+    width:100%;
+
+}
+
+/*=========================================================
+HEADER RIGHT
+=========================================================*/
+
+.cbrc-header-right{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.cbrc-icon-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#F9FAFB;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:all .3s ease;
+
+}
+
+.cbrc-icon-btn i{
+
+    font-size:1.1rem;
+
+    color:var(--text-secondary);
+
+}
+
+.cbrc-icon-btn:hover{
+
+    background:#14D495;
+
+    transform:translateY(-2px);
+
+}
+
+.cbrc-icon-btn:hover i{
+
+    color:#ffffff;
+
+}
+
+.cbrc-notification-dot{
+
+    width:9px;
+
+    height:9px;
+
+    background:#EF4444;
+
+    border-radius:50%;
+
+    border:2px solid #ffffff;
+
+    position:absolute;
+
+    top:9px;
+
+    right:9px;
+
+}
+
+/*=========================================================
+PROFILE
+=========================================================*/
+
+.cbrc-profile-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:none;
+
+    background:transparent;
+
+}
+
+.cbrc-profile-image{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.cbrc-profile-name{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text-color);
+
+}
+
+/*=========================================================
+MAIN CONTENT
+=========================================================*/
+
+.cbrc-main{
+
+    flex:1;
+
+    padding:42px 0 70px;
+
+}
+
+.cbrc-breadcrumb{
+
+    margin-bottom:18px;
+
+}
+
+.cbrc-breadcrumb a{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    text-decoration:none;
+
+    color:var(--text-muted);
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    transition:.3s ease;
+
+}
+
+.cbrc-breadcrumb a:hover{
+
+    color:#14D495;
+
+}
+
+.cbrc-page-header{
+
+    margin-bottom:24px;
+
+}
+
+.cbrc-page-title{
+
+    margin:0;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+}
+
+/*=========================================================
+REVIEW TABS
+=========================================================*/
+
+.cbrc-tabs{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:30px;
+
+    flex-wrap:wrap;
+
+}
+
+.cbrc-tab{
+
+    border:none;
+
+    background:#F3F4F6;
+
+    color:var(--text-secondary);
+
+    padding:12px 22px;
+
+    border-radius:50px;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:all .3s ease;
+
+}
+
+.cbrc-tab:hover{
+
+    background:#14D495;
+
+    color:#ffffff;
+
+}
+
+.cbrc-tab.active{
+
+    background:#10B981;
+
+    color:#ffffff;
+
+    box-shadow:0 10px 24px rgba(16,185,129,.22);
+
+}
+
+/*=========================================================
+TAB CONTENT
+=========================================================*/
+
+.cbrc-tab-content{
+
+    display:none;
+
+}
+
+.cbrc-tab-content.active{
+
+    display:block;
+
+    animation:cbrcFade .4s ease;
+
+}
+
+@keyframes cbrcFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+REVIEW LIST
+=========================================================*/
+
+.cbrc-review-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+}
+
+/*=========================================================
+REVIEW CARD
+=========================================================*/
+
+.cbrc-review-card{
+
+    position:relative;
+
+    background:#ffffff;
+
+    border:1px solid var(--border-color);
+
+    border-radius:20px;
+
+    padding:24px;
+
+    box-shadow:0 10px 28px rgba(15,23,42,.05);
+
+    overflow:hidden;
+
+    transition:all .35s ease;
+
+}
+
+.cbrc-review-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:5px;
+
+    height:100%;
+
+    background:#14D495;
+
+    transform:scaleY(0);
+
+    transform-origin:top;
+
+    transition:.35s ease;
+
+}
+
+.cbrc-review-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:#14D495;
+
+    box-shadow:0 18px 42px rgba(15,23,42,.10);
+
+}
+
+.cbrc-review-card:hover::before{
+
+    transform:scaleY(1);
+
+}
+
+/*=========================================================
+PRODUCT IMAGE
+=========================================================*/
+
+.cbrc-product-image{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    background:#F8FAFC;
+
+    border:1px solid #E5E7EB;
+
+    flex-shrink:0;
+
+}
+
+.cbrc-product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform .35s ease;
+
+}
+
+.cbrc-review-card:hover .cbrc-product-image img{
+
+    transform:scale(1.05);
+
+}
+
+/*=========================================================
+PRODUCT DETAILS
+=========================================================*/
+
+.cbrc-product-details{
+
+    margin-bottom:14px;
+
+}
+
+.cbrc-product-title{
+
+    margin:0 0 6px;
+
+    font-size:1.12rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+    line-height:1.4;
+
+}
+
+.cbrc-product-meta{
+
+    margin:0;
+
+    font-size:.9rem;
+
+    color:var(--text-muted);
+
+}
+
+/*=========================================================
+RATING
+=========================================================*/
+
+.cbrc-rating-wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:18px;
+
+}
+
+.cbrc-rating-stars{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+
+.cbrc-rating-stars i{
+
+    font-size:1.35rem;
+
+    color:#D1D5DB;
+
+    cursor:pointer;
+
+    transition:all .25s ease;
+
+}
+
+.cbrc-rating-stars i:hover{
+
+    color:#FBBF24;
+
+    transform:scale(1.15);
+
+}
+
+.cbrc-rating-stars i.cbrc-active{
+
+    color:#FBBF24;
+
+}
+
+.cbrc-rating-text{
+
+    font-size:.9rem;
+
+    color:var(--text-muted);
+
+    font-weight:500;
+
+}
+
+/*=========================================================
+TEXTAREA
+=========================================================*/
+
+.cbrc-review-input{
+
+    margin-bottom:18px;
+
+}
+
+.cbrc-review-textarea{
+
+    min-height:120px;
+
+    resize: none;
+
+    border:1px solid #D1D5DB;
+
+    border-radius:14px;
+
+    padding:16px;
+
+    font-size:.95rem;
+
+    color:var(--text-color);
+
+    transition:all .3s ease;
+
+    box-shadow:none;
+
+}
+
+.cbrc-review-textarea::placeholder{
+
+    color:#9CA3AF;
+
+}
+
+.cbrc-review-textarea:focus{
+
+    border-color:#14D495;
+
+    box-shadow:0 0 0 .2rem rgba(20,212,149,.15);
+
+}
+
+/*=========================================================
+REVIEW ACTIONS
+=========================================================*/
+
+.cbrc-review-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    flex-wrap:wrap;
+
+    gap:14px;
+
+}
+
+/*=========================================================
+SUBMIT BUTTON
+=========================================================*/
+
+.cbrc-submit-review-btn{
+
+    background:#14D495;
+
+    color:#ffffff;
+
+    border:none;
+
+    border-radius:50px;
+
+    padding:12px 28px;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:all .3s ease;
+
+    box-shadow:0 10px 24px rgba(20,212,149,.20);
+
+}
+
+.cbrc-submit-review-btn:hover{
+
+    background:#10B981;
+
+    color:#ffffff;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 14px 30px rgba(16,185,129,.25);
+
+}
+
+.cbrc-submit-review-btn:active{
+
+    transform:scale(.98);
+
+}
+
+/*=========================================================
+REMIND BUTTON
+=========================================================*/
+
+.cbrc-remind-btn{
+
+    background:transparent;
+
+    border:none;
+
+    color:#6B7280;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:all .3s ease;
+
+}
+
+.cbrc-remind-btn:hover{
+
+    color:#14D495;
+
+    text-decoration:underline;
+
+}
+
+/*=========================================================
+SUBMITTED REVIEW CARDS
+=========================================================*/
+
+.cbrc-submitted-card{
+
+    border-left:5px solid #10B981;
+
+    background:#FFFFFF;
+
+}
+
+.cbrc-submitted-stars{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:4px;
+
+    margin:12px 0;
+
+}
+
+.cbrc-submitted-stars i{
+
+    color:#FBBF24;
+
+    font-size:1rem;
+
+}
+
+.cbrc-submitted-text{
+
+    margin:0;
+
+    color:var(--secondary);
+
+    font-size:.95rem;
+
+    line-height:1.7;
+
+}
+
+/*=========================================================
+EMPTY STATE
+=========================================================*/
+
+.cbrc-empty-state{
+
+    min-height:60vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:60px 20px;
+
+}
+
+.cbrc-empty-content{
+
+    max-width:520px;
+
+    width:100%;
+
+    text-align:center;
+
+    background:#FFFFFF;
+
+    border:1px solid var(--border-color);
+
+    border-radius:24px;
+
+    padding:48px 32px;
+
+    box-shadow:0 18px 40px rgba(15,23,42,.06);
+
+    animation:cbrcScaleIn .45s ease;
+
+}
+
+.cbrc-empty-content i{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    background:rgba(20,212,149,.12);
+
+    color:#14D495;
+
+    font-size:2.8rem;
+
+    margin-bottom:22px;
+
+}
+
+.cbrc-empty-content h3{
+
+    margin-bottom:14px;
+
+    font-size:1.7rem;
+
+    font-weight:700;
+
+    color:var(--text-color);
+
+}
+
+.cbrc-empty-content p{
+
+    margin-bottom:30px;
+
+    color:var(--text-muted);
+
+    font-size:1rem;
+
+    line-height:1.7;
+
+}
+
+.cbrc-return-btn{
+
+    background:#14D495;
+
+    color:#FFFFFF;
+
+    border:none;
+
+    border-radius:999px;
+
+    padding:13px 32px;
+
+    font-weight:600;
+
+    transition:all .3s ease;
+
+}
+
+.cbrc-return-btn:hover{
+
+    background:#10B981;
+
+    color:#FFFFFF;
+
+    transform:translateY(-2px);
+
+}
+
+/*=========================================================
+SUCCESS TOAST
+=========================================================*/
+
+#cbrcSuccessToast{
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    box-shadow:0 18px 40px rgba(15,23,42,.18);
+
+}
+
+#cbrcSuccessToast .toast-body{
+
+    display:flex;
+
+    align-items:center;
+
+    font-weight:600;
+
+    font-size:.95rem;
+
+    padding:16px 18px;
+
+}
+
+/*=========================================================
+ANIMATIONS
+=========================================================*/
+
+@keyframes cbrcScaleIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.92);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes cbrcSlideUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(28px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.cbrc-review-card{
+
+    animation:cbrcSlideUp .45s ease both;
+
+}
+
+.cbrc-review-card:nth-child(1){
+
+    animation-delay:.05s;
+
+}
+
+.cbrc-review-card:nth-child(2){
+
+    animation-delay:.10s;
+
+}
+
+.cbrc-review-card:nth-child(3){
+
+    animation-delay:.15s;
+
+}
+
+.cbrc-review-card:nth-child(4){
+
+    animation-delay:.20s;
+
+}
+
+/*=========================================================
+INTERACTIVE STAR EFFECT
+=========================================================*/
+
+.cbrc-rating-stars i{
+
+    position:relative;
+
+}
+
+.cbrc-rating-stars i::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-5px;
+
+    border-radius:50%;
+
+    background:rgba(251,191,36,.18);
+
+    opacity:0;
+
+    transform:scale(.5);
+
+    transition:all .25s ease;
+
+    z-index:-1;
+
+}
+
+.cbrc-rating-stars i:hover::after,
+
+.cbrc-rating-stars i.cbrc-active::after{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+/*=========================================================
+LARGE TABLETS
+=========================================================*/
+
+@media (max-width: 1199.98px){
+
+    .cbrc-header .container-fluid{
+
+        padding-left:24px;
+
+        padding-right:24px;
+
+    }
+
+    .cbrc-page-title{
+
+        font-size:1.8rem;
+
+    }
+
+    .cbrc-review-card{
+
+        padding:22px;
+
+    }
+
+    .cbrc-product-title{
+
+        font-size:1.05rem;
+
+    }
+
+}
+
+/*=========================================================
+TABLETS
+=========================================================*/
+
+@media (max-width: 991.98px){
+
+    .cbrc-main{
+
+        padding:32px 0 60px;
+
+    }
+
+    .cbrc-header{
+
+        padding:12px 0;
+
+    }
+
+    .cbrc-header-right{
+
+        gap:12px;
+
+    }
+
+    .cbrc-profile-name{
+
+        display:none;
+
+    }
+
+    .cbrc-logo-placeholder{
+
+        width:130px;
+
+        height:44px;
+
+    }
+
+    .cbrc-page-title{
+
+        font-size:1.6rem;
+
+    }
+
+    .cbrc-tabs{
+
+        gap:10px;
+
+    }
+
+    .cbrc-tab{
+
+        flex:1;
+
+        text-align:center;
+
+        padding:12px 18px;
+
+    }
+
+    .cbrc-review-card{
+
+        padding:20px;
+
+    }
+
+    .cbrc-product-image{
+
+        width:68px;
+
+        height:68px;
+
+    }
+
+    .cbrc-review-textarea{
+
+        min-height:110px;
+
+    }
+
+}
+
+/*=========================================================
+MOBILE DEVICES
+=========================================================*/
+
+@media (max-width: 767.98px){
+
+    .cbrc-header .container-fluid{
+
+        padding-left:16px;
+
+        padding-right:16px;
+
+    }
+
+    .cbrc-main{
+
+        padding:24px 0 50px;
+
+    }
+
+    .cbrc-breadcrumb{
+
+        margin-bottom:14px;
+
+    }
+
+    .cbrc-page-title{
+
+        font-size:1.45rem;
+
+        line-height:1.4;
+
+    }
+
+    .cbrc-tabs{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .cbrc-tab{
+
+        width:100%;
+
+    }
+
+    .cbrc-review-card{
+
+        padding:18px;
+
+        border-radius:18px;
+
+    }
+
+    .cbrc-review-card .row{
+
+        flex-direction:column;
+
+    }
+
+    .cbrc-product-image{
+
+        width:100%;
+
+        max-width:90px;
+
+        height:90px;
+
+        margin:0 auto 18px;
+
+    }
+
+    .cbrc-product-details{
+
+        text-align:center;
+
+    }
+
+    .cbrc-rating-wrapper{
+
+        justify-content:center;
+
+    }
+
+    .cbrc-review-actions{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .cbrc-submit-review-btn,
+
+    .cbrc-remind-btn{
+
+        width:100%;
+
+    }
+
+    .cbrc-submit-review-btn{
+
+        order:1;
+
+    }
+
+    .cbrc-remind-btn{
+
+        order:2;
+
+        text-align:center;
+
+    }
+
+}
+
+/*=========================================================
+SMALL MOBILE DEVICES
+=========================================================*/
+
+@media (max-width: 575.98px){
+
+    .cbrc-logo-placeholder{
+
+        width:110px;
+
+        height:40px;
+
+        font-size:.75rem;
+
+    }
+
+    .cbrc-icon-btn{
+
+        width:38px;
+
+        height:38px;
+
+    }
+
+    .cbrc-profile-image{
+
+        width:38px;
+
+        height:38px;
+
+    }
+
+    .cbrc-page-title{
+
+        font-size:1.3rem;
+
+    }
+
+    .cbrc-product-title{
+
+        font-size:1rem;
+
+    }
+
+    .cbrc-product-meta{
+
+        font-size:.82rem;
+
+    }
+
+    .cbrc-rating-stars{
+
+        gap:4px;
+
+    }
+
+    .cbrc-rating-stars i{
+
+        font-size:1.15rem;
+
+    }
+
+    .cbrc-review-textarea{
+
+        min-height:100px;
+
+        padding:14px;
+
+        font-size:.9rem;
+
+    }
+
+    .cbrc-submit-review-btn{
+
+        padding:12px 20px;
+
+        font-size:.9rem;
+
+    }
+
+    .cbrc-remind-btn{
+
+        font-size:.9rem;
+
+    }
+
+    .cbrc-empty-content{
+
+        padding:36px 22px;
+
+    }
+
+    .cbrc-empty-content h3{
+
+        font-size:1.35rem;
+
+    }
+
+}
+
+/*=========================================================
+LANDSCAPE PHONES
+=========================================================*/
+
+@media (max-width: 767.98px) and (orientation:landscape){
+
+    .cbrc-review-card{
+
+        padding:16px;
+
+    }
+
+    .cbrc-product-image{
+
+        max-width:72px;
+
+        height:72px;
+
+        margin-bottom:12px;
+
+    }
+
+    .cbrc-review-textarea{
+
+        min-height:90px;
+
+    }
+
+}
+
+/*=========================================================
+ACCESSIBILITY
+=========================================================*/
+
+.cbrc-tab:focus-visible,
+.cbrc-submit-review-btn:focus-visible,
+.cbrc-remind-btn:focus-visible,
+.cbrc-icon-btn:focus-visible,
+.cbrc-profile-btn:focus-visible,
+.cbrc-review-textarea:focus-visible,
+.cbrc-rating-stars i:focus-visible{
+
+    outline:3px solid rgba(20,212,149,.35);
+
+    outline-offset:3px;
+
+}
+
+.cbrc-rating-stars i{
+
+    border-radius:50%;
+
+}
+
+/*=========================================================
+CUSTOM SCROLLBAR
+=========================================================*/
+
+.cbrc-review-textarea::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.cbrc-review-textarea::-webkit-scrollbar-track{
+
+    background:#F3F4F6;
+
+    border-radius:999px;
+
+}
+
+.cbrc-review-textarea::-webkit-scrollbar-thumb{
+
+    background:#14D495;
+
+    border-radius:999px;
+
+}
+
+.cbrc-review-textarea::-webkit-scrollbar-thumb:hover{
+
+    background:#10B981;
+
+}
+
+/*=========================================================
+LOADING STATE
+=========================================================*/
+
+.cbrc-loading{
+
+    pointer-events:none;
+
+    opacity:.7;
+
+}
+
+.cbrc-loading .cbrc-submit-review-btn{
+
+    position:relative;
+
+    color:transparent;
+
+}
+
+.cbrc-loading .cbrc-submit-review-btn::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    width:18px;
+
+    height:18px;
+
+    margin-top:-9px;
+
+    margin-left:-9px;
+
+    border:2px solid rgba(255,255,255,.4);
+
+    border-top-color:#FFFFFF;
+
+    border-radius:50%;
+
+    animation:cbrcSpin .7s linear infinite;
+
+}
+
+@keyframes cbrcSpin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/*=========================================================
+DARK MODE
+=========================================================*/
+
+@media (prefers-color-scheme:dark){
+
+    #cbrcPage{
+
+        background:#0F172A;
+
+    }
+
+    .cbrc-header{
+
+        background:#111827;
+
+        border-color:#1F2937;
+
+    }
+
+    .cbrc-review-card,
+
+    .cbrc-empty-content{
+
+        background:#1E293B;
+
+        border-color:#334155;
+
+    }
+
+    .cbrc-page-title,
+
+    .cbrc-product-title,
+
+    .cbrc-profile-name,
+
+    .cbrc-empty-content h3{
+
+        color:#F8FAFC;
+
+    }
+
+    .cbrc-product-meta,
+
+    .cbrc-rating-text,
+
+    .cbrc-submitted-text,
+
+    .cbrc-empty-content p{
+
+        color:#CBD5E1;
+
+    }
+
+    .cbrc-tab{
+
+        background:#334155;
+
+        color:#E2E8F0;
+
+    }
+
+    .cbrc-tab.active{
+
+        background:#10B981;
+
+        color:#FFFFFF;
+
+    }
+
+    .cbrc-review-textarea{
+
+        background:#0F172A;
+
+        color:#F8FAFC;
+
+        border-color:#334155;
+
+    }
+
+    .cbrc-review-textarea::placeholder{
+
+        color:#94A3B8;
+
+    }
+
+}
+
+/*=========================================================
+PRINT
+=========================================================*/
+
+@media print{
+
+    .cbrc-header,
+
+    .cbrc-tabs,
+
+    .cbrc-review-actions,
+
+    .toast-container{
+
+        display:none !important;
+
+    }
+
+    #cbrcPage{
+
+        background:#FFFFFF;
+
+    }
+
+    .cbrc-review-card{
+
+        box-shadow:none;
+
+        border:1px solid #CCCCCC;
+
+        page-break-inside:avoid;
+
+    }
+
+}
+
+/*=========================================================
+REDUCED MOTION
+=========================================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+/*=========================================================
+PERFORMANCE
+=========================================================*/
+
+.cbrc-review-card,
+.cbrc-tab,
+.cbrc-submit-review-btn,
+.cbrc-icon-btn{
+
+    will-change:transform;
+
+}
+
+.cbrc-product-image img{
+
+    backface-visibility:hidden;
+
+    transform:translateZ(0);
+
+}
+
+/*=========================================================
+UTILITY CLASSES
+=========================================================*/
+
+.cbrc-hidden{
+
+    display:none !important;
+
+}
+
+.cbrc-visible{
+
+    display:block !important;
+
+}
+
+.cbrc-flex{
+
+    display:flex !important;
+
+}
+
+.cbrc-flex-center{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.cbrc-w-100{
+
+    width:100%;
+
+}
+
+.cbrc-text-center{
+
+    text-align:center;
+
+}
+
+.cbrc-text-success{
+
+    color:#10B981 !important;
+
+}
+
+.cbrc-text-muted{
+
+    color:var(--text-muted) !important;
+
+}
+
+.cbrc-rounded{
+
+    border-radius:16px !important;
+
+}
+
+.cbrc-shadow{
+
+    box-shadow:0 12px 30px rgba(15,23,42,.08);
+
+}
+
+/*=========================================================
+STAR SELECTION ANIMATION
+=========================================================*/
+
+.cbrc-rating-stars i.cbrc-active{
+
+    color:#FBBF24;
+
+    animation:cbrcStarPop .25s ease;
+
+}
+
+@keyframes cbrcStarPop{
+
+    0%{
+
+        transform:scale(.75);
+
+    }
+
+    60%{
+
+        transform:scale(1.25);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/*=========================================================
+SUCCESS STATE
+=========================================================*/
+
+.cbrc-review-card.cbrc-review-submitted{
+
+    border-color:#10B981;
+
+    box-shadow:0 16px 36px rgba(16,185,129,.18);
+
+}
+
+.cbrc-review-card.cbrc-review-submitted::before{
+
+    transform:scaleY(1);
+
+    background:#10B981;
+
+}
+
+/*=========================================================
+BUTTON DISABLED STATE
+=========================================================*/
+
+.cbrc-submit-review-btn:disabled{
+
+    opacity:.65;
+
+    cursor:not-allowed;
+
+    pointer-events:none;
+
+    box-shadow:none;
+
+}
+
+.cbrc-remind-btn:disabled{
+
+    opacity:.65;
+
+    cursor:not-allowed;
+
+}
+
+/*=========================================================
+TOAST ANIMATION
+=========================================================*/
+
+.toast.show{
+
+    animation:cbrcToastSlide .35s ease;
+
+}
+
+@keyframes cbrcToastSlide{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+/*=========================================================
+IMAGE HOVER EFFECT
+=========================================================*/
+
+.cbrc-product-image{
+
+    transition:
+
+        transform .35s ease,
+
+        box-shadow .35s ease;
+
+}
+
+.cbrc-review-card:hover .cbrc-product-image{
+
+    transform:scale(1.04);
+
+    box-shadow:0 10px 24px rgba(20,212,149,.18);
+
+}
+
+/*=========================================================
+TEXT SELECTION
+=========================================================*/
+
+#cbrcPage ::selection{
+
+    background:#14D495;
+
+    color:#FFFFFF;
+
+}
+
+#cbrcPage ::-moz-selection{
+
+    background:#14D495;
+
+    color:#FFFFFF;
+
+}
+
+/*=========================================================
+SMOOTH SCROLL
+=========================================================*/
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/*=========================================================
+EXTRA SMALL DEVICES
+=========================================================*/
+
+@media (max-width:360px){
+
+    .cbrc-page-title{
+
+        font-size:1.15rem;
+
+    }
+
+    .cbrc-review-card{
+
+        padding:15px;
+
+    }
+
+    .cbrc-product-image{
+
+        width:72px;
+
+        height:72px;
+
+    }
+
+    .cbrc-submit-review-btn{
+
+        font-size:.85rem;
+
+        padding:11px 16px;
+
+    }
+
+    .cbrc-remind-btn{
+
+        font-size:.85rem;
+
+    }
+
+    .cbrc-rating-stars i{
+
+        font-size:1rem;
+
+    }
+
+    .cbrc-review-textarea{
+
+        min-height:90px;
+
+        font-size:.85rem;
+
+    }
+
+}
+
+/*=========================================================
+HIGH RESOLUTION DISPLAYS
+=========================================================*/
+
+@media (-webkit-min-device-pixel-ratio:2),
+(min-resolution:192dpi){
+
+    .cbrc-product-image img{
+
+        image-rendering:auto;
+
+    }
+
+}
+
+/*=========================================================
+END OF BUYER REVIEWS CENTRE STYLES
+=========================================================*/
+
+/*=========================================================
 BUYER NEIGHBORHOOD
 PART 2A
 =========================================================*/
@@ -31355,7 +39503,7 @@ END OF BUYER NEIGHBORHOOD STYLES
 
 
 /*==================================================
-SIGN IN PAGE (2A)
+SIGN IN PAGE 
 ==================================================*/
 
 #sipSignInPage{
@@ -33257,6 +41405,12 @@ END OF SIGN IN PAGE STYLES
 
 
 
+
+
+
+
+
+
 /* ==========================================================
    PROVIDER DASHBOARD PAGE
 ========================================================== */
@@ -34662,3 +42816,2048 @@ END OF SIGN IN PAGE STYLES
 /* ==========================================================
    END OF PROVIDER DASHBOARD CSS
 ========================================================== */
+
+
+
+
+
+
+/*=========================================================
+YOVI SHOPPING CART
+STYLE.CSS — PART 2A
+=========================================================*/
+
+/*=========================================================
+SHOPPING CART PAGE
+=========================================================*/
+
+#yscShoppingCartPage{
+
+    background:var(--body);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+
+/*=========================================================
+NAVBAR
+=========================================================*/
+
+.ysc-navbar{
+
+    background:var(--white);
+
+    padding:18px 0;
+
+    border-bottom:1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    left:0;
+
+    z-index:1050;
+
+    transition:var(--transition);
+
+}
+
+.ysc-navbar-scrolled{
+
+    padding:12px 0;
+
+    box-shadow:var(--shadow-md);
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(18px);
+
+}
+
+/*=========================================================
+BRAND
+=========================================================*/
+
+.ysc-brand{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.ysc-brand-placeholder{
+
+    width:155px;
+
+    height:48px;
+
+    border:2px dashed var(--border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--surface);
+
+}
+
+/*=========================================================
+NAVIGATION
+=========================================================*/
+
+.ysc-nav-link{
+
+    color:var(--text);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    padding:10px 18px !important;
+
+    transition:var(--transition);
+
+    position:relative;
+
+}
+
+.ysc-nav-link:hover,
+
+.ysc-nav-link.active{
+
+    color:var(--primary);
+
+}
+
+.ysc-nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:18px;
+
+    bottom:4px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--primary);
+
+    transition:var(--transition);
+
+}
+
+.ysc-nav-link:hover::after,
+
+.ysc-nav-link.active::after{
+
+    width:calc(100% - 36px);
+
+}
+
+/*=========================================================
+NAVBAR ACTIONS
+=========================================================*/
+
+.ysc-navbar-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+/*=========================================================
+ICON BUTTONS
+=========================================================*/
+
+.ysc-cart-btn,
+
+.ysc-notification-btn{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    color:var(--heading);
+
+    position:relative;
+
+    transition:var(--transition);
+
+}
+
+.ysc-cart-btn:hover,
+
+.ysc-notification-btn:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    border-color:var(--primary);
+
+    transform:translateY(-2px);
+
+}
+
+/*=========================================================
+CART BADGE
+=========================================================*/
+
+#yscCartBadge{
+
+    position:absolute;
+
+    top:-4px;
+
+    right:-4px;
+
+    width:22px;
+
+    height:22px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+    color:var(--white);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:.72rem;
+
+    font-weight:700;
+
+}
+
+/*=========================================================
+NOTIFICATION DOT
+=========================================================*/
+
+.ysc-notification-dot{
+
+    position:absolute;
+
+    top:10px;
+
+    right:12px;
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+    animation:yscPulse 1.8s infinite;
+
+}
+
+@keyframes yscPulse{
+
+    0%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        transform:scale(1.45);
+
+        opacity:.55;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/*=========================================================
+PROFILE
+=========================================================*/
+
+.ysc-profile-link{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:var(--heading);
+
+    font-weight:600;
+
+}
+
+.ysc-profile-avatar{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:50%;
+
+    background:var(--border-light);
+
+    border:2px solid var(--border);
+
+}
+
+/*=========================================================
+PAGE HEADER
+=========================================================*/
+
+.ysc-page-header{
+
+    padding:55px 0 35px;
+
+}
+
+.ysc-breadcrumb{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:18px;
+
+    font-size:.92rem;
+
+}
+
+.ysc-breadcrumb a{
+
+    color:var(--text-light);
+
+}
+
+.ysc-breadcrumb strong{
+
+    color:var(--heading);
+
+}
+
+.ysc-page-title{
+
+    font-size:2.7rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+}
+
+.ysc-page-title span{
+
+    color:var(--primary);
+
+    font-size:1.2rem;
+
+    font-weight:600;
+
+    margin-left:8px;
+
+}
+
+/*=========================================================
+YOVI SHOPPING CART
+STYLE.CSS — PART 2B
+=========================================================*/
+
+/*=========================================================
+SHOPPING CART SECTION
+=========================================================*/
+
+.ysc-cart-section{
+
+    padding:30px 0 80px;
+
+}
+
+/*=========================================================
+CART CARD
+=========================================================*/
+
+.ysc-cart-card{
+
+    border:none;
+
+    border-radius:var(--radius-xl);
+
+    background:var(--surface);
+
+    box-shadow:var(--shadow-sm);
+
+    overflow:hidden;
+
+    margin-bottom:24px;
+
+    transition:var(--transition);
+
+}
+
+.ysc-cart-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+/*=========================================================
+PRODUCT IMAGE
+=========================================================*/
+
+.ysc-product-image{
+
+    width:100%;
+
+    aspect-ratio:1/1;
+
+    background:linear-gradient(
+
+        135deg,
+
+        #f5f7fa,
+
+        #e9edf4
+
+    );
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    transition:var(--transition);
+
+}
+
+.ysc-product-image:hover{
+
+    transform:scale(1.03);
+
+}
+
+/*=========================================================
+PRODUCT DETAILS
+=========================================================*/
+
+.ysc-product-title{
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:10px;
+
+}
+
+.ysc-product-meta{
+
+    font-size:.92rem;
+
+    color:var(--text-light);
+
+    margin-bottom:14px;
+
+}
+
+.ysc-product-meta span{
+
+    color:var(--heading);
+
+    font-weight:600;
+
+}
+
+/*=========================================================
+STOCK BADGE
+=========================================================*/
+
+.ysc-stock-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:7px 16px;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--primary-light);
+
+    color:var(--success);
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+.ysc-low-stock{
+
+    background:var(--secondary-light);
+
+    color:var(--secondary-dark);
+
+}
+
+/*=========================================================
+QUANTITY
+=========================================================*/
+
+.ysc-quantity-wrapper{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-pill);
+
+    overflow:hidden;
+
+    background:var(--white);
+
+}
+
+.ysc-qty-minus,
+
+.ysc-qty-plus{
+
+    width:42px;
+
+    height:42px;
+
+    background:var(--surface);
+
+    color:var(--heading);
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.ysc-qty-minus:hover,
+
+.ysc-qty-plus:hover{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+}
+
+.ysc-qty-input{
+
+    width:58px;
+
+    height:42px;
+
+    text-align:center;
+
+    background:transparent;
+
+    color:var(--heading);
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    border-left:1px solid var(--border);
+
+    border-right:1px solid var(--border);
+
+}
+
+/*=========================================================
+PRICE
+=========================================================*/
+
+.ysc-product-price{
+
+    color:var(--heading);
+
+    font-size:1.6rem;
+
+    font-weight:800;
+
+    margin-top:22px;
+
+}
+
+/*=========================================================
+DELETE BUTTON
+=========================================================*/
+
+.ysc-delete-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:#fff4f4;
+
+    color:var(--danger);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-left:auto;
+
+    transition:var(--transition);
+
+}
+
+.ysc-delete-btn:hover{
+
+    background:var(--danger);
+
+    color:var(--white);
+
+    transform:rotate(10deg);
+
+}
+
+/*=========================================================
+CART ACTIONS
+=========================================================*/
+
+.ysc-cart-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:18px;
+
+    margin-top:18px;
+
+    flex-wrap:wrap;
+
+}
+
+/*=========================================================
+CONTINUE SHOPPING
+=========================================================*/
+
+.ysc-continue-shopping{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 24px;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.ysc-continue-shopping:hover{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+}
+
+/*=========================================================
+CLEAR CART
+=========================================================*/
+
+.ysc-clear-cart{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 24px;
+
+    border-radius:var(--radius-pill);
+
+    background:#fff5f5;
+
+    color:var(--danger);
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.ysc-clear-cart:hover{
+
+    background:var(--danger);
+
+    color:var(--white);
+
+}
+
+/*=========================================================
+YOVI SHOPPING CART
+STYLE.CSS — PART 2C
+=========================================================*/
+
+/*=========================================================
+ORDER SUMMARY
+=========================================================*/
+
+.ysc-order-summary{
+
+    border:none;
+
+    border-radius:var(--radius-xl);
+
+    overflow:hidden;
+
+    position:sticky;
+
+    top:110px;
+
+    background:var(--surface);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.ysc-order-summary .card-body{
+
+    padding:32px;
+
+}
+
+/*=========================================================
+SUMMARY TITLE
+=========================================================*/
+
+.ysc-summary-title{
+
+    font-size:1.55rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:28px;
+
+}
+
+/*=========================================================
+SUMMARY ROW
+=========================================================*/
+
+.ysc-summary-row{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:18px;
+
+    font-size:.97rem;
+
+    color:var(--text-light);
+
+}
+
+.ysc-summary-row strong{
+
+    color:var(--heading);
+
+    font-size:1rem;
+
+    font-weight:700;
+
+}
+
+/*=========================================================
+DIVIDER
+=========================================================*/
+
+.ysc-summary-divider{
+
+    margin:24px 0;
+
+    border-top:1px solid var(--border);
+
+    opacity:1;
+
+}
+
+/*=========================================================
+PROMO BUTTON
+=========================================================*/
+
+.ysc-promo-button{
+
+    width:100%;
+
+    height:54px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    background:var(--secondary-light);
+
+    color:var(--secondary-dark);
+
+    border-radius:var(--radius-md);
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.ysc-promo-button:hover{
+
+    background:var(--secondary);
+
+    color:var(--white);
+
+}
+
+/*=========================================================
+PROMO WRAPPER
+=========================================================*/
+
+.ysc-promo-wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:16px;
+
+}
+
+/*=========================================================
+PROMO INPUT
+=========================================================*/
+
+.ysc-promo-input{
+
+    flex:1;
+
+    height:52px;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    padding:0 18px;
+
+    background:var(--white);
+
+    color:var(--heading);
+
+    font-size:.95rem;
+
+}
+
+.ysc-promo-input:focus{
+
+    border-color:var(--primary);
+
+}
+
+/*=========================================================
+APPLY BUTTON
+=========================================================*/
+
+.ysc-apply-promo{
+
+    height:52px;
+
+    padding:0 24px;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    border-radius:var(--radius-md);
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.ysc-apply-promo:hover{
+
+    background:var(--primary-dark);
+
+}
+
+/*=========================================================
+TOTAL
+=========================================================*/
+
+.ysc-total-wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:28px;
+
+}
+
+.ysc-total-wrapper h3{
+
+    font-size:1.15rem;
+
+    color:var(--heading);
+
+    font-weight:700;
+
+}
+
+#yscGrandTotal{
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+CHECKOUT BUTTON
+=========================================================*/
+
+.ysc-checkout-btn{
+
+    width:100%;
+
+    height:58px;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.ysc-checkout-btn:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+/*=========================================================
+SECURITY LIST
+=========================================================*/
+
+.ysc-security-list{
+
+    margin-top:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.ysc-security-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:14px;
+
+}
+
+.ysc-security-item i{
+
+    color:var(--success);
+
+    font-size:1.2rem;
+
+    margin-top:4px;
+
+}
+
+.ysc-security-item p{
+
+    font-size:.92rem;
+
+    color:var(--text-light);
+
+    line-height:1.6;
+
+}
+
+/*=========================================================
+YOVI SHOPPING CART
+STYLE.CSS — PART 2D
+=========================================================*/
+
+/*=========================================================
+PAYMENT CARD
+=========================================================*/
+
+.ysc-payment-card{
+
+    margin-top:24px;
+
+    border:none;
+
+    border-radius:var(--radius-xl);
+
+    background:var(--surface);
+
+    box-shadow:var(--shadow-sm);
+
+    overflow:hidden;
+
+    transition:var(--transition);
+
+}
+
+.ysc-payment-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.ysc-payment-card .card-body{
+
+    padding:30px;
+
+}
+
+/*=========================================================
+PAYMENT ICON
+=========================================================*/
+
+.ysc-payment-icon{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:2rem;
+
+    margin-bottom:22px;
+
+}
+
+/*=========================================================
+PAYMENT TITLE
+=========================================================*/
+
+.ysc-payment-title{
+
+    font-size:1.35rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:14px;
+
+}
+
+.ysc-payment-text{
+
+    font-size:.95rem;
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+    margin-bottom:24px;
+
+}
+
+/*=========================================================
+PAYMENT METHODS
+=========================================================*/
+
+.ysc-payment-methods{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+}
+
+.ysc-payment-badge{
+
+    padding:10px 18px;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    border:1px solid rgba(24,195,126,.15);
+
+    transition:var(--transition);
+
+}
+
+.ysc-payment-badge:hover{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+}
+
+/*=========================================================
+HELP CARD
+=========================================================*/
+
+.ysc-help-card{
+
+    margin-top:24px;
+
+    border:none;
+
+    border-radius:var(--radius-xl);
+
+    background:var(--surface);
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+}
+
+.ysc-help-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.ysc-help-card .card-body{
+
+    padding:30px;
+
+}
+
+.ysc-help-card h5{
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:14px;
+
+}
+
+.ysc-help-card p{
+
+    font-size:.94rem;
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+    margin-bottom:24px;
+
+}
+
+/*=========================================================
+SUPPORT BUTTON
+=========================================================*/
+
+.ysc-support-btn{
+
+    width:100%;
+
+    height:54px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--secondary);
+
+    color:var(--white);
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.ysc-support-btn:hover{
+
+    background:var(--secondary-dark);
+
+    color:var(--white);
+
+    transform:translateY(-2px);
+
+}
+
+/*=========================================================
+RECOMMENDED PRODUCTS
+=========================================================*/
+
+.ysc-recommend-section{
+
+    padding:70px 0;
+
+    background:var(--white);
+
+}
+
+.ysc-section-title{
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+}
+
+.ysc-view-all{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--primary);
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.ysc-view-all:hover{
+
+    color:var(--primary-dark);
+
+}
+
+.ysc-view-all i{
+
+    transition:var(--transition);
+
+}
+
+.ysc-view-all:hover i{
+
+    transform:translateX(4px);
+
+}
+
+/*=========================================================
+YOVI SHOPPING CART
+STYLE.CSS — PART 2E
+=========================================================*/
+
+/*=========================================================
+PRODUCT CARD
+=========================================================*/
+
+.ysc-product-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow-xs);
+
+    transition:var(--transition);
+
+    height:100%;
+
+    cursor:pointer;
+
+}
+
+.ysc-product-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-lg);
+
+    border-color:rgba(24,195,126,.25);
+
+}
+
+/*=========================================================
+PRODUCT LINK
+=========================================================*/
+
+.ysc-product-card a{
+
+    display:block;
+
+    width:100%;
+
+    height:100%;
+
+    color:inherit;
+
+}
+
+/*=========================================================
+PRODUCT IMAGE
+=========================================================*/
+
+.ysc-product-thumb{
+
+    width:100%;
+
+    aspect-ratio:1/1;
+
+    background:linear-gradient(
+
+        135deg,
+
+        #f7f8fb,
+
+        #eef2f7
+
+    );
+
+    border-bottom:1px solid var(--border);
+
+    transition:var(--transition);
+
+}
+
+.ysc-product-card:hover
+
+.ysc-product-thumb{
+
+    transform:scale(1.04);
+
+}
+
+/*=========================================================
+PRODUCT NAME
+=========================================================*/
+
+.ysc-product-name{
+
+    padding:20px 20px 8px;
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    line-height:1.45;
+
+    min-height:72px;
+
+}
+
+/*=========================================================
+PRODUCT PRICE
+=========================================================*/
+
+.ysc-product-price{
+
+    padding:0 20px 22px;
+
+    font-size:1.25rem;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+FOOTER
+=========================================================*/
+
+.ysc-footer{
+
+    padding:35px 0;
+
+    background:var(--white);
+
+    border-top:1px solid var(--border);
+
+}
+
+.ysc-footer small{
+
+    color:var(--text-muted);
+
+    font-size:.9rem;
+
+}
+
+/*=========================================================
+RIPPLE EFFECT
+=========================================================*/
+
+.ysc-ripple{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.45);
+
+    transform:scale(0);
+
+    animation:yscRipple .6s linear;
+
+    pointer-events:none;
+
+}
+
+@keyframes yscRipple{
+
+    to{
+
+        transform:scale(4);
+
+        opacity:0;
+
+    }
+
+}
+
+/*=========================================================
+FADE IN
+=========================================================*/
+
+@keyframes yscFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.ysc-fade-up{
+
+    animation:yscFadeUp .7s ease both;
+
+}
+
+/*=========================================================
+LOADING PLACEHOLDER
+=========================================================*/
+
+.ysc-loading{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.ysc-loading::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,255,255,.7),
+
+        transparent
+
+    );
+
+    animation:yscLoading 1.3s infinite;
+
+}
+
+@keyframes yscLoading{
+
+    from{
+
+        transform:translateX(-100%);
+
+    }
+
+    to{
+
+        transform:translateX(100%);
+
+    }
+
+}
+
+/*=========================================================
+SCROLL TO TOP BUTTON
+=========================================================*/
+
+#yscScrollTop{
+
+    position:fixed;
+
+    right:24px;
+
+    bottom:24px;
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:var(--shadow-lg);
+
+    z-index:999;
+
+    transition:var(--transition);
+
+}
+
+#yscScrollTop:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-4px);
+
+}
+
+/*=========================================================
+YOVI SHOPPING CART
+STYLE.CSS — PART 2F
+RESPONSIVE DESIGN
+=========================================================*/
+
+/*=========================================================
+LARGE DEVICES
+=========================================================*/
+
+@media (max-width:1199.98px){
+
+    .ysc-page-title{
+
+        font-size:2.3rem;
+
+    }
+
+    .ysc-order-summary{
+
+        top:90px;
+
+    }
+
+    .ysc-product-name{
+
+        min-height:65px;
+
+    }
+
+}
+
+/*=========================================================
+TABLETS
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .ysc-navbar-actions{
+
+        margin-top:20px;
+
+        justify-content:flex-start;
+
+        flex-wrap:wrap;
+
+    }
+
+    .ysc-nav-link{
+
+        padding:12px 0 !important;
+
+    }
+
+    .ysc-page-header{
+
+        padding:40px 0 25px;
+
+    }
+
+    .ysc-page-title{
+
+        font-size:2rem;
+
+    }
+
+    .ysc-order-summary{
+
+        position:relative;
+
+        top:0;
+
+        margin-top:30px;
+
+    }
+
+    .ysc-cart-actions{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .ysc-continue-shopping,
+
+    .ysc-clear-cart{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .ysc-payment-card,
+
+    .ysc-help-card{
+
+        margin-top:30px;
+
+    }
+
+}
+
+/*=========================================================
+MOBILE DEVICES
+=========================================================*/
+
+@media (max-width:767.98px){
+
+    .ysc-page-title{
+
+        font-size:1.8rem;
+
+    }
+
+    .ysc-page-title span{
+
+        display:block;
+
+        margin:8px 0 0;
+
+        font-size:1rem;
+
+    }
+
+    .ysc-cart-card .row{
+
+        text-align:center;
+
+    }
+
+    .ysc-product-image{
+
+        max-width:220px;
+
+        margin:0 auto 20px;
+
+    }
+
+    .ysc-stock-badge{
+
+        margin:0 auto 18px;
+
+    }
+
+    .ysc-quantity-wrapper{
+
+        margin:0 auto 18px;
+
+    }
+
+    .ysc-delete-btn{
+
+        margin:20px auto 15px;
+
+    }
+
+    .ysc-product-price{
+
+        margin-top:0;
+
+        font-size:1.45rem;
+
+    }
+
+    .ysc-order-summary .card-body{
+
+        padding:24px;
+
+    }
+
+    .ysc-total-wrapper{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+    #yscGrandTotal{
+
+        font-size:1.8rem;
+
+    }
+
+    .ysc-payment-card .card-body,
+
+    .ysc-help-card .card-body{
+
+        padding:24px;
+
+    }
+
+    .ysc-payment-methods{
+
+        gap:10px;
+
+    }
+
+    .ysc-payment-badge{
+
+        font-size:.8rem;
+
+    }
+
+    .ysc-section-title{
+
+        font-size:1.6rem;
+
+    }
+
+}
+
+/*=========================================================
+SMALL MOBILE DEVICES
+=========================================================*/
+
+@media (max-width:575.98px){
+
+    .ysc-navbar{
+
+        padding:14px 0;
+
+    }
+
+    .ysc-brand-placeholder{
+
+        width:125px;
+
+        height:42px;
+
+    }
+
+    .ysc-navbar-actions{
+
+        gap:12px;
+
+    }
+
+    .ysc-cart-btn,
+
+    .ysc-notification-btn{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+    .ysc-profile-avatar{
+
+        width:40px;
+
+        height:40px;
+
+    }
+
+    .ysc-profile-link span{
+
+        display:none;
+
+    }
+
+    .ysc-summary-row{
+
+        font-size:.9rem;
+
+    }
+
+    .ysc-summary-row strong{
+
+        font-size:.95rem;
+
+    }
+
+    .ysc-checkout-btn{
+
+        height:54px;
+
+        font-size:.95rem;
+
+    }
+
+    .ysc-product-name{
+
+        font-size:1rem;
+
+        min-height:auto;
+
+    }
+
+    .ysc-product-price{
+
+        font-size:1.15rem;
+
+    }
+
+    .ysc-footer{
+
+        padding:25px 0;
+
+    }
+
+    #yscScrollTop{
+
+        width:46px;
+
+        height:46px;
+
+        right:18px;
+
+        bottom:18px;
+
+    }
+
+}
+
+/*=========================================================
+UTILITY CLASSES
+=========================================================*/
+
+.ysc-hidden{
+
+    display:none !important;
+
+}
+
+.ysc-visible{
+
+    display:block !important;
+
+}
+
+.ysc-flex{
+
+    display:flex !important;
+
+}
+
+.ysc-transition{
+
+    transition:var(--transition);
+
+}
+
+.ysc-rounded{
+
+    border-radius:var(--radius-lg);
+
+}
+
+.ysc-shadow{
+
+    box-shadow:var(--shadow-md);
+
+}
+
+/*=========================================================
+END OF SHOPPING CART STYLES
+=========================================================*/
+
+
+

@@ -1,5 +1,5 @@
 /*==================================================
-SELLER DONE PAGE 
+BUYER DONE PAGE 
 ==================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     PAGE CHECK
     =========================================*/
 
-    const donePage = document.getElementById("ysdDonePage");
+    const donePage = document.getElementById("ybdDonePage");
 
     if (!donePage) return;
 
@@ -16,29 +16,31 @@ document.addEventListener("DOMContentLoaded", () => {
     ELEMENT REFERENCES
     =========================================*/
 
-    const loader = document.getElementById("ysdPageLoader");
+    const loader = document.getElementById("ybdPageLoader");
 
-    const toastElement = document.getElementById("ysdToast");
+    const toastElement = document.getElementById("ybdToast");
 
-    const toastMessage = document.getElementById("ysdToastMessage");
+    const toastMessage = document.getElementById("ybdToastMessage");
 
-    const confettiContainer = document.getElementById("ysdConfettiContainer");
+    const confettiContainer = document.getElementById("ybdConfettiContainer");
 
-    const addProductBtn = document.getElementById("ysdAddFirstProductBtn");
+    const browseProductsBtn = document.getElementById("ybdBrowseProductsBtn");
 
-    const dashboardBtn = document.getElementById("ysdViewDashboardBtn");
+    const findServicesBtn = document.getElementById("ybdFindServicesBtn");
 
-    const homeBtn = document.getElementById("ysdBackHomeBtn");
+    const homeBtn = document.getElementById("ybdBackHomeBtn");
 
-    const notificationBtn = document.getElementById("ysdViewNotificationsBtn");
+    const notificationBtn = document.getElementById("ybdViewNotificationsBtn");
 
-    const dashboardPage = document.getElementById("ysdDashboardPage");
+    const productsPage = document.getElementById("ybdProductsPage");
 
-    const addProductPage = document.getElementById("ysdAddProductPage");
+    const servicesPage = document.getElementById("ybdServicesPage");
 
-    const accountStatus = document.getElementById("ysdAccountStatus");
+    const dashboardPage = document.getElementById("ybdDashboardPage");
 
-    const accountRole = document.getElementById("ysdAccountRole");
+    const accountStatus = document.getElementById("ybdAccountStatus");
+
+    const accountRole = document.getElementById("ybdAccountRole");
 
     /*=========================================
     BOOTSTRAP TOAST
@@ -92,13 +94,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         "yoviCurrentStep",
 
-        "seller-done"
+        "buyer-done"
 
     );
 
     sessionStorage.setItem(
 
-        "yoviSellerStatus",
+        "yoviBuyerStatus",
 
         accountStatus.textContent.trim()
 
@@ -120,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         showToast(
 
-            "🎉 Congratulations! Your seller account is now live."
+            "🎉 Congratulations! Your buyer account is now ready."
 
         );
 
@@ -132,25 +134,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     donePage.classList.add(
 
-        "ysd-page-loaded"
+        "ybd-page-loaded"
 
     );
 
     /*=========================================
-    ADD FIRST PRODUCT
+    BROWSE PRODUCTS
     =========================================*/
 
-    addProductBtn.addEventListener("click", () => {
+    browseProductsBtn.addEventListener("click", () => {
 
         showLoader();
 
-        addProductBtn.disabled = true;
+        browseProductsBtn.disabled = true;
 
-        addProductBtn.innerHTML = `
+        browseProductsBtn.innerHTML = `
 
             <i class="bi bi-arrow-repeat me-2"></i>
 
-            Opening...
+            Opening Products...
 
         `;
 
@@ -158,27 +160,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
             window.location.href =
 
-                addProductPage.value;
+                productsPage.value;
 
         },800);
 
     });
 
     /*=========================================
-    VIEW DASHBOARD
+    FIND SERVICES
     =========================================*/
 
-    dashboardBtn.addEventListener("click", () => {
+    findServicesBtn.addEventListener("click", () => {
 
         showLoader();
 
-        dashboardBtn.disabled = true;
+        findServicesBtn.disabled = true;
 
-        dashboardBtn.innerHTML = `
+        findServicesBtn.innerHTML = `
 
-            <i class="bi bi-speedometer2 me-2"></i>
+            <i class="bi bi-arrow-repeat me-2"></i>
 
-            Loading Dashboard...
+            Opening Services...
 
         `;
 
@@ -186,12 +188,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             window.location.href =
 
-                dashboardPage.value;
+                servicesPage.value;
 
         },800);
 
     });
-    
+
     /*=========================================
     BACK TO HOME
     =========================================*/
@@ -202,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
 
-            window.location.href = "index.html";
+            window.location.href = "../../navigation/home.html";
 
         }, 700);
 
@@ -248,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const piece = document.createElement("div");
 
-            piece.className = `ysd-confetti ${
+            piece.className = `ybd-confetti ${
 
                 colors[Math.floor(Math.random() * colors.length)]
 
@@ -319,7 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sessionStorage.setItem(
 
-        "yoviSellerSetupCompleted",
+        "yoviBuyerSetupCompleted",
 
         "true"
 
@@ -327,7 +329,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sessionStorage.setItem(
 
-        "yoviSellerDashboardReady",
+        "yoviBuyerDashboardReady",
 
         "true"
 
@@ -339,7 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.info(
 
-        "Seller setup completed successfully."
+        "Buyer setup completed successfully."
 
     );
 
@@ -347,11 +349,11 @@ document.addEventListener("DOMContentLoaded", () => {
     RESTORE SESSION
     =========================================*/
 
-    function restoreSellerSession() {
+    function restoreBuyerSession() {
 
-        const sellerStatus = sessionStorage.getItem(
+        const buyerStatus = sessionStorage.getItem(
 
-            "yoviSellerStatus"
+            "yoviBuyerStatus"
 
         );
 
@@ -363,19 +365,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const dashboardReady = sessionStorage.getItem(
 
-            "yoviSellerDashboardReady"
+            "yoviBuyerDashboardReady"
 
         );
 
-        console.info("Seller Status:", sellerStatus);
+        console.info(
 
-        console.info("Current Step:", currentStep);
+            "Buyer Status:",
 
-        console.info("Dashboard Ready:", dashboardReady);
+            buyerStatus
+
+        );
+
+        console.info(
+
+            "Current Step:",
+
+            currentStep
+
+        );
+
+        console.info(
+
+            "Dashboard Ready:",
+
+            dashboardReady
+
+        );
 
     }
 
-    restoreSellerSession();
+    restoreBuyerSession();
 
     /*=========================================
     MARK ONBOARDING COMPLETE
@@ -393,7 +413,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         "yoviLastCompletedPage",
 
-        "seller-done"
+        "buyer-done"
 
     );
 
@@ -434,14 +454,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /*=========================================
-    BUTTON HOVER ANIMATION
+    BUTTON HOVER EFFECT
     =========================================*/
 
     [
 
-        addProductBtn,
+        browseProductsBtn,
 
-        dashboardBtn
+        findServicesBtn
 
     ].forEach(button => {
 
@@ -469,17 +489,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (event.key === "Enter") {
 
-            dashboardBtn.click();
+            browseProductsBtn.click();
 
         }
 
         if (
 
-            event.key.toLowerCase() === "a"
+            event.key.toLowerCase() === "s"
 
         ) {
 
-            addProductBtn.click();
+            findServicesBtn.click();
 
         }
 
@@ -499,7 +519,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 console.info(
 
-                    "Welcome back."
+                    "Buyer returned to page."
 
                 );
 
@@ -519,15 +539,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
             "Analytics Event:",
 
-            "Seller Completed"
+            "Buyer Completed"
 
         );
 
         /*
         Example:
 
-        gtag('event','seller_completed',{
-            role:'seller'
+        gtag('event','buyer_completed',{
+
+            role:'buyer'
+
         });
 
         */
@@ -557,10 +579,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /*=========================================
-    OVERRIDE PRIMARY NAVIGATION
+    OVERRIDE PRIMARY BUTTONS
     =========================================*/
 
-    addProductBtn.addEventListener("click", function (event) {
+    browseProductsBtn.addEventListener("click", function (event) {
 
         event.stopImmediatePropagation();
 
@@ -576,15 +598,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
 
-            window.location.href = "";
-            
-            addProductPage.value;
+            window.location.href = productsPage.value;
 
         }, 900);
 
     });
 
-    dashboardBtn.addEventListener("click", function (event) {
+    findServicesBtn.addEventListener("click", function (event) {
 
         event.stopImmediatePropagation();
 
@@ -592,17 +612,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         this.innerHTML = `
 
-            <i class="bi bi-speedometer2 me-2"></i>
+            <i class="bi bi-arrow-repeat me-2"></i>
 
-            Opening Dashboard...
+            Redirecting...
 
         `;
 
         setTimeout(() => {
 
-            window.location.href = "seller/seller-dashboard.html"; 
-            
-            dashboardPage.value;
+            window.location.href = servicesPage.value;
 
         }, 900);
 
@@ -614,7 +632,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("load", () => {
 
-        dashboardBtn.focus();
+        browseProductsBtn.focus();
 
     });
 
@@ -622,7 +640,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ESC KEY SUPPORT
     =========================================*/
 
-    document.addEventListener("keydown", function (event) {
+    document.addEventListener("keydown", event => {
 
         if (event.key === "Escape") {
 
@@ -666,7 +684,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             console.info(
 
-                "Seller Done loaded in",
+                "Buyer Done loaded in",
 
                 Math.round(performance.now()),
 
@@ -679,30 +697,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /*=========================================
-    PREFETCH DASHBOARD
+    PREFETCH COMMON PAGES
     =========================================*/
 
-    fetch(dashboardPage.value, {
+    fetch(productsPage.value, {
 
         method: "GET",
 
         cache: "force-cache"
 
-    }).catch(() => {
+    }).catch(() => {});
 
-        /* Ignore prefetch errors */
+    fetch(servicesPage.value, {
 
-    });
+        method: "GET",
+
+        cache: "force-cache"
+
+    }).catch(() => {});
 
     /*=========================================
     FINALIZE SESSION
     =========================================*/
 
-    function finalizeSellerOnboarding() {
+    function finalizeBuyerOnboarding() {
 
         sessionStorage.setItem(
 
-            "yoviSellerSetupFinished",
+            "yoviBuyerSetupFinished",
 
             "true"
 
@@ -716,7 +738,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    finalizeSellerOnboarding();
+    finalizeBuyerOnboarding();
 
     /*=========================================
     DEVELOPMENT LOG
@@ -724,7 +746,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.info(
 
-        "Seller Done UX initialized."
+        "Buyer Done UX initialized."
 
     );
 
@@ -738,7 +760,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             completed: true,
 
-            role: "seller",
+            role: "buyer",
 
             completedAt: new Date().toISOString(),
 
@@ -748,7 +770,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         localStorage.setItem(
 
-            "yoviSellerCompletion",
+            "yoviBuyerCompletion",
 
             JSON.stringify(completionData)
 
@@ -759,7 +781,7 @@ document.addEventListener("DOMContentLoaded", () => {
     saveCompletionRecord();
 
     /*=========================================
-    AUTO SAVE USER SESSION
+    AUTO SAVE LAST ACTIVITY
     =========================================*/
 
     function updateLastActivity() {
@@ -793,7 +815,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     /*=========================================
-    BEFORE UNLOAD
+    REMEMBER LAST PAGE
     =========================================*/
 
     window.addEventListener("beforeunload", () => {
@@ -802,7 +824,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             "yoviLastVisitedPage",
 
-            "seller-done"
+            "buyer-done"
 
         );
 
@@ -816,9 +838,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const temporaryKeys = [
 
-            "yoviSellerProfile",
+            "yoviBuyerProfile",
 
-            "yoviSellerSetup",
+            "yoviBuyerSetup",
 
             "yoviCurrentStep"
 
@@ -835,16 +857,16 @@ document.addEventListener("DOMContentLoaded", () => {
     clearTemporaryData();
 
     /*=========================================
-    VERIFY DASHBOARD ACCESS
+    VERIFY BUYER ACCESS
     =========================================*/
 
-    function dashboardAccessible() {
+    function buyerAccessReady() {
 
         return (
 
             sessionStorage.getItem(
 
-                "yoviSellerDashboardReady"
+                "yoviBuyerDashboardReady"
 
             ) === "true"
 
@@ -854,9 +876,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.info(
 
-        "Dashboard Access:",
+        "Buyer Access:",
 
-        dashboardAccessible()
+        buyerAccessReady()
 
     );
 
@@ -876,17 +898,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.info(
 
-            `Time spent on Seller Done page: ${duration}s`
+            `Time spent on Buyer Done page: ${duration}s`
 
         );
 
     });
 
     /*=========================================
-    DEVELOPMENT HELPERS
+    GLOBAL DEBUG HELPERS
     =========================================*/
 
-    window.yoviSellerDone = {
+    window.yoviBuyerDone = {
 
         showToast,
 
@@ -894,19 +916,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         hideLoader,
 
-        dashboardAccessible,
+        buyerAccessReady,
 
         saveCompletionRecord
 
     };
 
     /*=========================================
-    INITIALIZATION COMPLETE
+    INITIALIZATION SUMMARY
     =========================================*/
 
     console.group(
 
-        "YOVI - Seller Done"
+        "YOVI - Buyer Done"
 
     );
 
@@ -922,7 +944,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
         "Status:",
 
-        sessionStorage.getItem("yoviSellerStatus")
+        sessionStorage.getItem("yoviBuyerStatus")
+
+    );
+
+    console.log(
+
+        "Products Page:",
+
+        productsPage.value
+
+    );
+
+    console.log(
+
+        "Services Page:",
+
+        servicesPage.value
 
     );
 
@@ -934,19 +972,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     );
 
-    console.log(
-
-        "Add Product:",
-
-        addProductPage.value
-
-    );
-
     console.groupEnd();
 
     console.info(
 
-        "✔ Seller Done page initialized successfully."
+        "✔ Buyer Done page initialized successfully."
 
     );
 

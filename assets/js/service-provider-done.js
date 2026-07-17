@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
 
-            window.location.href = "notifications.html";
+            window.location.href = "../../navigation/notification.html";
 
         }, 700);
 
@@ -599,9 +599,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
 
-            window.location.href = "";
-            
-            nextPage.value;
+            window.location.href = "../../provider/provider-dashboard.html";
 
         }, 900);
 

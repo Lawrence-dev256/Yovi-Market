@@ -1,8 +1,5 @@
 /*==================================================
-ACCOUNT TYPE PAGE (3A)
-Initialization • Card Selection • Continue Button
-Unique Prefix: yat-
-Append to global.js
+ACCOUNT TYPE PAGE 
 ==================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -224,20 +221,6 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
             setTimeout(() => {
-
-                /*
-                =====================================
-
-                NEXT PAGE
-
-                Linked from verify-phone.html
-
-                Goes to:
-
-                auth/profile-setup.html
-
-                =====================================
-                */
 
                 window.location.href = "profile-setup.html";
 

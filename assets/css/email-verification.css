@@ -1,0 +1,225 @@
+/* YOVI — Reset Link Sent  |  style.css */
+
+:root {
+  --green:         #1aab62;
+  --green-dk:      #148f50;
+  --navy:          #111827;
+  --body:          #374151;
+  --muted:         #6b7280;
+  --hint:          #9ca3af;
+  --border:        #e5e7eb;
+  --bg:            #f1f3f5;
+  --card:          #ffffff;
+  --blue-circle:   #dbeafe;
+  --blue-icon:     #3b82f6;
+  --amber-bg:      #fffbeb;
+  --amber-border:  #fde68a;
+  --amber-tip:     #d97706;
+  --font:          'Inter', system-ui, sans-serif;
+  --r-card:        16px;
+  --r-row:         12px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Page wrapper ── */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 460px;
+  padding: 40px 20px 60px;
+  gap: 0;
+}
+
+
+/* ── Heading ── */
+.main-heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.3px;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+/* ── Subtext ── */
+.main-sub {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+.email-highlight {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* ── White card ── */
+.main-card {
+  width: 100%;
+  background: var(--card);
+  border-radius: var(--r-card);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.07);
+  padding: 24px 20px 20px;
+  margin-bottom: 14px;
+}
+
+/* ── "Open your email app" title ── */
+.card-section-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+/* ── Mail app rows ── */
+.mail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 13px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-row);
+  text-decoration: none;
+  color: var(--navy);
+  background: #fff;
+  margin-bottom: 10px;
+  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+
+.mail-row:last-of-type {
+  margin-bottom: 0;
+}
+
+.mail-row:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  color: var(--navy);
+}
+
+.mail-row:active {
+  transform: scale(0.99);
+}
+
+.mail-row__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mail-app-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mail-row__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.chevron {
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+/* ── Resend line ── */
+.resend-line {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 18px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.resend-link {
+  color: var(--green);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.resend-link:hover { color: var(--green-dk); }
+
+.try-link {
+  color: var(--green);
+  font-weight: 700;
+  font-style: italic;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.try-link:hover { color: var(--green-dk); }
+
+/* ── Tip box ── */
+.tip-box {
+  width: 100%;
+  background: var(--amber-bg);
+  border: 1.2px solid var(--amber-border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 11px;
+  color: var(--body);
+  text-align: left;
+  line-height: 1.55;
+  margin-bottom: 22px;
+}
+
+.tip-label {
+  font-weight: 700;
+  color: #BB4D00;
+  margin-right: 2px;
+}
+
+/* ── Back to login ── */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.back-link:hover { color: var(--navy); }
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .page-wrapper     { padding: 32px 14px 48px; }
+  .main-heading     { font-size: 23px; }
+  .main-sub         { font-size: 13.5px; }
+  .mail-icon-circle { width: 62px; height: 62px; }
+  .main-card        { padding: 20px 14px 16px; }
+  .mail-row         { padding: 11px 12px; }
+  .mail-row__label  { font-size: 13.5px; }
+}
+
+@media (max-width: 360px) {
+  .main-heading     { font-size: 20px; }
+  .mail-row__label  { font-size: 13px; }
+  .tip-box          { font-size: 12.5px; }
+}

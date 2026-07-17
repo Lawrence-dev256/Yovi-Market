@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Phone Verification</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/phone.css">
+</head>
+
+<body>
+
+<!-- ===========================
+        TOP NAVIGATION
+============================ -->
+
+<header class="top-navbar">
+
+    <div class="container-fluid">
+
+        <div class="nav-wrapper">
+
+            <!-- Brand -->
+            <div class="brand-area">
+
+                <a href="#" class="brand-logo">
+
+                    <!-- Replace with your logo -->
+                    <div class="brand-placeholder">
+                        <img src="/Images/brand_logo.png" alt="">
+                    </div>
+
+                </a>
+
+            </div>
+
+            <!-- Navigation -->
+            <nav class="main-nav">
+
+                <ul>
+
+                    <li><a href="#" class="active">Home</a></li>
+
+                    <li><a href="#">Products</a></li>
+
+                    <li><a href="#">Services</a></li>
+
+                    <li><a href="#">Orders</a></li>
+
+                    <li><a href="#">Bookings</a></li>
+
+                    <li><a href="#">Messages</a></li>
+
+                </ul>
+
+            </nav>
+
+            <!-- Right -->
+            <div class="nav-right">
+
+                <button class="icon-btn">
+                    <i class="bi bi-cart3"></i>
+                </button>
+
+                <button class="icon-btn notification">
+
+                    <i class="bi bi-bell"></i>
+
+                    <span class="dot"></span>
+
+                </button>
+
+                <div class="profile">
+
+                    <!-- Replace later -->
+                    <img src="/Images/N_Chidi.png" alt="Profile">
+
+                    <span>Chidi</span>
+
+                    <i class="bi bi-chevron-down"></i>
+
+                </div>
+
+            </div>
+
+            <!-- Mobile Menu -->
+            <button class="mobile-toggle">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ===========================
+      MOBILE NAVIGATION
+============================ -->
+
+<div class="mobile-menu">
+
+    <a href="#">Home</a>
+
+    <a href="#">Products</a>
+
+    <a href="#">Services</a>
+
+    <a href="#">Orders</a>
+
+    <a href="#">Bookings</a>
+
+    <a href="#">Messages</a>
+
+</div>
+
+<!-- ===========================
+        PAGE CONTENT
+============================ -->
+
+<section class="verification-page">
+
+    <div class="container">
+
+        <!-- Back -->
+        <div class="back-link">
+
+            <a href="../seller/seller-dashboard.html">
+
+                <i class="bi bi-chevron-left"></i>
+
+                Seller Dashboard
+
+            </a>
+
+        </div>
+
+        <!-- Header -->
+        <div class="page-title">
+
+            <div class="icon-box">
+
+                <i class="bi bi-shield-check"></i>
+
+            </div>
+
+            <h1>Seller Verification</h1>
+
+            <p>
+                Complete verification to earn your Verified Seller badge
+            </p>
+
+        </div>
+
+        <!-- Progress -->
+
+        <div class="progress-wrapper">
+
+            <!-- Step 1 -->
+            <div class="step completed">
+
+                <div class="circle">
+
+                    <i class="bi bi-check-lg"></i>
+
+                </div>
+
+                <span>NIN Verify</span>
+
+            </div>
+
+            <div class="line active"></div>
+
+            <!-- Step 2 -->
+
+            <div class="step active">
+
+                <div class="circle">
+
+                    2
+
+                </div>
+
+                <span>Phone</span>
+
+            </div>
+
+            <div class="line"></div>
+
+            <!-- Step 3 -->
+
+            <div class="step">
+
+                <div class="circle">
+
+                    3
+
+                </div>
+
+                <span>Business</span>
+
+            </div>
+
+            <div class="line"></div>
+
+            <!-- Step 4 -->
+
+            <div class="step">
+
+                <div class="circle">
+
+                    4
+
+                </div>
+
+                <span>Complete</span>
+
+            </div>
+
+        </div>
+
+        <!-- Verification Card -->
+
+        <div class="verification-card">
+
+            <h2>Phone Verification</h2>
+
+            <p class="description">
+
+                Verify your phone number to receive booking alerts and payment notifications.
+
+            </p>
+
+            <!-- Phone -->
+
+            <div class="mb-4">
+
+                <label class="form-label">
+
+                    Phone number
+
+                </label>
+
+                <div class="phone-input">
+
+                    <div class="country-code">
+
+                        🇳🇬 +234
+
+                    </div>
+
+                    <input
+                        type="text"
+                        value="" 
+                        class="form-control"
+                        placeholder="Enter your number"
+                    >
+
+                </div>
+
+            </div>
+
+            <!-- OTP Button -->
+
+            <button class="otp-btn">
+
+                Send OTP Code
+
+            </button>
+
+            <!-- OTP -->
+
+            <div class="otp-section">
+
+                <label>
+
+                    Enter OTP
+
+                </label>
+
+                <div class="otp-inputs">
+
+                    <input type="text" maxlength="1">
+
+                    <input type="text" maxlength="1">
+
+                    <input type="text" maxlength="1">
+
+                    <input type="text" maxlength="1">
+
+                    <input type="text" maxlength="1">
+
+                    <input type="text" maxlength="1">
+
+                </div>
+
+            </div>
+
+            <!-- Buttons -->
+
+            <div class="button-group">
+
+                <button class="back-btn">
+
+                    <i class="bi bi-chevron-left"></i>
+
+                    Back
+
+                </button>
+
+                <button class="verify-btn">
+
+                    Verify Phone
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Bootstrap -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+
+<script src="../assets/js/seller-phone.js"></script>
+
+</body>
+</html>
