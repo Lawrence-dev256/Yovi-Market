@@ -5855,10 +5855,7 @@ FINAL POLISH
 
 
 /*==================================================
-ACCOUNT TYPE PAGE (2A)
-Layout • Background • Logo • Progress Indicator
-Unique Prefix: yat-
-Append to global.css
+ACCOUNT TYPE PAGE 
 ==================================================*/
 
 /*=========================================
@@ -5927,11 +5924,7 @@ LOGO
 
     height:52px;
 
-    border:2px dashed #D1D5DB;
-
     border-radius:12px;
-
-    background:#FFFFFF;
 
     display:flex;
 

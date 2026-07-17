@@ -1,8 +1,7 @@
-/**
- * =====================================
- * Seller Verification Script
- * =====================================
- */
+
+ /* =====================================
+  Seller Verification Script
+  =====================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
     initFileUpload();
