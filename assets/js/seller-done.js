@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
 
-            window.location.href =
+            window.location.href = "";
 
                 addProductPage.value;
 
@@ -184,9 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
 
-            window.location.href =
-
-                dashboardPage.value;
+            window.location.href = "/seller/seller-dashboard.html";
 
         },800);
 
@@ -218,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
 
-            window.location.href = "notifications.html";
+            window.location.href = "../../notifications/notifications.html";
 
         }, 700);
 
