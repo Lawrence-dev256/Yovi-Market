@@ -107,6 +107,8 @@ function initFormValidation() {
 
             showToast("Verification submitted successfully!");
 
+            window.location.href= "../../verifications/seller-submitted.html";
+
         }, 2000);
 
     });
