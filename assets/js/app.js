@@ -759,12 +759,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /*======================================
-END OF YOVI HOMEPAGE 
+END OF  HOMEPAGE 
 ======================================*/
 
 
 /*=========================================================
-  YOVI SELLER DASHBOARD
+  SELLER DASHBOARD
 =========================================================*/
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -1697,7 +1697,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-       /*=====================================================
+    /*=====================================================
     SAVE DASHBOARD STATE
     =====================================================*/
 
@@ -1964,6 +1964,368 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 });
+
+/*=========================================================
+MY PRODUCTS PAGE
+SCRIPT.JS — PART 3A
+Prefix: ymspp-
+=========================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    "use strict";
+
+    /*=====================================================
+    PAGE CHECK
+    =====================================================*/
+
+    const ymsppPage = document.getElementById(
+        "ymsppPage"
+    );
+
+    if (!ymsppPage) return;
+
+    /*=====================================================
+    ELEMENTS
+    =====================================================*/
+
+    const ymsppBrand =
+        document.getElementById("ymsppBrand");
+
+    const ymsppBackDashboard =
+        document.getElementById("ymsppBackDashboard");
+
+    const ymsppCartButton =
+        document.getElementById("ymsppCartButton");
+
+    const ymsppNotificationButton =
+        document.getElementById("ymsppNotificationButton");
+
+    const ymsppProfileLink =
+        document.getElementById("ymsppProfileLink");
+
+    const ymsppAddProductBtn =
+        document.getElementById("ymsppAddProductBtn");
+
+    const ymsppProductCards =
+        document.querySelectorAll(".ymspp-product-card");
+
+    const ymsppEditButtons =
+        document.querySelectorAll(".ymspp-edit-btn");
+
+    /*=====================================================
+    PAGE ANIMATION
+    =====================================================*/
+
+    if (typeof AOS !== "undefined") {
+
+        AOS.refresh();
+
+    }
+
+    /*=====================================================
+    BRAND
+    =====================================================*/
+
+    if (ymsppBrand) {
+
+        ymsppBrand.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            window.location.href = "../index.html";
+
+        });
+
+    }
+
+    /*=====================================================
+    DASHBOARD
+    =====================================================*/
+
+    if (ymsppBackDashboard) {
+
+        ymsppBackDashboard.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            window.location.href = "seller-dashboard.html";
+
+        });
+
+    }
+
+    /*=====================================================
+    CART
+    =====================================================*/
+
+    if (ymsppCartButton) {
+
+        ymsppCartButton.addEventListener("click", function () {
+
+            window.location.href = "shopping-cart.html";
+
+        });
+
+    }
+
+    /*=====================================================
+    NOTIFICATIONS
+    =====================================================*/
+
+    if (ymsppNotificationButton) {
+
+        ymsppNotificationButton.addEventListener("click", function () {
+
+            window.location.href = "notifications.html";
+
+        });
+
+    }
+
+    /*=====================================================
+    PROFILE
+    =====================================================*/
+
+    if (ymsppProfileLink) {
+
+        ymsppProfileLink.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            window.location.href = "seller-profile.html";
+
+        });
+
+    }
+
+    /*=====================================================
+    ADD NEW PRODUCT
+    =====================================================*/
+
+    if (ymsppAddProductBtn) {
+
+        ymsppAddProductBtn.addEventListener("click", function () {
+
+            window.location.href = "add-product.html";
+
+        });
+
+    }
+
+    /*=====================================================
+    PRODUCT CARD CLICK
+    =====================================================*/
+
+    ymsppProductCards.forEach(function (card) {
+
+        card.style.cursor = "pointer";
+
+        card.addEventListener("click", function (event) {
+
+            if (event.target.closest(".ymspp-edit-btn")) {
+
+                return;
+
+            }
+
+            window.location.href = "product-details.html";
+
+        });
+
+    });
+
+    /*=====================================================
+    EDIT PRODUCT
+    =====================================================*/
+
+    ymsppEditButtons.forEach(function (button) {
+
+        button.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+            /*---------------------------------------------
+            Store selected product (optional)
+            ---------------------------------------------*/
+
+            const ymsppCard =
+                this.closest(".ymspp-product-card");
+
+            if (ymsppCard) {
+
+                const ymsppProductTitle =
+                    ymsppCard.querySelector(
+                        ".ymspp-product-title"
+                    )?.textContent.trim();
+
+                sessionStorage.setItem(
+
+                    "ymsppSelectedProduct",
+
+                    ymsppProductTitle || ""
+
+                );
+
+            }
+
+            /*---------------------------------------------
+            Redirect
+            ---------------------------------------------*/
+
+            window.location.href =
+                "edit-product.html";
+
+        });
+
+    });
+
+    /*=====================================================
+    PRODUCT HOVER EFFECTS
+    =====================================================*/
+
+    ymsppProductCards.forEach(function (card) {
+
+        card.addEventListener("mouseenter", function () {
+
+            this.classList.add("ymspp-card-hover");
+
+        });
+
+        card.addEventListener("mouseleave", function () {
+
+            this.classList.remove("ymspp-card-hover");
+
+        });
+
+    });
+
+    /*=====================================================
+    KEYBOARD ACCESSIBILITY
+    =====================================================*/
+
+    ymsppProductCards.forEach(function (card) {
+
+        card.setAttribute("tabindex", "0");
+
+        card.addEventListener("keydown", function (event) {
+
+            if (
+
+                event.key === "Enter" ||
+
+                event.key === " "
+
+            ) {
+
+                event.preventDefault();
+
+                window.location.href =
+                    "product-details.html";
+
+            }
+
+        });
+
+    });
+
+    /*=====================================================
+    BUTTON RIPPLE EFFECT
+    =====================================================*/
+
+    const ymsppButtons = document.querySelectorAll(
+
+        ".ymspp-add-product-btn, .ymspp-edit-btn, .ymspp-icon-btn"
+
+    );
+
+    ymsppButtons.forEach(function(button){
+
+        button.addEventListener("click", function(event){
+
+            const ripple = document.createElement("span");
+
+            ripple.className = "ymspp-ripple";
+
+            const rect = this.getBoundingClientRect();
+
+            const size = Math.max(
+
+                rect.width,
+
+                rect.height
+
+            );
+
+            ripple.style.width = size + "px";
+
+            ripple.style.height = size + "px";
+
+            ripple.style.left =
+
+                (event.clientX - rect.left - size / 2) + "px";
+
+            ripple.style.top =
+
+                (event.clientY - rect.top - size / 2) + "px";
+
+            this.appendChild(ripple);
+
+            setTimeout(function(){
+
+                ripple.remove();
+
+            },600);
+
+        });
+
+    });
+
+    /*=====================================================
+    IMAGE LOADING ANIMATION
+    =====================================================*/
+
+    const ymsppImages = document.querySelectorAll(
+
+        ".ymspp-product-image"
+
+    );
+
+    ymsppImages.forEach(function(image){
+
+        image.addEventListener("load", function(){
+
+            this.classList.add(
+
+                "ymspp-image-loaded"
+
+            );
+
+        });
+
+    });
+
+    /*=====================================================
+    PAGE LOADED
+    =====================================================*/
+
+    document.body.classList.add(
+
+        "ymspp-page-ready"
+
+    );
+
+    console.log(
+
+        "YMSPP My Products page initialized successfully."
+
+    );
+
+});
+
+
 
 
 /*=========================================================
@@ -5232,6 +5594,544 @@ const yswSidebarLinks = {
 /*=========================================================
 END OF SELLER WALLET JAVASCRIPT
 =========================================================*/
+
+/*==========================================================
+SELLER SIDEBAR ORDERS
+SCRIPT.JS — PART 1
+Prefix: ssor-
+Safe for Global script.js
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    "use strict";
+
+    /*======================================================
+    PAGE CHECK
+    Prevent conflicts with other pages
+    ======================================================*/
+
+    const ssorPage = document.getElementById("ssor-page");
+
+    if (!ssorPage) return;
+
+    /*======================================================
+    HELPERS
+    ======================================================*/
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const $$ = (selector) => document.querySelectorAll(selector);
+
+    /*======================================================
+    REVEAL ANIMATION
+    ======================================================*/
+
+    const ssorCards = $$(".ssor-order-card");
+
+    if ("IntersectionObserver" in window && ssorCards.length) {
+
+        const ssorObserver = new IntersectionObserver((entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("ssor-show");
+
+                    entry.target.classList.remove("ssor-hidden");
+
+                    ssorObserver.unobserve(entry.target);
+
+                }
+
+            });
+
+        }, {
+
+            threshold:0.15
+
+        });
+
+        ssorCards.forEach((card)=>{
+
+            card.classList.add("ssor-hidden");
+
+            ssorObserver.observe(card);
+
+        });
+
+    }
+
+    /*======================================================
+    IMAGE HOVER
+    ======================================================*/
+
+    const ssorImages = $$(".ssor-order-image img");
+
+    if(ssorImages.length){
+
+        ssorImages.forEach((image)=>{
+
+            image.addEventListener("mouseenter",()=>{
+
+                image.style.transform="scale(1.08)";
+
+            });
+
+            image.addEventListener("mouseleave",()=>{
+
+                image.style.transform="scale(1)";
+
+            });
+
+        });
+
+    }
+
+    /*======================================================
+    CARD HOVER EFFECT
+    ======================================================*/
+
+    if(ssorCards.length){
+
+        ssorCards.forEach((card)=>{
+
+            card.addEventListener("mouseenter",()=>{
+
+                card.style.transform="translateY(-5px)";
+
+            });
+
+            card.addEventListener("mouseleave",()=>{
+
+                card.style.transform="translateY(0)";
+
+            });
+
+        });
+
+    }
+
+    /*======================================================
+    RIPPLE EFFECT
+    ======================================================*/
+
+    const ssorButtons = $$(".ssor-btn,.ssor-icon-btn");
+
+    if(ssorButtons.length){
+
+        ssorButtons.forEach((button)=>{
+
+            button.style.position="relative";
+
+            button.style.overflow="hidden";
+
+            button.addEventListener("click",(event)=>{
+
+                const ripple=document.createElement("span");
+
+                ripple.className="ssor-ripple";
+
+                const rect=button.getBoundingClientRect();
+
+                const size=Math.max(rect.width,rect.height);
+
+                ripple.style.width=size+"px";
+
+                ripple.style.height=size+"px";
+
+                ripple.style.left=(event.clientX-rect.left-size/2)+"px";
+
+                ripple.style.top=(event.clientY-rect.top-size/2)+"px";
+
+                button.appendChild(ripple);
+
+                ripple.addEventListener("animationend",()=>{
+
+                    ripple.remove();
+
+                });
+
+            });
+
+        });
+
+    }
+
+    /*======================================================
+    NAVIGATION LINKS
+    ======================================================*/
+
+    const ssorLinks = $$(".ssor-nav-link");
+
+    if(ssorLinks.length){
+
+        const currentPage=window.location.pathname
+            .split("/")
+            .pop()
+            .toLowerCase();
+
+        ssorLinks.forEach((link)=>{
+
+            const href=link.getAttribute("href");
+
+            if(!href) return;
+
+            if(href.toLowerCase()===currentPage){
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    }
+
+    /*======================================================
+    BREADCRUMB
+    ======================================================*/
+
+    const ssorBackBtn=$(".ssor-breadcrumb a");
+
+    if(ssorBackBtn){
+
+        ssorBackBtn.addEventListener("click",(event)=>{
+
+            event.preventDefault();
+
+            window.location.href="seller-dashboard.html";
+
+        });
+
+    }
+
+    /*======================================================
+    USER PROFILE
+    ======================================================*/
+
+    const ssorUser=$(".ssor-user-box");
+
+    if(ssorUser){
+
+        ssorUser.addEventListener("click",(event)=>{
+
+            event.preventDefault();
+
+            window.location.href="seller-profile.html";
+
+        });
+
+    }
+
+    /*======================================================
+    CART
+    ======================================================*/
+
+    const ssorCart=$("#ssorCart");
+
+    if(ssorCart){
+
+        ssorCart.addEventListener("click",(event)=>{
+
+            event.preventDefault();
+
+            window.location.href="cart.html";
+
+        });
+
+    }
+
+    /*======================================================
+    NOTIFICATIONS
+    ======================================================*/
+
+    const ssorNotification=$("#ssorNotification");
+
+    if(ssorNotification){
+
+        ssorNotification.addEventListener("click",(event)=>{
+
+            event.preventDefault();
+
+            window.location.href="notifications.html";
+
+        });
+
+    }
+
+    /*======================================================
+    ORDER CARD CLICK
+    ======================================================*/
+
+    if(ssorCards.length){
+
+        ssorCards.forEach((card)=>{
+
+            card.style.cursor="pointer";
+
+            card.addEventListener("click",()=>{
+
+                window.location.href="seller-order-details.html";
+
+            });
+
+        });
+
+    }
+
+    /*======================================================
+    KEYBOARD ACCESSIBILITY
+    ======================================================*/
+
+    document.addEventListener("keyup", (event) => {
+
+        if (event.key === "Escape") {
+
+            document.activeElement.blur();
+
+        }
+
+    });
+
+    /*======================================================
+    STATUS BADGE HOVER
+    ======================================================*/
+
+    const ssorStatusBadges = $$(".ssor-status");
+
+    if (ssorStatusBadges.length) {
+
+        ssorStatusBadges.forEach((badge) => {
+
+            badge.addEventListener("mouseenter", () => {
+
+                badge.style.transform = "scale(1.05)";
+
+            });
+
+            badge.addEventListener("mouseleave", () => {
+
+                badge.style.transform = "scale(1)";
+
+            });
+
+        });
+
+    }
+
+    /*======================================================
+    PAGE TRANSITION
+    ======================================================*/
+
+    document.querySelectorAll("a[href]").forEach((link) => {
+
+        const href = link.getAttribute("href");
+
+        if (!href) return;
+
+        if (
+            href.startsWith("#") ||
+            href.startsWith("javascript:")
+        ) return;
+
+        link.addEventListener("click", () => {
+
+            document.body.classList.add("ssor-page-leaving");
+
+        });
+
+    });
+
+    /*======================================================
+    PAGE LOADED
+    ======================================================*/
+
+    window.addEventListener("load", () => {
+
+        document.body.classList.add("ssor-page-loaded");
+
+    });
+
+    /*======================================================
+    WINDOW RESIZE
+    ======================================================*/
+
+    window.addEventListener("resize", () => {
+
+        if (window.innerWidth < 768) {
+
+            ssorCards.forEach((card) => {
+
+                card.style.transition = ".3s ease";
+
+            });
+
+        }
+
+    });
+
+    /*======================================================
+    SCROLL ANIMATION
+    ======================================================*/
+
+    let ssorScrollTick = false;
+
+    window.addEventListener("scroll", () => {
+
+        if (ssorScrollTick) return;
+
+        window.requestAnimationFrame(() => {
+
+            const scrollTop = window.scrollY;
+
+            if (scrollTop > 20) {
+
+                const header = $(".ssor-header");
+
+                if (header) {
+
+                    header.style.boxShadow = "0 8px 20px rgba(16,24,40,.08)";
+
+                }
+
+            } else {
+
+                const header = $(".ssor-header");
+
+                if (header) {
+
+                    header.style.boxShadow = "";
+
+                }
+
+            }
+
+            ssorScrollTick = false;
+
+        });
+
+        ssorScrollTick = true;
+
+    });
+
+    /*======================================================
+    IMAGE FALLBACK
+    ======================================================*/
+
+    ssorImages.forEach((image) => {
+
+        image.addEventListener("error", function () {
+
+            this.src = "assets/images/product-placeholder.jpg";
+
+        });
+
+    });
+
+    /*======================================================
+    ORDER COUNTER
+    ======================================================*/
+
+    const ssorTitle = $(".ssor-page-title");
+
+    if (ssorTitle && ssorCards.length) {
+
+        ssorTitle.setAttribute(
+
+            "data-orders",
+
+            ssorCards.length
+
+        );
+
+    }
+
+    /*======================================================
+    OPTIONAL SEARCH SUPPORT
+    ======================================================*/
+
+    const ssorSearch = document.getElementById("ssorSearch");
+
+    if (ssorSearch) {
+
+        ssorSearch.addEventListener("keyup", function () {
+
+            const value = this.value.toLowerCase();
+
+            ssorCards.forEach((card) => {
+
+                const text = card.textContent.toLowerCase();
+
+                card.style.display =
+
+                    text.includes(value)
+
+                        ? ""
+
+                        : "none";
+
+            });
+
+        });
+
+    }
+
+    /*======================================================
+    OPTIONAL FILTER SUPPORT
+    ======================================================*/
+
+    const ssorFilter = document.getElementById("ssorFilter");
+
+    if (ssorFilter) {
+
+        ssorFilter.addEventListener("change", function () {
+
+            const value = this.value.toLowerCase();
+
+            ssorCards.forEach((card) => {
+
+                if (value === "all") {
+
+                    card.style.display = "";
+
+                    return;
+
+                }
+
+                const status = card
+                    .querySelector(".ssor-status")
+                    ?.textContent
+                    .trim()
+                    .toLowerCase();
+
+                card.style.display =
+
+                    status === value
+
+                        ? ""
+
+                        : "none";
+
+            });
+
+        });
+
+    }
+
+    /*======================================================
+    CONSOLE MESSAGE
+    ======================================================*/
+
+    console.log(
+
+        "%cSeller Sidebar Orders Loaded Successfully",
+
+        "color:#18c37e;font-size:14px;font-weight:bold;"
+
+    );
+
+});
 
 /*=========================================================
 YOVI PAYMENT PLAN ANNUALLY

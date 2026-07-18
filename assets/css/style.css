@@ -2417,6 +2417,8 @@ section{
 END OF LANDING PAGE 
 ================================== */
 
+
+
 /*=========================================================
 YOVI REGISTER PAGE
 =========================================================*/
@@ -15248,10 +15250,6 @@ END OF SELLER DONE STYLES
   YOVI SELLER DASHBOARD
 =========================================================*/
 
-/*=========================================================
-SELLER DASHBOARD PAGE
-=========================================================*/
-
 #ysdSellerDashboardPage{
 
     background:var(--bg-color);
@@ -17380,10 +17378,1036 @@ MOBILE OPTIMIZATION
 END OF SELLER DASHBOARD
 =========================================================*/
 
+/*=========================================================
+MY PRODUCTS PAGE
+STYLE.CSS — PART 2A
+Prefix: ymspp-
+=========================================================*/
+
+/*=========================================================
+PAGE
+=========================================================*/
+
+#ymsppPage{
+
+    background:var(--body);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+
+/*=========================================================
+MAIN WRAPPER
+=========================================================*/
+
+#ymsppMainWrapper{
+
+    width:100%;
+
+    min-height:100vh;
+
+    position:relative;
+
+}
+
+/*=========================================================
+TOP NAVIGATION
+=========================================================*/
+
+#ymsppHeader{
+
+    position:sticky;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:999;
+
+    background:var(--white);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.ymspp-navbar{
+
+    height:82px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+
+}
+
+/*=========================================================
+BRAND
+=========================================================*/
+
+.ymspp-brand{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+}
+
+.ymspp-brand-placeholder{
+
+    width:155px;
+
+    height:48px;
+
+    border:2px dashed var(--border);
+
+    border-radius:var(--radius-md);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--surface);
+
+    color:var(--text-muted);
+
+    font-size:.9rem;
+
+    font-weight:700;
+
+    letter-spacing:.8px;
+
+    transition:var(--transition);
+
+}
+
+.ymspp-brand:hover .ymspp-brand-placeholder{
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+DESKTOP NAVIGATION
+=========================================================*/
+
+.ymspp-nav-list{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:32px;
+
+}
+
+.ymspp-nav-link{
+
+    position:relative;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+    transition:var(--transition);
+
+}
+
+.ymspp-nav-link:hover{
+
+    color:var(--primary);
+
+}
+
+.ymspp-nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-10px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--primary);
+
+    transition:var(--transition);
+
+}
+
+.ymspp-nav-link:hover::after{
+
+    width:100%;
+
+}
+
+/*=========================================================
+HEADER ACTIONS
+=========================================================*/
+
+.ymspp-header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+/*=========================================================
+MY PRODUCTS PAGE
+STYLE.CSS — PART 2B
+HEADER ACTIONS
+=========================================================*/
+
+/*=========================================================
+ICON BUTTONS
+=========================================================*/
+
+.ymspp-icon-btn{
+
+    position:relative;
+
+    width:46px;
+
+    height:46px;
+
+    border:1px solid var(--border);
+
+    border-radius:50%;
+
+    background:var(--surface);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--heading);
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.ymspp-icon-btn:hover{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    border-color:var(--primary);
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.ymspp-icon-btn i{
+
+    font-size:1.05rem;
+
+}
+
+/*=========================================================
+NOTIFICATION DOT
+=========================================================*/
+
+.ymspp-notification-dot{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    width:9px;
+
+    height:9px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+    border:2px solid var(--white);
+
+    animation:ymsppNotificationPulse 1.8s infinite;
+
+}
+
+@keyframes ymsppNotificationPulse{
+
+    0%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        transform:scale(1.35);
+
+        opacity:.55;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/*=========================================================
+PROFILE
+=========================================================*/
+
+.ymspp-profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:6px 14px 6px 8px;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-pill);
+
+    background:var(--surface);
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.ymspp-profile:hover{
+
+    border-color:var(--primary);
+
+    box-shadow:var(--shadow-sm);
+
+    transform:translateY(-2px);
+
+}
+
+.ymspp-avatar{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:#dfe7ef;
+
+    border:2px solid var(--white);
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+}
+
+.ymspp-user-name{
+
+    color:var(--heading);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    white-space:nowrap;
+
+}
+
+.ymspp-profile i{
+
+    color:var(--text-muted);
+
+    font-size:.8rem;
+
+    transition:var(--transition);
+
+}
+
+.ymspp-profile:hover i{
+
+    color:var(--primary);
+
+    transform:rotate(180deg);
+
+}
+
+/*=========================================================
+MY PRODUCTS PAGE
+STYLE.CSS — PART 2C
+PAGE HEADER
+Prefix: ymspp-
+=========================================================*/
+
+/*=========================================================
+PRODUCTS SECTION
+=========================================================*/
+
+#ymsppProductsSection{
+
+    padding:42px 0 70px;
+
+    background:var(--body);
+
+}
+
+/*=========================================================
+PAGE HEADER
+=========================================================*/
+
+.ymspp-page-header{
+
+    margin-bottom:42px;
+
+}
+
+.ymspp-page-heading{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+/*=========================================================
+BREADCRUMB
+=========================================================*/
+
+.ymspp-breadcrumb{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    width:fit-content;
+
+    color:var(--text-light);
+
+    font-size:.92rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.ymspp-breadcrumb:hover{
+
+    color:var(--primary);
+
+}
+
+.ymspp-breadcrumb i{
+
+    font-size:.8rem;
+
+    transition:var(--transition);
+
+}
+
+.ymspp-breadcrumb:hover i{
+
+    transform:translateX(-4px);
+
+}
+
+/*=========================================================
+PAGE TITLE
+=========================================================*/
+
+#ymsppPageTitle{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    letter-spacing:-.4px;
+
+}
+
+/*=========================================================
+ADD PRODUCT BUTTON
+=========================================================*/
+
+.ymspp-add-product-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    height:52px;
+
+    padding:0 26px;
+
+    border:none;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--secondary);
+
+    color:var(--white);
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+}
+
+.ymspp-add-product-btn:hover{
+
+    background:var(--secondary-dark);
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.ymspp-add-product-btn:active{
+
+    transform:scale(.98);
+
+}
+
+.ymspp-add-product-btn i{
+
+    font-size:.95rem;
+
+}
+
+/*=========================================================
+PRODUCT GRID
+=========================================================*/
+
+#ymsppProductsGrid{
+
+    position:relative;
+
+}
+
+/*=========================================================
+PRODUCT CARD
+=========================================================*/
+
+.ymspp-product-card{
+
+    position:relative;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow-xs);
+
+    transition:var(--transition);
+
+    height:100%;
+
+}
+
+.ymspp-product-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-lg);
+
+    border-color:rgba(24,195,126,.25);
+
+}
+
+/*=========================================================
+PRODUCT IMAGE
+=========================================================*/
+
+.ymspp-product-image-wrapper{
+
+    position:relative;
+
+    width:100%;
+
+    height:260px;
+
+    background:#f3f5f7;
+
+    overflow:hidden;
+
+}
+
+.ymspp-product-image{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform .45s ease;
+
+}
+
+.ymspp-product-card:hover .ymspp-product-image{
+
+    transform:scale(1.08);
+
+}
+
+/*=========================================================
+EDIT BUTTON
+=========================================================*/
+
+.ymspp-edit-btn{
+
+    position:absolute;
+
+    top:16px;
+
+    right:16px;
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(255,255,255,.95);
+
+    color:var(--heading);
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+}
+
+.ymspp-edit-btn:hover{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    transform:rotate(-12deg);
+
+}
+
+.ymspp-edit-btn i{
+
+    font-size:.95rem;
+
+}
+
+/*=========================================================
+CARD BODY
+=========================================================*/
+
+.ymspp-product-body{
+
+    padding:22px;
+
+}
+
+.ymspp-product-title{
+
+    color:var(--heading);
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+    line-height:1.5;
+
+    margin-bottom:18px;
+
+    min-height:52px;
+
+}
+
+/*=========================================================
+PRICE & RATING
+=========================================================*/
+
+.ymspp-price-rating{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:16px;
+
+    margin-bottom:20px;
+
+}
+
+.ymspp-product-price{
+
+    color:var(--heading);
+
+    font-size:1.45rem;
+
+    font-weight:800;
+
+    letter-spacing:-.3px;
+
+}
+
+.ymspp-rating{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+.ymspp-rating i{
+
+    color:#FDBA12;
+
+    font-size:.9rem;
+
+}
+
+.ymspp-rating small{
+
+    color:var(--text-muted);
+
+    font-size:.82rem;
+
+    font-weight:500;
+
+}
+
+/*=========================================================
+PRODUCT FOOTER
+=========================================================*/
+
+.ymspp-product-footer{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+    padding-top:18px;
+
+    border-top:1px solid var(--border-light);
+
+}
+
+.ymspp-stock-text{
+
+    font-size:.92rem;
+
+    font-weight:600;
+
+    color:var(--text-light);
+
+    line-height:1.4;
+
+}
+
+/*=========================================================
+STATUS BADGES
+=========================================================*/
+
+.ymspp-status-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:88px;
+
+    padding:7px 14px;
+
+    border-radius:var(--radius-pill);
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+    white-space:nowrap;
+
+}
+
+.ymspp-status-active{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+}
+
+.ymspp-status-low{
+
+    background:var(--secondary-light);
+
+    color:var(--secondary);
+
+}
+
+/*=========================================================
+CARD ANIMATIONS
+=========================================================*/
+
+.ymspp-product-card{
+
+    animation:ymsppFadeUp .7s ease both;
+
+}
+
+@keyframes ymsppFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.ymspp-product-card:hover .ymspp-product-title{
+
+    color:var(--primary);
+
+}
+
+.ymspp-product-card:hover .ymspp-product-price{
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+RESPONSIVE
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .ymspp-navbar{
+
+        height:auto;
+
+        padding:16px 0;
+
+        flex-wrap:wrap;
+
+        gap:20px;
+
+    }
+
+    .ymspp-header-actions{
+
+        margin-left:auto;
+
+    }
+
+    #ymsppPageTitle{
+
+        font-size:1.8rem;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    #ymsppProductsSection{
+
+        padding:30px 0 50px;
+
+    }
+
+    .ymspp-page-header{
+
+        flex-direction:column;
+
+        align-items:flex-start !important;
+
+    }
+
+    .ymspp-add-product-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .ymspp-product-image-wrapper{
+
+        height:220px;
+
+    }
+
+    .ymspp-product-body{
+
+        padding:18px;
+
+    }
+
+    .ymspp-product-price{
+
+        font-size:1.25rem;
+
+    }
+
+    .ymspp-price-rating{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:8px;
+
+    }
+
+}
+
+@media (max-width:575.98px){
+
+    .ymspp-brand-placeholder{
+
+        width:120px;
+
+        height:42px;
+
+        font-size:.8rem;
+
+    }
+
+    #ymsppPageTitle{
+
+        font-size:1.55rem;
+
+    }
+
+    .ymspp-product-title{
+
+        font-size:1rem;
+
+        min-height:auto;
+
+    }
+
+    .ymspp-product-footer{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+    .ymspp-status-badge{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+}
+
+/*============================================
+END OF SELLER PRODUCT PAGE
+=======================================*/
+
+
+
 
 /*=========================================================
 SELLER REVENUE PAGE
-PART 2A
 =========================================================*/
 
 /*=========================================================
@@ -23465,7 +24489,1652 @@ PERFORMANCE
 END OF SELLER WALLET STYLES
 =========================================================*/
 
+/*==========================================================
+SELLER SIDEBAR ORDERS
+==========================================================*/
 
+/*==========================================================
+PAGE
+==========================================================*/
+
+#ssor-page{
+
+    background:var(--body);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+
+/*==========================================================
+HEADER
+==========================================================*/
+
+.ssor-header{
+
+    position:sticky;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    background:var(--white);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+/*==========================================================
+NAVBAR
+==========================================================*/
+
+.ssor-navbar{
+
+    height:78px;
+
+    padding:0;
+
+    background:var(--white);
+
+}
+
+.ssor-navbar .container-fluid{
+
+    height:100%;
+
+}
+
+/*==========================================================
+BRAND
+==========================================================*/
+
+.ssor-brand{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.ssor-brand-logo{
+
+    width:145px;
+
+    height:44px;
+
+    border:2px dashed var(--border);
+
+    border-radius:var(--radius-md);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:#fafafa;
+
+}
+
+.ssor-brand-logo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+/*==========================================================
+NAVIGATION
+==========================================================*/
+
+.ssor-nav-link{
+
+    position:relative;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+    padding:1rem .95rem !important;
+
+    transition:var(--transition);
+
+}
+
+.ssor-nav-link:hover{
+
+    color:var(--primary);
+
+}
+
+.ssor-nav-link.active{
+
+    color:var(--primary);
+
+}
+
+.ssor-nav-link.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:0;
+
+    transform:translateX(-50%);
+
+    width:28px;
+
+    height:3px;
+
+    border-radius:999px;
+
+    background:var(--primary);
+
+}
+
+/*==========================================================
+RIGHT NAV
+==========================================================*/
+
+.ssor-nav-right{
+
+    gap:16px;
+
+}
+
+/*==========================================================
+ICON BUTTON
+==========================================================*/
+
+.ssor-icon-btn{
+
+    position:relative;
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--body);
+
+    color:var(--heading);
+
+    transition:var(--transition);
+
+}
+
+.ssor-icon-btn:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    transform:translateY(-2px);
+
+}
+
+.ssor-dot{
+
+    position:absolute;
+
+    top:8px;
+
+    right:9px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+    border:2px solid var(--white);
+
+}
+
+/*==========================================================
+USER
+==========================================================*/
+
+.ssor-user-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:6px 14px;
+
+    border-radius:var(--radius-pill);
+
+    transition:var(--transition);
+
+}
+
+.ssor-user-box:hover{
+
+    background:var(--primary-light);
+
+}
+
+.ssor-user-box img{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.ssor-user-box span{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+.ssor-user-box i{
+
+    color:var(--text-light);
+
+    font-size:.8rem;
+
+}
+
+/*==========================================================
+MAIN
+==========================================================*/
+
+.ssor-main{
+
+    padding:40px 0 70px;
+
+    animation:ssorFadeUp .7s ease;
+
+}
+
+/*==========================================================
+BREADCRUMB
+==========================================================*/
+
+.ssor-breadcrumb{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:28px;
+
+}
+
+.ssor-breadcrumb a{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    color:var(--heading);
+
+    transition:var(--transition);
+
+}
+
+.ssor-breadcrumb a:hover{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+}
+
+.ssor-breadcrumb span{
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    color:var(--text-light);
+
+}
+
+.ssor-breadcrumb span:hover{
+
+    color:var(--primary);
+
+}
+
+/*==========================================================
+TITLE
+==========================================================*/
+
+.ssor-page-title{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:34px;
+
+}
+
+/*==========================================================
+ORDERS WRAPPER
+==========================================================*/
+
+#ssor-orders-wrapper{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+}
+
+/*==========================================================
+ORDER CARD
+==========================================================*/
+
+.ssor-order-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    padding:24px 28px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-xs);
+
+    animation:ssorCardIn .6s ease;
+
+}
+
+.ssor-order-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-md);
+
+    border-color:rgba(24,195,126,.18);
+
+}
+
+/*==========================================================
+LEFT
+==========================================================*/
+
+.ssor-order-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
+
+}
+
+/*==========================================================
+IMAGE
+==========================================================*/
+
+.ssor-order-image{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:var(--radius-lg);
+
+    overflow:hidden;
+
+    background:#f4f4f4;
+
+    flex-shrink:0;
+
+}
+
+.ssor-order-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform .35s ease;
+
+}
+
+.ssor-order-card:hover .ssor-order-image img{
+
+    transform:scale(1.08);
+
+}
+
+/*==========================================================
+CONTENT
+==========================================================*/
+
+.ssor-order-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.ssor-order-content h5{
+
+    font-size:1.1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+}
+
+.ssor-order-content p{
+
+    font-size:.92rem;
+
+    color:var(--text-light);
+
+}
+
+.ssor-order-content p span{
+
+    color:var(--heading);
+
+    font-weight:600;
+
+}
+
+/*==========================================================
+ANIMATION
+==========================================================*/
+
+@keyframes ssorFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes ssorCardIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==========================================================
+SELLER SIDEBAR ORDERS
+STYLE.CSS — PART 2
+Prefix: ssor-
+Order Meta • Price • Status • Hover Effects
+==========================================================*/
+
+/*==========================================================
+ORDER META
+==========================================================*/
+
+.ssor-order-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+    margin-top:4px;
+
+}
+
+.ssor-escrow{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 14px;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:.82rem;
+
+    font-weight:600;
+
+}
+
+.ssor-escrow i{
+
+    font-size:.85rem;
+
+}
+
+.ssor-order-id{
+
+    color:var(--text-muted);
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+    letter-spacing:.03em;
+
+}
+
+/*==========================================================
+RIGHT SECTION
+==========================================================*/
+
+.ssor-order-right{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-end;
+
+    justify-content:center;
+
+    gap:14px;
+
+    min-width:170px;
+
+}
+
+.ssor-order-right h4{
+
+    font-size:1.45rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin:0;
+
+}
+
+/*==========================================================
+STATUS
+==========================================================*/
+
+.ssor-status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:120px;
+
+    height:38px;
+
+    padding:0 18px;
+
+    border-radius:var(--radius-pill);
+
+    font-size:.84rem;
+
+    font-weight:700;
+
+    letter-spacing:.02em;
+
+    transition:var(--transition);
+
+}
+
+/*==========================================================
+DELIVERED
+==========================================================*/
+
+.ssor-delivered{
+
+    background:#eafaf3;
+
+    color:var(--success);
+
+}
+
+.ssor-delivered::before{
+
+    content:"";
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--success);
+
+    margin-right:8px;
+
+}
+
+/*==========================================================
+PROCESSING
+==========================================================*/
+
+.ssor-processing{
+
+    background:#fff8e6;
+
+    color:var(--warning);
+
+}
+
+.ssor-processing::before{
+
+    content:"";
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--warning);
+
+    margin-right:8px;
+
+}
+
+/*==========================================================
+SHIPPED
+==========================================================*/
+
+.ssor-shipped{
+
+    background:#ebf3ff;
+
+    color:var(--info);
+
+}
+
+.ssor-shipped::before{
+
+    content:"";
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--info);
+
+    margin-right:8px;
+
+}
+
+/*==========================================================
+HOVER EFFECTS
+==========================================================*/
+
+.ssor-order-card:hover .ssor-status{
+
+    transform:scale(1.05);
+
+}
+
+.ssor-order-card:hover .ssor-order-right h4{
+
+    color:var(--primary);
+
+}
+
+.ssor-order-card:hover .ssor-order-id{
+
+    color:var(--heading);
+
+}
+
+.ssor-order-card:hover .ssor-escrow{
+
+    box-shadow:0 8px 18px rgba(24,195,126,.12);
+
+}
+
+/*==========================================================
+FOCUS
+==========================================================*/
+
+.ssor-order-card:focus-within{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(24,195,126,.08);
+
+}
+
+/*==========================================================
+ENTRY ANIMATION
+==========================================================*/
+
+.ssor-order-card{
+
+    opacity:0;
+
+    animation:ssorOrderReveal .6s ease forwards;
+
+}
+
+.ssor-order-card:nth-child(1){
+
+    animation-delay:.05s;
+
+}
+
+.ssor-order-card:nth-child(2){
+
+    animation-delay:.10s;
+
+}
+
+.ssor-order-card:nth-child(3){
+
+    animation-delay:.15s;
+
+}
+
+.ssor-order-card:nth-child(4){
+
+    animation-delay:.20s;
+
+}
+
+.ssor-order-card:nth-child(5){
+
+    animation-delay:.25s;
+
+}
+
+.ssor-order-card:nth-child(6){
+
+    animation-delay:.30s;
+
+}
+
+@keyframes ssorOrderReveal{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(24px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==========================================================
+LARGE DESKTOP
+==========================================================*/
+
+@media (max-width:1400px){
+
+    .ssor-main{
+
+        padding:36px 0 60px;
+
+    }
+
+    .ssor-order-card{
+
+        padding:22px;
+
+    }
+
+}
+
+/*==========================================================
+LAPTOP
+==========================================================*/
+
+@media (max-width:1200px){
+
+    .ssor-navbar{
+
+        min-height:74px;
+
+    }
+
+    .ssor-nav-link{
+
+        padding:.9rem .7rem !important;
+
+        font-size:.9rem;
+
+    }
+
+    .ssor-order-image{
+
+        width:80px;
+
+        height:80px;
+
+    }
+
+    .ssor-order-content h5{
+
+        font-size:1rem;
+
+    }
+
+    .ssor-order-right{
+
+        min-width:145px;
+
+    }
+
+    .ssor-order-right h4{
+
+        font-size:1.25rem;
+
+    }
+
+}
+
+/*==========================================================
+TABLET
+==========================================================*/
+
+@media (max-width:991.98px){
+
+    .ssor-navbar{
+
+        padding:12px 0;
+
+        height:auto;
+
+    }
+
+    .ssor-nav-right{
+
+        margin-top:18px;
+
+        justify-content:center;
+
+        width:100%;
+
+    }
+
+    .ssor-page-title{
+
+        font-size:1.7rem;
+
+    }
+
+    .ssor-order-card{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:22px;
+
+    }
+
+    .ssor-order-right{
+
+        width:100%;
+
+        flex-direction:row;
+
+        justify-content:space-between;
+
+        align-items:center;
+
+    }
+
+    .ssor-order-meta{
+
+        gap:12px;
+
+    }
+
+}
+
+/*==========================================================
+MOBILE
+==========================================================*/
+
+@media (max-width:767.98px){
+
+    .ssor-main{
+
+        padding:30px 0 50px;
+
+    }
+
+    .ssor-page-title{
+
+        font-size:1.5rem;
+
+        margin-bottom:26px;
+
+    }
+
+    .ssor-order-card{
+
+        padding:20px;
+
+    }
+
+    .ssor-order-left{
+
+        align-items:flex-start;
+
+        gap:16px;
+
+    }
+
+    .ssor-order-image{
+
+        width:70px;
+
+        height:70px;
+
+    }
+
+    .ssor-order-content h5{
+
+        font-size:.98rem;
+
+        line-height:1.4;
+
+    }
+
+    .ssor-order-content p{
+
+        font-size:.88rem;
+
+    }
+
+    .ssor-escrow{
+
+        font-size:.75rem;
+
+        padding:7px 12px;
+
+    }
+
+    .ssor-order-id{
+
+        font-size:.78rem;
+
+    }
+
+    .ssor-order-right h4{
+
+        font-size:1.15rem;
+
+    }
+
+    .ssor-status{
+
+        min-width:108px;
+
+        height:34px;
+
+        font-size:.76rem;
+
+    }
+
+}
+
+/*==========================================================
+SMALL MOBILE
+==========================================================*/
+
+@media (max-width:575.98px){
+
+    .container{
+
+        padding-left:16px;
+
+        padding-right:16px;
+
+    }
+
+    .ssor-breadcrumb{
+
+        margin-bottom:22px;
+
+    }
+
+    .ssor-page-title{
+
+        font-size:1.35rem;
+
+    }
+
+    .ssor-order-left{
+
+        flex-direction:column;
+
+    }
+
+    .ssor-order-image{
+
+        width:100%;
+
+        max-width:140px;
+
+        height:140px;
+
+    }
+
+    .ssor-order-right{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:12px;
+
+    }
+
+    .ssor-order-meta{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .ssor-user-box span{
+
+        display:none;
+
+    }
+
+}
+
+/*==========================================================
+EXTRA SMALL DEVICES
+==========================================================*/
+
+@media (max-width:400px){
+
+    html{
+
+        font-size:14px;
+
+    }
+
+    .ssor-brand-logo{
+
+        width:120px;
+
+        height:40px;
+
+    }
+
+    .ssor-icon-btn{
+
+        width:38px;
+
+        height:38px;
+
+    }
+
+    .ssor-user-box img{
+
+        width:38px;
+
+        height:38px;
+
+    }
+
+    .ssor-order-card{
+
+        padding:16px;
+
+    }
+
+    .ssor-order-content h5{
+
+        font-size:.92rem;
+
+    }
+
+    .ssor-order-right h4{
+
+        font-size:1rem;
+
+    }
+
+    .ssor-status{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+}
+
+/*==========================================================
+UTILITY CLASSES
+==========================================================*/
+
+.ssor-hidden{
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+}
+
+.ssor-show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition:all .6s ease;
+
+}
+
+.ssor-no-scroll{
+
+    overflow:hidden;
+
+}
+
+/*==========================================================
+RIPPLE EFFECT
+==========================================================*/
+
+.ssor-ripple{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    transform:scale(0);
+
+    background:rgba(255,255,255,.35);
+
+    animation:ssorRipple .6s linear;
+
+    pointer-events:none;
+
+}
+
+@keyframes ssorRipple{
+
+    to{
+
+        transform:scale(4);
+
+        opacity:0;
+
+    }
+
+}
+
+/*==========================================================
+PAGE TRANSITIONS
+==========================================================*/
+
+body.ssor-page-loaded{
+
+    opacity:1;
+
+    transition:opacity .35s ease;
+
+}
+
+body.ssor-page-leaving{
+
+    opacity:.96;
+
+}
+
+/*==========================================================
+ACCESSIBILITY
+==========================================================*/
+
+.ssor-nav-link:focus,
+
+.ssor-icon-btn:focus,
+
+.ssor-user-box:focus,
+
+.ssor-order-card:focus-within{
+
+    outline:2px solid var(--primary);
+
+    outline-offset:3px;
+
+}
+
+/*==========================================================
+PRINT
+==========================================================*/
+
+@media print{
+
+    .ssor-header{
+
+        display:none;
+
+    }
+
+    .ssor-order-card{
+
+        box-shadow:none;
+
+        border:1px solid #ddd;
+
+        break-inside:avoid;
+
+    }
+
+}
+
+/*==========================================================
+LOADING STATE
+==========================================================*/
+
+.ssor-loading{
+
+    pointer-events:none;
+
+    opacity:.65;
+
+}
+
+.ssor-loading *{
+
+    cursor:wait !important;
+
+}
+
+/*==========================================================
+BUTTON TRANSITIONS
+==========================================================*/
+
+.ssor-btn,
+
+.ssor-icon-btn,
+
+.ssor-user-box,
+
+.ssor-nav-link{
+
+    transition:
+
+        background-color .3s ease,
+
+        color .3s ease,
+
+        border-color .3s ease,
+
+        transform .3s ease,
+
+        box-shadow .3s ease;
+
+}
+
+.ssor-btn:hover,
+
+.ssor-icon-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.ssor-btn:active,
+
+.ssor-icon-btn:active{
+
+    transform:scale(.98);
+
+}
+
+/*==========================================================
+ORDER CARD ANIMATION
+==========================================================*/
+
+.ssor-order-card{
+
+    will-change:transform, opacity;
+
+}
+
+.ssor-order-card:nth-child(1){
+
+    animation-delay:.05s;
+
+}
+
+.ssor-order-card:nth-child(2){
+
+    animation-delay:.12s;
+
+}
+
+.ssor-order-card:nth-child(3){
+
+    animation-delay:.18s;
+
+}
+
+.ssor-order-card:nth-child(4){
+
+    animation-delay:.24s;
+
+}
+
+.ssor-order-card:nth-child(5){
+
+    animation-delay:.30s;
+
+}
+
+.ssor-order-card:nth-child(6){
+
+    animation-delay:.36s;
+
+}
+
+/*==========================================================
+IMAGE HOVER
+==========================================================*/
+
+.ssor-order-image{
+
+    position:relative;
+
+}
+
+.ssor-order-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.02);
+
+    opacity:0;
+
+    transition:var(--transition);
+
+}
+
+.ssor-order-card:hover .ssor-order-image::after{
+
+    opacity:1;
+
+}
+
+/*==========================================================
+SMOOTH SCROLL
+==========================================================*/
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/*==========================================================
+SELECTION
+==========================================================*/
+
+::selection{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+}
+
+/*==========================================================
+SCROLLBAR
+==========================================================*/
+
+#ssor-orders-wrapper::-webkit-scrollbar{
+
+    width:7px;
+
+}
+
+#ssor-orders-wrapper::-webkit-scrollbar-track{
+
+    background:#eef2f6;
+
+}
+
+#ssor-orders-wrapper::-webkit-scrollbar-thumb{
+
+    background:#cfd8e3;
+
+    border-radius:999px;
+
+}
+
+#ssor-orders-wrapper::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary);
+
+}
+
+/*==========================================================
+REDUCED MOTION
+==========================================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+/*==========================================================
+PRINT IMPROVEMENTS
+==========================================================*/
+
+@media print{
+
+    body{
+
+        background:#ffffff;
+
+    }
+
+    .ssor-order-card{
+
+        background:#ffffff;
+
+    }
+
+}
+
+/*==========================================================
+FINAL ANIMATIONS
+==========================================================*/
+
+@keyframes ssorPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.04);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes ssorFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-4px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes ssorFade{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/*==========================================================
+END OF SELLER SIDEBAR ORDERS
+==========================================================*/
 
 
 /*=========================================================
