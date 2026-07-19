@@ -13296,10 +13296,6 @@ END OF SERVICE PROVIDER DONE STYLES
 SELLER DONE PAGE 
 ==================================================*/
 
-/*=========================================
-PAGE WRAPPER
-=========================================*/
-
 #ysdDonePage{
 
     min-height:100vh;
@@ -13601,13 +13597,6 @@ ANIMATIONS
     }
 
 }
-
-/*==================================================
-SELLER DONE PAGE (2B)
-Success Card • Features • Action Buttons
-Unique Prefix: ysd-
-Append to seller-done.css
-==================================================*/
 
 /*=========================================
 SUCCESS CARD
@@ -14229,13 +14218,6 @@ BUTTON LOADING STATE
 
 }
 
-/*==================================================
-SELLER DONE PAGE (2D)
-Animations • Hover Effects • Success Effects
-Unique Prefix: ysd-
-Append to seller-done.css
-==================================================*/
-
 /*=========================================
 ENTRANCE ANIMATIONS
 =========================================*/
@@ -14540,13 +14522,6 @@ TEXT SELECTION
     color:#FFFFFF;
 
 }
-
-/*==================================================
-SELLER DONE PAGE (2E)
-Responsive • Dark Mode • Accessibility
-Unique Prefix: ysd-
-Append to seller-done.css
-==================================================*/
 
 /*=========================================
 LARGE TABLETS
@@ -14881,13 +14856,6 @@ REDUCED MOTION
     }
 
 }
-
-/*==================================================
-SELLER DONE PAGE (2F)
-Final Polish • Performance • Print • Scrollbar
-Unique Prefix: ysd-
-Append to seller-done.css
-==================================================*/
 
 /*=========================================
 GLOBAL OPTIMIZATION
@@ -15244,6 +15212,2685 @@ ACCESSIBILITY
 /*=========================================
 END OF SELLER DONE STYLES
 =========================================*/
+
+/*==========================================================
+CHECKOUT DELIVERY
+==========================================================*/
+
+/*==========================================================
+PAGE
+==========================================================*/
+
+#sscdl-page{
+
+    background:var(--body);
+
+    min-height:100vh;
+
+    font-family:'Inter',sans-serif;
+
+}
+
+/*==========================================================
+HEADER
+==========================================================*/
+
+.sscdl-header{
+
+    background:var(--white);
+
+    border-bottom:1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+}
+
+.sscdl-navbar{
+
+    min-height:78px;
+
+    padding:0;
+
+}
+
+.sscdl-brand{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.sscdl-brand-placeholder{
+
+    width:150px;
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.sscdl-brand-placeholder img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+/*==========================================================
+NAVIGATION
+==========================================================*/
+
+.sscdl-nav-menu{
+
+    gap:14px;
+
+}
+
+.sscdl-nav-link{
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    color:var(--text);
+
+    padding:1rem .9rem !important;
+
+    position:relative;
+
+    transition:var(--transition);
+
+}
+
+.sscdl-nav-link:hover{
+
+    color:var(--primary);
+
+}
+
+.sscdl-nav-link.sscdl-active{
+
+    color:var(--primary);
+
+    font-weight:600;
+
+}
+
+.sscdl-nav-link.sscdl-active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:15px;
+
+    right:15px;
+
+    bottom:10px;
+
+    height:3px;
+
+    border-radius:999px;
+
+    background:var(--primary);
+
+}
+
+/*==========================================================
+RIGHT NAVIGATION
+==========================================================*/
+
+.sscdl-nav-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.sscdl-icon-btn{
+
+    width:44px;
+
+    height:44px;
+
+    border-radius:50%;
+
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    color:var(--heading);
+
+    transition:var(--transition);
+
+}
+
+.sscdl-icon-btn:hover{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    border-color:var(--primary);
+
+}
+
+.sscdl-notification-dot{
+
+    position:absolute;
+
+    width:9px;
+
+    height:9px;
+
+    background:var(--danger);
+
+    border-radius:50%;
+
+    top:11px;
+
+    right:12px;
+
+}
+
+.sscdl-profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding-left:12px;
+
+}
+
+.sscdl-profile img{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.sscdl-profile span{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+.sscdl-profile i{
+
+    font-size:.8rem;
+
+    color:var(--text-light);
+
+}
+
+/*==========================================================
+MAIN
+==========================================================*/
+
+.sscdl-main{
+
+    padding:45px 0 70px;
+
+}
+
+/*==========================================================
+CHECKOUT PROGRESS
+==========================================================*/
+
+.sscdl-progress-wrapper{
+
+    margin-bottom:40px;
+
+}
+
+.sscdl-progress{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.sscdl-progress-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.sscdl-progress-circle{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    border:2px solid var(--border);
+
+    background:var(--white);
+
+    color:var(--text-light);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.sscdl-progress-item span{
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    color:var(--text-light);
+
+}
+
+.sscdl-progress-line{
+
+    width:120px;
+
+    height:2px;
+
+    background:var(--border);
+
+    margin:0 14px 24px;
+
+}
+
+.sscdl-progress-active .sscdl-progress-circle{
+
+    background:var(--primary);
+
+    border-color:var(--primary);
+
+    color:var(--white);
+
+}
+
+.sscdl-progress-active span{
+
+    color:var(--primary);
+
+}
+
+.sscdl-progress-line-active{
+
+    background:var(--primary);
+
+}
+
+/*==========================================================
+CHECKOUT DELIVERY
+STYLE.CSS — PART 2
+Prefix: sscdl-
+Delivery Form • Delivery Method • Buttons
+==========================================================*/
+
+/*==========================================================
+LEFT CARD
+==========================================================*/
+
+.sscdl-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    box-shadow:var(--shadow-xs);
+
+    padding:36px;
+
+    animation:sscdlFadeUp .6s ease;
+
+}
+
+.sscdl-card-header{
+
+    margin-bottom:30px;
+
+}
+
+.sscdl-card-title{
+
+    font-size:1.65rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+}
+
+/*==========================================================
+FORM
+==========================================================*/
+
+.sscdl-form{
+
+    width:100%;
+
+}
+
+.sscdl-label{
+
+    display:block;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--heading);
+
+    margin-bottom:10px;
+
+}
+
+.sscdl-input{
+
+    width:100%;
+
+    height:56px;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--white);
+
+    padding:0 18px;
+
+    font-size:.95rem;
+
+    color:var(--heading);
+
+    transition:var(--transition);
+
+}
+
+.sscdl-input::placeholder{
+
+    color:var(--text-muted);
+
+}
+
+.sscdl-input:hover{
+
+    border-color:#d3dce7;
+
+}
+
+.sscdl-input:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(24,195,126,.12);
+
+}
+
+/*==========================================================
+DELIVERY METHOD
+==========================================================*/
+
+.sscdl-delivery-wrapper{
+
+    margin-top:14px;
+
+}
+
+.sscdl-section-title{
+
+    font-size:1.1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:20px;
+
+}
+
+.sscdl-delivery-card{
+
+    display:block;
+
+    width:100%;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    background:var(--white);
+
+    padding:18px 22px;
+
+    margin-bottom:16px;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+    position:relative;
+
+}
+
+.sscdl-delivery-card:last-child{
+
+    margin-bottom:0;
+
+}
+
+.sscdl-delivery-card:hover{
+
+    border-color:var(--primary);
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.sscdl-delivery-card input{
+
+    display:none;
+
+}
+
+.sscdl-delivery-active{
+
+    border:2px solid var(--primary);
+
+    background:var(--primary-light);
+
+}
+
+.sscdl-delivery-content{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+}
+
+.sscdl-delivery-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.sscdl-radio{
+
+    width:22px;
+
+    height:22px;
+
+    border-radius:50%;
+
+    border:2px solid var(--primary);
+
+    background:var(--white);
+
+    position:relative;
+
+    flex-shrink:0;
+
+}
+
+.sscdl-delivery-active .sscdl-radio::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    transform:translate(-50%,-50%);
+
+}
+
+.sscdl-delivery-left h5{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:4px;
+
+}
+
+.sscdl-delivery-left p{
+
+    font-size:.88rem;
+
+    color:var(--text-light);
+
+}
+
+.sscdl-delivery-price{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+    white-space:nowrap;
+
+}
+
+/*==========================================================
+BUTTON
+==========================================================*/
+
+.sscdl-btn-wrapper{
+
+    margin-top:34px;
+
+}
+
+.sscdl-btn{
+
+    width:100%;
+
+    height:58px;
+
+    border-radius:var(--radius-md);
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    transition:var(--transition);
+
+}
+
+.sscdl-btn:hover{
+
+    background:var(--primary-dark);
+
+    color:var(--white);
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.sscdl-btn i{
+
+    font-size:.9rem;
+
+    transition:transform .3s ease;
+
+}
+
+.sscdl-btn:hover i{
+
+    transform:translateX(5px);
+
+}
+
+/*==========================================================
+CHECKOUT DELIVERY
+STYLE.CSS — PART 3
+Prefix: sscdl-
+Order Summary • Escrow Card • Animations
+==========================================================*/
+
+/*==========================================================
+RIGHT COLUMN
+==========================================================*/
+
+.sscdl-summary-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    box-shadow:var(--shadow-xs);
+
+    overflow:hidden;
+
+    animation:sscdlFadeUp .7s ease;
+
+}
+
+.sscdl-summary-header{
+
+    padding:24px 28px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.sscdl-summary-header h3{
+
+    font-size:1.3rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+}
+
+/*==========================================================
+PRODUCT
+==========================================================*/
+
+.sscdl-summary-product{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+    padding:24px 28px;
+
+    border-bottom:1px solid var(--border-light);
+
+}
+
+.sscdl-summary-image{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:var(--radius-md);
+
+    overflow:hidden;
+
+    background:#f4f4f4;
+
+    flex-shrink:0;
+
+}
+
+.sscdl-summary-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:var(--transition);
+
+}
+
+.sscdl-summary-card:hover .sscdl-summary-image img{
+
+    transform:scale(1.05);
+
+}
+
+.sscdl-summary-info{
+
+    flex:1;
+
+}
+
+.sscdl-summary-info h5{
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:var(--heading);
+
+    line-height:1.45;
+
+    margin-bottom:6px;
+
+}
+
+.sscdl-summary-info small{
+
+    display:block;
+
+    color:var(--text-light);
+
+    margin-bottom:12px;
+
+}
+
+.sscdl-summary-info h4{
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+}
+
+/*==========================================================
+PRICE BREAKDOWN
+==========================================================*/
+
+.sscdl-summary-body{
+
+    padding:26px 28px;
+
+}
+
+.sscdl-summary-row{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:18px;
+
+}
+
+.sscdl-summary-row:last-of-type{
+
+    margin-bottom:24px;
+
+}
+
+.sscdl-summary-row span{
+
+    font-size:.95rem;
+
+    color:var(--text-light);
+
+}
+
+.sscdl-summary-row strong{
+
+    font-size:.96rem;
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+/*==========================================================
+TOTAL
+==========================================================*/
+
+.sscdl-summary-total{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding-top:22px;
+
+    border-top:1px solid var(--border);
+
+}
+
+.sscdl-summary-total span{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+}
+
+.sscdl-summary-total h4{
+
+    font-size:1.45rem;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+}
+
+/*==========================================================
+ESCROW CARD
+==========================================================*/
+
+.sscdl-escrow-card{
+
+    margin-top:24px;
+
+    background:var(--primary-light);
+
+    border:1px solid rgba(24,195,126,.15);
+
+    border-radius:var(--radius-xl);
+
+    padding:24px;
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+    animation:sscdlFadeUp .8s ease;
+
+}
+
+.sscdl-escrow-icon{
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--white);
+
+    font-size:1.4rem;
+
+    flex-shrink:0;
+
+}
+
+.sscdl-escrow-content{
+
+    flex:1;
+
+}
+
+.sscdl-escrow-content h5{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:8px;
+
+}
+
+.sscdl-escrow-content p{
+
+    font-size:.9rem;
+
+    color:var(--text-light);
+
+    line-height:1.7;
+
+}
+
+/*==========================================================
+ANIMATIONS
+==========================================================*/
+
+@keyframes sscdlFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.sscdl-card,
+
+.sscdl-summary-card,
+
+.sscdl-escrow-card{
+
+    animation-fill-mode:both;
+
+}
+
+/*==========================================================
+CHECKOUT DELIVERY
+STYLE.CSS — PART 4
+Prefix: sscdl-
+Responsive • Utilities • Accessibility • Final Styles
+==========================================================*/
+
+/*==========================================================
+TABLET
+==========================================================*/
+
+@media (max-width:991.98px){
+
+    .sscdl-main{
+
+        padding:35px 0 60px;
+
+    }
+
+    .sscdl-progress{
+
+        justify-content:flex-start;
+
+        overflow-x:auto;
+
+        padding-bottom:10px;
+
+    }
+
+    .sscdl-progress::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
+    .sscdl-progress-line{
+
+        width:80px;
+
+    }
+
+    .sscdl-card{
+
+        padding:28px;
+
+    }
+
+    .sscdl-summary-card{
+
+        margin-top:12px;
+
+    }
+
+    .sscdl-nav-right{
+
+        margin-top:20px;
+
+        justify-content:center;
+
+    }
+
+}
+
+/*==========================================================
+MOBILE
+==========================================================*/
+
+@media (max-width:767.98px){
+
+    .sscdl-main{
+
+        padding:30px 0 50px;
+
+    }
+
+    .sscdl-navbar{
+
+        padding:14px 0;
+
+    }
+
+    .sscdl-nav-menu{
+
+        margin-top:20px;
+
+        gap:6px;
+
+    }
+
+    .sscdl-nav-link{
+
+        padding:12px 0 !important;
+
+    }
+
+    .sscdl-nav-right{
+
+        width:100%;
+
+        justify-content:space-between;
+
+        margin-top:18px;
+
+    }
+
+    .sscdl-profile span{
+
+        display:none;
+
+    }
+
+    .sscdl-progress{
+
+        justify-content:flex-start;
+
+    }
+
+    .sscdl-progress-line{
+
+        width:55px;
+
+    }
+
+    .sscdl-progress-circle{
+
+        width:36px;
+
+        height:36px;
+
+        font-size:.9rem;
+
+    }
+
+    .sscdl-progress-item span{
+
+        font-size:.78rem;
+
+    }
+
+    .sscdl-card{
+
+        padding:22px;
+
+        border-radius:var(--radius-lg);
+
+    }
+
+    .sscdl-card-title{
+
+        font-size:1.3rem;
+
+    }
+
+    .sscdl-input{
+
+        height:52px;
+
+    }
+
+    .sscdl-delivery-content{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:14px;
+
+    }
+
+    .sscdl-delivery-price{
+
+        margin-left:38px;
+
+    }
+
+    .sscdl-summary-header{
+
+        padding:20px;
+
+    }
+
+    .sscdl-summary-product{
+
+        padding:20px;
+
+    }
+
+    .sscdl-summary-body{
+
+        padding:20px;
+
+    }
+
+    .sscdl-summary-total h4{
+
+        font-size:1.25rem;
+
+    }
+
+    .sscdl-escrow-card{
+
+        padding:20px;
+
+    }
+
+}
+
+/*==========================================================
+SMALL MOBILE
+==========================================================*/
+
+@media (max-width:575.98px){
+
+    .sscdl-brand-placeholder{
+
+        width:120px;
+
+    }
+
+    .sscdl-icon-btn{
+
+        width:40px;
+
+        height:40px;
+
+    }
+
+    .sscdl-profile img{
+
+        width:38px;
+
+        height:38px;
+
+    }
+
+    .sscdl-card{
+
+        padding:18px;
+
+    }
+
+    .sscdl-card-title{
+
+        font-size:1.2rem;
+
+    }
+
+    .sscdl-label{
+
+        font-size:.88rem;
+
+    }
+
+    .sscdl-input{
+
+        font-size:.88rem;
+
+        height:50px;
+
+    }
+
+    .sscdl-delivery-card{
+
+        padding:16px;
+
+    }
+
+    .sscdl-delivery-left{
+
+        gap:12px;
+
+    }
+
+    .sscdl-radio{
+
+        width:20px;
+
+        height:20px;
+
+    }
+
+    .sscdl-delivery-left h5{
+
+        font-size:.95rem;
+
+    }
+
+    .sscdl-delivery-left p{
+
+        font-size:.8rem;
+
+    }
+
+    .sscdl-btn{
+
+        height:54px;
+
+        font-size:.95rem;
+
+    }
+
+    .sscdl-summary-product{
+
+        flex-direction:column;
+
+    }
+
+    .sscdl-summary-image{
+
+        width:100%;
+
+        height:180px;
+
+    }
+
+    .sscdl-summary-total{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:8px;
+
+    }
+
+    .sscdl-escrow-card{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        align-items:center;
+
+    }
+
+}
+
+/*==========================================================
+ACCESSIBILITY
+==========================================================*/
+
+.sscdl-input:focus,
+
+.sscdl-btn:focus,
+
+.sscdl-icon-btn:focus,
+
+.sscdl-nav-link:focus{
+
+    outline:none;
+
+}
+
+.sscdl-btn:focus-visible,
+
+.sscdl-icon-btn:focus-visible,
+
+.sscdl-nav-link:focus-visible{
+
+    box-shadow:0 0 0 4px rgba(24,195,126,.18);
+
+}
+
+/*==========================================================
+HOVER EFFECTS
+==========================================================*/
+
+.sscdl-summary-card:hover{
+
+    transform:translateY(-4px);
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.sscdl-escrow-card:hover{
+
+    transform:translateY(-4px);
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+/*==========================================================
+CUSTOM SCROLLBAR
+==========================================================*/
+
+.sscdl-main::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.sscdl-main::-webkit-scrollbar-track{
+
+    background:#eef2f6;
+
+}
+
+.sscdl-main::-webkit-scrollbar-thumb{
+
+    background:#cbd5e1;
+
+    border-radius:999px;
+
+}
+
+.sscdl-main::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary);
+
+}
+
+/*==========================================================
+PRINT
+==========================================================*/
+
+@media print{
+
+    .sscdl-header,
+
+    .sscdl-btn{
+
+        display:none !important;
+
+    }
+
+}
+
+/*==========================================================
+END OF CART CHECKOUT PAGE
+==========================================================*/
+
+/*==========================================================
+CHECKOUT PAYMENT PAGE
+==========================================================*/
+
+#sscpPage{
+
+    font-family:'Manrope',sans-serif;
+
+    background:var(--body);
+
+}
+
+/*==========================================================
+NAVBAR
+==========================================================*/
+
+.sscp-navbar{
+
+    background:var(--white);
+
+    border-bottom:1px solid var(--border);
+
+    min-height:74px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+}
+
+.sscp-brand img{
+
+    width:72px;
+
+    height:auto;
+
+    object-fit:contain;
+
+}
+
+.sscp-navbar .nav-link{
+
+    font-size:.93rem;
+
+    font-weight:500;
+
+    color:var(--text);
+
+    padding:0.8rem 1rem !important;
+
+    transition:var(--transition);
+
+}
+
+.sscp-navbar .nav-link:hover{
+
+    color:var(--primary);
+
+}
+
+.sscp-nav-right{
+
+    gap:18px;
+
+}
+
+.sscp-nav-icon{
+
+    position:relative;
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--heading);
+
+    transition:var(--transition);
+
+}
+
+.sscp-nav-icon:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+}
+
+.sscp-badge{
+
+    position:absolute;
+
+    top:2px;
+
+    right:1px;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:var(--secondary);
+
+    color:#fff;
+
+    font-size:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:700;
+
+}
+
+.sscp-dot{
+
+    position:absolute;
+
+    top:8px;
+
+    right:8px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--secondary);
+
+}
+
+.sscp-profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:.92rem;
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+.sscp-profile img{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+/*==========================================================
+CHECKOUT SECTION
+==========================================================*/
+
+.sscp-checkout{
+
+    padding:38px 0 70px;
+
+}
+
+.sscp-steps{
+
+    display:flex;
+
+    align-items:center;
+
+    margin-bottom:34px;
+
+}
+
+.sscp-step{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.sscp-step span{
+
+    width:32px;
+
+    height:32px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    background:#eef2f7;
+
+    color:var(--text-muted);
+
+}
+
+.sscp-step p{
+
+    font-size:.90rem;
+
+    font-weight:600;
+
+    color:var(--text-muted);
+
+}
+
+.sscp-step-arrow{
+
+    margin:0 14px;
+
+    color:#c8d0da;
+
+    font-size:.75rem;
+
+}
+
+.sscp-step-complete span{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+.sscp-step-complete p{
+
+    color:var(--text-light);
+
+}
+
+.sscp-step-active span{
+
+    background:#1f2937;
+
+    color:#fff;
+
+}
+
+.sscp-step-active p{
+
+    color:var(--heading);
+
+}
+
+/*==========================================================
+PAYMENT CARD
+==========================================================*/
+
+.sscp-payment-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    padding:32px;
+
+    box-shadow:var(--shadow-sm);
+
+    animation:sscpFadeUp .6s ease;
+
+}
+
+.sscp-title{
+
+    font-size:1.5rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:24px;
+
+}
+
+/*==========================================================
+ESCROW BANNER
+==========================================================*/
+
+.sscp-escrow-banner{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:16px;
+
+    background:var(--primary-light);
+
+    border:1px solid rgba(24,195,126,.15);
+
+    border-radius:var(--radius-lg);
+
+    padding:18px;
+
+    margin-bottom:28px;
+
+}
+
+.sscp-escrow-icon{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+    font-size:1.2rem;
+
+}
+
+.sscp-escrow-banner h6{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:6px;
+
+}
+
+.sscp-escrow-banner p{
+
+    font-size:.92rem;
+
+    color:var(--text-light);
+
+    line-height:1.6;
+
+}
+
+/*==========================================================
+PAYMENT METHODS
+==========================================================*/
+
+.sscp-payment-method{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    padding:18px 22px;
+
+    margin-bottom:16px;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+.sscp-payment-method:hover{
+
+    border-color:var(--primary);
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.sscp-payment-method-active{
+
+    border:2px solid var(--primary);
+
+    background:var(--primary-light);
+
+}
+
+.sscp-payment-method-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.sscp-payment-method-left i{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:50%;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.15rem;
+
+}
+
+.sscp-payment-method-left span{
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+/*==========================================================
+ACTION BUTTONS
+==========================================================*/
+
+.sscp-payment-actions{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:30px;
+
+    gap:20px;
+
+}
+
+.sscp-back-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:var(--heading);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.sscp-back-btn:hover{
+
+    color:var(--primary);
+
+}
+
+.sscp-pay-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    border:none;
+
+    border-radius:var(--radius-pill);
+
+    padding:15px 34px;
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.sscp-pay-btn:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.sscp-pay-btn i{
+
+    font-size:.9rem;
+
+}
+
+/*==========================================================
+ORDER SUMMARY
+==========================================================*/
+
+.sscp-order-summary{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    padding:28px;
+
+    box-shadow:var(--shadow-sm);
+
+    animation:sscpFadeUp .8s ease;
+
+}
+
+.sscp-summary-title{
+
+    font-size:1.25rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:22px;
+
+}
+
+.sscp-summary-product{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:16px;
+
+    margin-bottom:22px;
+
+}
+
+.sscp-summary-product img{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:var(--radius-md);
+
+    object-fit:cover;
+
+    border:1px solid var(--border);
+
+}
+
+.sscp-summary-product-info{
+
+    flex:1;
+
+}
+
+.sscp-summary-product-info h6{
+
+    font-size:.98rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    line-height:1.5;
+
+    margin-bottom:8px;
+
+}
+
+.sscp-summary-product-info small{
+
+    display:block;
+
+    color:var(--text-muted);
+
+    font-size:.85rem;
+
+    margin-bottom:10px;
+
+}
+
+.sscp-summary-product-info h5{
+
+    font-size:1.15rem;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+.sscp-summary-divider{
+
+    width:100%;
+
+    height:1px;
+
+    background:var(--border);
+
+    margin:22px 0;
+
+}
+
+.sscp-summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:16px;
+
+}
+
+.sscp-summary-row span{
+
+    font-size:.95rem;
+
+    color:var(--text-light);
+
+}
+
+.sscp-summary-row strong{
+
+    font-size:.95rem;
+
+    color:var(--heading);
+
+    font-weight:700;
+
+}
+
+.sscp-summary-total{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding-top:20px;
+
+    margin-top:20px;
+
+    border-top:1px solid var(--border);
+
+}
+
+.sscp-summary-total span{
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+}
+
+.sscp-summary-total strong{
+
+    font-size:1.35rem;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+}
+
+/*==========================================================
+ESCROW PROTECTED CARD
+==========================================================*/
+
+.sscp-escrow-card{
+
+    margin-top:24px;
+
+    background:var(--primary-light);
+
+    border:1px solid rgba(24,195,126,.15);
+
+    border-radius:var(--radius-xl);
+
+    padding:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    transition:var(--transition);
+
+    animation:sscpFadeUp 1s ease;
+
+}
+
+.sscp-escrow-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.sscp-escrow-card-icon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.4rem;
+
+    flex-shrink:0;
+
+}
+
+.sscp-escrow-card-content{
+
+    flex:1;
+
+}
+
+.sscp-escrow-card-content h6{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:6px;
+
+}
+
+.sscp-escrow-card-content p{
+
+    font-size:.9rem;
+
+    color:var(--text-light);
+
+    line-height:1.6;
+
+}
+
+/*==========================================================
+ANIMATIONS
+==========================================================*/
+
+@keyframes sscpFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(24px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.sscp-payment-card,
+.sscp-order-summary,
+.sscp-escrow-card{
+
+    animation-fill-mode:both;
+
+}
+
+/*==========================================================
+RESPONSIVE DESIGN
+==========================================================*/
+
+@media (max-width:991.98px){
+
+    .sscp-checkout{
+
+        padding:32px 0 60px;
+
+    }
+
+    .sscp-payment-card{
+
+        margin-bottom:24px;
+
+    }
+
+    .sscp-order-summary{
+
+        margin-top:0;
+
+    }
+
+    .sscp-steps{
+
+        flex-wrap:wrap;
+
+        row-gap:12px;
+
+    }
+
+    .sscp-payment-actions{
+
+        flex-wrap:wrap;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .sscp-navbar{
+
+        min-height:auto;
+
+        padding:14px 0;
+
+    }
+
+    .sscp-nav-right{
+
+        margin-top:16px;
+
+        width:100%;
+
+        justify-content:space-between;
+
+    }
+
+    .sscp-profile span{
+
+        display:none;
+
+    }
+
+    .sscp-checkout{
+
+        padding:24px 0 50px;
+
+    }
+
+    .sscp-payment-card,
+
+    .sscp-order-summary{
+
+        padding:22px;
+
+    }
+
+    .sscp-title{
+
+        font-size:1.3rem;
+
+    }
+
+    .sscp-summary-title{
+
+        font-size:1.15rem;
+
+    }
+
+    .sscp-escrow-banner{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        text-align:left;
+
+    }
+
+    .sscp-payment-method{
+
+        padding:16px;
+
+    }
+
+    .sscp-payment-method-left{
+
+        gap:14px;
+
+    }
+
+    .sscp-payment-method-left i{
+
+        width:42px;
+
+        height:42px;
+
+        font-size:1rem;
+
+    }
+
+    .sscp-payment-method-left span{
+
+        font-size:.95rem;
+
+    }
+
+    .sscp-payment-actions{
+
+        flex-direction:column-reverse;
+
+        align-items:stretch;
+
+        gap:16px;
+
+    }
+
+    .sscp-back-btn{
+
+        justify-content:center;
+
+    }
+
+    .sscp-pay-btn{
+
+        width:100%;
+
+    }
+
+}
+
+@media (max-width:575.98px){
+
+    .sscp-brand img{
+
+        width:58px;
+
+    }
+
+    .sscp-step{
+
+        gap:8px;
+
+    }
+
+    .sscp-step-arrow{
+
+        margin:0 8px;
+
+    }
+
+    .sscp-step span{
+
+        width:28px;
+
+        height:28px;
+
+        font-size:.75rem;
+
+    }
+
+    .sscp-step p{
+
+        font-size:.8rem;
+
+    }
+
+    .sscp-payment-card,
+
+    .sscp-order-summary{
+
+        padding:18px;
+
+        border-radius:var(--radius-lg);
+
+    }
+
+    .sscp-summary-product{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .sscp-summary-product img{
+
+        width:100%;
+
+        height:180px;
+
+    }
+
+    .sscp-summary-total strong{
+
+        font-size:1.2rem;
+
+    }
+
+    .sscp-escrow-card{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+}
+
+/*==========================================================
+FOCUS STATES
+==========================================================*/
+
+.sscp-payment-method:focus-visible,
+
+.sscp-pay-btn:focus-visible,
+
+.sscp-back-btn:focus-visible,
+
+.sscp-nav-icon:focus-visible{
+
+    outline:3px solid rgba(24,195,126,.25);
+
+    outline-offset:3px;
+
+}
+
+/*==========================================================
+PAY BUTTON RIPPLE SUPPORT
+==========================================================*/
+
+.sscp-pay-btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.sscp-ripple{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.35);
+
+    transform:scale(0);
+
+    pointer-events:none;
+
+    animation:sscpRipple .6s linear;
+
+}
+
+@keyframes sscpRipple{
+
+    to{
+
+        transform:scale(4);
+
+        opacity:0;
+
+    }
+
+}
+
+/*==========================================================
+PAGE LOADED ANIMATION
+==========================================================*/
+
+.sscp-payment-card,
+
+.sscp-order-summary,
+
+.sscp-escrow-card{
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+}
+
+.sscp-page-loaded .sscp-payment-card,
+
+.sscp-page-loaded .sscp-order-summary,
+
+.sscp-page-loaded .sscp-escrow-card{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition:
+
+        opacity .6s ease,
+
+        transform .6s ease;
+
+}
+
+/*==========================================================
+UTILITY STATES
+==========================================================*/
+
+.sscp-hidden{
+
+    display:none !important;
+
+}
+
+.sscp-disabled{
+
+    opacity:.6;
+
+    pointer-events:none;
+
+}
+
+.sscp-payment-method-active{
+
+    box-shadow:0 0 0 3px rgba(24,195,126,.08);
+
+}
+
+/*==========================================================
+END OF CHECKOUT PAYMENT PAGE
+==========================================================*/
 
 
 /*=========================================================
@@ -24489,12 +27136,10 @@ PERFORMANCE
 END OF SELLER WALLET STYLES
 =========================================================*/
 
-/*==========================================================
-SELLER SIDEBAR ORDERS
-==========================================================*/
+
 
 /*==========================================================
-PAGE
+SELLER SIDEBAR ORDERS
 ==========================================================*/
 
 #ssor-page{

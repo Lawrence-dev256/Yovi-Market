@@ -762,6 +762,798 @@ document.addEventListener("DOMContentLoaded", () => {
 END OF  HOMEPAGE 
 ======================================*/
 
+/*==========================================================
+CHECKOUT DELIVERY
+SCRIPT.JS — PART 1
+Prefix: sscdl-
+Safe for Global script.js
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    "use strict";
+
+    /*======================================================
+    PAGE CHECK
+    Runs ONLY on Checkout Delivery Page
+    ======================================================*/
+
+    const sscdlPage = document.getElementById("sscdl-page");
+
+    if (!sscdlPage) return;
+
+    /*======================================================
+    HELPERS
+    ======================================================*/
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const $$ = (selector) => document.querySelectorAll(selector);
+
+    /*======================================================
+    PAGE LOADED
+    ======================================================*/
+
+    document.body.classList.add("sscdl-page-loaded");
+
+    /*======================================================
+    REVEAL ANIMATION
+    ======================================================*/
+
+    const sscdlRevealItems = $$(
+        ".sscdl-card,.sscdl-summary-card,.sscdl-escrow-card"
+    );
+
+    if ("IntersectionObserver" in window) {
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("sscdl-show");
+
+                }
+
+            });
+
+        }, {
+
+            threshold:0.15
+
+        });
+
+        sscdlRevealItems.forEach((item) => {
+
+            observer.observe(item);
+
+        });
+
+    }
+
+    /*======================================================
+    DELIVERY METHOD
+    ======================================================*/
+
+    const deliveryCards = $$(".sscdl-delivery-card");
+
+    const deliveryFee = $("#sscdlDeliveryAmount");
+
+    const totalAmount = $("#sscdlTotalAmount");
+
+    deliveryCards.forEach((card) => {
+
+        card.addEventListener("click", () => {
+
+            deliveryCards.forEach((item) => {
+
+                item.classList.remove("sscdl-delivery-active");
+
+            });
+
+            card.classList.add("sscdl-delivery-active");
+
+            const type = card.querySelector("input").value;
+
+            let fee = 2500;
+
+            let total = 1857500;
+
+            if (type === "express") {
+
+                fee = 5000;
+
+                total = 1860000;
+
+            }
+
+            if (type === "pickup") {
+
+                fee = 0;
+
+                total = 1855000;
+
+            }
+
+            if (deliveryFee) {
+
+                deliveryFee.textContent =
+                    "₦" + fee.toLocaleString();
+
+            }
+
+            if (totalAmount) {
+
+                totalAmount.textContent =
+                    "₦" + total.toLocaleString();
+
+            }
+
+        });
+
+    });
+
+    /*======================================================
+    BUTTON RIPPLE
+    ======================================================*/
+
+    const buttons = $$(".sscdl-btn");
+
+    buttons.forEach((button) => {
+
+        button.addEventListener("click", function (e) {
+
+            const ripple = document.createElement("span");
+
+            ripple.className = "sscdl-ripple";
+
+            const rect = this.getBoundingClientRect();
+
+            const size = Math.max(rect.width, rect.height);
+
+            ripple.style.width = size + "px";
+
+            ripple.style.height = size + "px";
+
+            ripple.style.left =
+                e.clientX - rect.left - size / 2 + "px";
+
+            ripple.style.top =
+                e.clientY - rect.top - size / 2 + "px";
+
+            this.appendChild(ripple);
+
+            setTimeout(() => {
+
+                ripple.remove();
+
+            }, 600);
+
+        });
+
+    });
+
+    /*======================================================
+    ACTIVE NAVIGATION
+    ======================================================*/
+
+    const currentPage = window.location.pathname
+        .split("/")
+        .pop();
+
+    $$(".sscdl-nav-link").forEach((link) => {
+
+        const href = link.getAttribute("href");
+
+        if (!href) return;
+
+        if (href.includes(currentPage)) {
+
+            link.classList.add("sscdl-active");
+
+        }
+
+    });
+
+    /*======================================================
+    CART
+    ======================================================*/
+
+    const cartBtn = $("#sscdlCartBtn");
+
+    if (cartBtn) {
+
+        cartBtn.addEventListener("click", () => {
+
+            window.location.href = "../cart.html";
+
+        });
+
+    }
+
+    /*======================================================
+    NOTIFICATIONS
+    ======================================================*/
+
+    const notificationBtn = $("#sscdlNotificationBtn");
+
+    if (notificationBtn) {
+
+        notificationBtn.addEventListener("click", () => {
+
+            window.location.href =
+                "../notifications.html";
+
+        });
+
+    }
+
+    /*======================================================
+    PROFILE
+    ======================================================*/
+
+    const profile = $(".sscdl-profile");
+
+    if (profile) {
+
+        profile.addEventListener("click", (event) => {
+
+            event.preventDefault();
+
+            window.location.href =
+                "../profile.html";
+
+        });
+
+    }
+
+    /*======================================================
+    CONTINUE BUTTON
+    ======================================================*/
+
+    const continueBtn = $("#sscdlContinueLink");
+
+    if (continueBtn) {
+
+        continueBtn.addEventListener("click", (event) => {
+
+            event.preventDefault();
+
+            window.location.href =
+                "checkout-payment.html";
+
+        });
+
+    }
+
+    /*======================================================
+    FORM VALIDATION
+    ======================================================*/
+
+    const deliveryForm = $("#sscdlDeliveryForm");
+
+    if (deliveryForm) {
+
+        deliveryForm.addEventListener("submit", (event) => {
+
+            event.preventDefault();
+
+            const firstName = $("#sscdlFirstName");
+            const lastName = $("#sscdlLastName");
+            const address = $("#sscdlAddress");
+            const state = $("#sscdlState");
+            const phone = $("#sscdlPhone");
+
+            let valid = true;
+
+            [firstName, lastName, address, state, phone].forEach((field) => {
+
+                if (!field) return;
+
+                field.style.borderColor = "var(--border)";
+
+                if (field.value.trim() === "") {
+
+                    field.style.borderColor = "var(--danger)";
+
+                    valid = false;
+
+                }
+
+            });
+
+            if (valid) {
+
+                window.location.href = "checkout-payment.html";
+
+            }
+
+        });
+
+    }
+
+    /*======================================================
+    INPUT ANIMATION
+    ======================================================*/
+
+    const inputs = $$(".sscdl-input");
+
+    inputs.forEach((input) => {
+
+        input.addEventListener("focus", () => {
+
+            input.parentElement.classList.add("sscdl-input-focus");
+
+        });
+
+        input.addEventListener("blur", () => {
+
+            input.parentElement.classList.remove("sscdl-input-focus");
+
+        });
+
+    });
+
+    /*======================================================
+    CARD HOVER EFFECT
+    ======================================================*/
+
+    const cards = $$(".sscdl-card,.sscdl-summary-card,.sscdl-escrow-card");
+
+    cards.forEach((card) => {
+
+        card.addEventListener("mouseenter", () => {
+
+            card.style.transition = "0.3s ease";
+
+            card.style.transform = "translateY(-4px)";
+
+        });
+
+        card.addEventListener("mouseleave", () => {
+
+            card.style.transform = "translateY(0)";
+
+        });
+
+    });
+
+    /*======================================================
+    SMOOTH PAGE FADE
+    ======================================================*/
+
+    window.addEventListener("load", () => {
+
+        document.body.classList.add("sscdl-loaded");
+
+    });
+
+    /*======================================================
+    WINDOW RESIZE
+    ======================================================*/
+
+    let resizeTimer;
+
+    window.addEventListener("resize", () => {
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer = setTimeout(() => {
+
+            document.body.classList.add("sscdl-resized");
+
+        }, 200);
+
+    });
+
+    /*======================================================
+    KEYBOARD ACCESSIBILITY
+    ======================================================*/
+
+    document.addEventListener("keydown", (event) => {
+
+        if (event.key === "Enter") {
+
+            const active = document.activeElement;
+
+            if (
+
+                active &&
+                active.classList.contains("sscdl-btn")
+
+            ) {
+
+                active.click();
+
+            }
+
+        }
+
+    });
+
+    /*======================================================
+    SCROLL TO TOP
+    ======================================================*/
+
+    window.addEventListener("beforeunload", () => {
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"auto"
+
+        });
+
+    });
+
+});
+
+/*======================================================
+    END OF CART CHECKOUT PAGE
+======================================================*/
+
+/*==========================================================
+CHECKOUT PAYMENT PAGE
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    "use strict";
+
+    /*======================================================
+    RUN ONLY ON CHECKOUT PAYMENT PAGE
+    ======================================================*/
+
+    const sscpPage = document.getElementById("sscpPage");
+
+    if (!sscpPage) return;
+
+    /*======================================================
+    HELPERS
+    ======================================================*/
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const $$ = (selector) => document.querySelectorAll(selector);
+
+    /*======================================================
+    PAGE LOADED
+    ======================================================*/
+
+    document.body.classList.add("sscp-page-loaded");
+
+    /*======================================================
+    PAYMENT METHOD ELEMENTS
+    ======================================================*/
+
+    const paymentMethods = $$(".sscp-payment-method");
+
+    const payButton = $("#sscpPayButton");
+
+    /*======================================================
+    PAYMENT METHOD SELECTION
+    ======================================================*/
+
+    paymentMethods.forEach(function (method) {
+
+        method.addEventListener("click", function () {
+
+            paymentMethods.forEach(function (item) {
+
+                item.classList.remove("sscp-payment-method-active");
+
+            });
+
+            method.classList.add("sscp-payment-method-active");
+
+        });
+
+    });
+
+    /*======================================================
+    PAY BUTTON
+    ======================================================*/
+
+    if (payButton) {
+
+        payButton.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            const selectedMethod = document.querySelector(".sscp-payment-method-active");
+
+            if (!selectedMethod) {
+
+                alert("Please select a payment method.");
+
+                return;
+
+            }
+
+            /*==============================================
+            DEBIT / CREDIT CARD
+            ==============================================*/
+
+            if (selectedMethod.id === "sscpDebitCard") {
+
+                window.location.href = "checkout-card.html";
+
+                return;
+
+            }
+
+            /*==============================================
+            BANK TRANSFER
+            ==============================================*/
+
+            if (selectedMethod.id === "sscpBankTransfer") {
+
+                window.location.href = "checkout-bank-transfer.html";
+
+                return;
+
+            }
+
+            /*==============================================
+            USSD
+            ==============================================*/
+
+            if (selectedMethod.id === "sscpUSSD") {
+
+                window.location.href = "checkout-ussd.html";
+
+                return;
+
+            }
+
+            /*==============================================
+            YOVI WALLET
+            ==============================================*/
+
+            if (selectedMethod.id === "sscpWallet") {
+
+                window.location.href = "../../seller/seller-wallet.html";
+
+                return;
+
+            }
+
+        });
+
+    }
+
+    /*======================================================
+    BACK BUTTON
+    ======================================================*/
+
+    const backButton = $(".sscp-back-btn");
+
+    if (backButton) {
+
+        backButton.addEventListener("click", function () {
+
+            window.location.href = "checkout-delivery.html";
+
+        });
+
+    }
+
+    /*======================================================
+    RIPPLE EFFECT
+    ======================================================*/
+
+    if (payButton) {
+
+        payButton.addEventListener("click", function (e) {
+
+            const circle = document.createElement("span");
+
+            circle.classList.add("sscp-ripple");
+
+            const diameter = Math.max(
+                payButton.clientWidth,
+                payButton.clientHeight
+            );
+
+            circle.style.width = diameter + "px";
+
+            circle.style.height = diameter + "px";
+
+            circle.style.left =
+                e.clientX -
+                payButton.getBoundingClientRect().left -
+                diameter / 2 +
+                "px";
+
+            circle.style.top =
+                e.clientY -
+                payButton.getBoundingClientRect().top -
+                diameter / 2 +
+                "px";
+
+            const oldRipple = payButton.querySelector(".sscp-ripple");
+
+            if (oldRipple) {
+
+                oldRipple.remove();
+
+            }
+
+            payButton.appendChild(circle);
+
+        });
+
+    }
+
+    /*======================================================
+    REVEAL ANIMATION
+    ======================================================*/
+
+    const revealItems = $$(
+        ".sscp-payment-card, .sscp-order-summary, .sscp-escrow-card"
+    );
+
+    if ("IntersectionObserver" in window) {
+
+        const observer = new IntersectionObserver(function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("sscp-show");
+
+                }
+
+            });
+
+        }, {
+
+            threshold:0.15
+
+        });
+
+        revealItems.forEach(function (item) {
+
+            observer.observe(item);
+
+        });
+
+    }
+
+    /*======================================================
+    KEYBOARD ACCESSIBILITY
+    ======================================================*/
+
+    paymentMethods.forEach(function (method) {
+
+        method.setAttribute("tabindex", "0");
+
+        method.addEventListener("keydown", function (event) {
+
+            if (event.key === "Enter" || event.key === " ") {
+
+                event.preventDefault();
+
+                method.click();
+
+            }
+
+        });
+
+    });
+
+    /*======================================================
+    HOVER EFFECT
+    ======================================================*/
+
+    const hoverCards = $$(
+        ".sscp-payment-card, .sscp-order-summary, .sscp-escrow-card"
+    );
+
+    hoverCards.forEach(function (card) {
+
+        card.addEventListener("mouseenter", function () {
+
+            card.style.transform = "translateY(-4px)";
+
+        });
+
+        card.addEventListener("mouseleave", function () {
+
+            card.style.transform = "translateY(0)";
+
+        });
+
+    });
+
+    /*======================================================
+    ACTIVE NAVIGATION
+    ======================================================*/
+
+    const currentPage = window.location.pathname
+        .split("/")
+        .pop();
+
+    $$(".sscp-navbar .nav-link").forEach(function (link) {
+
+        const href = link.getAttribute("href");
+
+        if (href === currentPage) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+    /*======================================================
+    PAGE LOAD ANIMATION
+    ======================================================*/
+
+    window.addEventListener("load", function () {
+
+        document.body.classList.add("sscp-loaded");
+
+    });
+
+    /*======================================================
+    RESIZE HANDLER
+    ======================================================*/
+
+    let resizeTimer;
+
+    window.addEventListener("resize", function () {
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer = setTimeout(function () {
+
+            document.body.classList.add("sscp-resized");
+
+        }, 200);
+
+    });
+
+    /*======================================================
+    SCROLL TO TOP
+    ======================================================*/
+
+    window.addEventListener("beforeunload", function () {
+
+        window.scrollTo(0, 0);
+
+    });
+
+    /*======================================================
+    OPTIONAL:
+    PRESELECT BANK TRANSFER
+    (Matches the UI in the design image)
+    ======================================================*/
+
+    const defaultMethod = document.getElementById("sscpBankTransfer");
+
+    if (defaultMethod) {
+
+        paymentMethods.forEach(function (item) {
+
+            item.classList.remove("sscp-payment-method-active");
+
+        });
+
+        defaultMethod.classList.add("sscp-payment-method-active");
+
+    }
+
+    /*======================================================
+    END OF CHECKOUT PAYMENT PAGE
+    ======================================================*/
+
+});
+
+
 
 /*=========================================================
   SELLER DASHBOARD
@@ -5597,9 +6389,6 @@ END OF SELLER WALLET JAVASCRIPT
 
 /*==========================================================
 SELLER SIDEBAR ORDERS
-SCRIPT.JS — PART 1
-Prefix: ssor-
-Safe for Global script.js
 ==========================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
