@@ -4349,7 +4349,1800 @@ if(stplFilterButton){
 END OF SERVICE PROVIDERS LISTING
 ==========================================================*/
 
+/*==========================================================
+SERVICE TOP PROVIDER PROFILE
+Prefix : stpp
+==========================================================*/
 
+(function(){
+
+"use strict";
+
+/*==========================================================
+PAGE CHECK
+==========================================================*/
+
+if(document.body.id!=="stppPage"){
+
+    return;
+
+}
+
+/*==========================================================
+HELPERS
+==========================================================*/
+
+const $=(selector,parent=document)=>parent.querySelector(selector);
+
+const $$=(selector,parent=document)=>parent.querySelectorAll(selector);
+
+/*==========================================================
+ELEMENTS
+==========================================================*/
+
+const stppNavbar=$(".stpp-navbar");
+
+const stppCart=$("#stppCart");
+
+const stppMessageBtn=$("#stppMessageBtn");
+
+const stppBookServiceBtn=$("#stppBookServiceBtn");
+
+const stppBookAppointment=$("#stppBookAppointment");
+
+const stppBookButtons=$$(".stpp-book-btn");
+
+const stppTabs=$$(".stpp-tab");
+
+const stppNewsletterForm=$("#stppNewsletterForm");
+
+const stppNewsletterEmail=$("#stppNewsletterEmail");
+
+const stppProfile=$(".stpp-profile");
+
+/*==========================================================
+NAVIGATION TABS
+==========================================================*/
+
+stppTabs.forEach(function(tab){
+
+    tab.addEventListener("click",function(){
+
+        stppTabs.forEach(function(item){
+
+            item.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+    });
+
+});
+
+/*==========================================================
+MESSAGE BUTTON
+==========================================================*/
+
+if(stppMessageBtn){
+
+    stppMessageBtn.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="messages.html";
+
+    });
+
+}
+
+/*==========================================================
+BOOK SERVICE BUTTON
+==========================================================*/
+
+if(stppBookServiceBtn){
+
+    stppBookServiceBtn.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="booking-checkout.html";
+
+    });
+
+}
+
+/*==========================================================
+BOOK APPOINTMENT
+==========================================================*/
+
+if(stppBookAppointment){
+
+    stppBookAppointment.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="booking-checkout.html";
+
+    });
+
+}
+
+/*==========================================================
+SERVICE CARD BUTTONS
+==========================================================*/
+
+stppBookButtons.forEach(function(button){
+
+    button.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="booking-checkout.html";
+
+    });
+
+});
+
+/*==========================================================
+CART
+==========================================================*/
+
+if(stppCart){
+
+    stppCart.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        /*
+        Replace with backend/localStorage later
+        */
+
+        const hasCartItems=false;
+
+        if(hasCartItems){
+
+            window.location.href="shopping-cart.html";
+
+        }
+
+        else{
+
+            window.location.href="empty-cart.html";
+
+        }
+
+    });
+
+}
+
+/*==========================================================
+PROFILE
+==========================================================*/
+
+if(stppProfile){
+
+    stppProfile.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="profile.html";
+
+    });
+
+}
+
+/*==========================================================
+NEWSLETTER
+==========================================================*/
+
+if(stppNewsletterForm){
+
+    stppNewsletterForm.addEventListener("submit",function(event){
+
+        event.preventDefault();
+
+        const email=stppNewsletterEmail.value.trim();
+
+        if(email===""){
+
+            stppNewsletterEmail.focus();
+
+            return;
+
+        }
+
+        alert("Newsletter subscription successful.");
+
+        stppNewsletterEmail.value="";
+
+    });
+
+}
+
+/*==========================================================
+HOVER ANIMATION
+==========================================================*/
+
+stppBookButtons.forEach(function(button){
+
+    button.addEventListener("mouseenter",function(){
+
+        this.style.transform="translateY(-2px)";
+
+    });
+
+    button.addEventListener("mouseleave",function(){
+
+        this.style.transform="";
+
+    });
+
+});
+
+/*==========================================================
+PAGE LOAD ANIMATION
+==========================================================*/
+
+window.addEventListener("load",function(){
+
+    const cards=$$(".stpp-service-card");
+
+    cards.forEach(function(card,index){
+
+        card.animate([
+
+            {
+
+                opacity:0,
+
+                transform:"translateY(30px)"
+
+            },
+
+            {
+
+                opacity:1,
+
+                transform:"translateY(0)"
+
+            }
+
+        ],{
+
+            duration:650,
+
+            delay:index*120,
+
+            easing:"ease-out",
+
+            fill:"forwards"
+
+        });
+
+    });
+
+});
+
+/*==========================================================
+SCROLL REVEAL
+==========================================================*/
+
+const stppRevealItems=$$(
+".stpp-profile-header,.stpp-service-card,.stpp-sidebar-card"
+);
+
+if("IntersectionObserver" in window){
+
+    const stppObserver=new IntersectionObserver(function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("stpp-visible");
+
+                stppObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },{
+
+        threshold:.15
+
+    });
+
+    stppRevealItems.forEach(function(item){
+
+        item.classList.add("stpp-hidden");
+
+        stppObserver.observe(item);
+
+    });
+
+}
+
+/*==========================================================
+NAVBAR SCROLL EFFECT
+==========================================================*/
+
+window.addEventListener("scroll",function(){
+
+    if(!stppNavbar){
+
+        return;
+
+    }
+
+    if(window.scrollY>20){
+
+        stppNavbar.classList.add("stpp-navbar-scrolled");
+
+    }
+
+    else{
+
+        stppNavbar.classList.remove("stpp-navbar-scrolled");
+
+    }
+
+});
+
+/*==========================================================
+NOTIFICATION
+==========================================================*/
+
+const stppNotification=$$(".stpp-nav-icon")[1];
+
+if(stppNotification){
+
+    stppNotification.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="notifications.html";
+
+    });
+
+}
+
+/*==========================================================
+SMOOTH SCROLL
+==========================================================*/
+
+$$('a[href^="#"]').forEach(function(anchor){
+
+    anchor.addEventListener("click",function(event){
+
+        const target=document.querySelector(
+
+            this.getAttribute("href")
+
+        );
+
+        if(target){
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+
+                behavior:"smooth",
+
+                block:"start"
+
+            });
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+ESC KEY
+==========================================================*/
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape"){
+
+        if(document.activeElement){
+
+            document.activeElement.blur();
+
+        }
+
+    }
+
+});
+
+/*==========================================================
+BOOTSTRAP MOBILE MENU
+==========================================================*/
+
+const stppNavbarCollapse=$("#stppNavbar");
+
+$$(".stpp-navbar .nav-link").forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        if(window.innerWidth<992 && stppNavbarCollapse){
+
+            const collapse=
+
+            bootstrap.Collapse.getOrCreateInstance(
+
+                stppNavbarCollapse
+
+            );
+
+            collapse.hide();
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",function(){
+
+    if(window.innerWidth>=992 && stppNavbarCollapse){
+
+        stppNavbarCollapse.classList.remove("show");
+
+    }
+
+});
+
+/*==========================================================
+ACCESSIBILITY
+==========================================================*/
+
+$$("button,a").forEach(function(element){
+
+    element.addEventListener("keyup",function(event){
+
+        if(event.key==="Enter"){
+
+            this.click();
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+UTILITY CLASSES
+==========================================================*/
+
+const stppStyle=document.createElement("style");
+
+stppStyle.textContent=`
+
+.stpp-hidden{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+}
+
+.stpp-visible{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition:all .7s ease;
+
+}
+
+.stpp-navbar-scrolled{
+
+    background:rgba(255,255,255,.97);
+
+    backdrop-filter:blur(14px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+`;
+
+document.head.appendChild(stppStyle);
+
+})();
+
+/*==========================================================
+END OF PROVIDER PROFILE
+==========================================================*/
+
+/*==========================================================
+SERVICE BOOKING PAGE
+Prefix : stbk
+==========================================================*/
+
+(function(){
+
+"use strict";
+
+/*==========================================================
+PAGE CHECK
+==========================================================*/
+
+if(document.body.id!=="stbkPage"){
+
+    return;
+
+}
+
+/*==========================================================
+HELPERS
+==========================================================*/
+
+const $=(selector,parent=document)=>parent.querySelector(selector);
+
+const $$=(selector,parent=document)=>parent.querySelectorAll(selector);
+
+/*==========================================================
+ELEMENTS
+==========================================================*/
+
+const stbkNavbar=$("#stbk-navbar");
+
+const stbkServiceItems=$$(".stbk-service-item");
+
+const stbkDateButtons=$$(".stbk-date-btn");
+
+const stbkTimeButtons=$$(".stbk-time-btn");
+
+const stbkConfirmButton=$("#stbkConfirmBookingBtn");
+
+const stbkCartButton=$("#stbkCartBtn");
+
+const stbkNotifyButton=$("#stbkNotifyBtn");
+
+const stbkNotes=$("#stbkNotes");
+
+const stbkSummaryService=$("#stbkSummaryService");
+
+const stbkSummaryDate=$("#stbkSummaryDate");
+
+const stbkSummaryTime=$("#stbkSummaryTime");
+
+const stbkServiceFee=$("#stbkServiceFee");
+
+const stbkEscrowFee=$("#stbkEscrowFee");
+
+const stbkGrandTotal=$("#stbkGrandTotal");
+
+/*==========================================================
+FORMAT CURRENCY
+==========================================================*/
+
+function stbkFormatMoney(amount){
+
+    return "₦"+Number(amount).toLocaleString();
+
+}
+
+/*==========================================================
+UPDATE SUMMARY
+==========================================================*/
+
+function stbkUpdateSummary(){
+
+    const activeService=$(".stbk-service-active");
+
+    const activeDate=$(".stbk-date-active");
+
+    const activeTime=$(".stbk-time-active");
+
+    const serviceName=activeService.dataset.service;
+
+    const servicePrice=parseInt(activeService.dataset.price);
+
+    const escrow=Math.round(servicePrice*0.015);
+
+    const total=servicePrice+escrow;
+
+    stbkSummaryService.textContent=serviceName;
+
+    stbkSummaryDate.textContent=activeDate.textContent.trim();
+
+    stbkSummaryTime.textContent=activeTime.textContent.trim();
+
+    stbkServiceFee.textContent=stbkFormatMoney(servicePrice);
+
+    stbkEscrowFee.textContent=stbkFormatMoney(escrow);
+
+    stbkGrandTotal.textContent=stbkFormatMoney(total);
+
+}
+
+/*==========================================================
+SERVICE SELECTION
+==========================================================*/
+
+stbkServiceItems.forEach(function(button){
+
+    button.addEventListener("click",function(){
+
+        stbkServiceItems.forEach(function(item){
+
+            item.classList.remove("stbk-service-active");
+
+        });
+
+        this.classList.add("stbk-service-active");
+
+        stbkUpdateSummary();
+
+    });
+
+});
+
+/*==========================================================
+DATE SELECTION
+==========================================================*/
+
+stbkDateButtons.forEach(function(button){
+
+    button.addEventListener("click",function(){
+
+        stbkDateButtons.forEach(function(item){
+
+            item.classList.remove("stbk-date-active");
+
+        });
+
+        this.classList.add("stbk-date-active");
+
+        stbkUpdateSummary();
+
+    });
+
+});
+
+/*==========================================================
+TIME SELECTION
+==========================================================*/
+
+stbkTimeButtons.forEach(function(button){
+
+    button.addEventListener("click",function(){
+
+        stbkTimeButtons.forEach(function(item){
+
+            item.classList.remove("stbk-time-active");
+
+        });
+
+        this.classList.add("stbk-time-active");
+
+        stbkUpdateSummary();
+
+    });
+
+});
+
+/*==========================================================
+CONFIRM BOOKING
+==========================================================*/
+
+if(stbkConfirmButton){
+
+    stbkConfirmButton.addEventListener("click",function(){
+
+        window.location.href="../../cart/checkout-payment.html";
+
+    });
+
+}
+
+/*==========================================================
+CART
+==========================================================*/
+
+if(stbkCartButton){
+
+    stbkCartButton.addEventListener("click",function(){
+
+        /*
+        Replace this with backend/localStorage later
+        */
+
+        const hasCartItems=false;
+
+        if(hasCartItems){
+
+            window.location.href="../../cart/shopping-cart.html";
+
+        }
+
+        else{
+
+            window.location.href="../../navigation/cart.html";
+
+        }
+
+    });
+
+}
+
+/*==========================================================
+NOTIFICATIONS
+==========================================================*/
+
+if(stbkNotifyButton){
+
+    stbkNotifyButton.addEventListener("click",function(){
+
+        window.location.href="../../navigation/notification.html";
+
+    });
+
+}
+
+/*==========================================================
+NOTES LIMIT
+==========================================================*/
+
+if(stbkNotes){
+
+    stbkNotes.addEventListener("input",function(){
+
+        if(this.value.length>500){
+
+            this.value=this.value.substring(0,500);
+
+        }
+
+    });
+
+}
+
+/*==========================================================
+INITIALIZE
+==========================================================*/
+
+stbkUpdateSummary();
+
+window.addEventListener("load",function(){
+
+    document.body.classList.add("stbk-loaded");
+
+});
+
+/*==========================================================
+NAVBAR SCROLL EFFECT
+==========================================================*/
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY>15){
+
+        stbkNavbar.classList.add("stbk-navbar-scrolled");
+
+    }
+
+    else{
+
+        stbkNavbar.classList.remove("stbk-navbar-scrolled");
+
+    }
+
+});
+
+/*==========================================================
+SCROLL REVEAL
+==========================================================*/
+
+const stbkRevealElements=$$(
+".stbk-provider-card,.stbk-card,.stbk-summary-card"
+);
+
+if("IntersectionObserver" in window){
+
+    const stbkObserver=new IntersectionObserver(function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("stbk-show");
+
+                stbkObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },{
+
+        threshold:.15
+
+    });
+
+    stbkRevealElements.forEach(function(element){
+
+        element.classList.add("stbk-hidden");
+
+        stbkObserver.observe(element);
+
+    });
+
+}
+
+/*==========================================================
+BUTTON RIPPLE EFFECT
+==========================================================*/
+
+const stbkRippleButtons=$$(
+".stbk-confirm-btn,.stbk-service-item,.stbk-date-btn,.stbk-time-btn"
+);
+
+stbkRippleButtons.forEach(function(button){
+
+    button.addEventListener("click",function(event){
+
+        const ripple=document.createElement("span");
+
+        ripple.className="stbk-ripple";
+
+        const rect=this.getBoundingClientRect();
+
+        const size=Math.max(rect.width,rect.height);
+
+        ripple.style.width=size+"px";
+
+        ripple.style.height=size+"px";
+
+        ripple.style.left=(event.clientX-rect.left-size/2)+"px";
+
+        ripple.style.top=(event.clientY-rect.top-size/2)+"px";
+
+        this.appendChild(ripple);
+
+        setTimeout(function(){
+
+            ripple.remove();
+
+        },600);
+
+    });
+
+});
+
+/*==========================================================
+SMOOTH SCROLL
+==========================================================*/
+
+$$('a[href^="#"]').forEach(function(anchor){
+
+    anchor.addEventListener("click",function(event){
+
+        const target=document.querySelector(
+
+            this.getAttribute("href")
+
+        );
+
+        if(target){
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+
+                behavior:"smooth",
+
+                block:"start"
+
+            });
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+AUTO CLOSE MOBILE MENU
+==========================================================*/
+
+const stbkCollapse=$("#stbkNavbarCollapse");
+
+$$(".navbar-nav .nav-link").forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        if(window.innerWidth<992 && stbkCollapse){
+
+            const collapse=
+
+            bootstrap.Collapse.getOrCreateInstance(
+
+                stbkCollapse
+
+            );
+
+            collapse.hide();
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+KEYBOARD ACCESSIBILITY
+==========================================================*/
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape"){
+
+        if(document.activeElement){
+
+            document.activeElement.blur();
+
+        }
+
+    }
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",function(){
+
+    if(window.innerWidth>=992 && stbkCollapse){
+
+        stbkCollapse.classList.remove("show");
+
+    }
+
+});
+
+/*==========================================================
+UTILITY STYLES
+==========================================================*/
+
+const stbkUtilityStyle=document.createElement("style");
+
+stbkUtilityStyle.textContent=`
+
+.stbk-hidden{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+}
+
+.stbk-show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition:all .7s ease;
+
+}
+
+.stbk-ripple{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.35);
+
+    transform:scale(0);
+
+    animation:stbkRipple .6s linear;
+
+    pointer-events:none;
+
+}
+
+.stbk-service-item,
+
+.stbk-date-btn,
+
+.stbk-time-btn,
+
+.stbk-confirm-btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+@keyframes stbkRipple{
+
+    to{
+
+        transform:scale(4);
+
+        opacity:0;
+
+    }
+
+}
+
+`;
+
+document.head.appendChild(stbkUtilityStyle);
+
+})();
+
+/*==========================================================
+END OF BOOKING SERVICE
+==========================================================*/
+
+/*==========================================================
+SERVICE BOOKING CONFIRMATION
+Prefix : stbc
+==========================================================*/
+
+(function(){
+
+"use strict";
+
+/*==========================================================
+PAGE CHECK
+==========================================================*/
+
+if(document.body.id!=="stbcPage"){
+
+    return;
+
+}
+
+/*==========================================================
+HELPERS
+==========================================================*/
+
+const $=(selector,parent=document)=>parent.querySelector(selector);
+
+const $$=(selector,parent=document)=>parent.querySelectorAll(selector);
+
+/*==========================================================
+ELEMENTS
+==========================================================*/
+
+const stbcNavbar=$("#stbc-navbar");
+
+const stbcBookingsBtn=$("#stbcBookingsBtn");
+
+const stbcMessageBtn=$("#stbcMessageBtn");
+
+const stbcContinueBrowsing=$("#stbcContinueBrowsing");
+
+const stbcCartBtn=$("#stbcCartBtn");
+
+const stbcBellBtn=$("#stbcBellBtn");
+
+const stbcReference=$("#stbcReference");
+
+const stbcCard=$(".stbc-card");
+
+/*==========================================================
+BOOKING REFERENCE
+==========================================================*/
+
+function stbcGenerateReference(){
+
+    const random=Math.floor(
+
+        100000+Math.random()*900000
+
+    );
+
+    return "#BK-"+random;
+
+}
+
+if(stbcReference){
+
+    if(!sessionStorage.getItem("stbcReference")){
+
+        sessionStorage.setItem(
+
+            "stbcReference",
+
+            stbcGenerateReference()
+
+        );
+
+    }
+
+    stbcReference.textContent=
+
+    sessionStorage.getItem("stbcReference");
+
+}
+
+/*==========================================================
+VIEW BOOKINGS
+==========================================================*/
+
+if(stbcBookingsBtn){
+
+    stbcBookingsBtn.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="bookings.html";
+
+    });
+
+}
+
+/*==========================================================
+MESSAGE PROVIDER
+==========================================================*/
+
+if(stbcMessageBtn){
+
+    stbcMessageBtn.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="chat.html";
+
+    });
+
+}
+
+/*==========================================================
+CONTINUE BROWSING
+==========================================================*/
+
+if(stbcContinueBrowsing){
+
+    stbcContinueBrowsing.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="service-landing.html";
+
+    });
+
+}
+
+/*==========================================================
+CART BUTTON
+==========================================================*/
+
+if(stbcCartBtn){
+
+    stbcCartBtn.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="cart.html";
+
+    });
+
+}
+
+/*==========================================================
+NOTIFICATION BUTTON
+==========================================================*/
+
+if(stbcBellBtn){
+
+    stbcBellBtn.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="notifications.html";
+
+    });
+
+}
+
+/*==========================================================
+CARD ENTRANCE
+==========================================================*/
+
+window.addEventListener("load",function(){
+
+    if(stbcCard){
+
+        stbcCard.classList.add("stbc-card-loaded");
+
+    }
+
+});
+
+/*==========================================================
+SUCCESS ICON ANIMATION
+==========================================================*/
+
+const stbcSuccessIcon=$(".stbc-success-icon");
+
+if(stbcSuccessIcon){
+
+    setTimeout(function(){
+
+        stbcSuccessIcon.classList.add("stbc-success-ready");
+
+    },300);
+
+}
+
+/*==========================================================
+NAVBAR SCROLL EFFECT
+==========================================================*/
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY>10){
+
+        stbcNavbar?.classList.add("stbc-navbar-scrolled");
+
+    }
+
+    else{
+
+        stbcNavbar?.classList.remove("stbc-navbar-scrolled");
+
+    }
+
+});
+
+/*==========================================================
+SCROLL REVEAL ANIMATION
+==========================================================*/
+
+const stbcRevealElements=$$(
+
+".stbc-success-icon,.stbc-title,.stbc-subtitle,.stbc-card,.stbc-action-group,.stbc-extra-link"
+
+);
+
+if("IntersectionObserver" in window){
+
+    const stbcObserver=new IntersectionObserver(function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("stbc-show");
+
+                stbcObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },{
+
+        threshold:.15
+
+    });
+
+    stbcRevealElements.forEach(function(element){
+
+        element.classList.add("stbc-hidden");
+
+        stbcObserver.observe(element);
+
+    });
+
+}
+
+/*==========================================================
+BUTTON RIPPLE EFFECT
+==========================================================*/
+
+$$(".stbc-btn-primary,.stbc-btn-outline").forEach(function(button){
+
+    button.addEventListener("click",function(event){
+
+        const ripple=document.createElement("span");
+
+        ripple.className="stbc-ripple";
+
+        const rect=this.getBoundingClientRect();
+
+        const size=Math.max(rect.width,rect.height);
+
+        ripple.style.width=size+"px";
+
+        ripple.style.height=size+"px";
+
+        ripple.style.left=(event.clientX-rect.left-size/2)+"px";
+
+        ripple.style.top=(event.clientY-rect.top-size/2)+"px";
+
+        this.appendChild(ripple);
+
+        setTimeout(function(){
+
+            ripple.remove();
+
+        },600);
+
+    });
+
+});
+
+/*==========================================================
+AUTO CLOSE MOBILE NAVBAR
+==========================================================*/
+
+const stbcCollapse=$("#stbcNavbarCollapse");
+
+$$(".navbar-nav .nav-link").forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        if(window.innerWidth<992 && stbcCollapse){
+
+            bootstrap.Collapse
+
+            .getOrCreateInstance(stbcCollapse)
+
+            .hide();
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+KEYBOARD ACCESSIBILITY
+==========================================================*/
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape"){
+
+        document.activeElement.blur();
+
+    }
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",function(){
+
+    if(window.innerWidth>=992 && stbcCollapse){
+
+        stbcCollapse.classList.remove("show");
+
+    }
+
+});
+
+/*==========================================================
+UTILITY STYLES
+==========================================================*/
+
+const stbcStyle=document.createElement("style");
+
+stbcStyle.textContent=`
+
+.stbc-hidden{
+
+opacity:0;
+
+transform:translateY(35px);
+
+}
+
+.stbc-show{
+
+opacity:1;
+
+transform:translateY(0);
+
+transition:all .7s ease;
+
+}
+
+.stbc-ripple{
+
+position:absolute;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.35);
+
+transform:scale(0);
+
+animation:stbcRipple .6s linear;
+
+pointer-events:none;
+
+}
+
+.stbc-btn-primary,
+
+.stbc-btn-outline{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+@keyframes stbcRipple{
+
+to{
+
+transform:scale(4);
+
+opacity:0;
+
+}
+
+}
+
+`;
+
+document.head.appendChild(stbcStyle);
+
+})();
+
+/*==========================================================
+END OF BOOKING CONFIRMATION PAGE
+==========================================================*/
+
+/*==========================================================
+MY BOOKINGS PAGE
+Prefix: stmb-
+script.js — Part 1
+==========================================================*/
+
+(function(){
+
+"use strict";
+
+/*==========================================================
+PAGE CHECK
+==========================================================*/
+
+if(!document.querySelector(".stmb-page")){
+
+    return;
+
+}
+
+/*==========================================================
+HELPERS
+==========================================================*/
+
+const $=(selector,parent=document)=>parent.querySelector(selector);
+
+const $$=(selector,parent=document)=>parent.querySelectorAll(selector);
+
+/*==========================================================
+ELEMENTS
+==========================================================*/
+
+const stmbNavbar=$(".stmb-navbar");
+
+const stmbCartBtn=$("#stmbCartBtn");
+
+const stmbNotifyBtn=$("#stmbNotifyBtn");
+
+const stmbBookingCards=$$(".stmb-booking-card");
+
+const stmbChatButtons=$$(".stmb-chat-btn");
+
+const stmbUserButton=$(".stmb-user-btn");
+
+/*==========================================================
+NAVBAR SCROLL EFFECT
+==========================================================*/
+
+function stmbHandleNavbar(){
+
+    if(window.scrollY>15){
+
+        stmbNavbar?.classList.add("stmb-navbar-scrolled");
+
+    }else{
+
+        stmbNavbar?.classList.remove("stmb-navbar-scrolled");
+
+    }
+
+}
+
+window.addEventListener(
+
+    "scroll",
+
+    stmbHandleNavbar
+
+);
+
+stmbHandleNavbar();
+
+/*==========================================================
+BOOKING CARD HOVER
+==========================================================*/
+
+stmbBookingCards.forEach(function(card){
+
+    card.addEventListener("mouseenter",function(){
+
+        this.style.transform="translateY(-6px)";
+
+    });
+
+    card.addEventListener("mouseleave",function(){
+
+        this.style.transform="translateY(0)";
+
+    });
+
+});
+
+/*==========================================================
+CHAT BUTTONS
+==========================================================*/
+
+stmbChatButtons.forEach(function(button){
+
+    button.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="../messages/chat.html";
+
+    });
+
+});
+
+/*==========================================================
+CART BUTTON
+==========================================================*/
+
+if(stmbCartBtn){
+
+    stmbCartBtn.addEventListener("click",function(){
+
+        window.location.href="../cart/index.html";
+
+    });
+
+}
+
+/*==========================================================
+NOTIFICATION BUTTON
+==========================================================*/
+
+if(stmbNotifyBtn){
+
+    stmbNotifyBtn.addEventListener("click",function(){
+
+        window.location.href="../notifications/index.html";
+
+    });
+
+}
+
+/*==========================================================
+USER PROFILE
+==========================================================*/
+
+if(stmbUserButton){
+
+    stmbUserButton.addEventListener("dblclick",function(){
+
+        window.location.href="../profile/index.html";
+
+    });
+
+}
+
+/*==========================================================
+SCROLL REVEAL
+==========================================================*/
+
+const stmbObserver=new IntersectionObserver(function(entries){
+
+    entries.forEach(function(entry){
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("stmb-show");
+
+            stmbObserver.unobserve(entry.target);
+
+        }
+
+    });
+
+},{
+
+    threshold:.15
+
+});
+
+stmbBookingCards.forEach(function(card){
+
+    card.classList.add("stmb-hidden");
+
+    stmbObserver.observe(card);
+
+});
+
+/*==========================================================
+RIPPLE EFFECT
+==========================================================*/
+
+stmbChatButtons.forEach(function(button){
+
+    button.addEventListener("click",function(event){
+
+        const ripple=document.createElement("span");
+
+        ripple.className="stmb-ripple";
+
+        const rect=this.getBoundingClientRect();
+
+        const size=Math.max(rect.width,rect.height);
+
+        ripple.style.width=size+"px";
+
+        ripple.style.height=size+"px";
+
+        ripple.style.left=
+
+        (event.clientX-rect.left-size/2)+"px";
+
+        ripple.style.top=
+
+        (event.clientY-rect.top-size/2)+"px";
+
+        this.appendChild(ripple);
+
+        setTimeout(function(){
+
+            ripple.remove();
+
+        },600);
+
+    });
+
+});
+
+/*==========================================================
+KEYBOARD ACCESSIBILITY
+==========================================================*/
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape"){
+
+        document.activeElement.blur();
+
+    }
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",function(){
+
+    if(window.innerWidth>=992){
+
+        document
+
+        .querySelector(".navbar-collapse")
+
+        ?.classList.remove("show");
+
+    }
+
+});
+
+/*==========================================================
+UTILITY STYLES
+==========================================================*/
+
+const stmbStyle=document.createElement("style");
+
+stmbStyle.textContent=`
+
+.stmb-hidden{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+.stmb-show{
+
+opacity:1;
+
+transform:translateY(0);
+
+transition:all .7s ease;
+
+}
+
+.stmb-ripple{
+
+position:absolute;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.35);
+
+transform:scale(0);
+
+animation:stmbRipple .6s linear;
+
+pointer-events:none;
+
+}
+
+.stmb-chat-btn{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+@keyframes stmbRipple{
+
+to{
+
+transform:scale(4);
+
+opacity:0;
+
+}
+
+}
+
+`;
+
+document.head.appendChild(stmbStyle);
+
+/*==========================================================
+PAGE LOADED
+==========================================================*/
+
+window.addEventListener("load",function(){
+
+    document.body.classList.add("stmb-page-loaded");
+
+});
+
+})();
+
+/*==========================================================
+END OF BOOKING PAGE
+==========================================================*/
 
 
 

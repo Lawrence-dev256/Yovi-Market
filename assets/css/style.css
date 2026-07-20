@@ -56736,3 +56736,5186 @@ HELPER CLASSES
 /*==========================================================
 END OF SERVICE PROVIDERS LISTING
 ==========================================================*/
+
+/*==========================================================
+SERVICE TOP PROVIDER PROFILE
+Prefix : stpp
+==========================================================*/
+
+/*==========================================================
+PAGE
+==========================================================*/
+
+#stppPage{
+
+    min-height:100vh;
+
+    background:var(--body);
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+}
+
+/*==========================================================
+HEADER
+==========================================================*/
+
+.stpp-header{
+
+    position:sticky;
+
+    top:0;
+
+    left:0;
+
+    z-index:1050;
+
+    background:var(--white);
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.stpp-navbar{
+
+    padding:14px 0;
+
+    border-bottom:1px solid var(--border);
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(14px);
+
+}
+
+.stpp-brand img{
+
+    width:155px;
+
+    height:auto;
+
+    display:block;
+
+}
+
+.stpp-navbar .navbar-nav{
+
+    gap:12px;
+
+}
+
+.stpp-navbar .nav-link{
+
+    position:relative;
+
+    color:var(--text);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    padding:12px 16px !important;
+
+    transition:var(--transition);
+
+}
+
+.stpp-navbar .nav-link:hover,
+
+.stpp-navbar .nav-link.active{
+
+    color:var(--primary);
+
+}
+
+.stpp-navbar .nav-link.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:16px;
+
+    right:16px;
+
+    bottom:8px;
+
+    height:2px;
+
+    background:var(--primary);
+
+    border-radius:999px;
+
+}
+
+.stpp-nav-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.stpp-nav-icon{
+
+    width:46px;
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    color:var(--heading);
+
+    position:relative;
+
+    transition:var(--transition);
+
+}
+
+.stpp-nav-icon:hover{
+
+    color:var(--primary);
+
+    border-color:var(--primary);
+
+    background:var(--primary-light);
+
+}
+
+.stpp-cart-badge{
+
+    position:absolute;
+
+    top:-5px;
+
+    right:-4px;
+
+    width:20px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--danger);
+
+    color:var(--white);
+
+    font-size:.72rem;
+
+    font-weight:700;
+
+}
+
+.stpp-dot{
+
+    position:absolute;
+
+    top:11px;
+
+    right:12px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--secondary);
+
+}
+
+.stpp-profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+.stpp-profile img{
+
+    width:44px;
+
+    height:44px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+/*==========================================================
+COVER
+==========================================================*/
+
+.stpp-cover{
+
+    position:relative;
+
+    height:340px;
+
+    padding:0;
+
+    overflow:hidden;
+
+}
+
+.stpp-cover img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.stpp-cover-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(to bottom,
+    rgba(17,24,39,.15),
+    rgba(17,24,39,.45));
+
+    z-index:2;
+
+}
+
+/*==========================================================
+PROFILE SECTION
+==========================================================*/
+
+.stpp-profile-section{
+
+    margin-top:-90px;
+
+    position:relative;
+
+    z-index:5;
+
+    padding:0 0 70px;
+
+}
+
+.stpp-profile-header{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    box-shadow:var(--shadow-md);
+
+    padding:35px;
+
+    margin-bottom:30px;
+
+}
+
+.stpp-avatar{
+
+    position:relative;
+
+    width:120px;
+
+    height:120px;
+
+    margin-bottom:22px;
+
+}
+
+.stpp-avatar img{
+
+    width:100%;
+
+    height:100%;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:5px solid var(--white);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.stpp-online{
+
+    position:absolute;
+
+    right:10px;
+
+    bottom:10px;
+
+    width:18px;
+
+    height:18px;
+
+    background:var(--success);
+
+    border:3px solid var(--white);
+
+    border-radius:50%;
+
+}
+
+.stpp-provider-details h2{
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+}
+
+.stpp-provider-details p{
+
+    margin-top:8px;
+
+    font-size:1rem;
+
+    color:var(--text-light);
+
+}
+
+.stpp-verified{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:6px 12px;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+}
+
+.stpp-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:22px;
+
+    margin-top:20px;
+
+}
+
+.stpp-meta span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--text-light);
+
+    font-size:.92rem;
+
+}
+
+.stpp-meta i{
+
+    color:var(--secondary);
+
+}
+
+/*==========================================================
+PROFILE ACTIONS
+==========================================================*/
+
+.stpp-profile-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    margin:30px 0;
+
+}
+
+.stpp-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:14px 28px;
+
+    border-radius:var(--radius-pill);
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.stpp-btn-primary{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+}
+
+.stpp-btn-primary:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+}
+
+.stpp-btn-outline{
+
+    background:var(--white);
+
+    color:var(--heading);
+
+    border:1px solid var(--border);
+
+}
+
+.stpp-btn-outline:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    border-color:var(--primary);
+
+}
+
+/*==========================================================
+PROFILE TABS
+==========================================================*/
+
+.stpp-tabs{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:30px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.stpp-tab{
+
+    position:relative;
+
+    padding:18px 0;
+
+    color:var(--text-light);
+
+    font-weight:700;
+
+}
+
+.stpp-tab.active{
+
+    color:var(--primary);
+
+}
+
+.stpp-tab.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-1px;
+
+    width:100%;
+
+    height:3px;
+
+    background:var(--primary);
+
+    border-radius:999px;
+
+}
+
+/*==========================================================
+SERVICES
+==========================================================*/
+
+.stpp-services-wrapper{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+}
+
+.stpp-service-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:24px;
+
+    padding:24px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:var(--shadow-xs);
+
+    transition:var(--transition);
+
+}
+
+.stpp-service-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:var(--primary);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.stpp-service-info{
+
+    flex:1;
+
+}
+
+.stpp-service-info h4{
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:10px;
+
+}
+
+.stpp-service-info p{
+
+    font-size:.95rem;
+
+    color:var(--text-light);
+
+    margin-bottom:16px;
+
+}
+
+.stpp-service-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+}
+
+.stpp-service-meta span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    font-size:.9rem;
+
+    color:var(--text-light);
+
+}
+
+.stpp-service-meta i{
+
+    color:var(--secondary);
+
+}
+
+.stpp-escrow{
+
+    color:var(--success)!important;
+
+    font-weight:600;
+
+}
+
+.stpp-service-price{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-end;
+
+    gap:16px;
+
+    min-width:170px;
+
+}
+
+.stpp-service-price h3{
+
+    font-size:1.6rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+}
+
+.stpp-book-btn{
+
+    width:140px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.stpp-book-btn:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-3px);
+
+}
+
+/*==========================================================
+SIDEBAR
+==========================================================*/
+
+.stpp-sidebar{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+    position:sticky;
+
+    top:105px;
+
+}
+
+.stpp-sidebar-card{
+
+    padding:28px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.stpp-sidebar-card h5{
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:22px;
+
+}
+
+.stpp-availability-list,
+
+.stpp-contact-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.stpp-availability-list li,
+
+.stpp-contact-list li{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+    color:var(--text-light);
+
+    line-height:1.6;
+
+}
+
+.stpp-availability-list i,
+
+.stpp-contact-list i{
+
+    margin-top:3px;
+
+    color:var(--primary);
+
+    width:18px;
+
+    text-align:center;
+
+}
+
+.stpp-sidebar-btn{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    width:100%;
+
+    height:52px;
+
+    margin-top:26px;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.stpp-sidebar-btn:hover{
+
+    background:var(--primary-dark);
+
+    color:var(--white);
+
+    transform:translateY(-2px);
+
+}
+
+/*==========================================================
+FOOTER
+==========================================================*/
+
+.stpp-footer{
+
+    margin-top:80px;
+
+    padding:70px 0 25px;
+
+    background:var(--heading);
+
+    color:rgba(255,255,255,.85);
+
+}
+
+.stpp-footer-logo img{
+
+    width:160px;
+
+    margin-bottom:22px;
+
+}
+
+.stpp-footer-text{
+
+    color:rgba(255,255,255,.75);
+
+    line-height:1.8;
+
+    margin-bottom:20px;
+
+}
+
+.stpp-footer-title{
+
+    color:var(--white);
+
+    font-size:1.2rem;
+
+    margin-bottom:24px;
+
+}
+
+.stpp-footer-links{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.stpp-footer-links a{
+
+    color:rgba(255,255,255,.72);
+
+    transition:var(--transition);
+
+}
+
+.stpp-footer-links a:hover{
+
+    color:var(--primary);
+
+    padding-left:6px;
+
+}
+
+.stpp-social-links{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.stpp-social-links a{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    color:var(--white);
+
+    transition:var(--transition);
+
+}
+
+.stpp-social-links a:hover{
+
+    background:var(--primary);
+
+    transform:translateY(-3px);
+
+}
+
+.stpp-newsletter-form{
+
+    display:flex;
+
+    margin-top:18px;
+
+    overflow:hidden;
+
+    border-radius:var(--radius-pill);
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.stpp-newsletter-form input{
+
+    flex:1;
+
+    padding:14px 18px;
+
+    background:transparent;
+
+    color:var(--white);
+
+}
+
+.stpp-newsletter-form input::placeholder{
+
+    color:rgba(255,255,255,.55);
+
+}
+
+.stpp-newsletter-form button{
+
+    width:58px;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+}
+
+.stpp-footer-divider{
+
+    margin:55px 0 25px;
+
+    border-color:rgba(255,255,255,.12);
+
+}
+
+.stpp-footer-bottom{
+
+    text-align:center;
+
+}
+
+.stpp-footer-bottom p{
+
+    color:rgba(255,255,255,.65);
+
+    font-size:.9rem;
+
+}
+
+/*==========================================================
+ANIMATIONS
+==========================================================*/
+
+@keyframes stppFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.stpp-profile-header,
+
+.stpp-service-card,
+
+.stpp-sidebar-card{
+
+    animation:stppFadeUp .7s ease both;
+
+}
+
+.stpp-service-card:nth-child(1){
+
+    animation-delay:.1s;
+
+}
+
+.stpp-service-card:nth-child(2){
+
+    animation-delay:.2s;
+
+}
+
+.stpp-service-card:nth-child(3){
+
+    animation-delay:.3s;
+
+}
+
+.stpp-service-card:nth-child(4){
+
+    animation-delay:.4s;
+
+}
+
+/*==========================================================
+TABLET
+==========================================================*/
+
+@media (max-width:991.98px){
+
+    .stpp-cover{
+
+        height:260px;
+
+    }
+
+    .stpp-sidebar{
+
+        position:static;
+
+    }
+
+    .stpp-profile-actions{
+
+        flex-wrap:wrap;
+
+    }
+
+    .stpp-service-card{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .stpp-service-price{
+
+        width:100%;
+
+        flex-direction:row;
+
+        justify-content:space-between;
+
+        align-items:center;
+
+    }
+
+}
+
+/*==========================================================
+MOBILE
+==========================================================*/
+
+@media (max-width:767.98px){
+
+    .stpp-profile-header{
+
+        padding:24px;
+
+        text-align:center;
+
+    }
+
+    .stpp-avatar{
+
+        margin:0 auto 24px;
+
+    }
+
+    .stpp-meta{
+
+        justify-content:center;
+
+        gap:14px;
+
+    }
+
+    .stpp-profile-actions{
+
+        flex-direction:column;
+
+    }
+
+    .stpp-btn{
+
+        width:100%;
+
+    }
+
+    .stpp-tabs{
+
+        overflow-x:auto;
+
+        white-space:nowrap;
+
+        scrollbar-width:none;
+
+    }
+
+    .stpp-tabs::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
+    .stpp-tab{
+
+        flex-shrink:0;
+
+    }
+
+    .stpp-service-card{
+
+        padding:20px;
+
+    }
+
+    .stpp-service-price{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:14px;
+
+    }
+
+    .stpp-book-btn{
+
+        width:100%;
+
+    }
+
+}
+
+/*==========================================================
+SMALL MOBILE
+==========================================================*/
+
+@media (max-width:575.98px){
+
+    .stpp-cover{
+
+        height:210px;
+
+    }
+
+    .stpp-provider-details h2{
+
+        font-size:1.55rem;
+
+    }
+
+    .stpp-service-info h4{
+
+        font-size:1.05rem;
+
+    }
+
+    .stpp-service-price h3{
+
+        font-size:1.35rem;
+
+    }
+
+    .stpp-sidebar-card{
+
+        padding:22px;
+
+    }
+
+    .stpp-footer{
+
+        text-align:center;
+
+    }
+
+    .stpp-social-links{
+
+        justify-content:center;
+
+    }
+
+}
+
+/*==========================================================
+ACCESSIBILITY
+==========================================================*/
+
+.stpp-btn:focus-visible,
+
+.stpp-book-btn:focus-visible,
+
+.stpp-sidebar-btn:focus-visible,
+
+.stpp-tab:focus-visible,
+
+.stpp-nav-icon:focus-visible{
+
+    outline:3px solid rgba(24,195,126,.25);
+
+    outline-offset:4px;
+
+}
+
+/*==========================================================
+END OF SERVICE PROVIDER PROFILE
+==========================================================*/
+
+/*==========================================================
+SERVICE BOOKING PAGE
+Prefix : stbk
+==========================================================*/
+
+/*==========================================================
+PAGE
+==========================================================*/
+
+#stbk-page{
+
+    min-height:100vh;
+
+    background:var(--body);
+
+    padding-top:110px;
+
+    overflow-x:hidden;
+
+}
+
+/*==========================================================
+NAVBAR
+==========================================================*/
+
+#stbk-navbar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:1050;
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid var(--border);
+
+    transition:var(--transition);
+
+}
+
+#stbk-navbar.stbk-navbar-scrolled{
+
+    box-shadow:var(--shadow-md);
+
+}
+
+#stbk-navbar .navbar{
+
+    min-height:78px;
+
+}
+
+.stbk-brand-logo{
+
+    width:150px;
+
+    height:auto;
+
+    display:block;
+
+}
+
+#stbk-navbar .nav-link{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+    margin:0 .45rem;
+
+    position:relative;
+
+    transition:var(--transition);
+
+}
+
+#stbk-navbar .nav-link:hover,
+
+#stbk-navbar .nav-link.stbk-active{
+
+    color:var(--primary);
+
+}
+
+#stbk-navbar .nav-link.stbk-active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:100%;
+
+    height:3px;
+
+    border-radius:999px;
+
+    background:var(--primary);
+
+}
+
+.stbk-navbar-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.stbk-icon-btn{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    font-size:1.2rem;
+
+    color:var(--heading);
+
+    transition:var(--transition);
+
+}
+
+.stbk-icon-btn:hover{
+
+    color:var(--primary);
+
+    border-color:var(--primary);
+
+    background:var(--primary-light);
+
+}
+
+.stbk-badge{
+
+    position:absolute;
+
+    top:-3px;
+
+    right:-3px;
+
+    width:20px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+    color:var(--white);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:.7rem;
+
+    font-weight:700;
+
+}
+
+.stbk-dot{
+
+    position:absolute;
+
+    top:10px;
+
+    right:12px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--secondary);
+
+}
+
+.stbk-profile-link{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+.stbk-profile-link img{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+/*==========================================================
+BOOKING SECTION
+==========================================================*/
+
+.stbk-booking-section{
+
+    padding:45px 0 90px;
+
+}
+
+.stbk-back-link{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--primary);
+
+    font-weight:700;
+
+    margin-bottom:26px;
+
+    transition:var(--transition);
+
+}
+
+.stbk-back-link:hover{
+
+    transform:translateX(-5px);
+
+}
+
+.stbk-page-title{
+
+    font-size:2.2rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+    margin-bottom:35px;
+
+}
+
+/*==========================================================
+PROVIDER CARD
+==========================================================*/
+
+.stbk-provider-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:24px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    box-shadow:var(--shadow-sm);
+
+    margin-bottom:24px;
+
+}
+
+.stbk-provider-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.stbk-provider-image{
+
+    width:78px;
+
+    height:78px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.stbk-provider-details h5{
+
+    font-size:1.25rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+    margin-bottom:6px;
+
+}
+
+.stbk-provider-details p{
+
+    font-size:.95rem;
+
+    color:var(--text-light);
+
+    margin-bottom:12px;
+
+}
+
+.stbk-provider-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:.8rem;
+
+    font-weight:700;
+
+}
+
+/*==========================================================
+COMMON CARDS
+==========================================================*/
+
+.stbk-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    padding:28px;
+
+    margin-bottom:24px;
+
+    box-shadow:var(--shadow-xs);
+
+    transition:var(--transition);
+
+}
+
+.stbk-card:hover{
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.stbk-card h4{
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:22px;
+
+}
+
+/*==========================================================
+SERVICE LIST
+==========================================================*/
+
+.stbk-service-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+.stbk-service-item{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:18px 20px;
+
+    background:var(--white);
+
+    border:1.5px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+.stbk-service-item:hover{
+
+    border-color:var(--primary);
+
+    background:var(--primary-light);
+
+}
+
+.stbk-service-active{
+
+    border-color:var(--primary);
+
+    background:var(--primary-light);
+
+    box-shadow:0 0 0 2px rgba(24,195,126,.12);
+
+}
+
+.stbk-service-name{
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+.stbk-service-price{
+
+    font-size:1rem;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+}
+
+/*==========================================================
+DATE PICKER
+==========================================================*/
+
+.stbk-date-grid{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:14px;
+
+}
+
+.stbk-date-btn{
+
+    min-width:95px;
+
+    height:58px;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--white);
+
+    color:var(--heading);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.stbk-date-btn:hover{
+
+    background:var(--primary-light);
+
+    border-color:var(--primary);
+
+}
+
+.stbk-date-active{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    border-color:var(--primary);
+
+}
+
+/*==========================================================
+TIME PICKER
+==========================================================*/
+
+.stbk-time-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:15px;
+
+}
+
+.stbk-time-btn{
+
+    height:52px;
+
+    border-radius:var(--radius-md);
+
+    border:1px solid var(--border);
+
+    background:var(--white);
+
+    font-size:.92rem;
+
+    font-weight:600;
+
+    color:var(--heading);
+
+    transition:var(--transition);
+
+}
+
+.stbk-time-btn:hover{
+
+    background:var(--primary-light);
+
+    border-color:var(--primary);
+
+}
+
+.stbk-time-active{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    border-color:var(--primary);
+
+}
+
+/*==========================================================
+NOTES
+==========================================================*/
+
+.stbk-notes{
+
+    width:100%;
+
+    min-height:150px;
+
+    resize:none;
+
+    padding:18px;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    background:var(--white);
+
+    color:var(--heading);
+
+    font-size:.95rem;
+
+    line-height:1.7;
+
+    transition:var(--transition);
+
+}
+
+.stbk-notes:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 3px rgba(24,195,126,.12);
+
+}
+
+.stbk-notes::placeholder{
+
+    color:var(--text-muted);
+
+}
+
+/*==========================================================
+BOOKING SUMMARY
+==========================================================*/
+
+.stbk-summary-card{
+
+    position:sticky;
+
+    top:110px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    padding:30px;
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.stbk-summary-card h5{
+
+    font-size:1.3rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+    margin-bottom:28px;
+
+}
+
+.stbk-summary-row{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:18px;
+
+    margin-bottom:18px;
+
+}
+
+.stbk-summary-row span{
+
+    font-size:.95rem;
+
+    color:var(--text-light);
+
+}
+
+.stbk-summary-row strong{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    text-align:right;
+
+}
+
+.stbk-summary-label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+.stbk-summary-label i{
+
+    color:var(--primary);
+
+}
+
+.stbk-summary-card hr{
+
+    margin:22px 0;
+
+    border-color:var(--border);
+
+}
+
+.stbk-summary-total{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:28px;
+
+}
+
+.stbk-summary-total span{
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+}
+
+.stbk-summary-total strong{
+
+    font-size:1.65rem;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+}
+
+.stbk-summary-note{
+
+    margin-top:18px;
+
+    text-align:center;
+
+    font-size:.85rem;
+
+    color:var(--text-muted);
+
+    line-height:1.7;
+
+}
+
+/*==========================================================
+CONFIRM BUTTON
+==========================================================*/
+
+.stbk-confirm-btn{
+
+    width:100%;
+
+    height:58px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    border-radius:var(--radius-pill);
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.stbk-confirm-btn:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.stbk-confirm-btn:active{
+
+    transform:scale(.98);
+
+}
+
+/*==========================================================
+PAGE ANIMATIONS
+==========================================================*/
+
+.stbk-provider-card,
+
+.stbk-card,
+
+.stbk-summary-card{
+
+    animation:stbkFadeUp .7s ease both;
+
+}
+
+.stbk-provider-card{
+
+    animation-delay:.1s;
+
+}
+
+.stbk-card:nth-child(2){
+
+    animation-delay:.2s;
+
+}
+
+.stbk-card:nth-child(3){
+
+    animation-delay:.3s;
+
+}
+
+.stbk-card:nth-child(4){
+
+    animation-delay:.4s;
+
+}
+
+.stbk-summary-card{
+
+    animation-delay:.5s;
+
+}
+
+@keyframes stbkFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==========================================================
+TABLET
+==========================================================*/
+
+@media (max-width:991.98px){
+
+    #stbk-page{
+
+        padding-top:95px;
+
+    }
+
+    .stbk-page-title{
+
+        font-size:1.9rem;
+
+    }
+
+    .stbk-provider-card{
+
+        padding:22px;
+
+    }
+
+    .stbk-summary-card{
+
+        position:relative;
+
+        top:0;
+
+        margin-top:10px;
+
+    }
+
+    .stbk-time-grid{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+    .stbk-navbar-actions{
+
+        margin-top:20px;
+
+        justify-content:flex-start;
+
+        flex-wrap:wrap;
+
+    }
+
+    #stbk-navbar .navbar-nav{
+
+        margin:25px 0;
+
+    }
+
+}
+
+/*==========================================================
+MOBILE
+==========================================================*/
+
+@media (max-width:767.98px){
+
+    #stbk-page{
+
+        padding-top:90px;
+
+    }
+
+    .stbk-booking-section{
+
+        padding:35px 0 70px;
+
+    }
+
+    .stbk-page-title{
+
+        font-size:1.65rem;
+
+        margin-bottom:28px;
+
+    }
+
+    .stbk-provider-card{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+    .stbk-provider-left{
+
+        align-items:flex-start;
+
+    }
+
+    .stbk-provider-image{
+
+        width:68px;
+
+        height:68px;
+
+    }
+
+    .stbk-card{
+
+        padding:22px;
+
+    }
+
+    .stbk-summary-card{
+
+        padding:24px;
+
+    }
+
+    .stbk-time-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .stbk-date-grid{
+
+        gap:12px;
+
+    }
+
+    .stbk-date-btn{
+
+        flex:1 1 calc(50% - 12px);
+
+        min-width:unset;
+
+    }
+
+    .stbk-confirm-btn{
+
+        height:55px;
+
+        font-size:.95rem;
+
+    }
+
+}
+
+/*==========================================================
+SMALL MOBILE
+==========================================================*/
+
+@media (max-width:575.98px){
+
+    .stbk-provider-left{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+
+        width:100%;
+
+    }
+
+    .stbk-provider-details{
+
+        width:100%;
+
+    }
+
+    .stbk-provider-details h5{
+
+        font-size:1.15rem;
+
+    }
+
+    .stbk-provider-details p{
+
+        font-size:.9rem;
+
+    }
+
+    .stbk-page-title{
+
+        font-size:1.45rem;
+
+    }
+
+    .stbk-card h4{
+
+        font-size:1.05rem;
+
+    }
+
+    .stbk-summary-card h5{
+
+        font-size:1.15rem;
+
+    }
+
+    .stbk-summary-total strong{
+
+        font-size:1.45rem;
+
+    }
+
+    .stbk-service-item{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+    .stbk-service-price{
+
+        font-size:1.05rem;
+
+    }
+
+    .stbk-time-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .stbk-date-grid{
+
+        display:grid;
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .stbk-navbar-actions{
+
+        gap:12px;
+
+    }
+
+    .stbk-profile-link span{
+
+        display:none;
+
+    }
+
+}
+
+/*==========================================================
+FOCUS STATES
+==========================================================*/
+
+.stbk-icon-btn:focus-visible,
+
+.stbk-confirm-btn:focus-visible,
+
+.stbk-service-item:focus-visible,
+
+.stbk-date-btn:focus-visible,
+
+.stbk-time-btn:focus-visible,
+
+.stbk-back-link:focus-visible{
+
+    outline:3px solid rgba(24,195,126,.25);
+
+    outline-offset:3px;
+
+}
+
+/*==========================================================
+HOVER EFFECTS
+==========================================================*/
+
+.stbk-service-item,
+
+.stbk-date-btn,
+
+.stbk-time-btn,
+
+.stbk-provider-card,
+
+.stbk-card,
+
+.stbk-summary-card{
+
+    transition:all .3s ease;
+
+}
+
+.stbk-provider-card:hover,
+
+.stbk-card:hover,
+
+.stbk-summary-card:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/*==========================================================
+CUSTOM SCROLLBAR
+==========================================================*/
+
+.stbk-notes::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.stbk-notes::-webkit-scrollbar-track{
+
+    background:var(--border-light);
+
+    border-radius:999px;
+
+}
+
+.stbk-notes::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:999px;
+
+}
+
+/*==========================================================
+END OF SERVICE BOOKING PAGE
+==========================================================*/
+
+/* ==========================================================
+STBC BOOKING CONFIRMATION PAGE
+(Service Booking Confirmation)
+========================================================== */
+
+.stbc-main{
+
+    padding-top:88px;
+
+    min-height:100vh;
+
+    background:var(--body);
+
+}
+
+/* ==========================================================
+NAVBAR
+========================================================== */
+
+.stbc-navbar{
+
+    background:var(--white);
+
+    height:72px;
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-xs);
+
+    z-index:999;
+
+}
+
+.stbc-brand{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.stbc-brand-placeholder{
+
+    width:120px;
+
+    height:42px;
+
+    border-radius:var(--radius-sm);
+
+    background:var(--border-light);
+
+    color:var(--text-muted);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:.82rem;
+
+    font-weight:600;
+
+}
+
+.stbc-navbar .nav-link{
+
+    color:var(--heading);
+
+    font-size:.94rem;
+
+    font-weight:500;
+
+    padding:10px 18px;
+
+    transition:var(--transition);
+
+}
+
+.stbc-navbar .nav-link:hover{
+
+    color:var(--primary);
+
+}
+
+.stbc-nav-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.stbc-cart-btn,
+
+.stbc-bell-btn{
+
+    position:relative;
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--heading);
+
+    transition:var(--transition);
+
+}
+
+.stbc-cart-btn:hover,
+
+.stbc-bell-btn:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+}
+
+.stbc-cart-btn i,
+
+.stbc-bell-btn i{
+
+    font-size:1.15rem;
+
+}
+
+.stbc-cart-count{
+
+    position:absolute;
+
+    top:2px;
+
+    right:2px;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:var(--secondary);
+
+    color:var(--white);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:.65rem;
+
+    font-weight:700;
+
+}
+
+.stbc-notification-dot{
+
+    position:absolute;
+
+    top:9px;
+
+    right:10px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--secondary);
+
+}
+
+.stbc-user-wrap{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.stbc-user-avatar{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    background:var(--border);
+
+}
+
+.stbc-user-name{
+
+    font-size:.92rem;
+
+    color:var(--heading);
+
+    font-weight:500;
+
+}
+
+/* ==========================================================
+CONFIRMATION SECTION
+========================================================== */
+
+.stbc-confirmation-section{
+
+    padding:90px 0 110px;
+
+}
+
+.stbc-success-icon{
+
+    width:86px;
+
+    height:86px;
+
+    margin:0 auto 30px;
+
+    border-radius:50%;
+
+    background:var(--primary-light);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    animation:stbcPulse 2.5s infinite;
+
+}
+
+.stbc-success-icon i{
+
+    font-size:2.6rem;
+
+    color:var(--primary);
+
+}
+
+.stbc-title{
+
+    text-align:center;
+
+    font-size:2.2rem;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+
+    color:var(--heading);
+
+}
+
+.stbc-subtitle{
+
+    text-align:center;
+
+    color:var(--text-light);
+
+    font-size:1rem;
+
+    margin-bottom:38px;
+
+}
+
+/* ==========================================================
+CONFIRMATION CARD
+========================================================== */
+
+.stbc-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    box-shadow:var(--shadow-md);
+
+    overflow:hidden;
+
+    animation:stbcFadeUp .8s ease;
+
+}
+
+.stbc-card-header{
+
+    padding:28px 30px 24px;
+
+    text-align:center;
+
+    background:linear-gradient(180deg,#ffffff,#fafcfd);
+
+}
+
+.stbc-card-header p{
+
+    font-size:.8rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    color:var(--text-muted);
+
+    margin-bottom:8px;
+
+}
+
+.stbc-card-header h4{
+
+    font-size:1.65rem;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+    letter-spacing:1px;
+
+}
+
+.stbc-divider{
+
+    width:100%;
+
+    height:1px;
+
+    background:var(--border);
+
+}
+
+.stbc-card-body{
+
+    padding:28px 30px;
+
+}
+
+.stbc-info-row{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:16px;
+
+    padding:18px 0;
+
+}
+
+.stbc-info-row:not(:last-child){
+
+    border-bottom:1px solid var(--border-light);
+
+}
+
+.stbc-info-icon{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    background:var(--primary-light);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+}
+
+.stbc-info-icon i{
+
+    color:var(--primary);
+
+    font-size:1.15rem;
+
+}
+
+.stbc-info-content{
+
+    flex:1;
+
+}
+
+.stbc-info-content small{
+
+    display:block;
+
+    margin-bottom:5px;
+
+    font-size:.8rem;
+
+    color:var(--text-muted);
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:.4px;
+
+}
+
+.stbc-info-content h6{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    line-height:1.5;
+
+}
+
+/* ==========================================================
+ACTION BUTTONS
+========================================================== */
+
+.stbc-action-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+    margin-top:32px;
+
+}
+
+.stbc-btn-primary{
+
+    width:100%;
+
+    height:56px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.stbc-btn-primary:hover{
+
+    background:var(--primary-dark);
+
+    color:var(--white);
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.stbc-btn-outline{
+
+    width:100%;
+
+    height:56px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:var(--radius-pill);
+
+    background:transparent;
+
+    border:2px solid var(--primary);
+
+    color:var(--primary);
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.stbc-btn-outline:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================================
+CONTINUE LINK
+========================================================== */
+
+.stbc-extra-link{
+
+    margin-top:26px;
+
+    text-align:center;
+
+}
+
+.stbc-extra-link a{
+
+    color:var(--primary);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.stbc-extra-link a:hover{
+
+    color:var(--primary-dark);
+
+    text-decoration:underline;
+
+}
+
+/* ==========================================================
+ANIMATIONS
+========================================================== */
+
+@keyframes stbcFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes stbcPulse{
+
+    0%{
+
+        transform:scale(1);
+
+        box-shadow:0 0 0 0 rgba(24,195,126,.35);
+
+    }
+
+    70%{
+
+        transform:scale(1.05);
+
+        box-shadow:0 0 0 18px rgba(24,195,126,0);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        box-shadow:0 0 0 0 rgba(24,195,126,0);
+
+    }
+
+}
+
+.stbc-card{
+
+    animation:stbcFadeUp .8s ease both;
+
+}
+
+.stbc-action-group{
+
+    animation:stbcFadeUp 1s ease both;
+
+}
+
+/* ==========================================================
+RESPONSIVE
+========================================================== */
+
+@media (max-width:991.98px){
+
+    .stbc-main{
+
+        padding-top:82px;
+
+    }
+
+    .stbc-confirmation-section{
+
+        padding:70px 0 90px;
+
+    }
+
+    .stbc-title{
+
+        font-size:2rem;
+
+    }
+
+    .stbc-card{
+
+        margin-top:10px;
+
+    }
+
+    .stbc-nav-actions{
+
+        margin-top:20px;
+
+        justify-content:flex-start;
+
+    }
+
+    .stbc-navbar .navbar-nav{
+
+        margin:20px 0;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .stbc-confirmation-section{
+
+        padding:60px 0 80px;
+
+    }
+
+    .stbc-title{
+
+        font-size:1.8rem;
+
+    }
+
+    .stbc-subtitle{
+
+        font-size:.95rem;
+
+        margin-bottom:30px;
+
+    }
+
+    .stbc-success-icon{
+
+        width:72px;
+
+        height:72px;
+
+    }
+
+    .stbc-success-icon i{
+
+        font-size:2.1rem;
+
+    }
+
+    .stbc-card-header{
+
+        padding:24px;
+
+    }
+
+    .stbc-card-body{
+
+        padding:22px;
+
+    }
+
+    .stbc-info-row{
+
+        gap:14px;
+
+    }
+
+    .stbc-info-icon{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+    .stbc-btn-primary,
+
+    .stbc-btn-outline{
+
+        height:54px;
+
+        font-size:.95rem;
+
+    }
+
+}
+
+@media (max-width:575.98px){
+
+    .stbc-title{
+
+        font-size:1.55rem;
+
+    }
+
+    .stbc-subtitle{
+
+        font-size:.9rem;
+
+    }
+
+    .stbc-card-header h4{
+
+        font-size:1.35rem;
+
+        word-break:break-word;
+
+    }
+
+    .stbc-info-row{
+
+        align-items:flex-start;
+
+    }
+
+    .stbc-info-content h6{
+
+        font-size:.92rem;
+
+        line-height:1.5;
+
+    }
+
+    .stbc-user-name{
+
+        display:none;
+
+    }
+
+    .stbc-nav-actions{
+
+        gap:12px;
+
+    }
+
+}
+
+/* ==========================================================
+ACCESSIBILITY
+========================================================== */
+
+.stbc-btn-primary:focus-visible,
+
+.stbc-btn-outline:focus-visible,
+
+.stbc-cart-btn:focus-visible,
+
+.stbc-bell-btn:focus-visible,
+
+.stbc-user-wrap:focus-visible,
+
+.stbc-navbar .nav-link:focus-visible,
+
+.stbc-extra-link a:focus-visible{
+
+    outline:3px solid rgba(24,195,126,.25);
+
+    outline-offset:3px;
+
+}
+
+/* ==========================================================
+HOVER ELEVATION
+========================================================== */
+
+.stbc-card{
+
+    transition:transform .3s ease,
+
+               box-shadow .3s ease;
+
+}
+
+.stbc-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+/* ==========================================================
+NAVBAR SCROLLED STATE
+========================================================== */
+
+.stbc-navbar.stbc-navbar-scrolled{
+
+    box-shadow:var(--shadow-md);
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(14px);
+
+}
+
+/* ==========================================================
+END OF BOOKING CONFIRMATION PAGE
+========================================================== */
+
+/*==========================================================
+MY BOOKINGS PAGE
+Prefix: stmb-
+Style.css — Part 1
+==========================================================*/
+
+/*==========================================================
+PAGE WRAPPER
+==========================================================*/
+
+.stmb-page{
+
+    background:var(--body);
+
+    min-height:100vh;
+
+    padding:48px 0 80px;
+
+    overflow:hidden;
+
+}
+
+/*==========================================================
+CONTAINER
+==========================================================*/
+
+.stmb-container{
+
+    max-width:760px;
+
+    margin:0 auto;
+
+    animation:stmbFadeUp .8s ease;
+
+}
+
+/*==========================================================
+BREADCRUMB
+==========================================================*/
+
+.stmb-breadcrumb{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:22px;
+
+    font-size:.875rem;
+
+    color:var(--text-light);
+
+}
+
+.stmb-breadcrumb a{
+
+    color:var(--text-light);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    transition:var(--transition);
+
+}
+
+.stmb-breadcrumb a:hover{
+
+    color:var(--primary);
+
+}
+
+.stmb-breadcrumb span{
+
+    color:#c5ccd7;
+
+}
+
+.stmb-current-page{
+
+    color:var(--heading);
+
+    font-weight:600;
+
+}
+
+/*==========================================================
+PAGE TITLE
+==========================================================*/
+
+.stmb-page-title{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:26px;
+
+}
+
+/*==========================================================
+BOOKING LIST
+==========================================================*/
+
+.stmb-booking-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+/*==========================================================
+BOOKING CARD
+==========================================================*/
+
+.stmb-booking-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:22px 20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:var(--shadow-xs);
+
+    transition:var(--transition);
+
+    animation:stmbCardIn .7s ease both;
+
+}
+
+.stmb-booking-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+/*==========================================================
+LEFT SECTION
+==========================================================*/
+
+.stmb-provider-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+/*==========================================================
+PROFILE IMAGE
+==========================================================*/
+
+.stmb-provider-image{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+    background:#eef2f7;
+
+}
+
+.stmb-provider-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+/*==========================================================
+PROVIDER DETAILS
+==========================================================*/
+
+.stmb-provider-details h5{
+
+    font-size:1.35rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:3px;
+
+}
+
+.stmb-provider-details p{
+
+    font-size:.98rem;
+
+    color:var(--text-light);
+
+    margin-bottom:8px;
+
+}
+
+/*==========================================================
+META INFO
+==========================================================*/
+
+.stmb-booking-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    flex-wrap:wrap;
+
+}
+
+.stmb-booking-meta span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    font-size:.84rem;
+
+    color:#97a4b7;
+
+}
+
+.stmb-booking-meta i{
+
+    font-size:.8rem;
+
+}
+
+/*==========================================================
+RIGHT SIDE ACTIONS
+==========================================================*/
+
+.stmb-booking-actions{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-end;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-shrink:0;
+
+}
+
+/*==========================================================
+PRICE
+==========================================================*/
+
+.stmb-price{
+
+    font-size:1.1rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+    margin:0;
+
+    line-height:1;
+
+}
+
+/*==========================================================
+STATUS BADGES
+==========================================================*/
+
+.stmb-status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:110px;
+
+    padding:8px 16px;
+
+    border-radius:var(--radius-pill);
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    letter-spacing:.2px;
+
+}
+
+.stmb-status-confirmed{
+
+    color:var(--success);
+
+    background:rgba(22,199,132,.12);
+
+}
+
+.stmb-status-upcoming{
+
+    color:var(--info);
+
+    background:rgba(59,130,246,.12);
+
+}
+
+.stmb-status-progress{
+
+    color:var(--warning);
+
+    background:rgba(255,176,32,.16);
+
+}
+
+.stmb-status-completed{
+
+    color:#7c3aed;
+
+    background:rgba(124,58,237,.12);
+
+}
+
+/*==========================================================
+CHAT BUTTON
+==========================================================*/
+
+.stmb-chat-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    min-width:120px;
+
+    height:44px;
+
+    padding:0 22px;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    font-size:.92rem;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.stmb-chat-btn:hover{
+
+    background:var(--primary-dark);
+
+    color:var(--white);
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.stmb-chat-btn i{
+
+    font-size:.9rem;
+
+}
+
+/*==========================================================
+ACTIVE NAVIGATION
+==========================================================*/
+
+.stmb-nav-active{
+
+    color:var(--primary)!important;
+
+    font-weight:700;
+
+    position:relative;
+
+}
+
+.stmb-nav-active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-8px;
+
+    transform:translateX(-50%);
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+}
+
+/*==========================================================
+NAVBAR
+==========================================================*/
+
+.stmb-navbar{
+
+    background:var(--white);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-xs);
+
+    padding:14px 0;
+
+    transition:var(--transition);
+
+    z-index:1000;
+
+}
+
+.stmb-brand-placeholder{
+
+    width:135px;
+
+    height:42px;
+
+    border:2px dashed var(--border);
+
+    border-radius:var(--radius-md);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+    color:var(--text-muted);
+
+    background:var(--border-light);
+
+}
+
+.stmb-nav-link{
+
+    color:var(--heading);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    padding:.75rem 1rem !important;
+
+    transition:var(--transition);
+
+}
+
+.stmb-nav-link:hover{
+
+    color:var(--primary);
+
+}
+
+.stmb-right-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.stmb-icon-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--heading);
+
+    position:relative;
+
+    transition:var(--transition);
+
+}
+
+.stmb-icon-btn:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+}
+
+.stmb-dot{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+}
+
+.stmb-user-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:transparent;
+
+    border:none;
+
+    padding:0;
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+.stmb-user-avatar{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:var(--border);
+
+    overflow:hidden;
+
+}
+
+/*==========================================================
+ANIMATIONS
+==========================================================*/
+
+@keyframes stmbFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes stmbCardIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.stmb-booking-card:nth-child(2){
+
+    animation-delay:.1s;
+
+}
+
+.stmb-booking-card:nth-child(3){
+
+    animation-delay:.2s;
+
+}
+
+.stmb-booking-card:nth-child(4){
+
+    animation-delay:.3s;
+
+}
+
+/*==========================================================
+RESPONSIVE
+==========================================================*/
+
+@media (max-width:991.98px){
+
+    .stmb-booking-card{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+    .stmb-booking-actions{
+
+        width:100%;
+
+        align-items:flex-start;
+
+    }
+
+    .stmb-chat-btn{
+
+        width:100%;
+
+    }
+
+    .stmb-right-menu{
+
+        margin-top:18px;
+
+        justify-content:flex-start;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .stmb-page{
+
+        padding:32px 0 60px;
+
+    }
+
+    .stmb-page-title{
+
+        font-size:1.75rem;
+
+    }
+
+    .stmb-provider-info{
+
+        gap:14px;
+
+    }
+
+    .stmb-provider-image{
+
+        width:50px;
+
+        height:50px;
+
+        border-radius:14px;
+
+    }
+
+    .stmb-provider-details h5{
+
+        font-size:1.05rem;
+
+    }
+
+    .stmb-provider-details p{
+
+        font-size:.9rem;
+
+    }
+
+    .stmb-booking-meta{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:6px;
+
+    }
+
+    .stmb-price{
+
+        font-size:1rem;
+
+    }
+
+    .stmb-status{
+
+        min-width:100px;
+
+        font-size:.78rem;
+
+    }
+
+}
+
+@media (max-width:575.98px){
+
+    .stmb-container{
+
+        padding:0 6px;
+
+    }
+
+    .stmb-booking-card{
+
+        padding:18px;
+
+        border-radius:var(--radius-lg);
+
+    }
+
+    .stmb-provider-info{
+
+        width:100%;
+
+        align-items:flex-start;
+
+    }
+
+    .stmb-provider-details{
+
+        flex:1;
+
+        min-width:0;
+
+    }
+
+    .stmb-provider-details h5{
+
+        font-size:1rem;
+
+        word-break:break-word;
+
+    }
+
+    .stmb-provider-details p{
+
+        font-size:.875rem;
+
+    }
+
+    .stmb-booking-actions{
+
+        gap:10px;
+
+    }
+
+    .stmb-chat-btn{
+
+        height:42px;
+
+        font-size:.875rem;
+
+    }
+
+    .stmb-brand-placeholder{
+
+        width:115px;
+
+        height:38px;
+
+        font-size:.7rem;
+
+    }
+
+}
+
+/*==========================================================
+ACCESSIBILITY
+==========================================================*/
+
+.stmb-chat-btn:focus-visible,
+
+.stmb-icon-btn:focus-visible,
+
+.stmb-user-btn:focus-visible,
+
+.stmb-nav-link:focus-visible{
+
+    outline:3px solid rgba(24,195,126,.25);
+
+    outline-offset:3px;
+
+}
+
+/*==========================================================
+SCROLLED NAVBAR
+==========================================================*/
+
+.stmb-navbar.stmb-navbar-scrolled{
+
+    box-shadow:var(--shadow-md);
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(14px);
+
+}
+
+/*==========================================================
+END OF MY BOOKINGS PAGE
+==========================================================*/
+
+/*=========================================================
+NOTIFICATIONS PAGE
+Style.css — Part 1
+Prefix: stntf-
+=========================================================*/
+
+/*=========================================================
+PAGE WRAPPER
+=========================================================*/
+
+.stntf-page{
+
+    min-height:100vh;
+
+    background:var(--body);
+
+    padding:36px 0 80px;
+
+}
+
+.stntf-container{
+
+    max-width:920px;
+
+}
+
+/*=========================================================
+NAVBAR
+=========================================================*/
+
+.stntf-navbar{
+
+    background:var(--white);
+
+    border-bottom:1px solid var(--border);
+
+    min-height:74px;
+
+    box-shadow:var(--shadow-xs);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+.stntf-brand{
+
+    padding:0;
+
+}
+
+.stntf-brand-placeholder{
+
+    width:118px;
+
+    height:42px;
+
+    border:2px dashed var(--border);
+
+    border-radius:var(--radius-sm);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:.78rem;
+
+    color:var(--text-muted);
+
+    background:var(--white);
+
+    font-weight:600;
+
+}
+
+.stntf-nav-link{
+
+    color:var(--heading);
+
+    font-size:.92rem;
+
+    font-weight:500;
+
+    margin:0 10px;
+
+    transition:var(--transition);
+
+}
+
+.stntf-nav-link:hover{
+
+    color:var(--primary);
+
+}
+
+.stntf-nav-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.stntf-icon-btn{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--heading);
+
+    position:relative;
+
+    transition:var(--transition);
+
+}
+
+.stntf-icon-btn:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+}
+
+.stntf-nav-dot{
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--secondary);
+
+    position:absolute;
+
+    top:7px;
+
+    right:9px;
+
+}
+
+.stntf-user{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.stntf-user-avatar{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+}
+
+.stntf-user-avatar img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.stntf-user-name{
+
+    font-size:.9rem;
+
+    color:var(--heading);
+
+    font-weight:500;
+
+}
+
+.stntf-user-arrow{
+
+    font-size:.72rem;
+
+    color:var(--text-muted);
+
+}
+
+/*=========================================================
+HEADER
+=========================================================*/
+
+.stntf-header{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:space-between;
+
+    margin-bottom:18px;
+
+}
+
+.stntf-title{
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+    margin-bottom:6px;
+
+}
+
+.stntf-subtitle{
+
+    font-size:.95rem;
+
+    color:var(--text-light);
+
+}
+
+.stntf-subtitle strong{
+
+    color:var(--secondary);
+
+    font-weight:700;
+
+}
+
+.stntf-read-btn{
+
+    background:none;
+
+    color:var(--primary);
+
+    font-size:.92rem;
+
+    font-weight:700;
+
+    padding:0;
+
+}
+
+.stntf-read-btn:hover{
+
+    color:var(--primary-dark);
+
+}
+
+/*=========================================================
+FILTER BUTTONS
+=========================================================*/
+
+.stntf-filter-wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:28px;
+
+}
+
+.stntf-filter{
+
+    height:42px;
+
+    padding:0 20px;
+
+    border-radius:var(--radius-pill);
+
+    border:1px solid var(--border);
+
+    background:var(--surface);
+
+    color:var(--text-light);
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.stntf-filter:hover{
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+    background:var(--primary-light);
+
+}
+
+.stntf-filter.active{
+
+    background:var(--primary);
+
+    border-color:var(--primary);
+
+    color:var(--white);
+
+}
+
+/*=========================================================
+NOTIFICATION LIST
+=========================================================*/
+
+.stntf-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+/*=========================================================
+NOTIFICATION CARD
+=========================================================*/
+
+.stntf-card{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    padding:22px;
+
+    box-shadow:var(--shadow-xs);
+
+    transition:var(--transition);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.stntf-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.stntf-card.unread{
+
+    border-left:4px solid var(--primary);
+
+    background:#fcfffd;
+
+}
+
+/*=========================================================
+ICON
+=========================================================*/
+
+.stntf-card-icon{
+
+    width:54px;
+
+    height:54px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.2rem;
+
+    flex-shrink:0;
+
+}
+
+.stntf-blue{
+
+    background:#eaf3ff;
+
+    color:#3b82f6;
+
+}
+
+.stntf-purple{
+
+    background:#f3ebff;
+
+    color:#8b5cf6;
+
+}
+
+.stntf-green{
+
+    background:#eafaf2;
+
+    color:#16c784;
+
+}
+
+.stntf-orange{
+
+    background:#fff2e8;
+
+    color:#ff7a00;
+
+}
+
+.stntf-yellow{
+
+    background:#fff8df;
+
+    color:#f5a524;
+
+}
+
+.stntf-mint{
+
+    background:#e9fbf4;
+
+    color:#18c37e;
+
+}
+
+.stntf-success{
+
+    background:#ecfbf5;
+
+    color:#10b981;
+
+}
+
+.stntf-blue-light{
+
+    background:#eef6ff;
+
+    color:#2563eb;
+
+}
+
+/*=========================================================
+CONTENT
+=========================================================*/
+
+.stntf-card-content{
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+.stntf-card-top{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    margin-bottom:8px;
+
+}
+
+.stntf-card-top h6{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    line-height:1.4;
+
+}
+
+.stntf-card-top small{
+
+    color:var(--text-muted);
+
+    font-size:.82rem;
+
+    white-space:nowrap;
+
+}
+
+.stntf-card-content p{
+
+    font-size:.92rem;
+
+    line-height:1.75;
+
+    color:var(--text-light);
+
+}
+
+/*=========================================================
+UNREAD DOT
+=========================================================*/
+
+.stntf-time-wrap{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+.stntf-unread-dot{
+
+    width:9px;
+
+    height:9px;
+
+    border-radius:50%;
+
+    background:var(--secondary);
+
+    flex-shrink:0;
+
+}
+
+/*=========================================================
+FOOTER NOTE
+=========================================================*/
+
+.stntf-footer-note{
+
+    text-align:center;
+
+    margin-top:40px;
+
+    padding-top:28px;
+
+    border-top:1px solid var(--border);
+
+}
+
+.stntf-footer-note p{
+
+    font-size:.88rem;
+
+    color:var(--text-muted);
+
+}
+
+/*=========================================================
+ANIMATIONS
+=========================================================*/
+
+.stntf-card{
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    animation:stntfFadeUp .7s ease forwards;
+
+}
+
+.stntf-card:nth-child(2){
+
+    animation-delay:.08s;
+
+}
+
+.stntf-card:nth-child(3){
+
+    animation-delay:.16s;
+
+}
+
+.stntf-card:nth-child(4){
+
+    animation-delay:.24s;
+
+}
+
+.stntf-card:nth-child(5){
+
+    animation-delay:.32s;
+
+}
+
+.stntf-card:nth-child(6){
+
+    animation-delay:.40s;
+
+}
+
+.stntf-card:nth-child(7){
+
+    animation-delay:.48s;
+
+}
+
+.stntf-card:nth-child(8){
+
+    animation-delay:.56s;
+
+}
+
+@keyframes stntfFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes stntfPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.15);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+.stntf-unread-dot{
+
+    animation:stntfPulse 1.6s infinite;
+
+}
+
+/*=========================================================
+RESPONSIVE
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .stntf-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:18px;
+
+    }
+
+    .stntf-nav-right{
+
+        margin-top:18px;
+
+        justify-content:flex-start;
+
+    }
+
+    .stntf-card{
+
+        padding:20px;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .stntf-page{
+
+        padding:24px 0 60px;
+
+    }
+
+    .stntf-title{
+
+        font-size:1.7rem;
+
+    }
+
+    .stntf-filter-wrapper{
+
+        gap:10px;
+
+        overflow-x:auto;
+
+        flex-wrap:nowrap;
+
+        padding-bottom:4px;
+
+        scrollbar-width:none;
+
+    }
+
+    .stntf-filter-wrapper::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
+    .stntf-filter{
+
+        flex-shrink:0;
+
+    }
+
+    .stntf-card{
+
+        gap:14px;
+
+    }
+
+    .stntf-card-icon{
+
+        width:46px;
+
+        height:46px;
+
+        font-size:1rem;
+
+    }
+
+    .stntf-card-top{
+
+        flex-direction:column;
+
+        gap:6px;
+
+    }
+
+    .stntf-time-wrap{
+
+        justify-content:flex-start;
+
+    }
+
+}
+
+@media (max-width:575.98px){
+
+    .stntf-container{
+
+        padding-left:4px;
+
+        padding-right:4px;
+
+    }
+
+    .stntf-title{
+
+        font-size:1.5rem;
+
+    }
+
+    .stntf-subtitle{
+
+        font-size:.88rem;
+
+    }
+
+    .stntf-card{
+
+        padding:16px;
+
+        border-radius:var(--radius-md);
+
+    }
+
+    .stntf-card-content p{
+
+        font-size:.88rem;
+
+        line-height:1.65;
+
+    }
+
+    .stntf-card-top h6{
+
+        font-size:.95rem;
+
+    }
+
+    .stntf-user-name,
+
+    .stntf-user-arrow{
+
+        display:none;
+
+    }
+
+    .stntf-brand-placeholder{
+
+        width:100px;
+
+        height:38px;
+
+        font-size:.72rem;
+
+    }
+
+}
+
+/*=========================================================
+FOCUS STATES
+=========================================================*/
+
+.stntf-filter:focus-visible,
+
+.stntf-read-btn:focus-visible,
+
+.stntf-icon-btn:focus-visible,
+
+.stntf-nav-link:focus-visible,
+
+.stntf-user:focus-visible{
+
+    outline:3px solid rgba(24,195,126,.2);
+
+    outline-offset:3px;
+
+}
+
+/*=========================================================
+UTILITY CLASSES
+=========================================================*/
+
+.stntf-hidden{
+
+    display:none !important;
+
+}
+
+.stntf-read{
+
+    opacity:.72;
+
+}
+
+.stntf-read .stntf-unread-dot{
+
+    display:none;
+
+}
+
+.stntf-read.unread{
+
+    border-left:1px solid var(--border);
+
+    background:var(--surface);
+
+}
+
+/*=========================================================
+END OF NOTIFICATIONS PAGE
+=========================================================*/

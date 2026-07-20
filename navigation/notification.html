@@ -1,3 +1,692 @@
-, maximum-scale=1.0, user-scalable=no
+<!DOCTYPE html>
+<html lang="en">
 
-js-cart-link
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Notifications</title>
+
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Page CSS -->
+
+    <link rel="stylesheet"
+          href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+<!--=========================================================
+NAVBAR
+==========================================================-->
+
+<nav class="navbar navbar-expand-lg stntf-navbar">
+
+    <div class="container-fluid px-4">
+
+        <!-- Brand -->
+
+        <a href="../navigation/home.html"
+           class="navbar-brand stntf-brand">
+
+            <div class="stntf-brand-placeholder">
+
+                Brand Logo
+
+            </div>
+
+        </a>
+
+        <!-- Mobile Toggle -->
+
+        <button class="navbar-toggler border-0 shadow-none"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#stntfNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse"
+             id="stntfNavbar">
+
+            <!-- Center Navigation -->
+
+            <ul class="navbar-nav mx-auto align-items-lg-center">
+
+                <li class="nav-item">
+
+                    <a href="../navigation/home.html"
+                       class="nav-link stntf-nav-link">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a href="../navigation/products.html"
+                       class="nav-link stntf-nav-link">
+
+                        Products
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a href="../navigation/services.html"
+                       class="nav-link stntf-nav-link">
+
+                        Services
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a href="../navigation/orders.html"
+                       class="nav-link stntf-nav-link">
+
+                        Orders
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a href="../navigation/bookings.html"
+                       class="nav-link stntf-nav-link">
+
+                        Bookings
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a href="../navigation/messages.html"
+                       class="nav-link stntf-nav-link">
+
+                        Messages
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+            <!-- Right Side -->
+
+            <div class="stntf-nav-right">
+
+                <!-- Cart -->
+
+                <a href="../navigation/cart.html">
+
+                <button id="stntfCartBtn"
+                        class="stntf-icon-btn js-cart-link"
+                        type="button">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                </button>
+
+                </a>
+
+                <!-- Notification -->
+
+                <a href="../navigation/notification.html">
+
+                <button id="stntfNotificationBtn"
+                        class="stntf-icon-btn"
+                        type="button">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span class="stntf-nav-dot"></span>
+
+                </button>
+
+                </a>
+
+                <!-- User -->
+
+                <a href="../admin/admin-dashboard.html"
+                   class="stntf-user">
+
+                    <div class="stntf-user-avatar">
+
+                        <img src="https://placehold.co/42x42"
+                             alt="User">
+
+                    </div>
+
+                    <span class="stntf-user-name">
+
+                        Admin
+
+                    </span>
+
+                    <i class="fa-solid fa-chevron-down stntf-user-arrow"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!--=========================================================
+MAIN
+==========================================================-->
+
+<main class="stntf-page">
+
+    <div class="container stntf-container">
+
+        <!-- Header -->
+
+        <div class="stntf-header">
+
+            <div>
+
+                <h2 class="stntf-title">
+
+                    Notifications
+
+                </h2>
+
+                <p class="stntf-subtitle">
+
+                    You have
+                    <strong class="text-secondary">3 unread</strong>
+                    notifications
+
+                </p>
+
+            </div>
+
+            <button id="stntfReadAllBtn"
+                    class="stntf-read-btn"
+                    type="button">
+
+                Mark all as read
+
+            </button>
+
+        </div>
+
+        <!-- Notification Filter Pills -->
+
+        <div class="stntf-filter-wrapper">
+
+            <button class="stntf-filter active"
+                    data-filter="all">
+
+                All
+
+            </button>
+
+            <button class="stntf-filter"
+                    data-filter="orders">
+
+                Orders
+
+            </button>
+
+            <button class="stntf-filter"
+                    data-filter="bookings">
+
+                Bookings
+
+            </button>
+
+            <button class="stntf-filter"
+                    data-filter="messages">
+
+                Messages
+
+            </button>
+
+            <button class="stntf-filter"
+                    data-filter="escrow">
+
+                Escrow
+
+            </button>
+
+        </div>
+
+               <div id="stntfNotificationList"
+             class="stntf-list">
+
+            <!--==================================================
+            Notification 1
+            ===================================================-->
+
+            <article class="stntf-card unread"
+                     data-category="orders">
+
+                <div class="stntf-card-icon stntf-blue">
+
+                    <i class="fa-solid fa-box"></i>
+
+                </div>
+
+                <div class="stntf-card-content">
+
+                    <div class="stntf-card-top">
+
+                        <h6>
+
+                            Order Shipped
+
+                        </h6>
+
+                        <div class="stntf-time-wrap">
+
+                            <small>
+
+                                2 minutes ago
+
+                            </small>
+
+                            <span class="stntf-unread-dot"></span>
+
+                        </div>
+
+                    </div>
+
+                    <p>
+
+                        Your Samsung Galaxy A54 is on its way!
+                        Tracking: GIC-2024-88412
+
+                    </p>
+
+                </div>
+
+            </article>
+
+            <!--==================================================
+            Notification 2
+            ===================================================-->
+
+            <article class="stntf-card unread"
+                     data-category="escrow">
+
+                <div class="stntf-card-icon stntf-purple">
+
+                    <i class="fa-regular fa-shield"></i>
+
+                </div>
+
+                <div class="stntf-card-content">
+
+                    <div class="stntf-card-top">
+
+                        <h6>
+
+                            Escrow Payment Held
+
+                        </h6>
+
+                        <div class="stntf-time-wrap">
+
+                            <small>
+
+                                15 minutes ago
+
+                            </small>
+
+                            <span class="stntf-unread-dot"></span>
+
+                        </div>
+
+                    </div>
+
+                    <p>
+
+                        ₦185,000 is safely held in escrow
+                        for order #YV-2024-089341.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+            <!--==================================================
+            Notification 3
+            ===================================================-->
+
+            <article class="stntf-card unread"
+                     data-category="bookings">
+
+                <div class="stntf-card-icon stntf-green">
+
+                    <i class="fa-regular fa-calendar-check"></i>
+
+                </div>
+
+                <div class="stntf-card-content">
+
+                    <div class="stntf-card-top">
+
+                        <h6>
+
+                            Booking Confirmed
+
+                        </h6>
+
+                        <div class="stntf-time-wrap">
+
+                            <small>
+
+                                1 hour ago
+
+                            </small>
+
+                            <span class="stntf-unread-dot"></span>
+
+                        </div>
+
+                    </div>
+
+                    <p>
+
+                        Emeka Okafor confirmed your Full Car
+                        Service for Jun 21 at 10:00 AM.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+            <!--==================================================
+            Notification 4
+            ===================================================-->
+
+            <article class="stntf-card"
+                     data-category="messages">
+
+                <div class="stntf-card-icon stntf-orange">
+
+                    <i class="fa-regular fa-message"></i>
+
+                </div>
+
+                <div class="stntf-card-content">
+
+                    <div class="stntf-card-top">
+
+                        <h6>
+
+                            New Message
+
+                        </h6>
+
+                        <small>
+
+                            2 hours ago
+
+                        </small>
+
+                    </div>
+
+                    <p>
+
+                        TechHub Lagos:
+                        "Your order has been shipped!
+                        Thank you for shopping with us."
+
+                    </p>
+
+                </div>
+
+            </article>
+
+            <!--==================================================
+            Notification 5
+            ===================================================-->
+
+            <article class="stntf-card"
+                     data-category="orders">
+
+                <div class="stntf-card-icon stntf-yellow">
+
+                    <i class="fa-regular fa-star"></i>
+
+                </div>
+
+                <div class="stntf-card-content">
+
+                    <div class="stntf-card-top">
+
+                        <h6>
+
+                            Leave a Review
+
+                        </h6>
+
+                        <small>
+
+                            1 day ago
+
+                        </small>
+
+                    </div>
+
+                    <p>
+
+                        You received your Air Fryer 5.5L.
+                        How was the product and seller
+                        experience?
+
+                    </p>
+
+                </div>
+
+            </article>
+
+                      <!--==================================================
+            Notification 6
+            ===================================================-->
+
+            <article class="stntf-card"
+                     data-category="orders">
+
+                <div class="stntf-card-icon stntf-mint">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                </div>
+
+                <div class="stntf-card-content">
+
+                    <div class="stntf-card-top">
+
+                        <h6>
+
+                            Price Drop Alert
+
+                        </h6>
+
+                        <small>
+
+                            1 day ago
+
+                        </small>
+
+                    </div>
+
+                    <p>
+
+                        A product in your saved items dropped by
+                        15%: iPhone 14 Pro is now ₦527,000.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+            <!--==================================================
+            Notification 7
+            ===================================================-->
+
+            <article class="stntf-card"
+                     data-category="orders">
+
+                <div class="stntf-card-icon stntf-success">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                </div>
+
+                <div class="stntf-card-content">
+
+                    <div class="stntf-card-top">
+
+                        <h6>
+
+                            Delivery Confirmed
+
+                        </h6>
+
+                        <small>
+
+                            3 days ago
+
+                        </small>
+
+                    </div>
+
+                    <p>
+
+                        You confirmed delivery of
+                        "Ankara Print Dress".
+                        ₦12,500 has been released to the seller.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+            <!--==================================================
+            Notification 8
+            ===================================================-->
+
+            <article class="stntf-card"
+                     data-category="escrow">
+
+                <div class="stntf-card-icon stntf-blue-light">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+                <div class="stntf-card-content">
+
+                    <div class="stntf-card-top">
+
+                        <h6>
+
+                            Identity Verification Reminder
+
+                        </h6>
+
+                        <small>
+
+                            5 days ago
+
+                        </small>
+
+                    </div>
+
+                    <p>
+
+                        Upload your government ID to earn your
+                        Verified badge and build trust with
+                        sellers.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+        <!--==================================================
+        Footer Note
+        ===================================================-->
+
+        <div class="stntf-footer-note">
+
+            <p>
+
+                You're all caught up · Notifications older than
+                30 days are cleared automatically.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!--=========================================================
+Bootstrap JS
+==========================================================-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--=========================================================
+Page Script
+==========================================================-->
+
+<script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

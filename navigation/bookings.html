@@ -1,3 +1,632 @@
-, maximum-scale=1.0, user-scalable=no
+<!DOCTYPE html>
+<html lang="en">
 
-js-cart-link
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>My Bookings | YOVI Marketplace</title>
+
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Page CSS -->
+
+    <link rel="stylesheet"
+          href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+<!--==================================================
+=            NAVIGATION BAR                     =
+===================================================-->
+
+<header class="stmb-header">
+
+    <nav class="navbar navbar-expand-lg stmb-navbar">
+
+        <div class="container-fluid">
+
+            <!-- Brand -->
+
+            <a href="../navigation/home.html"
+               class="navbar-brand stmb-brand">
+
+                <div class="stmb-brand-placeholder">
+
+                    BRAND LOGO
+
+                </div>
+
+            </a>
+
+            <!-- Mobile Toggle -->
+
+            <button class="navbar-toggler shadow-none"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#stmbNavbar">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <!-- Navigation -->
+
+            <div class="collapse navbar-collapse"
+                 id="stmbNavbar">
+
+                <ul class="navbar-nav mx-auto align-items-lg-center">
+
+                    <li class="nav-item">
+
+                        <a href="../navigation/home.html"
+                           class="nav-link stmb-nav-link">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="../navigation/products.html"
+                           class="nav-link stmb-nav-link">
+
+                            Products
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="../navigation/services.html"
+                           class="nav-link stmb-nav-link">
+
+                            Services
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="../navigation/orders.html"
+                           class="nav-link stmb-nav-link">
+
+                            Orders
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="../navigation/bookings.html"
+                           class="nav-link stmb-nav-link stmb-nav-active">
+
+                            Bookings
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="../navigation/messages.html"
+                           class="nav-link stmb-nav-link">
+
+                            Messages
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+                <!-- Right Menu -->
+
+                <div class="stmb-right-menu">
+
+                    <a href="../navigation/cart.html">
+
+                    <button class="stmb-icon-btn js-cart-link"
+                            id="stmbCartBtn">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                    </button>
+
+                    </a>
+
+                    <a href="../navigation/notification.html">
+
+                    <button class="stmb-icon-btn stmb-notification-btn"
+                            id="stmbNotifyBtn">
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span class="stmb-dot"></span>
+
+                    </button>
+
+                    </a>
+
+                    <div class="dropdown">
+
+                        <a href="../buyer/buyer-profile.html">
+
+                        <button class="stmb-user-btn"
+                                data-bs-toggle="dropdown">
+
+                            <div class="stmb-user-avatar"></div>
+
+                            <span>Adaeze</span>
+
+                            <i class="fa-solid fa-angle-down"></i>
+
+                        </button>
+
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+
+                            <li>
+
+                                <a class="dropdown-item"
+                                   href="../buyer/buyer-profile.html">
+
+                                    Profile
+
+                                </a>
+
+                            </li>
+
+                            <li>
+
+                                <a class="dropdown-item"
+                                   href="#">
+
+                                    Settings
+
+                                </a>
+
+                            </li>
+
+                            <li>
+
+                                <hr class="dropdown-divider">
+
+                            </li>
+
+                            <li>
+
+                                <a class="dropdown-item text-danger"
+                                   href="../index.html">
+
+                                    Logout
+
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+<!--==================================================
+=                PAGE CONTENT                        =
+===================================================-->
+
+<section class="stmb-section">
+
+    <div class="container">
+
+        <!-- Breadcrumb -->
+
+        <div class="stmb-breadcrumb">
+
+            <a href="../buyer/buyer-dashboard.html">
+
+                <i class="fa-solid fa-angle-left"></i>
+
+                Dashboard
+
+            </a>
+
+            <span>
+
+                <i class="fa-solid fa-angle-right"></i>
+
+            </span>
+
+            <span class="stmb-current">
+
+                My Bookings
+
+            </span>
+
+        </div>
+
+        <!-- Heading -->
+
+        <div class="stmb-heading">
+
+            <h2>
+
+                My Bookings
+
+            </h2>
+
+        </div>
+
+        <!-- Booking List -->
+
+        <div class="stmb-bookings-list">
+
+            <!--==============================
+            FIRST BOOKING CARD
+            ===============================-->
+
+            <article class="stmb-booking-card">
+
+                <div class="stmb-provider-info">
+
+                    <div class="stmb-provider-image">
+
+                        <img src="../assets/images/placeholders/provider-1.jpg"
+                             alt="Provider">
+
+                    </div>
+
+                    <div class="stmb-provider-details">
+
+                        <h5>
+
+                            Emeka Okafor
+
+                        </h5>
+
+                        <p>
+
+                            Auto Mechanic
+
+                        </p>
+
+                        <div class="stmb-booking-meta">
+
+                            <span>
+
+                                <i class="fa-regular fa-calendar"></i>
+
+                                Jun 20, 2024
+
+                            </span>
+
+                            <span>
+
+                                <i class="fa-regular fa-clock"></i>
+
+                                10:00 AM
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="stmb-booking-actions">
+
+                    <h4 class="stmb-price">
+
+                        ₦3,500/hr
+
+                    </h4>
+
+                    <span class="stmb-status stmb-status-confirmed">
+
+                        Confirmed
+
+                    </span>
+
+                    <a href="../navigation/messages.html"
+                       class="stmb-chat-btn">
+
+                        <i class="fa-regular fa-message"></i>
+
+                        Chat
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <!--==============================
+            SECOND BOOKING CARD
+            ===============================-->
+
+            <article class="stmb-booking-card">
+
+                <div class="stmb-provider-info">
+
+                    <div class="stmb-provider-image">
+
+                        <img src="../assets/images/placeholders/provider-2.jpg"
+                             alt="Provider">
+
+                    </div>
+
+                    <div class="stmb-provider-details">
+
+                        <h5>
+
+                            Amaka Chukwu
+
+                        </h5>
+
+                        <p>
+
+                            Hair Stylist
+
+                        </p>
+
+                        <div class="stmb-booking-meta">
+
+                            <span>
+
+                                <i class="fa-regular fa-calendar"></i>
+
+                                Jun 21, 2024
+
+                            </span>
+
+                            <span>
+
+                                <i class="fa-regular fa-clock"></i>
+
+                                2:00 PM
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="stmb-booking-actions">
+
+                    <h4 class="stmb-price">
+
+                        ₦8,000/session
+
+                    </h4>
+
+                    <span class="stmb-status stmb-status-upcoming">
+
+                        Upcoming
+
+                    </span>
+
+                    <a href="../navigation/messages.html"
+                       class="stmb-chat-btn">
+
+                        <i class="fa-regular fa-message"></i>
+
+                        Chat
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <!--==============================
+            THIRD BOOKING CARD
+            ===============================-->
+
+            <article class="stmb-booking-card">
+
+                <div class="stmb-provider-info">
+
+                    <div class="stmb-provider-image">
+
+                        <img src="../assets/images/placeholders/provider-3.jpg"
+                             alt="Provider">
+
+                    </div>
+
+                    <div class="stmb-provider-details">
+
+                        <h5>
+
+                            Tunde Adeyemi
+
+                        </h5>
+
+                        <p>
+
+                            Electrician
+
+                        </p>
+
+                        <div class="stmb-booking-meta">
+
+                            <span>
+
+                                <i class="fa-regular fa-calendar"></i>
+
+                                Jun 22, 2024
+
+                            </span>
+
+                            <span>
+
+                                <i class="fa-regular fa-clock"></i>
+
+                                9:00 AM
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="stmb-booking-actions">
+
+                    <h4 class="stmb-price">
+
+                        ₦4,000/hr
+
+                    </h4>
+
+                    <span class="stmb-status stmb-status-progress">
+
+                        In Progress
+
+                    </span>
+
+                    <a href="../navigation/messages.html"
+                       class="stmb-chat-btn">
+
+                        <i class="fa-regular fa-message"></i>
+
+                        Chat
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <!--==============================
+            FOURTH BOOKING CARD
+            ===============================-->
+
+            <article class="stmb-booking-card">
+
+                <div class="stmb-provider-info">
+
+                    <div class="stmb-provider-image">
+
+                        <img src="../assets/images/placeholders/provider-4.jpg"
+                             alt="Provider">
+
+                    </div>
+
+                    <div class="stmb-provider-details">
+
+                        <h5>
+
+                            Fatima Al-Hassan
+
+                        </h5>
+
+                        <p>
+
+                            Graphic Designer
+
+                        </p>
+
+                        <div class="stmb-booking-meta">
+
+                            <span>
+
+                                <i class="fa-regular fa-calendar"></i>
+
+                                Jun 23, 2024
+
+                            </span>
+
+                            <span>
+
+                                <i class="fa-regular fa-clock"></i>
+
+                                4:00 PM
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="stmb-booking-actions">
+
+                    <h4 class="stmb-price">
+
+                        ₦15,000/project
+
+                    </h4>
+
+                    <span class="stmb-status stmb-status-completed">
+
+                        Completed
+
+                    </span>
+
+                    <a href="../navigation/messages.html"
+                       class="stmb-chat-btn">
+
+                        <i class="fa-regular fa-message"></i>
+
+                        Chat
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Page JavaScript -->
+
+<script src="../assets/js/app.js"></script>
+
+</body>
+
+</html>

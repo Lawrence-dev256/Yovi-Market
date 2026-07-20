@@ -1,0 +1,534 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Service Provider Profile </title>
+
+    <!-- Bootstrap -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <!-- Google Font -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Global CSS -->
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+
+  <body id="stppPage">
+    <!-- ==========================================================
+HEADER
+========================================================== -->
+
+    <header class="stpp-header">
+
+      <nav class="navbar navbar-expand-lg stpp-navbar">
+
+        <div class="container-fluid px-4">
+
+          <!-- Brand -->
+
+          <a href="../navigation/home.html" class="navbar-brand stpp-brand">
+
+            <img src="https://placehold.co/170x55?text=LOGO" alt="Logo" />
+
+          </a>
+
+          <button
+
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#stppNavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+
+          </button>
+
+          <div class="collapse navbar-collapse" id="stppNavbar">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a href="../navigation/home.html" class="nav-link"> Home </a>
+
+              </li>
+
+              <li class="nav-item">
+                <a href="../navigation/products.html" class="nav-link"> Products </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="../navigation/services.html" class="nav-link active"> Services </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="../navigation/orders.html" class="nav-link"> Orders </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="../navigation/bookings.html" class="nav-link"> Bookings </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="../navigation/messages.html" class="nav-link"> Messages </a>
+              </li>
+            </ul>
+
+            <div class="stpp-nav-right js-card-link">
+              <a href="../cart/shopping-cart.html" id="stppCart" class="stpp-nav-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span class="stpp-cart-badge"> 1 </span>
+              </a>
+
+              <a href="../navigation/notification.html" class="stpp-nav-icon">
+                <i class="fa-regular fa-bell"></i>
+
+                <span class="stpp-dot"></span>
+              </a>
+
+              <a href="../buyer/buyer-profile.html" class="stpp-profile">
+                <img src="https://placehold.co/45" alt="User" />
+
+                <span> Adaeze </span>
+
+                <i class="fa-solid fa-chevron-down"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ==========================================================
+COVER IMAGE
+========================================================== -->
+
+    <section class="stpp-cover">
+      <div class="stpp-cover-overlay"></div>
+
+      <img src="https://placehold.co/1920x420" alt="Cover Image" />
+    </section>
+
+    <!-- ==========================================================
+PROFILE
+========================================================== -->
+
+    <section class="stpp-profile-section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <div class="stpp-profile-header">
+              <div class="stpp-avatar">
+                <img src="https://placehold.co/120" alt="Provider" />
+
+                <span class="stpp-online"></span>
+              </div>
+
+              <div class="stpp-provider-details">
+                <div class="d-flex align-items-center gap-3 flex-wrap">
+                  <h2>Emeka Okafor</h2>
+
+                  <span class="stpp-verified">
+                    <i class="fa-regular fa-circle-check"></i>
+
+                    Verified
+                  </span>
+                </div>
+
+                <p>Auto Mechanic • Surulere, Lagos</p>
+
+                <div class="stpp-meta">
+                  <span>
+                    <i class="fa-solid fa-star"></i>
+
+                    4.9 (143)
+                  </span>
+
+                  <span> 143 completed jobs </span>
+
+                  <span> Responds in ~30 min </span>
+                </div>
+              </div>
+            </div>
+
+ <!-- ==========================================================
+PROFILE ACTIONS
+========================================================== -->
+
+            <div class="stpp-profile-actions">
+              <a
+                href="../navigation/messages.html"
+                id="stppMessageBtn"
+                class="stpp-btn stpp-btn-outline"
+              >
+                <i class="fa-regular fa-message"></i>
+
+                <span> Message </span>
+              </a>
+
+              <a
+                href="../bookings/bookings.html"
+                id="stppBookServiceBtn"
+                class="stpp-btn stpp-btn-primary"
+              >
+                <i class="fa-regular fa-calendar-check"></i>
+
+                <span> Book Service </span>
+              </a>
+            </div>
+
+            <!-- ==========================================================
+PROFILE TABS
+========================================================== -->
+
+            <div class="stpp-tabs">
+              <a href="#stppServices" class="stpp-tab active"> Services </a>
+
+              <a href="../provider/provider-review.html" class="stpp-tab">
+                Reviews (143)
+              </a>
+
+              <a href="#" class="stpp-tab"> About </a>
+            </div>
+
+            <!-- ==========================================================
+SERVICES LIST
+========================================================== -->
+
+            <div id="stppServices" class="stpp-services-wrapper">
+              <!-- Service 01 -->
+
+              <div class="stpp-service-card">
+                <div class="stpp-service-info">
+                  <h4>Full Car Service</h4>
+
+                  <p>Oil change, filters, fluid checks, brake inspection</p>
+
+                  <div class="stpp-service-meta">
+                    <span>
+                      <i class="fa-regular fa-clock"></i>
+
+                      3–4 hours
+                    </span>
+
+                    <span class="stpp-escrow">
+                      <i class="fa-regular fa-shield-check"></i>
+
+                      Escrow Protected
+                    </span>
+                  </div>
+                </div>
+
+                <div class="stpp-service-price">
+                  <h3>₦15,000</h3>
+
+                 <button class="stpp-book-btn"><a href="../bookings/bookings.html"> Book</a></button>
+                </div>
+              </div>
+
+              <!-- Service 02 -->
+
+              <div class="stpp-service-card">
+                <div class="stpp-service-info">
+                  <h4>Engine Diagnostics</h4>
+
+                  <p>Full computerized diagnostic scan and written report</p>
+
+                  <div class="stpp-service-meta">
+                    <span>
+                      <i class="fa-regular fa-clock"></i>
+
+                      1 hour
+                    </span>
+
+                    <span class="stpp-escrow">
+                      <i class="fa-regular fa-shield-check"></i>
+
+                      Escrow Protected
+                    </span>
+                  </div>
+                </div>
+
+                <div class="stpp-service-price">
+                  <h3>₦5,000</h3>
+
+                <button class="stpp-book-btn"><a href="../bookings/bookings.html"> Book</a></button>
+                </div>
+              </div>
+
+              <!-- Service 03 -->
+
+              <div class="stpp-service-card">
+                <div class="stpp-service-info">
+                  <h4>Tyre Change &amp; Balancing</h4>
+
+                  <p>All 4 tyres replaced and balanced</p>
+
+                  <div class="stpp-service-meta">
+                    <span>
+                      <i class="fa-regular fa-clock"></i>
+
+                      1.5 hours
+                    </span>
+
+                    <span class="stpp-escrow">
+                      <i class="fa-regular fa-shield-check"></i>
+
+                      Escrow Protected
+                    </span>
+                  </div>
+                </div>
+
+                <div class="stpp-service-price">
+                  <h3>₦8,000</h3>
+
+                                   <button class="stpp-book-btn"><a href="../bookings/bookings.html"> Book</a></button>
+                </div>
+              </div>
+
+              <!-- Service 04 -->
+
+              <div class="stpp-service-card">
+                <div class="stpp-service-info">
+                  <h4>AC Recharge &amp; Service</h4>
+
+                  <p>Refrigerant recharge and compressor inspection</p>
+
+                  <div class="stpp-service-meta">
+                    <span>
+                      <i class="fa-regular fa-clock"></i>
+
+                      2 hours
+                    </span>
+
+                    <span class="stpp-escrow">
+                      <i class="fa-regular fa-shield-check"></i>
+
+                      Escrow Protected
+                    </span>
+                  </div>
+                </div>
+
+                <div class="stpp-service-price">
+                  <h3>₦12,000</h3>
+
+                                  <button class="stpp-book-btn"><a href="../bookings/bookings.html"> Book</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==========================================================
+RIGHT SIDEBAR
+========================================================== -->
+
+          <div class="col-lg-4">
+            <div class="stpp-sidebar">
+              <!-- Availability -->
+
+              <div class="stpp-sidebar-card">
+                <h5>Availability</h5>
+
+                <ul class="stpp-availability-list">
+                  <li>
+                    <i class="fa-regular fa-calendar-days"></i>
+
+                    <span> Mon–Fri: 8:00 AM – 6:00 PM </span>
+                  </li>
+
+                  <li>
+                    <i class="fa-regular fa-calendar-days"></i>
+
+                    <span> Saturday: 9:00 AM – 4:00 PM </span>
+                  </li>
+
+                  <li>
+                    <i class="fa-regular fa-calendar-days"></i>
+
+                    <span> Sunday: Closed </span>
+                  </li>
+                </ul>
+
+                <a
+                  href="../bookings/bookings.html"
+                  id="stppBookAppointment"
+                  class="stpp-sidebar-btn"
+                >
+                  <i class="fa-regular fa-calendar-check"></i>
+
+                  Book Appointment
+                </a>
+              </div>
+
+              <!-- Contact -->
+
+              <div class="stpp-sidebar-card">
+                <h5>Contact</h5>
+
+                <ul class="stpp-contact-list">
+                  <li>
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span> Surulere, Lagos </span>
+                  </li>
+
+                  <li>
+                    <i class="fa-regular fa-clock"></i>
+
+                    <span> Responds in ~30 min </span>
+                  </li>
+
+                  <li>
+                    <i class="fa-regular fa-shield-check"></i>
+
+                    <span> Escrow payments accepted </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+FOOTER
+========================================================== -->
+
+    <footer class="stpp-footer">
+      <div class="container">
+        <div class="row gy-5">
+          <div class="col-lg-3 col-md-6">
+            <a href="../navigation/home.html" class="stpp-footer-logo">
+              <img src="https://placehold.co/170x55?text=LOGO" alt="Logo" />
+            </a>
+
+            <p class="stpp-footer-text">
+              Empowering local communities through a secure and efficient
+              marketplace for all.
+            </p>
+
+            <div class="stpp-social-links">
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+
+              <a href="#">
+                <i class="fas fa-share-alt"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h4 class="stpp-footer-title">Marketplace</h4>
+
+            <ul class="stpp-footer-links">
+              <li>
+                <a href="about.html"> About Us </a>
+              </li>
+
+              <li>
+                <a href="careers.html"> Careers </a>
+              </li>
+
+              <li>
+                <a href="press.html"> Press </a>
+              </li>
+
+              <li>
+                <a href="help-center.html"> Help Center </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h4 class="stpp-footer-title">Safety &amp; Rules</h4>
+
+            <ul class="stpp-footer-links">
+              <li>
+                <a href="safety-rules.html"> Safety Rules </a>
+              </li>
+
+              <li>
+                <a href="terms.html"> Terms of Service </a>
+              </li>
+
+              <li>
+                <a href="privacy-policy.html"> Privacy Policy </a>
+              </li>
+
+              <li>
+                <a href="contact-support.html"> Contact Support </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h4 class="stpp-footer-title">Join Our Newsletter</h4>
+
+            <p class="stpp-footer-text">
+              Get the latest local deals and community updates.
+            </p>
+
+            <form id="stppNewsletterForm" class="stpp-newsletter-form">
+              <input
+                type="email"
+                id="stppNewsletterEmail"
+                placeholder="Your email"
+                required
+              />
+
+              <button type="submit" id="stppNewsletterButton">
+                <i class="fa-regular fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <hr class="stpp-footer-divider" />
+
+        <div class="stpp-footer-bottom">
+          <p>
+            © 2026 YOVI Marketplace. All rights reserved. Built for community
+            efficiency.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==========================================================
+BOOTSTRAP
+========================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- ==========================================================
+GLOBAL JAVASCRIPT
+========================================================== -->
+
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>
