@@ -158,9 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
 
-            window.location.href =
-
-                productsPage.value;
+            window.location.href ="../../navigation/products.html";
 
         },800);
 
@@ -186,9 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
 
-            window.location.href =
-
-                servicesPage.value;
+            window.location.href ="../../navigation/services.html";
 
         },800);
 
@@ -220,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
 
-            window.location.href = "notifications.html";
+            window.location.href = "../../navigation/notification.html";
 
         }, 700);
 

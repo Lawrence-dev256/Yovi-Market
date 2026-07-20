@@ -156,9 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
 
-            window.location.href = "";
-
-                addProductPage.value;
+            window.location.href = "../../navigation/products.html";
 
         },800);
 
@@ -184,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
 
-            window.location.href = "/seller/seller-dashboard.html";
+            window.location.href = "../../seller/seller-dashboard.html";
 
         },800);
 
@@ -200,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
 
-            window.location.href = "index.html";
+            window.location.href = "../../navigation/home.html";
 
         }, 700);
 
@@ -216,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
 
-            window.location.href = "../../notifications/notifications.html";
+            window.location.href = "../../navigation/notification.html";
 
         }, 700);
 
