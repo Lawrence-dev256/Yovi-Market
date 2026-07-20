@@ -21993,7 +21993,7 @@ FOOTER
 
     padding:4rem 0 2rem;
 
-    background:var(--body);
+    background:var(--heading);
 
     border-top:1px solid var(--border);
 
@@ -22009,7 +22009,7 @@ FOOTER
 
     font-weight:700;
 
-    color:var(--text);
+    color:var(--border-light);
 
 }
 
@@ -22121,9 +22121,7 @@ SOCIAL LINKS
 
     border-radius:50%;
 
-    background:var(--bg-color);
-
-    color:var(--text-color);
+    color:var(--border-light);
 
     display:flex;
 
