@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout Card | YOVI</title>
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+    <!-- Global CSS -->
+
+    <link rel="stylesheet"
+          href="../assets/css/style.css">
+
+</head>
+
+<body id="ssccPage">
+
+<!--==================================================
+NAVIGATION
+===================================================-->
+
+<header class="navbar navbar-expand-lg sscc-navbar">
+
+    <div class="container-fluid px-lg-5">
+
+        <!-- Brand -->
+
+        <a href="../index.html"
+           class="navbar-brand sscc-brand">
+
+            <img src="../assets/images/logo-placeholder.png"
+                 alt="Brand Logo">
+
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#ssccNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse"
+             id="ssccNavbar">
+
+            <!-- Center Navigation -->
+
+            <ul class="navbar-nav mx-auto align-items-lg-center">
+
+                <li class="nav-item">
+
+                    <a href="../navigation/home.html"
+                       class="nav-link">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a href="../navigation/products.html"
+                       class="nav-link">
+
+                        Products
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a href="../navigation/services.html"
+                       class="nav-link">
+
+                        Services
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a href="../navigation/orders.html"
+                       class="nav-link">
+
+                        Orders
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a href="../navigation/bookings.html"
+                       class="nav-link">
+
+                        Bookings
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+            <!-- Right Side -->
+
+            <div class="d-flex align-items-center sscc-nav-right">
+
+                <a href="../cart/shopping-cart.html"
+                   class="sscc-nav-icon">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span class="sscc-badge">
+
+                        1
+
+                    </span>
+
+                </a>
+
+                <a href="../navigation/notification.html"
+                   class="sscc-nav-icon">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span class="sscc-dot"></span>
+
+                </a>
+
+                <a href="../profile/profile.html"
+                   class="sscc-profile">
+
+                    <img src="../assets/images/avatar-placeholder.jpg"
+                         alt="Profile">
+
+                    <span>
+
+                        Adaeze
+
+                    </span>
+
+                    <i class="fa-solid fa-angle-down"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!--==================================================
+CHECKOUT SECTION
+===================================================-->
+
+<section class="sscc-checkout">
+
+    <div class="container">
+
+        <!-- Checkout Steps -->
+
+        <div class="sscc-steps">
+
+            <div class="sscc-step sscc-step-complete">
+
+                <span>
+
+                    <i class="fa-solid fa-check"></i>
+
+                </span>
+
+                <p>
+
+                    Delivery
+
+                </p>
+
+            </div>
+
+            <div class="sscc-step-arrow">
+
+                <i class="fa-solid fa-angle-right"></i>
+
+            </div>
+
+            <div class="sscc-step sscc-step-complete">
+
+                <span>
+
+                    2
+
+                </span>
+
+                <p>
+
+                    Payment
+
+                </p>
+
+            </div>
+
+            <div class="sscc-step-arrow">
+
+                <i class="fa-solid fa-angle-right"></i>
+
+            </div>
+
+            <div class="sscc-step sscc-step-active">
+
+                <span>
+
+                    3
+
+                </span>
+
+                <p>
+
+                    Confirm
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Left Column -->
+
+            <div class="col-lg-8">
+
+                <div class="sscc-card-form">
+
+                    <!--=========================================
+                    PAYMENT TITLE
+                    ==========================================-->
+
+                    <h3 class="sscc-title">
+
+                        Payment Method
+
+                    </h3>
+
+                    <!--=========================================
+                    ESCROW NOTICE
+                    ==========================================-->
+
+                    <div class="sscc-escrow-banner">
+
+                        <div class="sscc-escrow-icon">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                        </div>
+
+                        <div class="sscc-escrow-content">
+
+                            <h6>
+
+                                YOVI Escrow Protection Active
+
+                            </h6>
+
+                            <p>
+
+                                Your payment will be held securely in escrow until you confirm successful delivery.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!--=========================================
+                    PAYMENT METHOD (ACTIVE)
+                    ==========================================-->
+
+                    <div class="sscc-payment-method sscc-payment-method-active">
+
+                        <div class="sscc-payment-left">
+
+                            <i class="fa-regular fa-credit-card"></i>
+
+                            <span>
+
+                                Debit/Credit Card
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <!--=========================================
+                    CARD DETAILS
+                    ==========================================-->
+
+                    <form id="ssccCardForm"
+                          class="sscc-card-details"
+                          autocomplete="off">
+
+                        <div class="mb-4">
+
+                            <label for="ssccCardNumber"
+                                   class="form-label">
+
+                                Card number
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="ssccCardNumber"
+                                class="form-control"
+                                placeholder="4156 7890 1234 5678"
+                                maxlength="19">
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-4">
+
+                                <label for="ssccExpiry"
+                                       class="form-label">
+
+                                    Expiry
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="ssccExpiry"
+                                    class="form-control"
+                                    placeholder="09/26"
+                                    maxlength="5">
+
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+
+                                <label for="ssccCVV"
+                                       class="form-label">
+
+                                    CVV
+
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="ssccCVV"
+                                    class="form-control"
+                                    placeholder="123"
+                                    maxlength="4">
+
+                            </div>
+
+                        </div>
+
+                        <!--=====================================
+                        ACTION BUTTONS
+                        ======================================-->
+
+                        <div class="sscc-payment-actions">
+
+                            <a href="checkout-payment.html"
+                               class="sscc-back-btn">
+
+                                <i class="fa-solid fa-angle-left"></i>
+
+                                <span>
+
+                                    Back
+
+                                </span>
+
+                            </a>
+
+                            <button
+                                type="submit"
+                                id="ssccPaySecurely"
+                                class="sscc-pay-btn">
+
+                                <i class="fa-solid fa-lock"></i>
+
+                                <span>
+
+                                    Pay ₦192,775 Securely
+
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <!--=========================================
+            RIGHT COLUMN
+            ==========================================-->
+
+            <div class="col-lg-4">
+
+                <div class="sscc-order-summary">
+
+                    <h5 class="sscc-summary-title">
+
+                        Order Summary
+
+                    </h5>
+
+                    <div class="sscc-summary-product">
+
+                        <img src="../assets/images/product-placeholder.jpg"
+                             alt="Product">
+
+                        <div class="sscc-summary-product-info">
+
+                            <h6>
+
+                                Samsung Galaxy A54 – 256GB
+
+                            </h6>
+
+                            <small>
+
+                                Qty: 1
+
+                            </small>
+
+                            <h5>
+
+                                ₦185,000
+
+                            </h5>
+
+                        </div>
+
+                    </div>
+
+                    <div class="sscc-summary-divider"></div>
+
+                    <div class="sscc-summary-row">
+
+                        <span>Subtotal</span>
+
+                        <strong>₦185,000</strong>
+
+                    </div>
+
+                    <div class="sscc-summary-row">
+
+                        <span>Delivery</span>
+
+                        <strong>₦2,500</strong>
+
+                    </div>
+
+                    <div class="sscc-summary-row">
+
+                        <span>Escrow fee</span>
+
+                        <strong>₦2,775</strong>
+
+                    </div>
+
+                    <div class="sscc-summary-total">
+
+                        <span>Total</span>
+
+                        <strong>₦190,275</strong>
+
+                    </div>
+
+                </div>
+
+                <!--=========================================
+                ESCROW PROTECTION CARD
+                ==========================================-->
+
+                <div class="sscc-escrow-card">
+
+                    <div class="sscc-escrow-card-icon">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                    </div>
+
+                    <div class="sscc-escrow-card-content">
+
+                        <h6>
+
+                            100% Escrow Protected
+
+                        </h6>
+
+                        <p>
+
+                            Your payment is securely held in escrow until you confirm that your order has been delivered successfully. If there's an issue, our dispute resolution process helps protect both buyer and seller.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--==================================================
+BOOTSTRAP JAVASCRIPT
+===================================================-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--==================================================
+GLOBAL JAVASCRIPT
+===================================================-->
+
+<script src="../assets/js/app.js"></script>
+
+</body>
+
+</html>

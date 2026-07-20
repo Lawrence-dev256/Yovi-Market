@@ -1,3 +1,39 @@
+/*==========================================
+TEMP CART STATUS
+Change to true when testing cart page
+==========================================*/
+
+const hasCartItems = false;
+
+/*==========================================
+GLOBAL CART NAVIGATION
+==========================================*/
+
+document.querySelectorAll(".js-cart-link").forEach(function(cart){
+
+    cart.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        if(hasCartItems){
+
+            window.location.href = "../../cart/shopping-cart.html";
+
+        }else{
+
+            window.location.href = "../../cart/cart.html";
+
+        }
+
+    });
+
+});
+
+
+/*====================================
+LANDING PAGE 
+=====================================*/
+
 document.addEventListener("DOMContentLoaded", () => {
 
     "use strict";
@@ -764,9 +800,6 @@ END OF  HOMEPAGE
 
 /*==========================================================
 CHECKOUT DELIVERY
-SCRIPT.JS — PART 1
-Prefix: sscdl-
-Safe for Global script.js
 ==========================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -960,17 +993,17 @@ document.addEventListener("DOMContentLoaded", () => {
     CART
     ======================================================*/
 
-    const cartBtn = $("#sscdlCartBtn");
+    // const cartBtn = $("#sscdlCartBtn");
 
-    if (cartBtn) {
+    // if (cartBtn) {
 
-        cartBtn.addEventListener("click", () => {
+    //     cartBtn.addEventListener("click", () => {
 
-            window.location.href = "../cart.html";
+    //         window.location.href = "../cart.html";
 
-        });
+    //     });
 
-    }
+    // }
 
     /*======================================================
     NOTIFICATIONS
@@ -1193,6 +1226,627 @@ document.addEventListener("DOMContentLoaded", () => {
 /*======================================================
     END OF CART CHECKOUT PAGE
 ======================================================*/
+
+/*==========================================================
+EMPTY CART PAGE
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    "use strict";
+
+    /*======================================================
+    RUN ONLY ON EMPTY CART PAGE
+    ======================================================*/
+
+    const ssecPage = document.getElementById("ssecPage");
+
+    if (!ssecPage) return;
+
+    /*======================================================
+    HELPERS
+    ======================================================*/
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const $$ = (selector) => document.querySelectorAll(selector);
+
+    /*======================================================
+    PAGE LOADED
+    ======================================================*/
+
+    document.body.classList.add("ssec-page-loaded");
+
+    /*======================================================
+    ELEMENTS
+    ======================================================*/
+
+    const browseButton = $("#ssecBrowseProductsBtn");
+
+    const cartButton = $("#ssecCartIcon");
+
+    const emptyWrapper = $(".ssec-empty-wrapper");
+
+    /*======================================================
+    BROWSE PRODUCTS
+    ======================================================*/
+
+    if (browseButton) {
+
+        browseButton.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            this.classList.add("ssec-loading");
+
+            setTimeout(function () {
+
+                window.location.href = "products.html";
+
+            }, 300);
+
+        });
+
+    }
+
+    /*======================================================
+    NAVBAR CART
+    ======================================================*/
+
+    if (cartButton) {
+
+        cartButton.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            const cartItems = JSON.parse(
+
+                localStorage.getItem("cartItems")
+
+            ) || [];
+
+            if (cartItems.length > 0) {
+
+                window.location.href = "shopping-cart.html";
+
+            } else {
+
+                window.location.href = "empty-cart.html";
+
+            }
+
+        });
+
+    }
+
+    /*======================================================
+    RIPPLE EFFECT
+    ======================================================*/
+
+    if (browseButton) {
+
+        browseButton.addEventListener("click", function (e) {
+
+            const ripple = document.createElement("span");
+
+            ripple.className = "ssec-ripple";
+
+            const rect = this.getBoundingClientRect();
+
+            const size = Math.max(rect.width, rect.height);
+
+            ripple.style.width = size + "px";
+
+            ripple.style.height = size + "px";
+
+            ripple.style.left =
+
+                (e.clientX - rect.left - size / 2) + "px";
+
+            ripple.style.top =
+
+                (e.clientY - rect.top - size / 2) + "px";
+
+            const oldRipple =
+
+                this.querySelector(".ssec-ripple");
+
+            if (oldRipple) {
+
+                oldRipple.remove();
+
+            }
+
+            this.appendChild(ripple);
+
+        });
+
+    }
+
+    /*======================================================
+    REVEAL ANIMATION
+    ======================================================*/
+
+    if ("IntersectionObserver" in window && emptyWrapper) {
+
+        const observer = new IntersectionObserver(function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("ssec-show");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        }, {
+
+            threshold: 0.2
+
+        });
+
+        observer.observe(emptyWrapper);
+
+    }
+
+    /*======================================================
+    ACTIVE NAVIGATION
+    ======================================================*/
+
+    const currentPage =
+
+        window.location.pathname.split("/").pop();
+
+    $$(".ssec-navbar .nav-link").forEach(function (link) {
+
+        if (link.getAttribute("href") === currentPage) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+    /*======================================================
+    KEYBOARD ACCESSIBILITY
+    ======================================================*/
+
+    [browseButton, cartButton].forEach(function(button){
+
+        if(!button) return;
+
+        button.addEventListener("keydown",function(event){
+
+            if(event.key==="Enter" || event.key===" "){
+
+                event.preventDefault();
+
+                this.click();
+
+            }
+
+        });
+
+    });
+
+    /*======================================================
+    WINDOW LOAD
+    ======================================================*/
+
+    window.addEventListener("load",function(){
+
+        document.body.classList.add("ssec-loaded");
+
+    });
+
+    /*======================================================
+    RESIZE HANDLER
+    ======================================================*/
+
+    let resizeTimer;
+
+    window.addEventListener("resize",function(){
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer=setTimeout(function(){
+
+            document.body.classList.add("ssec-resized");
+
+        },200);
+
+    });
+
+    /*======================================================
+    RESET SCROLL POSITION
+    ======================================================*/
+
+    window.addEventListener("beforeunload",function(){
+
+        window.scrollTo(0,0);
+
+    });
+
+    /*======================================================
+    PREVENT DOUBLE CLICK
+    ======================================================*/
+
+    [browseButton, cartButton].forEach(function(button){
+
+        if(!button) return;
+
+        button.addEventListener("dblclick",function(event){
+
+            event.preventDefault();
+
+        });
+
+    });
+
+    /*======================================================
+    REMOVE RIPPLE AFTER ANIMATION
+    ======================================================*/
+
+    document.addEventListener("animationend",function(event){
+
+        if(event.target.classList.contains("ssec-ripple")){
+
+            event.target.remove();
+
+        }
+
+    });
+
+    /*======================================================
+    CHECK CART STATUS
+    Automatically redirect if cart becomes populated
+    while user is still on the empty cart page.
+    ======================================================*/
+
+    window.addEventListener("storage",function(event){
+
+        if(event.key==="cartItems"){
+
+            const cartItems=JSON.parse(
+
+                localStorage.getItem("cartItems")
+
+            ) || [];
+
+            if(cartItems.length>0){
+
+                window.location.href="shopping-cart.html";
+
+            }
+
+        }
+
+    });
+
+    /*======================================================
+    END OF EMPTY CART PAGE
+    ======================================================*/
+
+});
+
+
+/*==========================================================
+CHECKOUT CONFIRM PAGE
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    "use strict";
+
+    /*======================================================
+    RUN ONLY ON CHECKOUT CONFIRM PAGE
+    ======================================================*/
+
+    const sscfPage = document.getElementById("sscfPage");
+
+    if (!sscfPage) return;
+
+    /*======================================================
+    HELPERS
+    ======================================================*/
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const $$ = (selector) => document.querySelectorAll(selector);
+
+    /*======================================================
+    PAGE LOADED
+    ======================================================*/
+
+    document.body.classList.add("sscf-page-loaded");
+
+    /*======================================================
+    ELEMENTS
+    ======================================================*/
+
+    const trackOrderBtn = $("#sscfTrackOrderBtn");
+
+    const continueShoppingBtn = $("#sscfContinueShoppingBtn");
+
+    const successIcon = $(".sscf-success-icon");
+
+    /*======================================================
+    CLEAR CHECKOUT SESSION
+    ======================================================*/
+
+    try{
+
+        sessionStorage.removeItem("checkoutDelivery");
+
+        sessionStorage.removeItem("checkoutPayment");
+
+        sessionStorage.removeItem("checkoutCard");
+
+        sessionStorage.removeItem("checkoutOrder");
+
+        sessionStorage.removeItem("selectedPaymentMethod");
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+    }
+
+    /*======================================================
+    SUCCESS ICON ANIMATION
+    ======================================================*/
+
+    if(successIcon){
+
+        setTimeout(function(){
+
+            successIcon.classList.add("sscf-success-ready");
+
+        },300);
+
+    }
+
+    /*======================================================
+    TRACK ORDER
+    ======================================================*/
+
+    if(trackOrderBtn){
+
+        trackOrderBtn.addEventListener("click",function(e){
+
+            e.preventDefault();
+
+            this.classList.add("sscf-loading");
+
+            setTimeout(function(){
+
+                window.location.href="buyer-orders.html";
+
+            },500);
+
+        });
+
+    }
+
+    /*======================================================
+    CONTINUE SHOPPING
+    ======================================================*/
+
+    if(continueShoppingBtn){
+
+        continueShoppingBtn.addEventListener("click",function(e){
+
+            e.preventDefault();
+
+            this.classList.add("sscf-loading");
+
+            setTimeout(function(){
+
+                window.location.href="../../products/products.html";
+
+            },500);
+
+        });
+
+    }
+
+    /*======================================================
+    BUTTON RIPPLE EFFECT
+    ======================================================*/
+
+    const buttons=$$(".sscf-track-btn, .sscf-shopping-btn");
+
+    buttons.forEach(function(button){
+
+        button.addEventListener("click",function(e){
+
+            const ripple=document.createElement("span");
+
+            ripple.className="sscf-ripple";
+
+            const rect=this.getBoundingClientRect();
+
+            const size=Math.max(rect.width,rect.height);
+
+            ripple.style.width=size+"px";
+
+            ripple.style.height=size+"px";
+
+            ripple.style.left=(e.clientX-rect.left-size/2)+"px";
+
+            ripple.style.top=(e.clientY-rect.top-size/2)+"px";
+
+            const oldRipple=this.querySelector(".sscf-ripple");
+
+            if(oldRipple){
+
+                oldRipple.remove();
+
+            }
+
+            this.appendChild(ripple);
+
+        });
+
+    });
+
+    /*======================================================
+    ACTIVE NAVIGATION
+    ======================================================*/
+
+    const currentPage=window.location.pathname.split("/").pop();
+
+    $$(".sscf-navbar .nav-link").forEach(function(link){
+
+        if(link.getAttribute("href")===currentPage){
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+    /*======================================================
+    KEYBOARD ACCESSIBILITY
+    ======================================================*/
+
+    [trackOrderBtn, continueShoppingBtn].forEach(function(button){
+
+        if(!button) return;
+
+        button.addEventListener("keydown",function(event){
+
+            if(event.key==="Enter" || event.key===" "){
+
+                event.preventDefault();
+
+                this.click();
+
+            }
+
+        });
+
+    });
+
+    /*======================================================
+    REVEAL ANIMATION
+    ======================================================*/
+
+    const revealElements=$$(
+
+        ".sscf-success-icon, .sscf-order-card, .sscf-actions"
+
+    );
+
+    if("IntersectionObserver" in window){
+
+        const observer=new IntersectionObserver(function(entries){
+
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("sscf-show");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },{
+
+            threshold:0.15
+
+        });
+
+        revealElements.forEach(function(element){
+
+            observer.observe(element);
+
+        });
+
+    }
+
+    /*======================================================
+    WINDOW LOAD
+    ======================================================*/
+
+    window.addEventListener("load",function(){
+
+        document.body.classList.add("sscf-loaded");
+
+    });
+
+    /*======================================================
+    RESIZE HANDLER
+    ======================================================*/
+
+    let resizeTimer;
+
+    window.addEventListener("resize",function(){
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer=setTimeout(function(){
+
+            document.body.classList.add("sscf-resized");
+
+        },200);
+
+    });
+
+    /*======================================================
+    RESET SCROLL POSITION
+    ======================================================*/
+
+    window.addEventListener("beforeunload",function(){
+
+        window.scrollTo(0,0);
+
+    });
+
+    /*======================================================
+    PREVENT DOUBLE CLICK
+    ======================================================*/
+
+    buttons.forEach(function(button){
+
+        button.addEventListener("dblclick",function(event){
+
+            event.preventDefault();
+
+        });
+
+    });
+
+    /*======================================================
+    AUTO REMOVE RIPPLE
+    ======================================================*/
+
+    document.addEventListener("animationend",function(event){
+
+        if(event.target.classList.contains("sscf-ripple")){
+
+            event.target.remove();
+
+        }
+
+    });
+
+});
+
+/*======================================================
+    END OF CHECKOUT CONFIRM PAGE
+    ======================================================*/
+
+
 
 /*==========================================================
 CHECKOUT PAYMENT PAGE
@@ -1552,6 +2206,2150 @@ document.addEventListener("DOMContentLoaded", function () {
     ======================================================*/
 
 });
+
+
+/*==========================================================
+CHECKOUT CARD PAGE
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    "use strict";
+
+    /*======================================================
+    RUN ONLY ON CHECKOUT CARD PAGE
+    ======================================================*/
+
+    const ssccPage = document.getElementById("ssccPage");
+
+    if (!ssccPage) return;
+
+    /*======================================================
+    HELPERS
+    ======================================================*/
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const $$ = (selector) => document.querySelectorAll(selector);
+
+    /*======================================================
+    PAGE LOADED
+    ======================================================*/
+
+    document.body.classList.add("sscc-page-loaded");
+
+    /*======================================================
+    ELEMENTS
+    ======================================================*/
+
+    const cardForm = $("#ssccCardForm");
+
+    const cardNumber = $("#ssccCardNumber");
+
+    const expiry = $("#ssccExpiry");
+
+    const cvv = $("#ssccCVV");
+
+    const payButton = $("#ssccPaySecurely");
+
+    /*======================================================
+    CARD NUMBER FORMAT
+    ======================================================*/
+
+    if (cardNumber) {
+
+        cardNumber.addEventListener("input", function () {
+
+            let value = this.value.replace(/\D/g, "");
+
+            value = value.substring(0, 16);
+
+            value = value.replace(/(.{4})/g, "$1 ").trim();
+
+            this.value = value;
+
+        });
+
+    }
+
+    /*======================================================
+    EXPIRY FORMAT
+    ======================================================*/
+
+    if (expiry) {
+
+        expiry.addEventListener("input", function () {
+
+            let value = this.value.replace(/\D/g, "");
+
+            value = value.substring(0, 4);
+
+            if (value.length > 2) {
+
+                value = value.substring(0, 2) + "/" + value.substring(2);
+
+            }
+
+            this.value = value;
+
+        });
+
+    }
+
+    /*======================================================
+    CVV FORMAT
+    ======================================================*/
+
+    if (cvv) {
+
+        cvv.addEventListener("input", function () {
+
+            this.value = this.value.replace(/\D/g, "");
+
+            this.value = this.value.substring(0, 4);
+
+        });
+
+    }
+
+    /*======================================================
+    PAY BUTTON RIPPLE
+    ======================================================*/
+
+    if (payButton) {
+
+        payButton.addEventListener("click", function (e) {
+
+            const ripple = document.createElement("span");
+
+            ripple.classList.add("sscc-ripple");
+
+            const diameter = Math.max(
+
+                payButton.clientWidth,
+
+                payButton.clientHeight
+
+            );
+
+            ripple.style.width = diameter + "px";
+
+            ripple.style.height = diameter + "px";
+
+            ripple.style.left =
+
+                e.clientX -
+
+                payButton.getBoundingClientRect().left -
+
+                diameter / 2 +
+
+                "px";
+
+            ripple.style.top =
+
+                e.clientY -
+
+                payButton.getBoundingClientRect().top -
+
+                diameter / 2 +
+
+                "px";
+
+            const oldRipple =
+
+                payButton.querySelector(".sscc-ripple");
+
+            if (oldRipple) {
+
+                oldRipple.remove();
+
+            }
+
+            payButton.appendChild(ripple);
+
+        });
+
+    }
+
+    /*======================================================
+    FORM SUBMIT
+    ======================================================*/
+
+    if (cardForm) {
+
+        cardForm.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const cardValue =
+
+                cardNumber.value.replace(/\s/g, "");
+
+            const expiryValue = expiry.value.trim();
+
+            const cvvValue = cvv.value.trim();
+
+            if (
+
+                cardValue.length < 16 ||
+
+                expiryValue.length < 5 ||
+
+                cvvValue.length < 3
+
+            ) {
+
+                alert("Please complete your card details.");
+
+                return;
+
+            }
+
+            payButton.classList.add("sscc-loading");
+
+            payButton.disabled = true;
+
+            payButton.innerHTML =
+
+                '<i class="fa-solid fa-spinner fa-spin"></i> Processing Payment...';
+
+            setTimeout(function () {
+
+                window.location.href =
+
+                    "checkout-confirm.html";
+
+            }, 2000);
+
+        });
+
+    }
+
+    /*======================================================
+    BACK BUTTON
+    ======================================================*/
+
+    const backButton = $(".sscc-back-btn");
+
+    if (backButton) {
+
+        backButton.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            window.location.href = "checkout-payment.html";
+
+        });
+
+    }
+
+    /*======================================================
+    KEYBOARD ACCESSIBILITY
+    ======================================================*/
+
+    [cardNumber, expiry, cvv].forEach(function (field) {
+
+        if (!field) return;
+
+        field.addEventListener("keydown", function (event) {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                if (payButton) {
+
+                    payButton.click();
+
+                }
+
+            }
+
+        });
+
+    });
+
+    /*======================================================
+    CARD INPUT FOCUS EFFECT
+    ======================================================*/
+
+    const formInputs = $$(".sscc-card-details .form-control");
+
+    formInputs.forEach(function (input) {
+
+        input.addEventListener("focus", function () {
+
+            this.parentElement.classList.add("sscc-input-focus");
+
+        });
+
+        input.addEventListener("blur", function () {
+
+            this.parentElement.classList.remove("sscc-input-focus");
+
+        });
+
+    });
+
+    /*======================================================
+    REVEAL ANIMATION
+    ======================================================*/
+
+    const revealItems = $$(
+        ".sscc-card-form, .sscc-order-summary, .sscc-escrow-card"
+    );
+
+    if ("IntersectionObserver" in window) {
+
+        const observer = new IntersectionObserver(function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("sscc-show");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        }, {
+
+            threshold:0.15
+
+        });
+
+        revealItems.forEach(function (item) {
+
+            observer.observe(item);
+
+        });
+
+    }
+
+    /*======================================================
+    ACTIVE NAVIGATION
+    ======================================================*/
+
+    const currentPage = window.location.pathname
+        .split("/")
+        .pop();
+
+    $$(".sscc-navbar .nav-link").forEach(function (link) {
+
+        if (link.getAttribute("href") === currentPage) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+    /*======================================================
+    WINDOW LOAD
+    ======================================================*/
+
+    window.addEventListener("load", function () {
+
+        document.body.classList.add("sscc-loaded");
+
+    });
+
+    /*======================================================
+    RESIZE HANDLER
+    ======================================================*/
+
+    let resizeTimer;
+
+    window.addEventListener("resize", function () {
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer = setTimeout(function () {
+
+            document.body.classList.add("sscc-resized");
+
+        }, 200);
+
+    });
+
+    /*======================================================
+    RESET SCROLL POSITION
+    ======================================================*/
+
+    window.addEventListener("beforeunload", function () {
+
+        window.scrollTo(0, 0);
+
+    });
+
+    /*======================================================
+    END OF CHECKOUT CARD PAGE
+    ======================================================*/
+
+});
+
+/*==========================================================
+CHECKOUT CONFIRM PAGE
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    "use strict";
+
+    /*======================================================
+    RUN ONLY ON CHECKOUT CONFIRM PAGE
+    ======================================================*/
+
+    const sscfPage = document.getElementById("sscfPage");
+
+    if (!sscfPage) return;
+
+    /*======================================================
+    HELPERS
+    ======================================================*/
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const $$ = (selector) => document.querySelectorAll(selector);
+
+    /*======================================================
+    PAGE LOADED
+    ======================================================*/
+
+    document.body.classList.add("sscf-page-loaded");
+
+    /*======================================================
+    ELEMENTS
+    ======================================================*/
+
+    const trackOrderBtn = $("#sscfTrackOrderBtn");
+
+    const continueShoppingBtn = $("#sscfContinueShoppingBtn");
+
+    const successIcon = $(".sscf-success-icon");
+
+    /*======================================================
+    CLEAR CHECKOUT SESSION
+    ======================================================*/
+
+    try{
+
+        sessionStorage.removeItem("checkoutDelivery");
+
+        sessionStorage.removeItem("checkoutPayment");
+
+        sessionStorage.removeItem("checkoutCard");
+
+        sessionStorage.removeItem("checkoutOrder");
+
+        sessionStorage.removeItem("selectedPaymentMethod");
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+    }
+
+    /*======================================================
+    SUCCESS ICON ANIMATION
+    ======================================================*/
+
+    if(successIcon){
+
+        setTimeout(function(){
+
+            successIcon.classList.add("sscf-success-ready");
+
+        },300);
+
+    }
+
+    /*======================================================
+    TRACK ORDER
+    ======================================================*/
+
+    if(trackOrderBtn){
+
+        trackOrderBtn.addEventListener("click",function(e){
+
+            e.preventDefault();
+
+            this.classList.add("sscf-loading");
+
+            setTimeout(function(){
+
+                window.location.href="buyer-orders.html";
+
+            },500);
+
+        });
+
+    }
+
+    /*======================================================
+    CONTINUE SHOPPING
+    ======================================================*/
+
+    if(continueShoppingBtn){
+
+        continueShoppingBtn.addEventListener("click",function(e){
+
+            e.preventDefault();
+
+            this.classList.add("sscf-loading");
+
+            setTimeout(function(){
+
+                window.location.href="products.html";
+
+            },500);
+
+        });
+
+    }
+
+    /*======================================================
+    BUTTON RIPPLE EFFECT
+    ======================================================*/
+
+    const buttons=$$(".sscf-track-btn, .sscf-shopping-btn");
+
+    buttons.forEach(function(button){
+
+        button.addEventListener("click",function(e){
+
+            const ripple=document.createElement("span");
+
+            ripple.className="sscf-ripple";
+
+            const rect=this.getBoundingClientRect();
+
+            const size=Math.max(rect.width,rect.height);
+
+            ripple.style.width=size+"px";
+
+            ripple.style.height=size+"px";
+
+            ripple.style.left=(e.clientX-rect.left-size/2)+"px";
+
+            ripple.style.top=(e.clientY-rect.top-size/2)+"px";
+
+            const oldRipple=this.querySelector(".sscf-ripple");
+
+            if(oldRipple){
+
+                oldRipple.remove();
+
+            }
+
+            this.appendChild(ripple);
+
+        });
+
+    });
+
+    /*======================================================
+    ACTIVE NAVIGATION
+    ======================================================*/
+
+    const currentPage=window.location.pathname.split("/").pop();
+
+    $$(".sscf-navbar .nav-link").forEach(function(link){
+
+        if(link.getAttribute("href")===currentPage){
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+    /*======================================================
+    KEYBOARD ACCESSIBILITY
+    ======================================================*/
+
+    [trackOrderBtn, continueShoppingBtn].forEach(function(button){
+
+        if(!button) return;
+
+        button.addEventListener("keydown",function(event){
+
+            if(event.key==="Enter" || event.key===" "){
+
+                event.preventDefault();
+
+                this.click();
+
+            }
+
+        });
+
+    });
+
+    /*======================================================
+    REVEAL ANIMATION
+    ======================================================*/
+
+    const revealElements=$$(
+
+        ".sscf-success-icon, .sscf-order-card, .sscf-actions"
+
+    );
+
+    if("IntersectionObserver" in window){
+
+        const observer=new IntersectionObserver(function(entries){
+
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("sscf-show");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },{
+
+            threshold:0.15
+
+        });
+
+        revealElements.forEach(function(element){
+
+            observer.observe(element);
+
+        });
+
+    }
+
+    /*======================================================
+    WINDOW LOAD
+    ======================================================*/
+
+    window.addEventListener("load",function(){
+
+        document.body.classList.add("sscf-loaded");
+
+    });
+
+    /*======================================================
+    RESIZE HANDLER
+    ======================================================*/
+
+    let resizeTimer;
+
+    window.addEventListener("resize",function(){
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer=setTimeout(function(){
+
+            document.body.classList.add("sscf-resized");
+
+        },200);
+
+    });
+
+    /*======================================================
+    RESET SCROLL POSITION
+    ======================================================*/
+
+    window.addEventListener("beforeunload",function(){
+
+        window.scrollTo(0,0);
+
+    });
+
+    /*======================================================
+    PREVENT DOUBLE CLICK
+    ======================================================*/
+
+    buttons.forEach(function(button){
+
+        button.addEventListener("dblclick",function(event){
+
+            event.preventDefault();
+
+        });
+
+    });
+
+    /*======================================================
+    AUTO REMOVE RIPPLE
+    ======================================================*/
+
+    document.addEventListener("animationend",function(event){
+
+        if(event.target.classList.contains("sscf-ripple")){
+
+            event.target.remove();
+
+        }
+
+    });
+
+});
+
+  /*======================================================
+    END OF CHECKOUT CONFIRM PAGE
+    ======================================================*/
+
+/*==========================================================
+ALL PRODUCTS PAGE
+Prefix: ssap
+==========================================================*/
+
+(function(){
+
+    "use strict";
+
+    /*======================================================
+    HELPERS
+    ======================================================*/
+
+    const $ = (selector,parent=document)=>parent.querySelector(selector);
+
+    const $$ = (selector,parent=document)=>parent.querySelectorAll(selector);
+
+    const body = document.body;
+
+    if(body.id !== "ssapPage"){
+
+        return;
+
+    }
+
+    /*======================================================
+    PAGE ELEMENTS
+    ======================================================*/
+
+    const searchInput = $(".ssap-search input");
+
+    const categoryButtons = $$(".ssap-category");
+
+    const productCards = $$(".ssap-product-card");
+
+    const viewButtons = $$(".ssap-view-btn");
+
+    const addToCartButtons = $$(".ssap-cart-btn");
+
+    const filterLinks = $$(".ssap-filter-card a");
+
+    const paginationLinks = $$(".ssap-pagination-wrapper .page-link");
+
+    /*======================================================
+    SEARCH PRODUCTS
+    ======================================================*/
+
+    if(searchInput){
+
+        searchInput.addEventListener("input",function(){
+
+            const keyword = this.value.trim().toLowerCase();
+
+            productCards.forEach(function(card){
+
+                const title = card.querySelector("h5").textContent.toLowerCase();
+
+                const description = card.querySelector("p").textContent.toLowerCase();
+
+                if(title.includes(keyword) || description.includes(keyword)){
+
+                    card.parentElement.style.display="";
+
+                }else{
+
+                    card.parentElement.style.display="none";
+
+                }
+
+            });
+
+        });
+
+    }
+
+    /*======================================================
+    CATEGORY BUTTONS
+    ======================================================*/
+
+    categoryButtons.forEach(function(button){
+
+        button.addEventListener("click",function(){
+
+            categoryButtons.forEach(function(item){
+
+                item.classList.remove("active");
+
+            });
+
+            this.classList.add("active");
+
+        });
+
+    });
+
+    /*======================================================
+    GRID / LIST VIEW
+    ======================================================*/
+
+    viewButtons.forEach(function(button){
+
+        button.addEventListener("click",function(){
+
+            viewButtons.forEach(function(item){
+
+                item.classList.remove("active");
+
+            });
+
+            this.classList.add("active");
+
+        });
+
+    });
+
+    /*======================================================
+    FILTER LINKS
+    ======================================================*/
+
+    filterLinks.forEach(function(link){
+
+        link.addEventListener("click",function(event){
+
+            event.preventDefault();
+
+            filterLinks.forEach(function(item){
+
+                item.classList.remove("text-primary");
+
+            });
+
+            this.classList.add("text-primary");
+
+        });
+
+    });
+
+    /*======================================================
+    PRODUCT HOVER EFFECT
+    ======================================================*/
+
+    productCards.forEach(function(card){
+
+        card.addEventListener("mouseenter",function(){
+
+            this.style.transform="translateY(-8px)";
+
+        });
+
+        card.addEventListener("mouseleave",function(){
+
+            this.style.transform="";
+
+        });
+
+    });
+
+    /*======================================================
+    ADD TO CART BUTTON
+    ======================================================*/
+
+    addToCartButtons.forEach(function(button){
+
+        button.addEventListener("click",function(event){
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+            this.classList.add("ssap-cart-added");
+
+            const icon = this.querySelector("i");
+
+            if(icon){
+
+                icon.classList.remove("fa-cart-plus");
+
+                icon.classList.add("fa-check");
+
+            }
+
+            setTimeout(()=>{
+
+                this.classList.remove("ssap-cart-added");
+
+                if(icon){
+
+                    icon.classList.remove("fa-check");
+
+                    icon.classList.add("fa-cart-plus");
+
+                }
+
+            },1200);
+
+        });
+
+    });
+
+/*======================================================
+PAGINATION
+======================================================*/
+
+paginationLinks.forEach(function(link){
+
+    link.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        const pageItem = this.parentElement;
+
+        if(pageItem.classList.contains("disabled")){
+
+            return;
+
+        }
+
+        paginationLinks.forEach(function(item){
+
+            if(item.parentElement.classList.contains("active")){
+
+                item.parentElement.classList.remove("active");
+
+            }
+
+        });
+
+        if(!pageItem.classList.contains("disabled")){
+
+            pageItem.classList.add("active");
+
+        }
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+    });
+
+});
+
+/*======================================================
+ESC TO CLEAR SEARCH
+======================================================*/
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key !== "Escape"){
+
+        return;
+
+    }
+
+    if(searchInput){
+
+        searchInput.value="";
+
+        searchInput.dispatchEvent(new Event("input"));
+
+        searchInput.blur();
+
+    }
+
+});
+
+/*======================================================
+PRODUCT DETAILS
+======================================================*/
+
+productCards.forEach(function(card){
+
+    card.addEventListener("click",function(event){
+
+        if(event.target.closest(".ssap-cart-btn")){
+
+            return;
+
+        }
+
+        window.location.href="product-details.html";
+
+    });
+
+});
+
+/*======================================================
+FILTER BUTTON
+======================================================*/
+
+const filterButton=$(".ssap-filter-btn");
+
+const sidebar=$(".ssap-sidebar");
+
+if(filterButton && sidebar){
+
+    filterButton.addEventListener("click",function(){
+
+        sidebar.classList.toggle("ssap-sidebar-open");
+
+    });
+
+}
+
+/*======================================================
+CART ICON
+======================================================*/
+
+const cartIcon=$("#ssapCartIcon");
+
+if(cartIcon){
+
+    cartIcon.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        /*
+        FRONT-END ONLY
+
+        Change this variable later when
+        backend/localStorage is integrated.
+        */
+
+        const hasCartItems=false;
+
+        if(hasCartItems){
+
+            window.location.href="../../cart/shopping-cart.html";
+
+        }else{
+
+            window.location.href="../../cart/cart.html";
+
+        }
+
+    });
+
+}
+
+/*======================================================
+NAVIGATION LINKS
+======================================================*/
+
+const navigationLinks=$$(".ssap-navbar .nav-link");
+
+navigationLinks.forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        navigationLinks.forEach(function(item){
+
+            item.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+    });
+
+});
+
+/*======================================================
+CATEGORY BUTTON ANIMATION
+======================================================*/
+
+categoryButtons.forEach(function(button){
+
+    button.addEventListener("click",function(){
+
+        this.animate([
+
+            {
+
+                transform:"scale(.95)"
+
+            },
+
+            {
+
+                transform:"scale(1)"
+
+            }
+
+        ],{
+
+            duration:180,
+
+            easing:"ease-out"
+
+        });
+
+    });
+
+});
+
+/*======================================================
+PRODUCT IMAGE PARALLAX
+======================================================*/
+
+productCards.forEach(function(card){
+
+    const image=card.querySelector(".ssap-product-image img");
+
+    if(!image){
+
+        return;
+
+    }
+
+    card.addEventListener("mousemove",function(event){
+
+        const rect=card.getBoundingClientRect();
+
+        const x=((event.clientX-rect.left)/rect.width-.5)*8;
+
+        const y=((event.clientY-rect.top)/rect.height-.5)*8;
+
+        image.style.transform=`scale(1.05) translate(${x}px, ${y}px)`;
+
+    });
+
+    card.addEventListener("mouseleave",function(){
+
+        image.style.transform="";
+
+    });
+
+});
+
+})();
+
+/*======================================================
+END OF ALL PRODUCTS PAGE
+======================================================*/
+
+
+/*==========================================================
+SERVICE TOP NAVBAR LANDING PAGE
+==========================================================*/
+
+(function(){
+
+"use strict";
+
+/*==========================================================
+PAGE CHECK
+==========================================================*/
+
+if(document.body.id !== "stnlpPage"){
+
+    return;
+
+}
+
+/*==========================================================
+HELPERS
+==========================================================*/
+
+const $=(selector,parent=document)=>parent.querySelector(selector);
+
+const $$=(selector,parent=document)=>parent.querySelectorAll(selector);
+
+/*==========================================================
+ELEMENTS
+==========================================================*/
+
+const stnlpSearchForm=$("#stnlpSearchForm");
+
+const stnlpSearchInput=$("#stnlpSearchInput");
+
+const stnlpLocation=$("#stnlpLocation");
+
+const stnlpFindButton=$(".stnlp-find-btn");
+
+const stnlpCategoryCards=$$(".stnlp-category-card");
+
+const stnlpProviderCards=$$(".stnlp-provider-card");
+
+const stnlpViewAll=$(".stnlp-view-all");
+
+const stnlpCart=$("#stnlpCartIcon");
+
+const stnlpNavigation=$$(".stnlp-navbar .nav-link");
+
+const stnlpFooterLinks=$$(".stnlp-footer-links a");
+
+/*==========================================================
+SEARCH FORM
+==========================================================*/
+
+if(stnlpSearchForm){
+
+    stnlpSearchForm.addEventListener("submit",function(event){
+
+        event.preventDefault();
+
+        const keyword=stnlpSearchInput.value.trim();
+
+        const location=stnlpLocation.value;
+
+        if(keyword===""){
+
+            stnlpSearchInput.focus();
+
+            return;
+
+        }
+
+        /*
+        Replace later with backend search
+        */
+
+        window.location.href=
+        "service-search-results.html";
+
+    });
+
+}
+
+/*==========================================================
+SEARCH INPUT ANIMATION
+==========================================================*/
+
+if(stnlpSearchInput){
+
+    stnlpSearchInput.addEventListener("focus",function(){
+
+        this.parentElement.classList.add("stnlp-search-active");
+
+    });
+
+    stnlpSearchInput.addEventListener("blur",function(){
+
+        this.parentElement.classList.remove("stnlp-search-active");
+
+    });
+
+}
+
+/*==========================================================
+CATEGORY CARDS
+==========================================================*/
+
+stnlpCategoryCards.forEach(function(card){
+
+    card.addEventListener("mouseenter",function(){
+
+        this.style.transform="translateY(-8px)";
+
+    });
+
+    card.addEventListener("mouseleave",function(){
+
+        this.style.transform="";
+
+    });
+
+    card.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="../../services/service-category.html";
+
+    });
+
+});
+
+/*==========================================================
+PROVIDER CARDS
+==========================================================*/
+
+stnlpProviderCards.forEach(function(card){
+
+    card.addEventListener("mouseenter",function(){
+
+        this.style.transform="translateY(-8px)";
+
+    });
+
+    card.addEventListener("mouseleave",function(){
+
+        this.style.transform="";
+
+    });
+
+    card.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="../../profile/provider-profile.html";
+
+    });
+
+});
+
+/*==========================================================
+VIEW ALL
+==========================================================*/
+
+if(stnlpViewAll){
+
+    stnlpViewAll.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="../../services/service-provider.html";
+
+    });
+
+}
+
+/*==========================================================
+TOP NAVIGATION
+==========================================================*/
+
+stnlpNavigation.forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        stnlpNavigation.forEach(function(item){
+
+            item.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+    });
+
+});
+
+/*==========================================================
+FOOTER LINKS
+==========================================================*/
+
+stnlpFooterLinks.forEach(function(link){
+
+    link.addEventListener("mouseenter",function(){
+
+        this.style.paddingLeft="8px";
+
+    });
+
+    link.addEventListener("mouseleave",function(){
+
+        this.style.paddingLeft="";
+
+    });
+
+});
+
+/*==========================================================
+CART
+==========================================================*/
+
+if(stnlpCart){
+
+    stnlpCart.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        /*
+        FRONTEND ONLY
+        Replace with your backend/localStorage later.
+        */
+
+        const hasCartItems=false;
+
+        if(hasCartItems){
+
+            window.location.href="../../cart/shopping-cart.html";
+
+        }
+
+        else{
+
+            window.location.href="../../cart/cart.html";
+
+        }
+
+    });
+
+}
+
+/*==========================================================
+HERO ENTRANCE
+==========================================================*/
+
+window.addEventListener("load",function(){
+
+    const hero=$(".stnlp-hero-content");
+
+    if(hero){
+
+        hero.animate([
+
+            {
+
+                opacity:0,
+
+                transform:"translateY(40px)"
+
+            },
+
+            {
+
+                opacity:1,
+
+                transform:"translateY(0)"
+
+            }
+
+        ],{
+
+            duration:700,
+
+            easing:"ease-out",
+
+            fill:"forwards"
+
+        });
+
+    }
+
+});
+
+/*==========================================================
+SCROLL REVEAL ANIMATION
+==========================================================*/
+
+const stnlpAnimatedElements=$$(
+".stnlp-category-card,.stnlp-provider-card,.stnlp-footer"
+);
+
+if("IntersectionObserver" in window){
+
+    const stnlpObserver=new IntersectionObserver(function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("stnlp-show");
+
+                stnlpObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },{
+
+        threshold:.15
+
+    });
+
+    stnlpAnimatedElements.forEach(function(element){
+
+        element.classList.add("stnlp-hidden");
+
+        stnlpObserver.observe(element);
+
+    });
+
+}
+
+/*==========================================================
+CATEGORY STAGGER ANIMATION
+==========================================================*/
+
+stnlpCategoryCards.forEach(function(card,index){
+
+    card.style.animationDelay=(index*.08)+"s";
+
+});
+
+/*==========================================================
+PROVIDER STAGGER ANIMATION
+==========================================================*/
+
+stnlpProviderCards.forEach(function(card,index){
+
+    card.style.animationDelay=(index*.1)+"s";
+
+});
+
+/*==========================================================
+NAVBAR SCROLL EFFECT
+==========================================================*/
+
+const stnlpNavbar=$(".stnlp-navbar");
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY>30){
+
+        stnlpNavbar.classList.add("stnlp-navbar-scrolled");
+
+    }
+
+    else{
+
+        stnlpNavbar.classList.remove("stnlp-navbar-scrolled");
+
+    }
+
+});
+
+/*==========================================================
+ESC KEY CLEARS SEARCH
+==========================================================*/
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape" && stnlpSearchInput){
+
+        stnlpSearchInput.value="";
+
+        stnlpSearchInput.blur();
+
+    }
+
+});
+
+/*==========================================================
+MOBILE NAVBAR AUTO CLOSE
+==========================================================*/
+
+const stnlpCollapse=$("#stnlpNavbar");
+
+const stnlpMenuLinks=$$("#stnlpNavbar .nav-link");
+
+stnlpMenuLinks.forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        if(window.innerWidth<992 && stnlpCollapse){
+
+            const collapse=
+            bootstrap.Collapse.getOrCreateInstance(stnlpCollapse);
+
+            collapse.hide();
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+NOTIFICATION ICON
+==========================================================*/
+
+const stnlpNotification=$$(".stnlp-nav-icon")[1];
+
+if(stnlpNotification){
+
+    stnlpNotification.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="../../notifications/notifications.html";
+
+    });
+
+}
+
+/*==========================================================
+PROFILE BUTTON
+==========================================================*/
+
+const stnlpProfile=$(".stnlp-profile");
+
+if(stnlpProfile){
+
+    stnlpProfile.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="../../profile/profile.html";
+
+    });
+
+}
+
+/*==========================================================
+SMOOTH SCROLL FOR INTERNAL LINKS
+==========================================================*/
+
+$$('a[href^="#"]').forEach(function(anchor){
+
+    anchor.addEventListener("click",function(event){
+
+        const target=document.querySelector(
+            this.getAttribute("href")
+        );
+
+        if(target){
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+
+                behavior:"smooth",
+
+                block:"start"
+
+            });
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",function(){
+
+    if(window.innerWidth>=992 && stnlpCollapse){
+
+        stnlpCollapse.classList.remove("show");
+
+    }
+
+});
+
+/*==========================================================
+PLACEHOLDER FIND BUTTON EFFECT
+==========================================================*/
+
+if(stnlpFindButton){
+
+    stnlpFindButton.addEventListener("click",function(){
+
+        this.classList.add("stnlp-btn-loading");
+
+        setTimeout(()=>{
+
+            this.classList.remove("stnlp-btn-loading");
+
+        },600);
+
+    });
+
+}
+
+})();
+
+/*==========================================================
+END OF SERVICE TOP NAVBAR LANDING PAGE
+==========================================================*/
+
+
+/*==========================================================
+SERVICE TOP PROVIDERS LISTING
+==========================================================*/
+
+(function(){
+
+"use strict";
+
+/*==========================================================
+PAGE CHECK
+==========================================================*/
+
+if(document.body.id!=="stplPage"){
+
+    return;
+
+}
+
+/*==========================================================
+HELPERS
+==========================================================*/
+
+const $=(selector,parent=document)=>parent.querySelector(selector);
+
+const $$=(selector,parent=document)=>parent.querySelectorAll(selector);
+
+/*==========================================================
+ELEMENTS
+==========================================================*/
+
+const stplNavbar=$(".stpl-navbar");
+
+const stplSearch=$("#stplSearch");
+
+const stplFilterButton=$("#stplFilterButton");
+
+const stplCategoryPills=$$(".stpl-category-pill");
+
+const stplProviderCards=$$(".stpl-provider-card");
+
+const stplCart=$("#stplCart");
+
+/*==========================================================
+CATEGORY FILTERS
+==========================================================*/
+
+stplCategoryPills.forEach(function(pill){
+
+    pill.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        stplCategoryPills.forEach(function(item){
+
+            item.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+        /*
+        Replace with backend category filtering later
+        */
+
+    });
+
+});
+
+/*==========================================================
+SEARCH
+==========================================================*/
+
+if(stplSearch){
+
+    stplSearch.addEventListener("keyup",function(event){
+
+        if(event.key==="Enter"){
+
+            const keyword=this.value.trim();
+
+            if(keyword===""){
+
+                return;
+
+            }
+
+            /*
+            Backend search later
+            */
+
+            window.location.href="service-search-results.html";
+
+        }
+
+    });
+
+}
+
+/*==========================================================
+FILTER BUTTON
+==========================================================*/
+
+if(stplFilterButton){
+
+    stplFilterButton.addEventListener("click",function(){
+
+        /*
+        Future modal/sidebar filter
+        */
+
+        alert("Filter panel coming soon.");
+
+    });
+
+}
+
+/*==========================================================
+PROVIDER CARDS
+==========================================================*/
+
+stplProviderCards.forEach(function(card){
+
+    card.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="../../profile/provider-profile.html";
+
+    });
+
+});
+
+/*==========================================================
+CART
+==========================================================*/
+
+if(stplCart){
+
+    stplCart.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        /*
+        Frontend only
+        Replace with backend/localStorage
+        */
+
+        const hasCartItems=false;
+
+        if(hasCartItems){
+
+            window.location.href="shopping-cart.html";
+
+        }
+
+        else{
+
+            window.location.href="empty-cart.html";
+
+        }
+
+    });
+
+}
+
+/*==========================================================
+NAVBAR ACTIVE LINKS
+==========================================================*/
+
+$$(".stpl-navbar .nav-link").forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        $$(".stpl-navbar .nav-link").forEach(function(item){
+
+            item.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+    });
+
+});
+
+/*==========================================================
+HOVER ANIMATION
+==========================================================*/
+
+stplProviderCards.forEach(function(card){
+
+    card.addEventListener("mouseenter",function(){
+
+        this.style.transform="translateY(-8px)";
+
+    });
+
+    card.addEventListener("mouseleave",function(){
+
+        this.style.transform="";
+
+    });
+
+});
+
+/*==========================================================
+PAGE LOAD ANIMATION
+==========================================================*/
+
+window.addEventListener("load",function(){
+
+    stplProviderCards.forEach(function(card,index){
+
+        card.animate([
+
+            {
+
+                opacity:0,
+
+                transform:"translateY(30px)"
+
+            },
+
+            {
+
+                opacity:1,
+
+                transform:"translateY(0)"
+
+            }
+
+        ],{
+
+            duration:600,
+
+            delay:index*120,
+
+            easing:"ease-out",
+
+            fill:"forwards"
+
+        });
+
+    });
+
+});
+
+/*==========================================================
+SCROLL REVEAL ANIMATION
+==========================================================*/
+
+const stplAnimatedElements=$$(
+".stpl-provider-card"
+);
+
+if("IntersectionObserver" in window){
+
+    const stplObserver=new IntersectionObserver(function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("stpl-visible");
+
+                stplObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },{
+
+        threshold:.15
+
+    });
+
+    stplAnimatedElements.forEach(function(element){
+
+        element.classList.add("stpl-hidden");
+
+        stplObserver.observe(element);
+
+    });
+
+}
+
+/*==========================================================
+NAVBAR SCROLL EFFECT
+==========================================================*/
+
+window.addEventListener("scroll",function(){
+
+    if(!stplNavbar){
+
+        return;
+
+    }
+
+    if(window.scrollY>25){
+
+        stplNavbar.classList.add("stpl-navbar-scrolled");
+
+    }
+
+    else{
+
+        stplNavbar.classList.remove("stpl-navbar-scrolled");
+
+    }
+
+});
+
+/*==========================================================
+ESC KEY CLEARS SEARCH
+==========================================================*/
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape" && stplSearch){
+
+        stplSearch.value="";
+
+        stplSearch.blur();
+
+    }
+
+});
+
+/*==========================================================
+MOBILE MENU AUTO CLOSE
+==========================================================*/
+
+const stplNavbarCollapse=$("#stplNavbar");
+
+$$(".stpl-navbar .nav-link").forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        if(window.innerWidth<992 && stplNavbarCollapse){
+
+            const collapse=
+            bootstrap.Collapse.getOrCreateInstance(
+                stplNavbarCollapse
+            );
+
+            collapse.hide();
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+NOTIFICATION ICON
+==========================================================*/
+
+const stplNotification=$$(".stpl-nav-icon")[1];
+
+if(stplNotification){
+
+    stplNotification.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="notifications.html";
+
+    });
+
+}
+
+/*==========================================================
+PROFILE
+==========================================================*/
+
+const stplProfile=$(".stpl-profile");
+
+if(stplProfile){
+
+    stplProfile.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="profile.html";
+
+    });
+
+}
+
+/*==========================================================
+SMOOTH SCROLL
+==========================================================*/
+
+$$('a[href^="#"]').forEach(function(anchor){
+
+    anchor.addEventListener("click",function(event){
+
+        const target=document.querySelector(
+            this.getAttribute("href")
+        );
+
+        if(target){
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+
+                behavior:"smooth",
+
+                block:"start"
+
+            });
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",function(){
+
+    if(window.innerWidth>=992 && stplNavbarCollapse){
+
+        stplNavbarCollapse.classList.remove("show");
+
+    }
+
+});
+
+/*==========================================================
+SEARCH PLACEHOLDER
+==========================================================*/
+
+if(stplSearch){
+
+    stplSearch.addEventListener("focus",function(){
+
+        this.parentElement.classList.add("stpl-search-active");
+
+    });
+
+    stplSearch.addEventListener("blur",function(){
+
+        this.parentElement.classList.remove("stpl-search-active");
+
+    });
+
+}
+
+/*==========================================================
+FILTER BUTTON EFFECT
+==========================================================*/
+
+if(stplFilterButton){
+
+    stplFilterButton.addEventListener("mousedown",function(){
+
+        this.classList.add("stpl-btn-active");
+
+    });
+
+    stplFilterButton.addEventListener("mouseup",function(){
+
+        this.classList.remove("stpl-btn-active");
+
+    });
+
+    stplFilterButton.addEventListener("mouseleave",function(){
+
+        this.classList.remove("stpl-btn-active");
+
+    });
+
+}
+
+})();
+
+/*==========================================================
+END OF SERVICE PROVIDERS LISTING
+==========================================================*/
+
+
 
 
 
