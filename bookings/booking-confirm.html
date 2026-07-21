@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Booking Confirmed </title>
+
+    <!-- Bootstrap -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+
+    <!-- Bootstrap Icons -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Global CSS -->
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- ==========================================================
+ NAVBAR
+========================================================== -->
+
+    <nav class="navbar navbar-expand-lg stbc-navbar fixed-top">
+      <div class="container-fluid">
+        <!-- Logo -->
+
+        <a href="../navigation/home.html" class="navbar-brand stbc-brand">
+          <div class="stbc-brand-placeholder">Brand Logo</div>
+        </a>
+
+        <!-- Mobile Toggle -->
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#stbcNavbarCollapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="stbcNavbarCollapse">
+          <!-- Center Navigation -->
+
+          <ul class="navbar-nav mx-auto align-items-lg-center">
+            <li class="nav-item">
+              <a href="../navigation/home.html" class="nav-link"> Home </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="../navigation/products.html" class="nav-link">
+                Products
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="../navigation/services.html" class="nav-link">
+                Services
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="../navigation/orders.html" class="nav-link"> Orders </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="../navigation/bookings.html" class="nav-link">
+                Bookings
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="../navigation/messages.html" class="nav-link">
+                Messages
+              </a>
+            </li>
+          </ul>
+
+          <!-- Right Side -->
+
+          <div class="stbc-nav-actions">
+            <!-- Cart -->
+
+            <a href="../cart/shopping-cart.html" class="stbc-cart-btn">
+              <i class="bi bi-cart3"></i>
+
+              <span class="stbc-cart-count"> 1 </span>
+            </a>
+
+            <!-- Notification -->
+
+            <a href="../navigation/notification.html" class="stbc-bell-btn">
+              <i class="bi bi-bell"></i>
+
+              <span class="stbc-notification-dot"></span>
+            </a>
+
+            <!-- User -->
+
+            <a href="../buyer/buyer-profile.html" class="stbc-user-wrap">
+              <div class="stbc-user-avatar"></div>
+
+              <span class="stbc-user-name"> Adaeze </span>
+
+              <i class="bi bi-chevron-down"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ==========================================================
+ MAIN
+========================================================== -->
+
+    <main class="stbc-main">
+      <section class="stbc-confirmation-section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-6 col-md-8">
+              <!-- Success Icon -->
+
+              <div class="stbc-success-icon">
+                <i class="bi bi-check2"></i>
+              </div>
+
+              <!-- Heading -->
+
+              <h2 class="stbc-title">Booking Confirmed!</h2>
+
+              <p class="stbc-subtitle">
+                Your appointment is booked and payment secured in escrow.
+              </p>
+
+              <!-- Confirmation Card -->
+
+              <div class="stbc-card">
+                <div class="stbc-card-header">
+                  <p>BOOKING REFERENCE</p>
+
+                  <h4 id="stbcReference">#BK-2024-004812</h4>
+                </div>
+
+                <div class="stbc-divider"></div>
+
+                <div class="stbc-card-body">
+                  <!-- Provider -->
+
+                  <div class="stbc-info-row">
+                    <div class="stbc-info-icon">
+                      <i class="bi bi-person"></i>
+                    </div>
+
+                    <div class="stbc-info-content">
+                      <small> Provider </small>
+
+                      <h6>Emeka Okafor · Auto Mechanic</h6>
+                    </div>
+                  </div>
+
+                  <!-- Service -->
+
+                  <div class="stbc-info-row">
+                    <div class="stbc-info-icon">
+                      <i class="bi bi-briefcase"></i>
+                    </div>
+
+                    <div class="stbc-info-content">
+                      <small> Service </small>
+
+                      <h6>Full Car Service</h6>
+                    </div>
+                  </div>
+
+                  <!-- Appointment -->
+
+                  <div class="stbc-info-row">
+                    <div class="stbc-info-icon">
+                      <i class="bi bi-calendar-event"></i>
+                    </div>
+
+                    <div class="stbc-info-content">
+                      <small> Appointment </small>
+
+                      <h6>Friday, Jun 21 · 10:00 AM</h6>
+                    </div>
+                  </div>
+
+                  <!-- Payment -->
+
+                  <div class="stbc-info-row">
+                    <div class="stbc-info-icon">
+                      <i class="bi bi-shield-check"></i>
+                    </div>
+
+                    <div class="stbc-info-content">
+                      <small> Payment </small>
+
+                      <h6>₦15,225 · Held in Escrow</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+
+              <div class="stbc-action-group">
+                <a
+                  href="../navigation/bookings.html"
+                  id="stbcBookingsBtn"
+                  class="btn stbc-btn-primary"
+                >
+                  View My Bookings
+                </a>
+
+                <a
+                  href="../navigation/messages.html"
+                  id="stbcMessageBtn"
+                  class="btn stbc-btn-outline"
+                >
+                  Message Provider
+                </a>
+              </div>
+
+              <!-- Optional Secondary Link -->
+
+              <div class="stbc-extra-link">
+                <a
+                  href="../navigation/services.html"
+                  id="stbcContinueBrowsing"
+                >
+                  Continue Browsing Services
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==========================================================
+BOOTSTRAP JAVASCRIPT
+========================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Global JavaScript -->
+
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>

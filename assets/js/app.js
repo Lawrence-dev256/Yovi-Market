@@ -1,3 +1,39 @@
+/*==========================================
+TEMP CART STATUS
+Change to true when testing cart page
+==========================================*/
+
+const hasCartItems = false;
+
+/*==========================================
+GLOBAL CART NAVIGATION
+==========================================*/
+
+document.querySelectorAll(".js-cart-link").forEach(function(cart){
+
+    cart.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        if(hasCartItems){
+
+            window.location.href = "../../cart/shopping-cart.html";
+
+        }else{
+
+            window.location.href = "../../cart/cart.html";
+
+        }
+
+    });
+
+});
+
+
+/*====================================
+LANDING PAGE 
+=====================================*/
+
 document.addEventListener("DOMContentLoaded", () => {
 
     "use strict";
@@ -759,12 +795,6591 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /*======================================
-END OF YOVI HOMEPAGE 
+END OF  YOVI LANDING PAGE 
 ======================================*/
+
+/*==========================================================
+YOVI APP HOME PAGE
+Prefix : yahp
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    "use strict";
+
+    /*======================================================
+    DOM ELEMENTS
+    ======================================================*/
+
+    const yahp = {
+
+        searchForm: document.getElementById("yahpSearchForm"),
+
+        searchInput: document.getElementById("yahpSearchInput"),
+
+        locationSelect: document.getElementById("yahpLocation"),
+
+        searchButton: document.getElementById("yahpSearchButton"),
+
+        newsletterForm: document.getElementById("yahpNewsletterForm"),
+
+        newsletterInput: document.getElementById("yahpNewsletterInput"),
+
+        searchTabs: document.querySelectorAll(".yahp-search-tab"),
+
+        categoryCards: document.querySelectorAll(".yahp-category-card"),
+
+        productCards: document.querySelectorAll(".yahp-product-card"),
+
+        trustCards: document.querySelectorAll(".yahp-trust-card"),
+
+        navLinks: document.querySelectorAll(".yahp-navbar .nav-link"),
+
+        animatedItems: document.querySelectorAll(
+
+            ".yahp-trust-card, .yahp-category-card, .yahp-product-card"
+
+        )
+
+    };
+
+    /*======================================================
+    SEARCH TAB SWITCHING
+    ======================================================*/
+
+    function yahpInitializeTabs() {
+
+        if (!yahp.searchTabs.length) return;
+
+        yahp.searchTabs.forEach(tab => {
+
+            tab.addEventListener("click", () => {
+
+                yahp.searchTabs.forEach(button => {
+
+                    button.classList.remove("yahp-search-tab-active");
+
+                });
+
+                tab.classList.add("yahp-search-tab-active");
+
+            });
+
+        });
+
+    }
+
+    yahpInitializeTabs();
+
+    /*======================================================
+    SEARCH FORM
+    ======================================================*/
+
+    function yahpInitializeSearch() {
+
+        if (!yahp.searchForm) return;
+
+        yahp.searchForm.addEventListener("submit", function(event){
+
+            event.preventDefault();
+
+            const keyword =
+
+                yahp.searchInput.value.trim();
+
+            const location =
+
+                yahp.locationSelect.value;
+
+            if(keyword === ""){
+
+                yahp.searchInput.focus();
+
+                return;
+
+            }
+
+            console.log({
+
+                keyword,
+
+                location
+
+            });
+
+            /* Replace later */
+
+            // window.location.href =
+            // "search-results.html";
+
+        });
+
+    }
+
+    yahpInitializeSearch();
+
+    /*======================================================
+    NEWSLETTER
+    ======================================================*/
+
+    function yahpNewsletter() {
+
+        if (!yahp.newsletterForm) return;
+
+        yahp.newsletterForm.addEventListener("submit", function(event){
+
+            event.preventDefault();
+
+            const email =
+
+                yahp.newsletterInput.value.trim();
+
+            if(email === ""){
+
+                yahp.newsletterInput.focus();
+
+                return;
+
+            }
+
+            alert("Subscription successful!");
+
+            yahp.newsletterInput.value = "";
+
+        });
+
+    }
+
+    yahpNewsletter();
+
+    /*======================================================
+    CATEGORY CARD HOVER
+    ======================================================*/
+
+    function yahpCategoryAnimation(){
+
+        yahp.categoryCards.forEach(card=>{
+
+            card.addEventListener("mouseenter",()=>{
+
+                card.style.transform="translateY(-10px)";
+
+            });
+
+            card.addEventListener("mouseleave",()=>{
+
+                card.style.transform="translateY(0)";
+
+            });
+
+        });
+
+    }
+
+    yahpCategoryAnimation();
+
+    /*======================================================
+    PRODUCT CARD HOVER
+    ======================================================*/
+
+    function yahpProductAnimation(){
+
+        yahp.productCards.forEach(card=>{
+
+            card.addEventListener("mouseenter",()=>{
+
+                card.style.transition=".35s ease";
+
+            });
+
+        });
+
+    }
+
+    yahpProductAnimation();
+
+    /*======================================================
+    TRUST CARD EFFECT
+    ======================================================*/
+
+    function yahpTrustAnimation(){
+
+        yahp.trustCards.forEach(card=>{
+
+            card.addEventListener("mouseenter",()=>{
+
+                card.classList.add("shadow-lg");
+
+            });
+
+            card.addEventListener("mouseleave",()=>{
+
+                card.classList.remove("shadow-lg");
+
+            });
+
+        });
+
+    }
+
+    yahpTrustAnimation();
+
+    /*======================================================
+    ACTIVE NAVIGATION
+    ======================================================*/
+
+    function yahpActiveNavigation(){
+
+        const current =
+
+            window.location.pathname.split("/").pop();
+
+        yahp.navLinks.forEach(link=>{
+
+            const href =
+
+                link.getAttribute("href");
+
+            if(href===current){
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    }
+
+    yahpActiveNavigation();
+
+/*======================================================
+SCROLL REVEAL ANIMATION
+======================================================*/
+
+    function yahpScrollReveal() {
+
+        if (!("IntersectionObserver" in window)) return;
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("yahp-reveal-active");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        }, {
+
+            threshold: 0.15
+
+        });
+
+        yahp.animatedItems.forEach((item) => {
+
+            item.classList.add("yahp-reveal");
+
+            observer.observe(item);
+
+        });
+
+    }
+
+    yahpScrollReveal();
+
+    /*======================================================
+SMOOTH SCROLL FOR INTERNAL LINKS
+======================================================*/
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+        anchor.addEventListener("click", function (event) {
+
+            const target = document.querySelector(
+
+                this.getAttribute("href")
+
+            );
+
+            if (!target) return;
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "start"
+
+            });
+
+        });
+
+    });
+
+    /*======================================================
+CTA BUTTONS
+======================================================*/
+
+    const yahpPrimaryButton = document.querySelector(".yahp-primary-btn");
+
+    const yahpSecondaryButton = document.querySelector(".yahp-secondary-btn");
+
+    if (yahpPrimaryButton) {
+
+        yahpPrimaryButton.addEventListener("click", () => {
+
+            window.location.href = "register.html";
+
+        });
+
+    }
+
+    if (yahpSecondaryButton) {
+
+        yahpSecondaryButton.addEventListener("click", () => {
+
+            window.location.href = "become-seller.html";
+
+        });
+
+    }
+
+    /*======================================================
+PRODUCT CARDS
+======================================================*/
+
+    yahp.productCards.forEach((card) => {
+
+        card.addEventListener("click", () => {
+
+            window.location.href = "product-details.html";
+
+        });
+
+    });
+
+    /*======================================================
+CATEGORY CARDS
+======================================================*/
+
+    yahp.categoryCards.forEach((card) => {
+
+        card.addEventListener("click", (event) => {
+
+            if (event.target.closest("a")) return;
+
+            window.location.href = "categories.html";
+
+        });
+
+    });
+
+    /*======================================================
+BACK TO TOP
+======================================================*/
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 120) {
+
+            document.body.classList.add("yahp-scrolled");
+
+        } else {
+
+            document.body.classList.remove("yahp-scrolled");
+
+        }
+
+    });
+
+    /*======================================================
+WINDOW LOAD ANIMATION
+======================================================*/
+
+    window.addEventListener("load", () => {
+
+        document.body.classList.add("yahp-page-loaded");
+
+    });
+
+    /*======================================================
+PROVIDER & HOW-CARDS HOVER EFFECT
+======================================================*/
+
+document.querySelectorAll(".yahp-provider-card, .yahp-how-card").forEach(card=>{
+
+    card.addEventListener("mouseenter",()=>{
+
+        card.style.transform="translateY(-8px)";
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.transform="translateY(0)";
+
+    });
+
+});
+
+});
+
+/*======================================================
+END OF FILE
+======================================================*/
+
+
+/*==========================================================
+CHECKOUT DELIVERY
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    "use strict";
+
+    /*======================================================
+    PAGE CHECK
+    Runs ONLY on Checkout Delivery Page
+    ======================================================*/
+
+    const sscdlPage = document.getElementById("sscdl-page");
+
+    if (!sscdlPage) return;
+
+    /*======================================================
+    HELPERS
+    ======================================================*/
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const $$ = (selector) => document.querySelectorAll(selector);
+
+    /*======================================================
+    PAGE LOADED
+    ======================================================*/
+
+    document.body.classList.add("sscdl-page-loaded");
+
+    /*======================================================
+    REVEAL ANIMATION
+    ======================================================*/
+
+    const sscdlRevealItems = $$(
+        ".sscdl-card,.sscdl-summary-card,.sscdl-escrow-card"
+    );
+
+    if ("IntersectionObserver" in window) {
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("sscdl-show");
+
+                }
+
+            });
+
+        }, {
+
+            threshold:0.15
+
+        });
+
+        sscdlRevealItems.forEach((item) => {
+
+            observer.observe(item);
+
+        });
+
+    }
+
+    /*======================================================
+    DELIVERY METHOD
+    ======================================================*/
+
+    const deliveryCards = $$(".sscdl-delivery-card");
+
+    const deliveryFee = $("#sscdlDeliveryAmount");
+
+    const totalAmount = $("#sscdlTotalAmount");
+
+    deliveryCards.forEach((card) => {
+
+        card.addEventListener("click", () => {
+
+            deliveryCards.forEach((item) => {
+
+                item.classList.remove("sscdl-delivery-active");
+
+            });
+
+            card.classList.add("sscdl-delivery-active");
+
+            const type = card.querySelector("input").value;
+
+            let fee = 2500;
+
+            let total = 1857500;
+
+            if (type === "express") {
+
+                fee = 5000;
+
+                total = 1860000;
+
+            }
+
+            if (type === "pickup") {
+
+                fee = 0;
+
+                total = 1855000;
+
+            }
+
+            if (deliveryFee) {
+
+                deliveryFee.textContent =
+                    "₦" + fee.toLocaleString();
+
+            }
+
+            if (totalAmount) {
+
+                totalAmount.textContent =
+                    "₦" + total.toLocaleString();
+
+            }
+
+        });
+
+    });
+
+    /*======================================================
+    BUTTON RIPPLE
+    ======================================================*/
+
+    const buttons = $$(".sscdl-btn");
+
+    buttons.forEach((button) => {
+
+        button.addEventListener("click", function (e) {
+
+            const ripple = document.createElement("span");
+
+            ripple.className = "sscdl-ripple";
+
+            const rect = this.getBoundingClientRect();
+
+            const size = Math.max(rect.width, rect.height);
+
+            ripple.style.width = size + "px";
+
+            ripple.style.height = size + "px";
+
+            ripple.style.left =
+                e.clientX - rect.left - size / 2 + "px";
+
+            ripple.style.top =
+                e.clientY - rect.top - size / 2 + "px";
+
+            this.appendChild(ripple);
+
+            setTimeout(() => {
+
+                ripple.remove();
+
+            }, 600);
+
+        });
+
+    });
+
+    /*======================================================
+    ACTIVE NAVIGATION
+    ======================================================*/
+
+    const currentPage = window.location.pathname
+        .split("/")
+        .pop();
+
+    $$(".sscdl-nav-link").forEach((link) => {
+
+        const href = link.getAttribute("href");
+
+        if (!href) return;
+
+        if (href.includes(currentPage)) {
+
+            link.classList.add("sscdl-active");
+
+        }
+
+    });
+
+    /*======================================================
+    CART
+    ======================================================*/
+
+    // const cartBtn = $("#sscdlCartBtn");
+
+    // if (cartBtn) {
+
+    //     cartBtn.addEventListener("click", () => {
+
+    //         window.location.href = "../cart.html";
+
+    //     });
+
+    // }
+
+    /*======================================================
+    NOTIFICATIONS
+    ======================================================*/
+
+    const notificationBtn = $("#sscdlNotificationBtn");
+
+    if (notificationBtn) {
+
+        notificationBtn.addEventListener("click", () => {
+
+            window.location.href =
+                "../notifications.html";
+
+        });
+
+    }
+
+    /*======================================================
+    PROFILE
+    ======================================================*/
+
+    const profile = $(".sscdl-profile");
+
+    if (profile) {
+
+        profile.addEventListener("click", (event) => {
+
+            event.preventDefault();
+
+            window.location.href =
+                "../profile.html";
+
+        });
+
+    }
+
+    /*======================================================
+    CONTINUE BUTTON
+    ======================================================*/
+
+    const continueBtn = $("#sscdlContinueLink");
+
+    if (continueBtn) {
+
+        continueBtn.addEventListener("click", (event) => {
+
+            event.preventDefault();
+
+            window.location.href =
+                "checkout-payment.html";
+
+        });
+
+    }
+
+    /*======================================================
+    FORM VALIDATION
+    ======================================================*/
+
+    const deliveryForm = $("#sscdlDeliveryForm");
+
+    if (deliveryForm) {
+
+        deliveryForm.addEventListener("submit", (event) => {
+
+            event.preventDefault();
+
+            const firstName = $("#sscdlFirstName");
+            const lastName = $("#sscdlLastName");
+            const address = $("#sscdlAddress");
+            const state = $("#sscdlState");
+            const phone = $("#sscdlPhone");
+
+            let valid = true;
+
+            [firstName, lastName, address, state, phone].forEach((field) => {
+
+                if (!field) return;
+
+                field.style.borderColor = "var(--border)";
+
+                if (field.value.trim() === "") {
+
+                    field.style.borderColor = "var(--danger)";
+
+                    valid = false;
+
+                }
+
+            });
+
+            if (valid) {
+
+                window.location.href = "checkout-payment.html";
+
+            }
+
+        });
+
+    }
+
+    /*======================================================
+    INPUT ANIMATION
+    ======================================================*/
+
+    const inputs = $$(".sscdl-input");
+
+    inputs.forEach((input) => {
+
+        input.addEventListener("focus", () => {
+
+            input.parentElement.classList.add("sscdl-input-focus");
+
+        });
+
+        input.addEventListener("blur", () => {
+
+            input.parentElement.classList.remove("sscdl-input-focus");
+
+        });
+
+    });
+
+    /*======================================================
+    CARD HOVER EFFECT
+    ======================================================*/
+
+    const cards = $$(".sscdl-card,.sscdl-summary-card,.sscdl-escrow-card");
+
+    cards.forEach((card) => {
+
+        card.addEventListener("mouseenter", () => {
+
+            card.style.transition = "0.3s ease";
+
+            card.style.transform = "translateY(-4px)";
+
+        });
+
+        card.addEventListener("mouseleave", () => {
+
+            card.style.transform = "translateY(0)";
+
+        });
+
+    });
+
+    /*======================================================
+    SMOOTH PAGE FADE
+    ======================================================*/
+
+    window.addEventListener("load", () => {
+
+        document.body.classList.add("sscdl-loaded");
+
+    });
+
+    /*======================================================
+    WINDOW RESIZE
+    ======================================================*/
+
+    let resizeTimer;
+
+    window.addEventListener("resize", () => {
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer = setTimeout(() => {
+
+            document.body.classList.add("sscdl-resized");
+
+        }, 200);
+
+    });
+
+    /*======================================================
+    KEYBOARD ACCESSIBILITY
+    ======================================================*/
+
+    document.addEventListener("keydown", (event) => {
+
+        if (event.key === "Enter") {
+
+            const active = document.activeElement;
+
+            if (
+
+                active &&
+                active.classList.contains("sscdl-btn")
+
+            ) {
+
+                active.click();
+
+            }
+
+        }
+
+    });
+
+    /*======================================================
+    SCROLL TO TOP
+    ======================================================*/
+
+    window.addEventListener("beforeunload", () => {
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"auto"
+
+        });
+
+    });
+
+});
+
+/*======================================================
+    END OF CART CHECKOUT PAGE
+======================================================*/
+
+/*==========================================================
+EMPTY CART PAGE
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    "use strict";
+
+    /*======================================================
+    RUN ONLY ON EMPTY CART PAGE
+    ======================================================*/
+
+    const ssecPage = document.getElementById("ssecPage");
+
+    if (!ssecPage) return;
+
+    /*======================================================
+    HELPERS
+    ======================================================*/
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const $$ = (selector) => document.querySelectorAll(selector);
+
+    /*======================================================
+    PAGE LOADED
+    ======================================================*/
+
+    document.body.classList.add("ssec-page-loaded");
+
+    /*======================================================
+    ELEMENTS
+    ======================================================*/
+
+    const browseButton = $("#ssecBrowseProductsBtn");
+
+    const cartButton = $("#ssecCartIcon");
+
+    const emptyWrapper = $(".ssec-empty-wrapper");
+
+    /*======================================================
+    BROWSE PRODUCTS
+    ======================================================*/
+
+    if (browseButton) {
+
+        browseButton.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            this.classList.add("ssec-loading");
+
+            setTimeout(function () {
+
+                window.location.href = "products.html";
+
+            }, 300);
+
+        });
+
+    }
+
+    /*======================================================
+    NAVBAR CART
+    ======================================================*/
+
+    if (cartButton) {
+
+        cartButton.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            const cartItems = JSON.parse(
+
+                localStorage.getItem("cartItems")
+
+            ) || [];
+
+            if (cartItems.length > 0) {
+
+                window.location.href = "shopping-cart.html";
+
+            } else {
+
+                window.location.href = "empty-cart.html";
+
+            }
+
+        });
+
+    }
+
+    /*======================================================
+    RIPPLE EFFECT
+    ======================================================*/
+
+    if (browseButton) {
+
+        browseButton.addEventListener("click", function (e) {
+
+            const ripple = document.createElement("span");
+
+            ripple.className = "ssec-ripple";
+
+            const rect = this.getBoundingClientRect();
+
+            const size = Math.max(rect.width, rect.height);
+
+            ripple.style.width = size + "px";
+
+            ripple.style.height = size + "px";
+
+            ripple.style.left =
+
+                (e.clientX - rect.left - size / 2) + "px";
+
+            ripple.style.top =
+
+                (e.clientY - rect.top - size / 2) + "px";
+
+            const oldRipple =
+
+                this.querySelector(".ssec-ripple");
+
+            if (oldRipple) {
+
+                oldRipple.remove();
+
+            }
+
+            this.appendChild(ripple);
+
+        });
+
+    }
+
+    /*======================================================
+    REVEAL ANIMATION
+    ======================================================*/
+
+    if ("IntersectionObserver" in window && emptyWrapper) {
+
+        const observer = new IntersectionObserver(function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("ssec-show");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        }, {
+
+            threshold: 0.2
+
+        });
+
+        observer.observe(emptyWrapper);
+
+    }
+
+    /*======================================================
+    ACTIVE NAVIGATION
+    ======================================================*/
+
+    const currentPage =
+
+        window.location.pathname.split("/").pop();
+
+    $$(".ssec-navbar .nav-link").forEach(function (link) {
+
+        if (link.getAttribute("href") === currentPage) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+    /*======================================================
+    KEYBOARD ACCESSIBILITY
+    ======================================================*/
+
+    [browseButton, cartButton].forEach(function(button){
+
+        if(!button) return;
+
+        button.addEventListener("keydown",function(event){
+
+            if(event.key==="Enter" || event.key===" "){
+
+                event.preventDefault();
+
+                this.click();
+
+            }
+
+        });
+
+    });
+
+    /*======================================================
+    WINDOW LOAD
+    ======================================================*/
+
+    window.addEventListener("load",function(){
+
+        document.body.classList.add("ssec-loaded");
+
+    });
+
+    /*======================================================
+    RESIZE HANDLER
+    ======================================================*/
+
+    let resizeTimer;
+
+    window.addEventListener("resize",function(){
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer=setTimeout(function(){
+
+            document.body.classList.add("ssec-resized");
+
+        },200);
+
+    });
+
+    /*======================================================
+    RESET SCROLL POSITION
+    ======================================================*/
+
+    window.addEventListener("beforeunload",function(){
+
+        window.scrollTo(0,0);
+
+    });
+
+    /*======================================================
+    PREVENT DOUBLE CLICK
+    ======================================================*/
+
+    [browseButton, cartButton].forEach(function(button){
+
+        if(!button) return;
+
+        button.addEventListener("dblclick",function(event){
+
+            event.preventDefault();
+
+        });
+
+    });
+
+    /*======================================================
+    REMOVE RIPPLE AFTER ANIMATION
+    ======================================================*/
+
+    document.addEventListener("animationend",function(event){
+
+        if(event.target.classList.contains("ssec-ripple")){
+
+            event.target.remove();
+
+        }
+
+    });
+
+    /*======================================================
+    CHECK CART STATUS
+    Automatically redirect if cart becomes populated
+    while user is still on the empty cart page.
+    ======================================================*/
+
+    window.addEventListener("storage",function(event){
+
+        if(event.key==="cartItems"){
+
+            const cartItems=JSON.parse(
+
+                localStorage.getItem("cartItems")
+
+            ) || [];
+
+            if(cartItems.length>0){
+
+                window.location.href="shopping-cart.html";
+
+            }
+
+        }
+
+    });
+
+    /*======================================================
+    END OF EMPTY CART PAGE
+    ======================================================*/
+
+});
+
+
+/*==========================================================
+CHECKOUT CONFIRM PAGE
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    "use strict";
+
+    /*======================================================
+    RUN ONLY ON CHECKOUT CONFIRM PAGE
+    ======================================================*/
+
+    const sscfPage = document.getElementById("sscfPage");
+
+    if (!sscfPage) return;
+
+    /*======================================================
+    HELPERS
+    ======================================================*/
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const $$ = (selector) => document.querySelectorAll(selector);
+
+    /*======================================================
+    PAGE LOADED
+    ======================================================*/
+
+    document.body.classList.add("sscf-page-loaded");
+
+    /*======================================================
+    ELEMENTS
+    ======================================================*/
+
+    const trackOrderBtn = $("#sscfTrackOrderBtn");
+
+    const continueShoppingBtn = $("#sscfContinueShoppingBtn");
+
+    const successIcon = $(".sscf-success-icon");
+
+    /*======================================================
+    CLEAR CHECKOUT SESSION
+    ======================================================*/
+
+    try{
+
+        sessionStorage.removeItem("checkoutDelivery");
+
+        sessionStorage.removeItem("checkoutPayment");
+
+        sessionStorage.removeItem("checkoutCard");
+
+        sessionStorage.removeItem("checkoutOrder");
+
+        sessionStorage.removeItem("selectedPaymentMethod");
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+    }
+
+    /*======================================================
+    SUCCESS ICON ANIMATION
+    ======================================================*/
+
+    if(successIcon){
+
+        setTimeout(function(){
+
+            successIcon.classList.add("sscf-success-ready");
+
+        },300);
+
+    }
+
+    /*======================================================
+    TRACK ORDER
+    ======================================================*/
+
+    if(trackOrderBtn){
+
+        trackOrderBtn.addEventListener("click",function(e){
+
+            e.preventDefault();
+
+            this.classList.add("sscf-loading");
+
+            setTimeout(function(){
+
+                window.location.href="buyer-orders.html";
+
+            },500);
+
+        });
+
+    }
+
+    /*======================================================
+    CONTINUE SHOPPING
+    ======================================================*/
+
+    if(continueShoppingBtn){
+
+        continueShoppingBtn.addEventListener("click",function(e){
+
+            e.preventDefault();
+
+            this.classList.add("sscf-loading");
+
+            setTimeout(function(){
+
+                window.location.href="../../products/products.html";
+
+            },500);
+
+        });
+
+    }
+
+    /*======================================================
+    BUTTON RIPPLE EFFECT
+    ======================================================*/
+
+    const buttons=$$(".sscf-track-btn, .sscf-shopping-btn");
+
+    buttons.forEach(function(button){
+
+        button.addEventListener("click",function(e){
+
+            const ripple=document.createElement("span");
+
+            ripple.className="sscf-ripple";
+
+            const rect=this.getBoundingClientRect();
+
+            const size=Math.max(rect.width,rect.height);
+
+            ripple.style.width=size+"px";
+
+            ripple.style.height=size+"px";
+
+            ripple.style.left=(e.clientX-rect.left-size/2)+"px";
+
+            ripple.style.top=(e.clientY-rect.top-size/2)+"px";
+
+            const oldRipple=this.querySelector(".sscf-ripple");
+
+            if(oldRipple){
+
+                oldRipple.remove();
+
+            }
+
+            this.appendChild(ripple);
+
+        });
+
+    });
+
+    /*======================================================
+    ACTIVE NAVIGATION
+    ======================================================*/
+
+    const currentPage=window.location.pathname.split("/").pop();
+
+    $$(".sscf-navbar .nav-link").forEach(function(link){
+
+        if(link.getAttribute("href")===currentPage){
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+    /*======================================================
+    KEYBOARD ACCESSIBILITY
+    ======================================================*/
+
+    [trackOrderBtn, continueShoppingBtn].forEach(function(button){
+
+        if(!button) return;
+
+        button.addEventListener("keydown",function(event){
+
+            if(event.key==="Enter" || event.key===" "){
+
+                event.preventDefault();
+
+                this.click();
+
+            }
+
+        });
+
+    });
+
+    /*======================================================
+    REVEAL ANIMATION
+    ======================================================*/
+
+    const revealElements=$$(
+
+        ".sscf-success-icon, .sscf-order-card, .sscf-actions"
+
+    );
+
+    if("IntersectionObserver" in window){
+
+        const observer=new IntersectionObserver(function(entries){
+
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("sscf-show");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },{
+
+            threshold:0.15
+
+        });
+
+        revealElements.forEach(function(element){
+
+            observer.observe(element);
+
+        });
+
+    }
+
+    /*======================================================
+    WINDOW LOAD
+    ======================================================*/
+
+    window.addEventListener("load",function(){
+
+        document.body.classList.add("sscf-loaded");
+
+    });
+
+    /*======================================================
+    RESIZE HANDLER
+    ======================================================*/
+
+    let resizeTimer;
+
+    window.addEventListener("resize",function(){
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer=setTimeout(function(){
+
+            document.body.classList.add("sscf-resized");
+
+        },200);
+
+    });
+
+    /*======================================================
+    RESET SCROLL POSITION
+    ======================================================*/
+
+    window.addEventListener("beforeunload",function(){
+
+        window.scrollTo(0,0);
+
+    });
+
+    /*======================================================
+    PREVENT DOUBLE CLICK
+    ======================================================*/
+
+    buttons.forEach(function(button){
+
+        button.addEventListener("dblclick",function(event){
+
+            event.preventDefault();
+
+        });
+
+    });
+
+    /*======================================================
+    AUTO REMOVE RIPPLE
+    ======================================================*/
+
+    document.addEventListener("animationend",function(event){
+
+        if(event.target.classList.contains("sscf-ripple")){
+
+            event.target.remove();
+
+        }
+
+    });
+
+});
+
+/*======================================================
+    END OF CHECKOUT CONFIRM PAGE
+    ======================================================*/
+
+
+
+/*==========================================================
+CHECKOUT PAYMENT PAGE
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    "use strict";
+
+    /*======================================================
+    RUN ONLY ON CHECKOUT PAYMENT PAGE
+    ======================================================*/
+
+    const sscpPage = document.getElementById("sscpPage");
+
+    if (!sscpPage) return;
+
+    /*======================================================
+    HELPERS
+    ======================================================*/
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const $$ = (selector) => document.querySelectorAll(selector);
+
+    /*======================================================
+    PAGE LOADED
+    ======================================================*/
+
+    document.body.classList.add("sscp-page-loaded");
+
+    /*======================================================
+    PAYMENT METHOD ELEMENTS
+    ======================================================*/
+
+    const paymentMethods = $$(".sscp-payment-method");
+
+    const payButton = $("#sscpPayButton");
+
+    /*======================================================
+    PAYMENT METHOD SELECTION
+    ======================================================*/
+
+    paymentMethods.forEach(function (method) {
+
+        method.addEventListener("click", function () {
+
+            paymentMethods.forEach(function (item) {
+
+                item.classList.remove("sscp-payment-method-active");
+
+            });
+
+            method.classList.add("sscp-payment-method-active");
+
+        });
+
+    });
+
+    /*======================================================
+    PAY BUTTON
+    ======================================================*/
+
+    if (payButton) {
+
+        payButton.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            const selectedMethod = document.querySelector(".sscp-payment-method-active");
+
+            if (!selectedMethod) {
+
+                alert("Please select a payment method.");
+
+                return;
+
+            }
+
+            /*==============================================
+            DEBIT / CREDIT CARD
+            ==============================================*/
+
+            if (selectedMethod.id === "sscpDebitCard") {
+
+                window.location.href = "checkout-card.html";
+
+                return;
+
+            }
+
+            /*==============================================
+            BANK TRANSFER
+            ==============================================*/
+
+            if (selectedMethod.id === "sscpBankTransfer") {
+
+                window.location.href = "checkout-bank-transfer.html";
+
+                return;
+
+            }
+
+            /*==============================================
+            USSD
+            ==============================================*/
+
+            if (selectedMethod.id === "sscpUSSD") {
+
+                window.location.href = "checkout-ussd.html";
+
+                return;
+
+            }
+
+            /*==============================================
+            YOVI WALLET
+            ==============================================*/
+
+            if (selectedMethod.id === "sscpWallet") {
+
+                window.location.href = "../../seller/seller-wallet.html";
+
+                return;
+
+            }
+
+        });
+
+    }
+
+    /*======================================================
+    BACK BUTTON
+    ======================================================*/
+
+    const backButton = $(".sscp-back-btn");
+
+    if (backButton) {
+
+        backButton.addEventListener("click", function () {
+
+            window.location.href = "checkout-delivery.html";
+
+        });
+
+    }
+
+    /*======================================================
+    RIPPLE EFFECT
+    ======================================================*/
+
+    if (payButton) {
+
+        payButton.addEventListener("click", function (e) {
+
+            const circle = document.createElement("span");
+
+            circle.classList.add("sscp-ripple");
+
+            const diameter = Math.max(
+                payButton.clientWidth,
+                payButton.clientHeight
+            );
+
+            circle.style.width = diameter + "px";
+
+            circle.style.height = diameter + "px";
+
+            circle.style.left =
+                e.clientX -
+                payButton.getBoundingClientRect().left -
+                diameter / 2 +
+                "px";
+
+            circle.style.top =
+                e.clientY -
+                payButton.getBoundingClientRect().top -
+                diameter / 2 +
+                "px";
+
+            const oldRipple = payButton.querySelector(".sscp-ripple");
+
+            if (oldRipple) {
+
+                oldRipple.remove();
+
+            }
+
+            payButton.appendChild(circle);
+
+        });
+
+    }
+
+    /*======================================================
+    REVEAL ANIMATION
+    ======================================================*/
+
+    const revealItems = $$(
+        ".sscp-payment-card, .sscp-order-summary, .sscp-escrow-card"
+    );
+
+    if ("IntersectionObserver" in window) {
+
+        const observer = new IntersectionObserver(function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("sscp-show");
+
+                }
+
+            });
+
+        }, {
+
+            threshold:0.15
+
+        });
+
+        revealItems.forEach(function (item) {
+
+            observer.observe(item);
+
+        });
+
+    }
+
+    /*======================================================
+    KEYBOARD ACCESSIBILITY
+    ======================================================*/
+
+    paymentMethods.forEach(function (method) {
+
+        method.setAttribute("tabindex", "0");
+
+        method.addEventListener("keydown", function (event) {
+
+            if (event.key === "Enter" || event.key === " ") {
+
+                event.preventDefault();
+
+                method.click();
+
+            }
+
+        });
+
+    });
+
+    /*======================================================
+    HOVER EFFECT
+    ======================================================*/
+
+    const hoverCards = $$(
+        ".sscp-payment-card, .sscp-order-summary, .sscp-escrow-card"
+    );
+
+    hoverCards.forEach(function (card) {
+
+        card.addEventListener("mouseenter", function () {
+
+            card.style.transform = "translateY(-4px)";
+
+        });
+
+        card.addEventListener("mouseleave", function () {
+
+            card.style.transform = "translateY(0)";
+
+        });
+
+    });
+
+    /*======================================================
+    ACTIVE NAVIGATION
+    ======================================================*/
+
+    const currentPage = window.location.pathname
+        .split("/")
+        .pop();
+
+    $$(".sscp-navbar .nav-link").forEach(function (link) {
+
+        const href = link.getAttribute("href");
+
+        if (href === currentPage) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+    /*======================================================
+    PAGE LOAD ANIMATION
+    ======================================================*/
+
+    window.addEventListener("load", function () {
+
+        document.body.classList.add("sscp-loaded");
+
+    });
+
+    /*======================================================
+    RESIZE HANDLER
+    ======================================================*/
+
+    let resizeTimer;
+
+    window.addEventListener("resize", function () {
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer = setTimeout(function () {
+
+            document.body.classList.add("sscp-resized");
+
+        }, 200);
+
+    });
+
+    /*======================================================
+    SCROLL TO TOP
+    ======================================================*/
+
+    window.addEventListener("beforeunload", function () {
+
+        window.scrollTo(0, 0);
+
+    });
+
+    /*======================================================
+    OPTIONAL:
+    PRESELECT BANK TRANSFER
+    (Matches the UI in the design image)
+    ======================================================*/
+
+    const defaultMethod = document.getElementById("sscpBankTransfer");
+
+    if (defaultMethod) {
+
+        paymentMethods.forEach(function (item) {
+
+            item.classList.remove("sscp-payment-method-active");
+
+        });
+
+        defaultMethod.classList.add("sscp-payment-method-active");
+
+    }
+
+    /*======================================================
+    END OF CHECKOUT PAYMENT PAGE
+    ======================================================*/
+
+});
+
+
+/*==========================================================
+CHECKOUT CARD PAGE
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    "use strict";
+
+    /*======================================================
+    RUN ONLY ON CHECKOUT CARD PAGE
+    ======================================================*/
+
+    const ssccPage = document.getElementById("ssccPage");
+
+    if (!ssccPage) return;
+
+    /*======================================================
+    HELPERS
+    ======================================================*/
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const $$ = (selector) => document.querySelectorAll(selector);
+
+    /*======================================================
+    PAGE LOADED
+    ======================================================*/
+
+    document.body.classList.add("sscc-page-loaded");
+
+    /*======================================================
+    ELEMENTS
+    ======================================================*/
+
+    const cardForm = $("#ssccCardForm");
+
+    const cardNumber = $("#ssccCardNumber");
+
+    const expiry = $("#ssccExpiry");
+
+    const cvv = $("#ssccCVV");
+
+    const payButton = $("#ssccPaySecurely");
+
+    /*======================================================
+    CARD NUMBER FORMAT
+    ======================================================*/
+
+    if (cardNumber) {
+
+        cardNumber.addEventListener("input", function () {
+
+            let value = this.value.replace(/\D/g, "");
+
+            value = value.substring(0, 16);
+
+            value = value.replace(/(.{4})/g, "$1 ").trim();
+
+            this.value = value;
+
+        });
+
+    }
+
+    /*======================================================
+    EXPIRY FORMAT
+    ======================================================*/
+
+    if (expiry) {
+
+        expiry.addEventListener("input", function () {
+
+            let value = this.value.replace(/\D/g, "");
+
+            value = value.substring(0, 4);
+
+            if (value.length > 2) {
+
+                value = value.substring(0, 2) + "/" + value.substring(2);
+
+            }
+
+            this.value = value;
+
+        });
+
+    }
+
+    /*======================================================
+    CVV FORMAT
+    ======================================================*/
+
+    if (cvv) {
+
+        cvv.addEventListener("input", function () {
+
+            this.value = this.value.replace(/\D/g, "");
+
+            this.value = this.value.substring(0, 4);
+
+        });
+
+    }
+
+    /*======================================================
+    PAY BUTTON RIPPLE
+    ======================================================*/
+
+    if (payButton) {
+
+        payButton.addEventListener("click", function (e) {
+
+            const ripple = document.createElement("span");
+
+            ripple.classList.add("sscc-ripple");
+
+            const diameter = Math.max(
+
+                payButton.clientWidth,
+
+                payButton.clientHeight
+
+            );
+
+            ripple.style.width = diameter + "px";
+
+            ripple.style.height = diameter + "px";
+
+            ripple.style.left =
+
+                e.clientX -
+
+                payButton.getBoundingClientRect().left -
+
+                diameter / 2 +
+
+                "px";
+
+            ripple.style.top =
+
+                e.clientY -
+
+                payButton.getBoundingClientRect().top -
+
+                diameter / 2 +
+
+                "px";
+
+            const oldRipple =
+
+                payButton.querySelector(".sscc-ripple");
+
+            if (oldRipple) {
+
+                oldRipple.remove();
+
+            }
+
+            payButton.appendChild(ripple);
+
+        });
+
+    }
+
+    /*======================================================
+    FORM SUBMIT
+    ======================================================*/
+
+    if (cardForm) {
+
+        cardForm.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const cardValue =
+
+                cardNumber.value.replace(/\s/g, "");
+
+            const expiryValue = expiry.value.trim();
+
+            const cvvValue = cvv.value.trim();
+
+            if (
+
+                cardValue.length < 16 ||
+
+                expiryValue.length < 5 ||
+
+                cvvValue.length < 3
+
+            ) {
+
+                alert("Please complete your card details.");
+
+                return;
+
+            }
+
+            payButton.classList.add("sscc-loading");
+
+            payButton.disabled = true;
+
+            payButton.innerHTML =
+
+                '<i class="fa-solid fa-spinner fa-spin"></i> Processing Payment...';
+
+            setTimeout(function () {
+
+                window.location.href =
+
+                    "checkout-confirm.html";
+
+            }, 2000);
+
+        });
+
+    }
+
+    /*======================================================
+    BACK BUTTON
+    ======================================================*/
+
+    const backButton = $(".sscc-back-btn");
+
+    if (backButton) {
+
+        backButton.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            window.location.href = "checkout-payment.html";
+
+        });
+
+    }
+
+    /*======================================================
+    KEYBOARD ACCESSIBILITY
+    ======================================================*/
+
+    [cardNumber, expiry, cvv].forEach(function (field) {
+
+        if (!field) return;
+
+        field.addEventListener("keydown", function (event) {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                if (payButton) {
+
+                    payButton.click();
+
+                }
+
+            }
+
+        });
+
+    });
+
+    /*======================================================
+    CARD INPUT FOCUS EFFECT
+    ======================================================*/
+
+    const formInputs = $$(".sscc-card-details .form-control");
+
+    formInputs.forEach(function (input) {
+
+        input.addEventListener("focus", function () {
+
+            this.parentElement.classList.add("sscc-input-focus");
+
+        });
+
+        input.addEventListener("blur", function () {
+
+            this.parentElement.classList.remove("sscc-input-focus");
+
+        });
+
+    });
+
+    /*======================================================
+    REVEAL ANIMATION
+    ======================================================*/
+
+    const revealItems = $$(
+        ".sscc-card-form, .sscc-order-summary, .sscc-escrow-card"
+    );
+
+    if ("IntersectionObserver" in window) {
+
+        const observer = new IntersectionObserver(function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("sscc-show");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        }, {
+
+            threshold:0.15
+
+        });
+
+        revealItems.forEach(function (item) {
+
+            observer.observe(item);
+
+        });
+
+    }
+
+    /*======================================================
+    ACTIVE NAVIGATION
+    ======================================================*/
+
+    const currentPage = window.location.pathname
+        .split("/")
+        .pop();
+
+    $$(".sscc-navbar .nav-link").forEach(function (link) {
+
+        if (link.getAttribute("href") === currentPage) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+    /*======================================================
+    WINDOW LOAD
+    ======================================================*/
+
+    window.addEventListener("load", function () {
+
+        document.body.classList.add("sscc-loaded");
+
+    });
+
+    /*======================================================
+    RESIZE HANDLER
+    ======================================================*/
+
+    let resizeTimer;
+
+    window.addEventListener("resize", function () {
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer = setTimeout(function () {
+
+            document.body.classList.add("sscc-resized");
+
+        }, 200);
+
+    });
+
+    /*======================================================
+    RESET SCROLL POSITION
+    ======================================================*/
+
+    window.addEventListener("beforeunload", function () {
+
+        window.scrollTo(0, 0);
+
+    });
+
+    /*======================================================
+    END OF CHECKOUT CARD PAGE
+    ======================================================*/
+
+});
+
+/*==========================================================
+CHECKOUT CONFIRM PAGE
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    "use strict";
+
+    /*======================================================
+    RUN ONLY ON CHECKOUT CONFIRM PAGE
+    ======================================================*/
+
+    const sscfPage = document.getElementById("sscfPage");
+
+    if (!sscfPage) return;
+
+    /*======================================================
+    HELPERS
+    ======================================================*/
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const $$ = (selector) => document.querySelectorAll(selector);
+
+    /*======================================================
+    PAGE LOADED
+    ======================================================*/
+
+    document.body.classList.add("sscf-page-loaded");
+
+    /*======================================================
+    ELEMENTS
+    ======================================================*/
+
+    const trackOrderBtn = $("#sscfTrackOrderBtn");
+
+    const continueShoppingBtn = $("#sscfContinueShoppingBtn");
+
+    const successIcon = $(".sscf-success-icon");
+
+    /*======================================================
+    CLEAR CHECKOUT SESSION
+    ======================================================*/
+
+    try{
+
+        sessionStorage.removeItem("checkoutDelivery");
+
+        sessionStorage.removeItem("checkoutPayment");
+
+        sessionStorage.removeItem("checkoutCard");
+
+        sessionStorage.removeItem("checkoutOrder");
+
+        sessionStorage.removeItem("selectedPaymentMethod");
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+    }
+
+    /*======================================================
+    SUCCESS ICON ANIMATION
+    ======================================================*/
+
+    if(successIcon){
+
+        setTimeout(function(){
+
+            successIcon.classList.add("sscf-success-ready");
+
+        },300);
+
+    }
+
+    /*======================================================
+    TRACK ORDER
+    ======================================================*/
+
+    if(trackOrderBtn){
+
+        trackOrderBtn.addEventListener("click",function(e){
+
+            e.preventDefault();
+
+            this.classList.add("sscf-loading");
+
+            setTimeout(function(){
+
+                window.location.href="buyer-orders.html";
+
+            },500);
+
+        });
+
+    }
+
+    /*======================================================
+    CONTINUE SHOPPING
+    ======================================================*/
+
+    if(continueShoppingBtn){
+
+        continueShoppingBtn.addEventListener("click",function(e){
+
+            e.preventDefault();
+
+            this.classList.add("sscf-loading");
+
+            setTimeout(function(){
+
+                window.location.href="products.html";
+
+            },500);
+
+        });
+
+    }
+
+    /*======================================================
+    BUTTON RIPPLE EFFECT
+    ======================================================*/
+
+    const buttons=$$(".sscf-track-btn, .sscf-shopping-btn");
+
+    buttons.forEach(function(button){
+
+        button.addEventListener("click",function(e){
+
+            const ripple=document.createElement("span");
+
+            ripple.className="sscf-ripple";
+
+            const rect=this.getBoundingClientRect();
+
+            const size=Math.max(rect.width,rect.height);
+
+            ripple.style.width=size+"px";
+
+            ripple.style.height=size+"px";
+
+            ripple.style.left=(e.clientX-rect.left-size/2)+"px";
+
+            ripple.style.top=(e.clientY-rect.top-size/2)+"px";
+
+            const oldRipple=this.querySelector(".sscf-ripple");
+
+            if(oldRipple){
+
+                oldRipple.remove();
+
+            }
+
+            this.appendChild(ripple);
+
+        });
+
+    });
+
+    /*======================================================
+    ACTIVE NAVIGATION
+    ======================================================*/
+
+    const currentPage=window.location.pathname.split("/").pop();
+
+    $$(".sscf-navbar .nav-link").forEach(function(link){
+
+        if(link.getAttribute("href")===currentPage){
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+    /*======================================================
+    KEYBOARD ACCESSIBILITY
+    ======================================================*/
+
+    [trackOrderBtn, continueShoppingBtn].forEach(function(button){
+
+        if(!button) return;
+
+        button.addEventListener("keydown",function(event){
+
+            if(event.key==="Enter" || event.key===" "){
+
+                event.preventDefault();
+
+                this.click();
+
+            }
+
+        });
+
+    });
+
+    /*======================================================
+    REVEAL ANIMATION
+    ======================================================*/
+
+    const revealElements=$$(
+
+        ".sscf-success-icon, .sscf-order-card, .sscf-actions"
+
+    );
+
+    if("IntersectionObserver" in window){
+
+        const observer=new IntersectionObserver(function(entries){
+
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("sscf-show");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },{
+
+            threshold:0.15
+
+        });
+
+        revealElements.forEach(function(element){
+
+            observer.observe(element);
+
+        });
+
+    }
+
+    /*======================================================
+    WINDOW LOAD
+    ======================================================*/
+
+    window.addEventListener("load",function(){
+
+        document.body.classList.add("sscf-loaded");
+
+    });
+
+    /*======================================================
+    RESIZE HANDLER
+    ======================================================*/
+
+    let resizeTimer;
+
+    window.addEventListener("resize",function(){
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer=setTimeout(function(){
+
+            document.body.classList.add("sscf-resized");
+
+        },200);
+
+    });
+
+    /*======================================================
+    RESET SCROLL POSITION
+    ======================================================*/
+
+    window.addEventListener("beforeunload",function(){
+
+        window.scrollTo(0,0);
+
+    });
+
+    /*======================================================
+    PREVENT DOUBLE CLICK
+    ======================================================*/
+
+    buttons.forEach(function(button){
+
+        button.addEventListener("dblclick",function(event){
+
+            event.preventDefault();
+
+        });
+
+    });
+
+    /*======================================================
+    AUTO REMOVE RIPPLE
+    ======================================================*/
+
+    document.addEventListener("animationend",function(event){
+
+        if(event.target.classList.contains("sscf-ripple")){
+
+            event.target.remove();
+
+        }
+
+    });
+
+});
+
+  /*======================================================
+    END OF CHECKOUT CONFIRM PAGE
+    ======================================================*/
+
+/*==========================================================
+ALL PRODUCTS PAGE
+Prefix: ssap
+==========================================================*/
+
+(function(){
+
+    "use strict";
+
+    /*======================================================
+    HELPERS
+    ======================================================*/
+
+    const $ = (selector,parent=document)=>parent.querySelector(selector);
+
+    const $$ = (selector,parent=document)=>parent.querySelectorAll(selector);
+
+    const body = document.body;
+
+    if(body.id !== "ssapPage"){
+
+        return;
+
+    }
+
+    /*======================================================
+    PAGE ELEMENTS
+    ======================================================*/
+
+    const searchInput = $(".ssap-search input");
+
+    const categoryButtons = $$(".ssap-category");
+
+    const productCards = $$(".ssap-product-card");
+
+    const viewButtons = $$(".ssap-view-btn");
+
+    const addToCartButtons = $$(".ssap-cart-btn");
+
+    const filterLinks = $$(".ssap-filter-card a");
+
+    const paginationLinks = $$(".ssap-pagination-wrapper .page-link");
+
+    /*======================================================
+    SEARCH PRODUCTS
+    ======================================================*/
+
+    if(searchInput){
+
+        searchInput.addEventListener("input",function(){
+
+            const keyword = this.value.trim().toLowerCase();
+
+            productCards.forEach(function(card){
+
+                const title = card.querySelector("h5").textContent.toLowerCase();
+
+                const description = card.querySelector("p").textContent.toLowerCase();
+
+                if(title.includes(keyword) || description.includes(keyword)){
+
+                    card.parentElement.style.display="";
+
+                }else{
+
+                    card.parentElement.style.display="none";
+
+                }
+
+            });
+
+        });
+
+    }
+
+    /*======================================================
+    CATEGORY BUTTONS
+    ======================================================*/
+
+    categoryButtons.forEach(function(button){
+
+        button.addEventListener("click",function(){
+
+            categoryButtons.forEach(function(item){
+
+                item.classList.remove("active");
+
+            });
+
+            this.classList.add("active");
+
+        });
+
+    });
+
+    /*======================================================
+    GRID / LIST VIEW
+    ======================================================*/
+
+    viewButtons.forEach(function(button){
+
+        button.addEventListener("click",function(){
+
+            viewButtons.forEach(function(item){
+
+                item.classList.remove("active");
+
+            });
+
+            this.classList.add("active");
+
+        });
+
+    });
+
+    /*======================================================
+    FILTER LINKS
+    ======================================================*/
+
+    filterLinks.forEach(function(link){
+
+        link.addEventListener("click",function(event){
+
+            event.preventDefault();
+
+            filterLinks.forEach(function(item){
+
+                item.classList.remove("text-primary");
+
+            });
+
+            this.classList.add("text-primary");
+
+        });
+
+    });
+
+    /*======================================================
+    PRODUCT HOVER EFFECT
+    ======================================================*/
+
+    productCards.forEach(function(card){
+
+        card.addEventListener("mouseenter",function(){
+
+            this.style.transform="translateY(-8px)";
+
+        });
+
+        card.addEventListener("mouseleave",function(){
+
+            this.style.transform="";
+
+        });
+
+    });
+
+    /*======================================================
+    ADD TO CART BUTTON
+    ======================================================*/
+
+    addToCartButtons.forEach(function(button){
+
+        button.addEventListener("click",function(event){
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+            this.classList.add("ssap-cart-added");
+
+            const icon = this.querySelector("i");
+
+            if(icon){
+
+                icon.classList.remove("fa-cart-plus");
+
+                icon.classList.add("fa-check");
+
+            }
+
+            setTimeout(()=>{
+
+                this.classList.remove("ssap-cart-added");
+
+                if(icon){
+
+                    icon.classList.remove("fa-check");
+
+                    icon.classList.add("fa-cart-plus");
+
+                }
+
+            },1200);
+
+        });
+
+    });
+
+/*======================================================
+PAGINATION
+======================================================*/
+
+paginationLinks.forEach(function(link){
+
+    link.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        const pageItem = this.parentElement;
+
+        if(pageItem.classList.contains("disabled")){
+
+            return;
+
+        }
+
+        paginationLinks.forEach(function(item){
+
+            if(item.parentElement.classList.contains("active")){
+
+                item.parentElement.classList.remove("active");
+
+            }
+
+        });
+
+        if(!pageItem.classList.contains("disabled")){
+
+            pageItem.classList.add("active");
+
+        }
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+    });
+
+});
+
+/*======================================================
+ESC TO CLEAR SEARCH
+======================================================*/
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key !== "Escape"){
+
+        return;
+
+    }
+
+    if(searchInput){
+
+        searchInput.value="";
+
+        searchInput.dispatchEvent(new Event("input"));
+
+        searchInput.blur();
+
+    }
+
+});
+
+/*======================================================
+PRODUCT DETAILS
+======================================================*/
+
+productCards.forEach(function(card){
+
+    card.addEventListener("click",function(event){
+
+        if(event.target.closest(".ssap-cart-btn")){
+
+            return;
+
+        }
+
+        window.location.href="product-details.html";
+
+    });
+
+});
+
+/*======================================================
+FILTER BUTTON
+======================================================*/
+
+const filterButton=$(".ssap-filter-btn");
+
+const sidebar=$(".ssap-sidebar");
+
+if(filterButton && sidebar){
+
+    filterButton.addEventListener("click",function(){
+
+        sidebar.classList.toggle("ssap-sidebar-open");
+
+    });
+
+}
+
+/*======================================================
+CART ICON
+======================================================*/
+
+const cartIcon=$("#ssapCartIcon");
+
+if(cartIcon){
+
+    cartIcon.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        /*
+        FRONT-END ONLY
+
+        Change this variable later when
+        backend/localStorage is integrated.
+        */
+
+        const hasCartItems=false;
+
+        if(hasCartItems){
+
+            window.location.href="../../cart/shopping-cart.html";
+
+        }else{
+
+            window.location.href="../../cart/cart.html";
+
+        }
+
+    });
+
+}
+
+/*======================================================
+NAVIGATION LINKS
+======================================================*/
+
+const navigationLinks=$$(".ssap-navbar .nav-link");
+
+navigationLinks.forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        navigationLinks.forEach(function(item){
+
+            item.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+    });
+
+});
+
+/*======================================================
+CATEGORY BUTTON ANIMATION
+======================================================*/
+
+categoryButtons.forEach(function(button){
+
+    button.addEventListener("click",function(){
+
+        this.animate([
+
+            {
+
+                transform:"scale(.95)"
+
+            },
+
+            {
+
+                transform:"scale(1)"
+
+            }
+
+        ],{
+
+            duration:180,
+
+            easing:"ease-out"
+
+        });
+
+    });
+
+});
+
+/*======================================================
+PRODUCT IMAGE PARALLAX
+======================================================*/
+
+productCards.forEach(function(card){
+
+    const image=card.querySelector(".ssap-product-image img");
+
+    if(!image){
+
+        return;
+
+    }
+
+    card.addEventListener("mousemove",function(event){
+
+        const rect=card.getBoundingClientRect();
+
+        const x=((event.clientX-rect.left)/rect.width-.5)*8;
+
+        const y=((event.clientY-rect.top)/rect.height-.5)*8;
+
+        image.style.transform=`scale(1.05) translate(${x}px, ${y}px)`;
+
+    });
+
+    card.addEventListener("mouseleave",function(){
+
+        image.style.transform="";
+
+    });
+
+});
+
+})();
+
+/*======================================================
+END OF ALL PRODUCTS PAGE
+======================================================*/
+
+
+/*==========================================================
+SERVICE TOP NAVBAR LANDING PAGE
+==========================================================*/
+
+(function(){
+
+"use strict";
+
+/*==========================================================
+PAGE CHECK
+==========================================================*/
+
+if(document.body.id !== "stnlpPage"){
+
+    return;
+
+}
+
+/*==========================================================
+HELPERS
+==========================================================*/
+
+const $=(selector,parent=document)=>parent.querySelector(selector);
+
+const $$=(selector,parent=document)=>parent.querySelectorAll(selector);
+
+/*==========================================================
+ELEMENTS
+==========================================================*/
+
+const stnlpSearchForm=$("#stnlpSearchForm");
+
+const stnlpSearchInput=$("#stnlpSearchInput");
+
+const stnlpLocation=$("#stnlpLocation");
+
+const stnlpFindButton=$(".stnlp-find-btn");
+
+const stnlpCategoryCards=$$(".stnlp-category-card");
+
+const stnlpProviderCards=$$(".stnlp-provider-card");
+
+const stnlpViewAll=$(".stnlp-view-all");
+
+const stnlpCart=$("#stnlpCartIcon");
+
+const stnlpNavigation=$$(".stnlp-navbar .nav-link");
+
+const stnlpFooterLinks=$$(".stnlp-footer-links a");
+
+/*==========================================================
+SEARCH FORM
+==========================================================*/
+
+if(stnlpSearchForm){
+
+    stnlpSearchForm.addEventListener("submit",function(event){
+
+        event.preventDefault();
+
+        const keyword=stnlpSearchInput.value.trim();
+
+        const location=stnlpLocation.value;
+
+        if(keyword===""){
+
+            stnlpSearchInput.focus();
+
+            return;
+
+        }
+
+        /*
+        Replace later with backend search
+        */
+
+        window.location.href=
+        "service-search-results.html";
+
+    });
+
+}
+
+/*==========================================================
+SEARCH INPUT ANIMATION
+==========================================================*/
+
+if(stnlpSearchInput){
+
+    stnlpSearchInput.addEventListener("focus",function(){
+
+        this.parentElement.classList.add("stnlp-search-active");
+
+    });
+
+    stnlpSearchInput.addEventListener("blur",function(){
+
+        this.parentElement.classList.remove("stnlp-search-active");
+
+    });
+
+}
+
+/*==========================================================
+CATEGORY CARDS
+==========================================================*/
+
+stnlpCategoryCards.forEach(function(card){
+
+    card.addEventListener("mouseenter",function(){
+
+        this.style.transform="translateY(-8px)";
+
+    });
+
+    card.addEventListener("mouseleave",function(){
+
+        this.style.transform="";
+
+    });
+
+    card.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="../../services/service-category.html";
+
+    });
+
+});
+
+/*==========================================================
+PROVIDER CARDS
+==========================================================*/
+
+stnlpProviderCards.forEach(function(card){
+
+    card.addEventListener("mouseenter",function(){
+
+        this.style.transform="translateY(-8px)";
+
+    });
+
+    card.addEventListener("mouseleave",function(){
+
+        this.style.transform="";
+
+    });
+
+    card.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="../../profile/provider-profile.html";
+
+    });
+
+});
+
+/*==========================================================
+VIEW ALL
+==========================================================*/
+
+if(stnlpViewAll){
+
+    stnlpViewAll.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="../../services/service-provider.html";
+
+    });
+
+}
+
+/*==========================================================
+TOP NAVIGATION
+==========================================================*/
+
+stnlpNavigation.forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        stnlpNavigation.forEach(function(item){
+
+            item.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+    });
+
+});
+
+/*==========================================================
+FOOTER LINKS
+==========================================================*/
+
+stnlpFooterLinks.forEach(function(link){
+
+    link.addEventListener("mouseenter",function(){
+
+        this.style.paddingLeft="8px";
+
+    });
+
+    link.addEventListener("mouseleave",function(){
+
+        this.style.paddingLeft="";
+
+    });
+
+});
+
+/*==========================================================
+CART
+==========================================================*/
+
+if(stnlpCart){
+
+    stnlpCart.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        /*
+        FRONTEND ONLY
+        Replace with your backend/localStorage later.
+        */
+
+        const hasCartItems=false;
+
+        if(hasCartItems){
+
+            window.location.href="../../cart/shopping-cart.html";
+
+        }
+
+        else{
+
+            window.location.href="../../cart/cart.html";
+
+        }
+
+    });
+
+}
+
+/*==========================================================
+HERO ENTRANCE
+==========================================================*/
+
+window.addEventListener("load",function(){
+
+    const hero=$(".stnlp-hero-content");
+
+    if(hero){
+
+        hero.animate([
+
+            {
+
+                opacity:0,
+
+                transform:"translateY(40px)"
+
+            },
+
+            {
+
+                opacity:1,
+
+                transform:"translateY(0)"
+
+            }
+
+        ],{
+
+            duration:700,
+
+            easing:"ease-out",
+
+            fill:"forwards"
+
+        });
+
+    }
+
+});
+
+/*==========================================================
+SCROLL REVEAL ANIMATION
+==========================================================*/
+
+const stnlpAnimatedElements=$$(
+".stnlp-category-card,.stnlp-provider-card,.stnlp-footer"
+);
+
+if("IntersectionObserver" in window){
+
+    const stnlpObserver=new IntersectionObserver(function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("stnlp-show");
+
+                stnlpObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },{
+
+        threshold:.15
+
+    });
+
+    stnlpAnimatedElements.forEach(function(element){
+
+        element.classList.add("stnlp-hidden");
+
+        stnlpObserver.observe(element);
+
+    });
+
+}
+
+/*==========================================================
+CATEGORY STAGGER ANIMATION
+==========================================================*/
+
+stnlpCategoryCards.forEach(function(card,index){
+
+    card.style.animationDelay=(index*.08)+"s";
+
+});
+
+/*==========================================================
+PROVIDER STAGGER ANIMATION
+==========================================================*/
+
+stnlpProviderCards.forEach(function(card,index){
+
+    card.style.animationDelay=(index*.1)+"s";
+
+});
+
+/*==========================================================
+NAVBAR SCROLL EFFECT
+==========================================================*/
+
+const stnlpNavbar=$(".stnlp-navbar");
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY>30){
+
+        stnlpNavbar.classList.add("stnlp-navbar-scrolled");
+
+    }
+
+    else{
+
+        stnlpNavbar.classList.remove("stnlp-navbar-scrolled");
+
+    }
+
+});
+
+/*==========================================================
+ESC KEY CLEARS SEARCH
+==========================================================*/
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape" && stnlpSearchInput){
+
+        stnlpSearchInput.value="";
+
+        stnlpSearchInput.blur();
+
+    }
+
+});
+
+/*==========================================================
+MOBILE NAVBAR AUTO CLOSE
+==========================================================*/
+
+const stnlpCollapse=$("#stnlpNavbar");
+
+const stnlpMenuLinks=$$("#stnlpNavbar .nav-link");
+
+stnlpMenuLinks.forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        if(window.innerWidth<992 && stnlpCollapse){
+
+            const collapse=
+            bootstrap.Collapse.getOrCreateInstance(stnlpCollapse);
+
+            collapse.hide();
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+NOTIFICATION ICON
+==========================================================*/
+
+const stnlpNotification=$$(".stnlp-nav-icon")[1];
+
+if(stnlpNotification){
+
+    stnlpNotification.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="../../notifications/notifications.html";
+
+    });
+
+}
+
+/*==========================================================
+PROFILE BUTTON
+==========================================================*/
+
+const stnlpProfile=$(".stnlp-profile");
+
+if(stnlpProfile){
+
+    stnlpProfile.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="../../profile/profile.html";
+
+    });
+
+}
+
+/*==========================================================
+SMOOTH SCROLL FOR INTERNAL LINKS
+==========================================================*/
+
+$$('a[href^="#"]').forEach(function(anchor){
+
+    anchor.addEventListener("click",function(event){
+
+        const target=document.querySelector(
+            this.getAttribute("href")
+        );
+
+        if(target){
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+
+                behavior:"smooth",
+
+                block:"start"
+
+            });
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",function(){
+
+    if(window.innerWidth>=992 && stnlpCollapse){
+
+        stnlpCollapse.classList.remove("show");
+
+    }
+
+});
+
+/*==========================================================
+PLACEHOLDER FIND BUTTON EFFECT
+==========================================================*/
+
+if(stnlpFindButton){
+
+    stnlpFindButton.addEventListener("click",function(){
+
+        this.classList.add("stnlp-btn-loading");
+
+        setTimeout(()=>{
+
+            this.classList.remove("stnlp-btn-loading");
+
+        },600);
+
+    });
+
+}
+
+})();
+
+/*==========================================================
+END OF SERVICE TOP NAVBAR LANDING PAGE
+==========================================================*/
+
+
+/*==========================================================
+TP NAVIGATION MESSAGES PAGE
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    "use strict";
+
+    /*======================================================
+    DOM ELEMENTS
+    ======================================================*/
+
+    const ybmpg = {
+
+        searchInput: document.getElementById("ybmpgSearchInput"),
+
+        conversationList: document.getElementById("ybmpgConversationList"),
+
+        conversationItems: document.querySelectorAll(".ybmpg-conversation-item"),
+
+        chatBody: document.getElementById("ybmpgChatBody"),
+
+        chatForm: document.getElementById("ybmpgChatForm"),
+
+        messageInput: document.getElementById("ybmpgMessageInput"),
+
+        sendButton: document.getElementById("ybmpgSendButton"),
+
+        attachmentButton: document.getElementById("ybmpgAttachmentButton")
+
+    };
+
+    /*======================================================
+    SEARCH CONVERSATIONS
+    ======================================================*/
+
+    function ybmpgInitializeSearch() {
+
+        if (!ybmpg.searchInput) return;
+
+        ybmpg.searchInput.addEventListener("input", function () {
+
+            const keyword = this.value.toLowerCase().trim();
+
+            ybmpg.conversationItems.forEach(item => {
+
+                const name = item.querySelector("h6").textContent.toLowerCase();
+
+                const message = item.querySelector("p").textContent.toLowerCase();
+
+                if (
+
+                    name.includes(keyword) ||
+
+                    message.includes(keyword)
+
+                ) {
+
+                    item.style.display = "flex";
+
+                }
+
+                else {
+
+                    item.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+    }
+
+    ybmpgInitializeSearch();
+
+    /*======================================================
+    ACTIVE CONVERSATION
+    ======================================================*/
+
+    function ybmpgConversationSelection() {
+
+        ybmpg.conversationItems.forEach(item => {
+
+            item.addEventListener("click", function (event) {
+
+                event.preventDefault();
+
+                ybmpg.conversationItems.forEach(chat => {
+
+                    chat.classList.remove("ybmpg-conversation-active");
+
+                });
+
+                this.classList.add("ybmpg-conversation-active");
+
+            });
+
+        });
+
+    }
+
+    ybmpgConversationSelection();
+
+    /*======================================================
+    AUTO SCROLL CHAT
+    ======================================================*/
+
+    function ybmpgScrollBottom() {
+
+        if (!ybmpg.chatBody) return;
+
+        ybmpg.chatBody.scrollTop = ybmpg.chatBody.scrollHeight;
+
+    }
+
+    ybmpgScrollBottom();
+
+    /*======================================================
+    ATTACHMENT BUTTON
+    ======================================================*/
+
+    function ybmpgAttachment() {
+
+        if (!ybmpg.attachmentButton) return;
+
+        ybmpg.attachmentButton.addEventListener("click", () => {
+
+            alert("Attachment feature will be connected later.");
+
+        });
+
+    }
+
+    ybmpgAttachment();
+
+    /*======================================================
+    ENTER TO SEND
+    ======================================================*/
+
+    function ybmpgKeyboardSend() {
+
+        if (!ybmpg.messageInput) return;
+
+        ybmpg.messageInput.addEventListener("keydown", function (event) {
+
+            if (
+
+                event.key === "Enter" &&
+
+                !event.shiftKey
+
+            ) {
+
+                event.preventDefault();
+
+                ybmpg.chatForm.dispatchEvent(
+
+                    new Event("submit")
+
+                );
+
+            }
+
+        });
+
+    }
+
+    ybmpgKeyboardSend();
+
+    /*======================================================
+    SEND MESSAGE
+    ======================================================*/
+
+    function ybmpgSendMessage() {
+
+        if (!ybmpg.chatForm) return;
+
+        ybmpg.chatForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const message =
+
+                ybmpg.messageInput.value.trim();
+
+            if (message === "") return;
+
+            const row = document.createElement("div");
+
+            row.className =
+
+                "ybmpg-message-row ybmpg-message-right";
+
+            const bubble = document.createElement("div");
+
+            bubble.className =
+
+                "ybmpg-message-bubble ybmpg-message-self";
+
+            const paragraph = document.createElement("p");
+
+            paragraph.textContent = message;
+
+            const time = document.createElement("span");
+
+            const now = new Date();
+
+            time.textContent =
+
+                now.toLocaleTimeString([], {
+
+                    hour: "2-digit",
+
+                    minute: "2-digit"
+
+                });
+
+            bubble.appendChild(paragraph);
+
+            bubble.appendChild(time);
+
+            row.appendChild(bubble);
+
+            ybmpg.chatBody.appendChild(row);
+
+            ybmpg.messageInput.value = "";
+
+            ybmpgScrollBottom();
+
+        });
+
+    }
+
+    ybmpgSendMessage();
+
+    /*======================================================
+    FAKE AUTO REPLY
+    ======================================================*/
+
+    function ybmpgAutoReply() {
+
+        if (!ybmpg.chatForm) return;
+
+        const replies = [
+
+            "Thank you for reaching out. 😊",
+
+            "I'll get back to you shortly.",
+
+            "Your request has been received.",
+
+            "Sure, I'll confirm and let you know.",
+
+            "Thanks for your patience."
+
+        ];
+
+        ybmpg.chatForm.addEventListener("submit", () => {
+
+            setTimeout(() => {
+
+                const randomReply =
+
+                    replies[Math.floor(Math.random() * replies.length)];
+
+                const row = document.createElement("div");
+
+                row.className =
+
+                    "ybmpg-message-row ybmpg-message-left";
+
+                const bubble = document.createElement("div");
+
+                bubble.className =
+
+                    "ybmpg-message-bubble";
+
+                const paragraph = document.createElement("p");
+
+                paragraph.textContent = randomReply;
+
+                const time = document.createElement("span");
+
+                const now = new Date();
+
+                time.textContent =
+
+                    now.toLocaleTimeString([], {
+
+                        hour: "2-digit",
+
+                        minute: "2-digit"
+
+                    });
+
+                bubble.appendChild(paragraph);
+
+                bubble.appendChild(time);
+
+                row.appendChild(bubble);
+
+                ybmpg.chatBody.appendChild(row);
+
+                ybmpgScrollBottom();
+
+            }, 1800);
+
+        });
+
+    }
+
+    ybmpgAutoReply();
+
+    /*======================================================
+    INPUT BUTTON STATE
+    ======================================================*/
+
+    function ybmpgInputState() {
+
+        if (!ybmpg.messageInput) return;
+
+        ybmpg.sendButton.disabled = true;
+
+        ybmpg.messageInput.addEventListener("input", () => {
+
+            const hasValue =
+
+                ybmpg.messageInput.value.trim() !== "";
+
+            ybmpg.sendButton.disabled = !hasValue;
+
+            if (hasValue) {
+
+                ybmpg.sendButton.classList.add("ybmpg-send-active");
+
+            }
+
+            else {
+
+                ybmpg.sendButton.classList.remove("ybmpg-send-active");
+
+            }
+
+        });
+
+    }
+
+    ybmpgInputState();
+
+    /*======================================================
+    WINDOW.HREF PLACEHOLDERS
+    ======================================================*/
+
+    const ybmpgNavigation = {
+
+        home: "../../navigation/home.html",
+
+        products: "../../navigation/products.html",
+
+        services: "../../navigation/services.html",
+
+        orders: "../../navigation/orders.html",
+
+        bookings: "../../navigation/bookings.html",
+
+        messages: "../../navigation/messages.html",
+
+        profile: "../../buyer/buyer-profile.html",
+
+        settings: "../../buyer/buyer-setting.html",
+
+        notifications: "../../navigation/notification.html",
+
+        cart: "../../navigation/cart.html"
+
+    };
+
+    /*======================================================
+    PAGE ENTRANCE ANIMATION
+    ======================================================*/
+
+    function ybmpgReveal() {
+
+        const elements = document.querySelectorAll(
+
+            ".ybmpg-sidebar, .ybmpg-chat-area"
+
+        );
+
+        elements.forEach((element, index) => {
+
+            element.style.opacity = "0";
+
+            element.style.transform = "translateY(25px)";
+
+            setTimeout(() => {
+
+                element.style.transition = ".5s ease";
+
+                element.style.opacity = "1";
+
+                element.style.transform = "translateY(0)";
+
+            }, index * 150);
+
+        });
+
+    }
+
+    ybmpgReveal();
+
+    /*======================================================
+    KEEP CHAT SCROLLED TO BOTTOM
+    ======================================================*/
+
+    window.addEventListener("load", () => {
+
+        ybmpgScrollBottom();
+
+    });
+
+    window.addEventListener("resize", () => {
+
+        ybmpgScrollBottom();
+
+    });
+
+});
+
+/*======================================================
+    END OF BUYER MESSAGES PAGE
+    ======================================================*/
+
+
+
+/*==========================================================
+SERVICE TOP PROVIDERS LISTING
+==========================================================*/
+
+(function(){
+
+"use strict";
+
+/*==========================================================
+PAGE CHECK
+==========================================================*/
+
+if(document.body.id!=="stplPage"){
+
+    return;
+
+}
+
+/*==========================================================
+HELPERS
+==========================================================*/
+
+const $=(selector,parent=document)=>parent.querySelector(selector);
+
+const $$=(selector,parent=document)=>parent.querySelectorAll(selector);
+
+/*==========================================================
+ELEMENTS
+==========================================================*/
+
+const stplNavbar=$(".stpl-navbar");
+
+const stplSearch=$("#stplSearch");
+
+const stplFilterButton=$("#stplFilterButton");
+
+const stplCategoryPills=$$(".stpl-category-pill");
+
+const stplProviderCards=$$(".stpl-provider-card");
+
+const stplCart=$("#stplCart");
+
+/*==========================================================
+CATEGORY FILTERS
+==========================================================*/
+
+stplCategoryPills.forEach(function(pill){
+
+    pill.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        stplCategoryPills.forEach(function(item){
+
+            item.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+        /*
+        Replace with backend category filtering later
+        */
+
+    });
+
+});
+
+/*==========================================================
+SEARCH
+==========================================================*/
+
+if(stplSearch){
+
+    stplSearch.addEventListener("keyup",function(event){
+
+        if(event.key==="Enter"){
+
+            const keyword=this.value.trim();
+
+            if(keyword===""){
+
+                return;
+
+            }
+
+            /*
+            Backend search later
+            */
+
+            window.location.href="service-search-results.html";
+
+        }
+
+    });
+
+}
+
+/*==========================================================
+FILTER BUTTON
+==========================================================*/
+
+if(stplFilterButton){
+
+    stplFilterButton.addEventListener("click",function(){
+
+        /*
+        Future modal/sidebar filter
+        */
+
+        alert("Filter panel coming soon.");
+
+    });
+
+}
+
+/*==========================================================
+PROVIDER CARDS
+==========================================================*/
+
+stplProviderCards.forEach(function(card){
+
+    card.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="../../profile/provider-profile.html";
+
+    });
+
+});
+
+/*==========================================================
+CART
+==========================================================*/
+
+if(stplCart){
+
+    stplCart.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        /*
+        Frontend only
+        Replace with backend/localStorage
+        */
+
+        const hasCartItems=false;
+
+        if(hasCartItems){
+
+            window.location.href="shopping-cart.html";
+
+        }
+
+        else{
+
+            window.location.href="empty-cart.html";
+
+        }
+
+    });
+
+}
+
+/*==========================================================
+NAVBAR ACTIVE LINKS
+==========================================================*/
+
+$$(".stpl-navbar .nav-link").forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        $$(".stpl-navbar .nav-link").forEach(function(item){
+
+            item.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+    });
+
+});
+
+/*==========================================================
+HOVER ANIMATION
+==========================================================*/
+
+stplProviderCards.forEach(function(card){
+
+    card.addEventListener("mouseenter",function(){
+
+        this.style.transform="translateY(-8px)";
+
+    });
+
+    card.addEventListener("mouseleave",function(){
+
+        this.style.transform="";
+
+    });
+
+});
+
+/*==========================================================
+PAGE LOAD ANIMATION
+==========================================================*/
+
+window.addEventListener("load",function(){
+
+    stplProviderCards.forEach(function(card,index){
+
+        card.animate([
+
+            {
+
+                opacity:0,
+
+                transform:"translateY(30px)"
+
+            },
+
+            {
+
+                opacity:1,
+
+                transform:"translateY(0)"
+
+            }
+
+        ],{
+
+            duration:600,
+
+            delay:index*120,
+
+            easing:"ease-out",
+
+            fill:"forwards"
+
+        });
+
+    });
+
+});
+
+/*==========================================================
+SCROLL REVEAL ANIMATION
+==========================================================*/
+
+const stplAnimatedElements=$$(
+".stpl-provider-card"
+);
+
+if("IntersectionObserver" in window){
+
+    const stplObserver=new IntersectionObserver(function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("stpl-visible");
+
+                stplObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },{
+
+        threshold:.15
+
+    });
+
+    stplAnimatedElements.forEach(function(element){
+
+        element.classList.add("stpl-hidden");
+
+        stplObserver.observe(element);
+
+    });
+
+}
+
+/*==========================================================
+NAVBAR SCROLL EFFECT
+==========================================================*/
+
+window.addEventListener("scroll",function(){
+
+    if(!stplNavbar){
+
+        return;
+
+    }
+
+    if(window.scrollY>25){
+
+        stplNavbar.classList.add("stpl-navbar-scrolled");
+
+    }
+
+    else{
+
+        stplNavbar.classList.remove("stpl-navbar-scrolled");
+
+    }
+
+});
+
+/*==========================================================
+ESC KEY CLEARS SEARCH
+==========================================================*/
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape" && stplSearch){
+
+        stplSearch.value="";
+
+        stplSearch.blur();
+
+    }
+
+});
+
+/*==========================================================
+MOBILE MENU AUTO CLOSE
+==========================================================*/
+
+const stplNavbarCollapse=$("#stplNavbar");
+
+$$(".stpl-navbar .nav-link").forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        if(window.innerWidth<992 && stplNavbarCollapse){
+
+            const collapse=
+            bootstrap.Collapse.getOrCreateInstance(
+                stplNavbarCollapse
+            );
+
+            collapse.hide();
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+NOTIFICATION ICON
+==========================================================*/
+
+const stplNotification=$$(".stpl-nav-icon")[1];
+
+if(stplNotification){
+
+    stplNotification.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="notifications.html";
+
+    });
+
+}
+
+/*==========================================================
+PROFILE
+==========================================================*/
+
+const stplProfile=$(".stpl-profile");
+
+if(stplProfile){
+
+    stplProfile.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="profile.html";
+
+    });
+
+}
+
+/*==========================================================
+SMOOTH SCROLL
+==========================================================*/
+
+$$('a[href^="#"]').forEach(function(anchor){
+
+    anchor.addEventListener("click",function(event){
+
+        const target=document.querySelector(
+            this.getAttribute("href")
+        );
+
+        if(target){
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+
+                behavior:"smooth",
+
+                block:"start"
+
+            });
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",function(){
+
+    if(window.innerWidth>=992 && stplNavbarCollapse){
+
+        stplNavbarCollapse.classList.remove("show");
+
+    }
+
+});
+
+/*==========================================================
+SEARCH PLACEHOLDER
+==========================================================*/
+
+if(stplSearch){
+
+    stplSearch.addEventListener("focus",function(){
+
+        this.parentElement.classList.add("stpl-search-active");
+
+    });
+
+    stplSearch.addEventListener("blur",function(){
+
+        this.parentElement.classList.remove("stpl-search-active");
+
+    });
+
+}
+
+/*==========================================================
+FILTER BUTTON EFFECT
+==========================================================*/
+
+if(stplFilterButton){
+
+    stplFilterButton.addEventListener("mousedown",function(){
+
+        this.classList.add("stpl-btn-active");
+
+    });
+
+    stplFilterButton.addEventListener("mouseup",function(){
+
+        this.classList.remove("stpl-btn-active");
+
+    });
+
+    stplFilterButton.addEventListener("mouseleave",function(){
+
+        this.classList.remove("stpl-btn-active");
+
+    });
+
+}
+
+})();
+
+/*==========================================================
+END OF SERVICE PROVIDERS LISTING
+==========================================================*/
+
+/*==========================================================
+SERVICE TOP PROVIDER PROFILE
+Prefix : stpp
+==========================================================*/
+
+(function(){
+
+"use strict";
+
+/*==========================================================
+PAGE CHECK
+==========================================================*/
+
+if(document.body.id!=="stppPage"){
+
+    return;
+
+}
+
+/*==========================================================
+HELPERS
+==========================================================*/
+
+const $=(selector,parent=document)=>parent.querySelector(selector);
+
+const $$=(selector,parent=document)=>parent.querySelectorAll(selector);
+
+/*==========================================================
+ELEMENTS
+==========================================================*/
+
+const stppNavbar=$(".stpp-navbar");
+
+const stppCart=$("#stppCart");
+
+const stppMessageBtn=$("#stppMessageBtn");
+
+const stppBookServiceBtn=$("#stppBookServiceBtn");
+
+const stppBookAppointment=$("#stppBookAppointment");
+
+const stppBookButtons=$$(".stpp-book-btn");
+
+const stppTabs=$$(".stpp-tab");
+
+const stppNewsletterForm=$("#stppNewsletterForm");
+
+const stppNewsletterEmail=$("#stppNewsletterEmail");
+
+const stppProfile=$(".stpp-profile");
+
+/*==========================================================
+NAVIGATION TABS
+==========================================================*/
+
+stppTabs.forEach(function(tab){
+
+    tab.addEventListener("click",function(){
+
+        stppTabs.forEach(function(item){
+
+            item.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+    });
+
+});
+
+/*==========================================================
+MESSAGE BUTTON
+==========================================================*/
+
+if(stppMessageBtn){
+
+    stppMessageBtn.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="messages.html";
+
+    });
+
+}
+
+/*==========================================================
+BOOK SERVICE BUTTON
+==========================================================*/
+
+if(stppBookServiceBtn){
+
+    stppBookServiceBtn.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="booking-checkout.html";
+
+    });
+
+}
+
+/*==========================================================
+BOOK APPOINTMENT
+==========================================================*/
+
+if(stppBookAppointment){
+
+    stppBookAppointment.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="booking-checkout.html";
+
+    });
+
+}
+
+/*==========================================================
+SERVICE CARD BUTTONS
+==========================================================*/
+
+stppBookButtons.forEach(function(button){
+
+    button.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="booking-checkout.html";
+
+    });
+
+});
+
+/*==========================================================
+CART
+==========================================================*/
+
+if(stppCart){
+
+    stppCart.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        /*
+        Replace with backend/localStorage later
+        */
+
+        const hasCartItems=false;
+
+        if(hasCartItems){
+
+            window.location.href="shopping-cart.html";
+
+        }
+
+        else{
+
+            window.location.href="empty-cart.html";
+
+        }
+
+    });
+
+}
+
+/*==========================================================
+PROFILE
+==========================================================*/
+
+if(stppProfile){
+
+    stppProfile.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="profile.html";
+
+    });
+
+}
+
+/*==========================================================
+NEWSLETTER
+==========================================================*/
+
+if(stppNewsletterForm){
+
+    stppNewsletterForm.addEventListener("submit",function(event){
+
+        event.preventDefault();
+
+        const email=stppNewsletterEmail.value.trim();
+
+        if(email===""){
+
+            stppNewsletterEmail.focus();
+
+            return;
+
+        }
+
+        alert("Newsletter subscription successful.");
+
+        stppNewsletterEmail.value="";
+
+    });
+
+}
+
+/*==========================================================
+HOVER ANIMATION
+==========================================================*/
+
+stppBookButtons.forEach(function(button){
+
+    button.addEventListener("mouseenter",function(){
+
+        this.style.transform="translateY(-2px)";
+
+    });
+
+    button.addEventListener("mouseleave",function(){
+
+        this.style.transform="";
+
+    });
+
+});
+
+/*==========================================================
+PAGE LOAD ANIMATION
+==========================================================*/
+
+window.addEventListener("load",function(){
+
+    const cards=$$(".stpp-service-card");
+
+    cards.forEach(function(card,index){
+
+        card.animate([
+
+            {
+
+                opacity:0,
+
+                transform:"translateY(30px)"
+
+            },
+
+            {
+
+                opacity:1,
+
+                transform:"translateY(0)"
+
+            }
+
+        ],{
+
+            duration:650,
+
+            delay:index*120,
+
+            easing:"ease-out",
+
+            fill:"forwards"
+
+        });
+
+    });
+
+});
+
+/*==========================================================
+SCROLL REVEAL
+==========================================================*/
+
+const stppRevealItems=$$(
+".stpp-profile-header,.stpp-service-card,.stpp-sidebar-card"
+);
+
+if("IntersectionObserver" in window){
+
+    const stppObserver=new IntersectionObserver(function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("stpp-visible");
+
+                stppObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },{
+
+        threshold:.15
+
+    });
+
+    stppRevealItems.forEach(function(item){
+
+        item.classList.add("stpp-hidden");
+
+        stppObserver.observe(item);
+
+    });
+
+}
+
+/*==========================================================
+NAVBAR SCROLL EFFECT
+==========================================================*/
+
+window.addEventListener("scroll",function(){
+
+    if(!stppNavbar){
+
+        return;
+
+    }
+
+    if(window.scrollY>20){
+
+        stppNavbar.classList.add("stpp-navbar-scrolled");
+
+    }
+
+    else{
+
+        stppNavbar.classList.remove("stpp-navbar-scrolled");
+
+    }
+
+});
+
+/*==========================================================
+NOTIFICATION
+==========================================================*/
+
+const stppNotification=$$(".stpp-nav-icon")[1];
+
+if(stppNotification){
+
+    stppNotification.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="notifications.html";
+
+    });
+
+}
+
+/*==========================================================
+SMOOTH SCROLL
+==========================================================*/
+
+$$('a[href^="#"]').forEach(function(anchor){
+
+    anchor.addEventListener("click",function(event){
+
+        const target=document.querySelector(
+
+            this.getAttribute("href")
+
+        );
+
+        if(target){
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+
+                behavior:"smooth",
+
+                block:"start"
+
+            });
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+ESC KEY
+==========================================================*/
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape"){
+
+        if(document.activeElement){
+
+            document.activeElement.blur();
+
+        }
+
+    }
+
+});
+
+/*==========================================================
+BOOTSTRAP MOBILE MENU
+==========================================================*/
+
+const stppNavbarCollapse=$("#stppNavbar");
+
+$$(".stpp-navbar .nav-link").forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        if(window.innerWidth<992 && stppNavbarCollapse){
+
+            const collapse=
+
+            bootstrap.Collapse.getOrCreateInstance(
+
+                stppNavbarCollapse
+
+            );
+
+            collapse.hide();
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",function(){
+
+    if(window.innerWidth>=992 && stppNavbarCollapse){
+
+        stppNavbarCollapse.classList.remove("show");
+
+    }
+
+});
+
+/*==========================================================
+ACCESSIBILITY
+==========================================================*/
+
+$$("button,a").forEach(function(element){
+
+    element.addEventListener("keyup",function(event){
+
+        if(event.key==="Enter"){
+
+            this.click();
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+UTILITY CLASSES
+==========================================================*/
+
+const stppStyle=document.createElement("style");
+
+stppStyle.textContent=`
+
+.stpp-hidden{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+}
+
+.stpp-visible{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition:all .7s ease;
+
+}
+
+.stpp-navbar-scrolled{
+
+    background:rgba(255,255,255,.97);
+
+    backdrop-filter:blur(14px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+`;
+
+document.head.appendChild(stppStyle);
+
+})();
+
+/*==========================================================
+END OF PROVIDER PROFILE
+==========================================================*/
+
+/*==========================================================
+SERVICE BOOKING PAGE
+Prefix : stbk
+==========================================================*/
+
+(function(){
+
+"use strict";
+
+/*==========================================================
+PAGE CHECK
+==========================================================*/
+
+if(document.body.id!=="stbkPage"){
+
+    return;
+
+}
+
+/*==========================================================
+HELPERS
+==========================================================*/
+
+const $=(selector,parent=document)=>parent.querySelector(selector);
+
+const $$=(selector,parent=document)=>parent.querySelectorAll(selector);
+
+/*==========================================================
+ELEMENTS
+==========================================================*/
+
+const stbkNavbar=$("#stbk-navbar");
+
+const stbkServiceItems=$$(".stbk-service-item");
+
+const stbkDateButtons=$$(".stbk-date-btn");
+
+const stbkTimeButtons=$$(".stbk-time-btn");
+
+const stbkConfirmButton=$("#stbkConfirmBookingBtn");
+
+const stbkCartButton=$("#stbkCartBtn");
+
+const stbkNotifyButton=$("#stbkNotifyBtn");
+
+const stbkNotes=$("#stbkNotes");
+
+const stbkSummaryService=$("#stbkSummaryService");
+
+const stbkSummaryDate=$("#stbkSummaryDate");
+
+const stbkSummaryTime=$("#stbkSummaryTime");
+
+const stbkServiceFee=$("#stbkServiceFee");
+
+const stbkEscrowFee=$("#stbkEscrowFee");
+
+const stbkGrandTotal=$("#stbkGrandTotal");
+
+/*==========================================================
+FORMAT CURRENCY
+==========================================================*/
+
+function stbkFormatMoney(amount){
+
+    return "₦"+Number(amount).toLocaleString();
+
+}
+
+/*==========================================================
+UPDATE SUMMARY
+==========================================================*/
+
+function stbkUpdateSummary(){
+
+    const activeService=$(".stbk-service-active");
+
+    const activeDate=$(".stbk-date-active");
+
+    const activeTime=$(".stbk-time-active");
+
+    const serviceName=activeService.dataset.service;
+
+    const servicePrice=parseInt(activeService.dataset.price);
+
+    const escrow=Math.round(servicePrice*0.015);
+
+    const total=servicePrice+escrow;
+
+    stbkSummaryService.textContent=serviceName;
+
+    stbkSummaryDate.textContent=activeDate.textContent.trim();
+
+    stbkSummaryTime.textContent=activeTime.textContent.trim();
+
+    stbkServiceFee.textContent=stbkFormatMoney(servicePrice);
+
+    stbkEscrowFee.textContent=stbkFormatMoney(escrow);
+
+    stbkGrandTotal.textContent=stbkFormatMoney(total);
+
+}
+
+/*==========================================================
+SERVICE SELECTION
+==========================================================*/
+
+stbkServiceItems.forEach(function(button){
+
+    button.addEventListener("click",function(){
+
+        stbkServiceItems.forEach(function(item){
+
+            item.classList.remove("stbk-service-active");
+
+        });
+
+        this.classList.add("stbk-service-active");
+
+        stbkUpdateSummary();
+
+    });
+
+});
+
+/*==========================================================
+DATE SELECTION
+==========================================================*/
+
+stbkDateButtons.forEach(function(button){
+
+    button.addEventListener("click",function(){
+
+        stbkDateButtons.forEach(function(item){
+
+            item.classList.remove("stbk-date-active");
+
+        });
+
+        this.classList.add("stbk-date-active");
+
+        stbkUpdateSummary();
+
+    });
+
+});
+
+/*==========================================================
+TIME SELECTION
+==========================================================*/
+
+stbkTimeButtons.forEach(function(button){
+
+    button.addEventListener("click",function(){
+
+        stbkTimeButtons.forEach(function(item){
+
+            item.classList.remove("stbk-time-active");
+
+        });
+
+        this.classList.add("stbk-time-active");
+
+        stbkUpdateSummary();
+
+    });
+
+});
+
+/*==========================================================
+CONFIRM BOOKING
+==========================================================*/
+
+if(stbkConfirmButton){
+
+    stbkConfirmButton.addEventListener("click",function(){
+
+        window.location.href="../../cart/checkout-payment.html";
+
+    });
+
+}
+
+/*==========================================================
+CART
+==========================================================*/
+
+if(stbkCartButton){
+
+    stbkCartButton.addEventListener("click",function(){
+
+        /*
+        Replace this with backend/localStorage later
+        */
+
+        const hasCartItems=false;
+
+        if(hasCartItems){
+
+            window.location.href="../../cart/shopping-cart.html";
+
+        }
+
+        else{
+
+            window.location.href="../../navigation/cart.html";
+
+        }
+
+    });
+
+}
+
+/*==========================================================
+NOTIFICATIONS
+==========================================================*/
+
+if(stbkNotifyButton){
+
+    stbkNotifyButton.addEventListener("click",function(){
+
+        window.location.href="../../navigation/notification.html";
+
+    });
+
+}
+
+/*==========================================================
+NOTES LIMIT
+==========================================================*/
+
+if(stbkNotes){
+
+    stbkNotes.addEventListener("input",function(){
+
+        if(this.value.length>500){
+
+            this.value=this.value.substring(0,500);
+
+        }
+
+    });
+
+}
+
+/*==========================================================
+INITIALIZE
+==========================================================*/
+
+stbkUpdateSummary();
+
+window.addEventListener("load",function(){
+
+    document.body.classList.add("stbk-loaded");
+
+});
+
+/*==========================================================
+NAVBAR SCROLL EFFECT
+==========================================================*/
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY>15){
+
+        stbkNavbar.classList.add("stbk-navbar-scrolled");
+
+    }
+
+    else{
+
+        stbkNavbar.classList.remove("stbk-navbar-scrolled");
+
+    }
+
+});
+
+/*==========================================================
+SCROLL REVEAL
+==========================================================*/
+
+const stbkRevealElements=$$(
+".stbk-provider-card,.stbk-card,.stbk-summary-card"
+);
+
+if("IntersectionObserver" in window){
+
+    const stbkObserver=new IntersectionObserver(function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("stbk-show");
+
+                stbkObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },{
+
+        threshold:.15
+
+    });
+
+    stbkRevealElements.forEach(function(element){
+
+        element.classList.add("stbk-hidden");
+
+        stbkObserver.observe(element);
+
+    });
+
+}
+
+/*==========================================================
+BUTTON RIPPLE EFFECT
+==========================================================*/
+
+const stbkRippleButtons=$$(
+".stbk-confirm-btn,.stbk-service-item,.stbk-date-btn,.stbk-time-btn"
+);
+
+stbkRippleButtons.forEach(function(button){
+
+    button.addEventListener("click",function(event){
+
+        const ripple=document.createElement("span");
+
+        ripple.className="stbk-ripple";
+
+        const rect=this.getBoundingClientRect();
+
+        const size=Math.max(rect.width,rect.height);
+
+        ripple.style.width=size+"px";
+
+        ripple.style.height=size+"px";
+
+        ripple.style.left=(event.clientX-rect.left-size/2)+"px";
+
+        ripple.style.top=(event.clientY-rect.top-size/2)+"px";
+
+        this.appendChild(ripple);
+
+        setTimeout(function(){
+
+            ripple.remove();
+
+        },600);
+
+    });
+
+});
+
+/*==========================================================
+SMOOTH SCROLL
+==========================================================*/
+
+$$('a[href^="#"]').forEach(function(anchor){
+
+    anchor.addEventListener("click",function(event){
+
+        const target=document.querySelector(
+
+            this.getAttribute("href")
+
+        );
+
+        if(target){
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+
+                behavior:"smooth",
+
+                block:"start"
+
+            });
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+AUTO CLOSE MOBILE MENU
+==========================================================*/
+
+const stbkCollapse=$("#stbkNavbarCollapse");
+
+$$(".navbar-nav .nav-link").forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        if(window.innerWidth<992 && stbkCollapse){
+
+            const collapse=
+
+            bootstrap.Collapse.getOrCreateInstance(
+
+                stbkCollapse
+
+            );
+
+            collapse.hide();
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+KEYBOARD ACCESSIBILITY
+==========================================================*/
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape"){
+
+        if(document.activeElement){
+
+            document.activeElement.blur();
+
+        }
+
+    }
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",function(){
+
+    if(window.innerWidth>=992 && stbkCollapse){
+
+        stbkCollapse.classList.remove("show");
+
+    }
+
+});
+
+/*==========================================================
+UTILITY STYLES
+==========================================================*/
+
+const stbkUtilityStyle=document.createElement("style");
+
+stbkUtilityStyle.textContent=`
+
+.stbk-hidden{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+}
+
+.stbk-show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition:all .7s ease;
+
+}
+
+.stbk-ripple{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.35);
+
+    transform:scale(0);
+
+    animation:stbkRipple .6s linear;
+
+    pointer-events:none;
+
+}
+
+.stbk-service-item,
+
+.stbk-date-btn,
+
+.stbk-time-btn,
+
+.stbk-confirm-btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+@keyframes stbkRipple{
+
+    to{
+
+        transform:scale(4);
+
+        opacity:0;
+
+    }
+
+}
+
+`;
+
+document.head.appendChild(stbkUtilityStyle);
+
+})();
+
+/*==========================================================
+END OF BOOKING SERVICE
+==========================================================*/
+
+/*==========================================================
+SERVICE BOOKING CONFIRMATION
+Prefix : stbc
+==========================================================*/
+
+(function(){
+
+"use strict";
+
+/*==========================================================
+PAGE CHECK
+==========================================================*/
+
+if(document.body.id!=="stbcPage"){
+
+    return;
+
+}
+
+/*==========================================================
+HELPERS
+==========================================================*/
+
+const $=(selector,parent=document)=>parent.querySelector(selector);
+
+const $$=(selector,parent=document)=>parent.querySelectorAll(selector);
+
+/*==========================================================
+ELEMENTS
+==========================================================*/
+
+const stbcNavbar=$("#stbc-navbar");
+
+const stbcBookingsBtn=$("#stbcBookingsBtn");
+
+const stbcMessageBtn=$("#stbcMessageBtn");
+
+const stbcContinueBrowsing=$("#stbcContinueBrowsing");
+
+const stbcCartBtn=$("#stbcCartBtn");
+
+const stbcBellBtn=$("#stbcBellBtn");
+
+const stbcReference=$("#stbcReference");
+
+const stbcCard=$(".stbc-card");
+
+/*==========================================================
+BOOKING REFERENCE
+==========================================================*/
+
+function stbcGenerateReference(){
+
+    const random=Math.floor(
+
+        100000+Math.random()*900000
+
+    );
+
+    return "#BK-"+random;
+
+}
+
+if(stbcReference){
+
+    if(!sessionStorage.getItem("stbcReference")){
+
+        sessionStorage.setItem(
+
+            "stbcReference",
+
+            stbcGenerateReference()
+
+        );
+
+    }
+
+    stbcReference.textContent=
+
+    sessionStorage.getItem("stbcReference");
+
+}
+
+/*==========================================================
+VIEW BOOKINGS
+==========================================================*/
+
+if(stbcBookingsBtn){
+
+    stbcBookingsBtn.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="bookings.html";
+
+    });
+
+}
+
+/*==========================================================
+MESSAGE PROVIDER
+==========================================================*/
+
+if(stbcMessageBtn){
+
+    stbcMessageBtn.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="chat.html";
+
+    });
+
+}
+
+/*==========================================================
+CONTINUE BROWSING
+==========================================================*/
+
+if(stbcContinueBrowsing){
+
+    stbcContinueBrowsing.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="service-landing.html";
+
+    });
+
+}
+
+/*==========================================================
+CART BUTTON
+==========================================================*/
+
+if(stbcCartBtn){
+
+    stbcCartBtn.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="cart.html";
+
+    });
+
+}
+
+/*==========================================================
+NOTIFICATION BUTTON
+==========================================================*/
+
+if(stbcBellBtn){
+
+    stbcBellBtn.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="notifications.html";
+
+    });
+
+}
+
+/*==========================================================
+CARD ENTRANCE
+==========================================================*/
+
+window.addEventListener("load",function(){
+
+    if(stbcCard){
+
+        stbcCard.classList.add("stbc-card-loaded");
+
+    }
+
+});
+
+/*==========================================================
+SUCCESS ICON ANIMATION
+==========================================================*/
+
+const stbcSuccessIcon=$(".stbc-success-icon");
+
+if(stbcSuccessIcon){
+
+    setTimeout(function(){
+
+        stbcSuccessIcon.classList.add("stbc-success-ready");
+
+    },300);
+
+}
+
+/*==========================================================
+NAVBAR SCROLL EFFECT
+==========================================================*/
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY>10){
+
+        stbcNavbar?.classList.add("stbc-navbar-scrolled");
+
+    }
+
+    else{
+
+        stbcNavbar?.classList.remove("stbc-navbar-scrolled");
+
+    }
+
+});
+
+/*==========================================================
+SCROLL REVEAL ANIMATION
+==========================================================*/
+
+const stbcRevealElements=$$(
+
+".stbc-success-icon,.stbc-title,.stbc-subtitle,.stbc-card,.stbc-action-group,.stbc-extra-link"
+
+);
+
+if("IntersectionObserver" in window){
+
+    const stbcObserver=new IntersectionObserver(function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("stbc-show");
+
+                stbcObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },{
+
+        threshold:.15
+
+    });
+
+    stbcRevealElements.forEach(function(element){
+
+        element.classList.add("stbc-hidden");
+
+        stbcObserver.observe(element);
+
+    });
+
+}
+
+/*==========================================================
+BUTTON RIPPLE EFFECT
+==========================================================*/
+
+$$(".stbc-btn-primary,.stbc-btn-outline").forEach(function(button){
+
+    button.addEventListener("click",function(event){
+
+        const ripple=document.createElement("span");
+
+        ripple.className="stbc-ripple";
+
+        const rect=this.getBoundingClientRect();
+
+        const size=Math.max(rect.width,rect.height);
+
+        ripple.style.width=size+"px";
+
+        ripple.style.height=size+"px";
+
+        ripple.style.left=(event.clientX-rect.left-size/2)+"px";
+
+        ripple.style.top=(event.clientY-rect.top-size/2)+"px";
+
+        this.appendChild(ripple);
+
+        setTimeout(function(){
+
+            ripple.remove();
+
+        },600);
+
+    });
+
+});
+
+/*==========================================================
+AUTO CLOSE MOBILE NAVBAR
+==========================================================*/
+
+const stbcCollapse=$("#stbcNavbarCollapse");
+
+$$(".navbar-nav .nav-link").forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        if(window.innerWidth<992 && stbcCollapse){
+
+            bootstrap.Collapse
+
+            .getOrCreateInstance(stbcCollapse)
+
+            .hide();
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+KEYBOARD ACCESSIBILITY
+==========================================================*/
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape"){
+
+        document.activeElement.blur();
+
+    }
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",function(){
+
+    if(window.innerWidth>=992 && stbcCollapse){
+
+        stbcCollapse.classList.remove("show");
+
+    }
+
+});
+
+/*==========================================================
+UTILITY STYLES
+==========================================================*/
+
+const stbcStyle=document.createElement("style");
+
+stbcStyle.textContent=`
+
+.stbc-hidden{
+
+opacity:0;
+
+transform:translateY(35px);
+
+}
+
+.stbc-show{
+
+opacity:1;
+
+transform:translateY(0);
+
+transition:all .7s ease;
+
+}
+
+.stbc-ripple{
+
+position:absolute;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.35);
+
+transform:scale(0);
+
+animation:stbcRipple .6s linear;
+
+pointer-events:none;
+
+}
+
+.stbc-btn-primary,
+
+.stbc-btn-outline{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+@keyframes stbcRipple{
+
+to{
+
+transform:scale(4);
+
+opacity:0;
+
+}
+
+}
+
+`;
+
+document.head.appendChild(stbcStyle);
+
+})();
+
+/*==========================================================
+END OF BOOKING CONFIRMATION PAGE
+==========================================================*/
+
+/*==========================================================
+MY BOOKINGS PAGE
+==========================================================*/
+
+(function(){
+
+"use strict";
+
+/*==========================================================
+PAGE CHECK
+==========================================================*/
+
+if(!document.querySelector(".stmb-page")){
+
+    return;
+
+}
+
+/*==========================================================
+HELPERS
+==========================================================*/
+
+const $=(selector,parent=document)=>parent.querySelector(selector);
+
+const $$=(selector,parent=document)=>parent.querySelectorAll(selector);
+
+/*==========================================================
+ELEMENTS
+==========================================================*/
+
+const stmbNavbar=$(".stmb-navbar");
+
+const stmbCartBtn=$("#stmbCartBtn");
+
+const stmbNotifyBtn=$("#stmbNotifyBtn");
+
+const stmbBookingCards=$$(".stmb-booking-card");
+
+const stmbChatButtons=$$(".stmb-chat-btn");
+
+const stmbUserButton=$(".stmb-user-btn");
+
+/*==========================================================
+NAVBAR SCROLL EFFECT
+==========================================================*/
+
+function stmbHandleNavbar(){
+
+    if(window.scrollY>15){
+
+        stmbNavbar?.classList.add("stmb-navbar-scrolled");
+
+    }else{
+
+        stmbNavbar?.classList.remove("stmb-navbar-scrolled");
+
+    }
+
+}
+
+window.addEventListener(
+
+    "scroll",
+
+    stmbHandleNavbar
+
+);
+
+stmbHandleNavbar();
+
+/*==========================================================
+BOOKING CARD HOVER
+==========================================================*/
+
+stmbBookingCards.forEach(function(card){
+
+    card.addEventListener("mouseenter",function(){
+
+        this.style.transform="translateY(-6px)";
+
+    });
+
+    card.addEventListener("mouseleave",function(){
+
+        this.style.transform="translateY(0)";
+
+    });
+
+});
+
+/*==========================================================
+CHAT BUTTONS
+==========================================================*/
+
+stmbChatButtons.forEach(function(button){
+
+    button.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="../messages/chat.html";
+
+    });
+
+});
+
+/*==========================================================
+CART BUTTON
+==========================================================*/
+
+if(stmbCartBtn){
+
+    stmbCartBtn.addEventListener("click",function(){
+
+        window.location.href="../cart/index.html";
+
+    });
+
+}
+
+/*==========================================================
+NOTIFICATION BUTTON
+==========================================================*/
+
+if(stmbNotifyBtn){
+
+    stmbNotifyBtn.addEventListener("click",function(){
+
+        window.location.href="../notifications/index.html";
+
+    });
+
+}
+
+/*==========================================================
+USER PROFILE
+==========================================================*/
+
+if(stmbUserButton){
+
+    stmbUserButton.addEventListener("dblclick",function(){
+
+        window.location.href="../profile/index.html";
+
+    });
+
+}
+
+/*==========================================================
+SCROLL REVEAL
+==========================================================*/
+
+const stmbObserver=new IntersectionObserver(function(entries){
+
+    entries.forEach(function(entry){
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("stmb-show");
+
+            stmbObserver.unobserve(entry.target);
+
+        }
+
+    });
+
+},{
+
+    threshold:.15
+
+});
+
+stmbBookingCards.forEach(function(card){
+
+    card.classList.add("stmb-hidden");
+
+    stmbObserver.observe(card);
+
+});
+
+/*==========================================================
+RIPPLE EFFECT
+==========================================================*/
+
+stmbChatButtons.forEach(function(button){
+
+    button.addEventListener("click",function(event){
+
+        const ripple=document.createElement("span");
+
+        ripple.className="stmb-ripple";
+
+        const rect=this.getBoundingClientRect();
+
+        const size=Math.max(rect.width,rect.height);
+
+        ripple.style.width=size+"px";
+
+        ripple.style.height=size+"px";
+
+        ripple.style.left=
+
+        (event.clientX-rect.left-size/2)+"px";
+
+        ripple.style.top=
+
+        (event.clientY-rect.top-size/2)+"px";
+
+        this.appendChild(ripple);
+
+        setTimeout(function(){
+
+            ripple.remove();
+
+        },600);
+
+    });
+
+});
+
+/*==========================================================
+KEYBOARD ACCESSIBILITY
+==========================================================*/
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape"){
+
+        document.activeElement.blur();
+
+    }
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",function(){
+
+    if(window.innerWidth>=992){
+
+        document
+
+        .querySelector(".navbar-collapse")
+
+        ?.classList.remove("show");
+
+    }
+
+});
+
+/*==========================================================
+UTILITY STYLES
+==========================================================*/
+
+const stmbStyle=document.createElement("style");
+
+stmbStyle.textContent=`
+
+.stmb-hidden{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+.stmb-show{
+
+opacity:1;
+
+transform:translateY(0);
+
+transition:all .7s ease;
+
+}
+
+.stmb-ripple{
+
+position:absolute;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.35);
+
+transform:scale(0);
+
+animation:stmbRipple .6s linear;
+
+pointer-events:none;
+
+}
+
+.stmb-chat-btn{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+@keyframes stmbRipple{
+
+to{
+
+transform:scale(4);
+
+opacity:0;
+
+}
+
+}
+
+`;
+
+document.head.appendChild(stmbStyle);
+
+/*==========================================================
+PAGE LOADED
+==========================================================*/
+
+window.addEventListener("load",function(){
+
+    document.body.classList.add("stmb-page-loaded");
+
+});
+
+})();
+
+/*==========================================================
+END OF BOOKING PAGE
+==========================================================*/
+
+/*==========================================================
+NOTIFICATIONS PAGE
+==========================================================*/
+
+(function(){
+
+"use strict";
+
+/*==========================================================
+PAGE CHECK
+==========================================================*/
+
+if(!document.querySelector(".stntf-page")){
+
+    return;
+
+}
+
+/*==========================================================
+HELPERS
+==========================================================*/
+
+const $=(selector,parent=document)=>parent.querySelector(selector);
+
+const $$=(selector,parent=document)=>parent.querySelectorAll(selector);
+
+/*==========================================================
+ELEMENTS
+==========================================================*/
+
+const stntfNavbar=$(".stntf-navbar");
+
+const stntfCards=$$(".stntf-card");
+
+const stntfFilters=$$(".stntf-filter");
+
+const stntfReadAllBtn=$("#stntfReadAllBtn");
+
+const stntfCartBtn=$("#stntfCartBtn");
+
+const stntfNotificationBtn=$("#stntfNotificationBtn");
+
+const stntfUserBtn=$(".stntf-user");
+
+/*==========================================================
+NAVBAR SCROLL
+==========================================================*/
+
+function stntfNavbarScroll(){
+
+    if(window.scrollY>10){
+
+        stntfNavbar.style.boxShadow="var(--shadow-md)";
+
+    }else{
+
+        stntfNavbar.style.boxShadow="var(--shadow-xs)";
+
+    }
+
+}
+
+window.addEventListener(
+
+    "scroll",
+
+    stntfNavbarScroll
+
+);
+
+stntfNavbarScroll();
+
+/*==========================================================
+FILTER NOTIFICATIONS
+==========================================================*/
+
+stntfFilters.forEach(function(filter){
+
+    filter.addEventListener("click",function(){
+
+        stntfFilters.forEach(function(item){
+
+            item.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+        const category=this.dataset.filter;
+
+        stntfCards.forEach(function(card){
+
+            if(category==="all"){
+
+                card.classList.remove("stntf-hidden");
+
+                return;
+
+            }
+
+            if(card.dataset.category===category){
+
+                card.classList.remove("stntf-hidden");
+
+            }else{
+
+                card.classList.add("stntf-hidden");
+
+            }
+
+        });
+
+    });
+
+});
+
+/*==========================================================
+MARK ALL AS READ
+==========================================================*/
+
+if(stntfReadAllBtn){
+
+    stntfReadAllBtn.addEventListener("click",function(){
+
+        stntfCards.forEach(function(card){
+
+            card.classList.add("stntf-read");
+
+            card.classList.remove("unread");
+
+        });
+
+    });
+
+}
+
+/*==========================================================
+CARD CLICK
+==========================================================*/
+
+stntfCards.forEach(function(card){
+
+    card.addEventListener("click",function(){
+
+        this.classList.add("stntf-read");
+
+        this.classList.remove("unread");
+
+    });
+
+});
+
+/*==========================================================
+NAVIGATION
+==========================================================*/
+
+if(stntfCartBtn){
+
+    stntfCartBtn.addEventListener("click",function(){
+
+        window.location.href="../../navigation/cart.html";
+
+    });
+
+}
+
+if(stntfNotificationBtn){
+
+    stntfNotificationBtn.addEventListener("click",function(){
+
+        window.location.href="../../navigation/home.html";
+
+    });
+
+}
+
+if(stntfUserBtn){
+
+    stntfUserBtn.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="../../buyer/buyer-profile.html";
+
+    });
+
+}
+
+/*==========================================================
+INTERSECTION ANIMATION
+==========================================================*/
+
+const stntfObserver=new IntersectionObserver(
+
+function(entries){
+
+    entries.forEach(function(entry){
+
+        if(entry.isIntersecting){
+
+            entry.target.style.opacity="1";
+
+            entry.target.style.transform="translateY(0)";
+
+        }
+
+    });
+
+},
+
+{
+
+    threshold:.15
+
+}
+
+);
+
+stntfCards.forEach(function(card){
+
+    stntfObserver.observe(card);
+
+});
+
+/*==========================================================
+RIPPLE EFFECT
+==========================================================*/
+
+stntfCards.forEach(function(card){
+
+    card.addEventListener("click",function(event){
+
+        const ripple=document.createElement("span");
+
+        ripple.className="stntf-ripple";
+
+        const rect=this.getBoundingClientRect();
+
+        const size=Math.max(rect.width,rect.height);
+
+        ripple.style.width=size+"px";
+
+        ripple.style.height=size+"px";
+
+        ripple.style.left=
+
+        (event.clientX-rect.left-size/2)+"px";
+
+        ripple.style.top=
+
+        (event.clientY-rect.top-size/2)+"px";
+
+        this.appendChild(ripple);
+
+        setTimeout(function(){
+
+            ripple.remove();
+
+        },600);
+
+    });
+
+});
+
+/*==========================================================
+KEYBOARD SUPPORT
+==========================================================*/
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape"){
+
+        document.activeElement.blur();
+
+    }
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",function(){
+
+    if(window.innerWidth>=992){
+
+        document
+
+        .querySelector(".navbar-collapse")
+
+        ?.classList.remove("show");
+
+    }
+
+});
+
+/*==========================================================
+RIPPLE STYLE
+==========================================================*/
+
+const stntfStyle=document.createElement("style");
+
+stntfStyle.textContent=`
+
+.stntf-card{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.stntf-ripple{
+
+position:absolute;
+
+border-radius:50%;
+
+background:rgba(24,195,126,.18);
+
+transform:scale(0);
+
+pointer-events:none;
+
+animation:stntfRipple .6s linear;
+
+}
+
+@keyframes stntfRipple{
+
+to{
+
+transform:scale(4);
+
+opacity:0;
+
+}
+
+}
+
+`;
+
+document.head.appendChild(stntfStyle);
+
+/*==========================================================
+PAGE LOADED
+==========================================================*/
+
+window.addEventListener("load",function(){
+
+    document.body.classList.add("stntf-loaded");
+
+});
+
+})();
+
+/*==========================================================
+END OF NOTIFICATIONS PAGE
+==========================================================*/
+
+
 
 
 /*=========================================================
-  YOVI SELLER DASHBOARD
+  SELLER DASHBOARD
 =========================================================*/
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -1697,7 +8312,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-       /*=====================================================
+    /*=====================================================
     SAVE DASHBOARD STATE
     =====================================================*/
 
@@ -1964,6 +8579,368 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 });
+
+/*=========================================================
+MY PRODUCTS PAGE
+SCRIPT.JS — PART 3A
+Prefix: ymspp-
+=========================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    "use strict";
+
+    /*=====================================================
+    PAGE CHECK
+    =====================================================*/
+
+    const ymsppPage = document.getElementById(
+        "ymsppPage"
+    );
+
+    if (!ymsppPage) return;
+
+    /*=====================================================
+    ELEMENTS
+    =====================================================*/
+
+    const ymsppBrand =
+        document.getElementById("ymsppBrand");
+
+    const ymsppBackDashboard =
+        document.getElementById("ymsppBackDashboard");
+
+    const ymsppCartButton =
+        document.getElementById("ymsppCartButton");
+
+    const ymsppNotificationButton =
+        document.getElementById("ymsppNotificationButton");
+
+    const ymsppProfileLink =
+        document.getElementById("ymsppProfileLink");
+
+    const ymsppAddProductBtn =
+        document.getElementById("ymsppAddProductBtn");
+
+    const ymsppProductCards =
+        document.querySelectorAll(".ymspp-product-card");
+
+    const ymsppEditButtons =
+        document.querySelectorAll(".ymspp-edit-btn");
+
+    /*=====================================================
+    PAGE ANIMATION
+    =====================================================*/
+
+    if (typeof AOS !== "undefined") {
+
+        AOS.refresh();
+
+    }
+
+    /*=====================================================
+    BRAND
+    =====================================================*/
+
+    if (ymsppBrand) {
+
+        ymsppBrand.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            window.location.href = "../index.html";
+
+        });
+
+    }
+
+    /*=====================================================
+    DASHBOARD
+    =====================================================*/
+
+    if (ymsppBackDashboard) {
+
+        ymsppBackDashboard.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            window.location.href = "seller-dashboard.html";
+
+        });
+
+    }
+
+    /*=====================================================
+    CART
+    =====================================================*/
+
+    if (ymsppCartButton) {
+
+        ymsppCartButton.addEventListener("click", function () {
+
+            window.location.href = "shopping-cart.html";
+
+        });
+
+    }
+
+    /*=====================================================
+    NOTIFICATIONS
+    =====================================================*/
+
+    if (ymsppNotificationButton) {
+
+        ymsppNotificationButton.addEventListener("click", function () {
+
+            window.location.href = "notifications.html";
+
+        });
+
+    }
+
+    /*=====================================================
+    PROFILE
+    =====================================================*/
+
+    if (ymsppProfileLink) {
+
+        ymsppProfileLink.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            window.location.href = "seller-profile.html";
+
+        });
+
+    }
+
+    /*=====================================================
+    ADD NEW PRODUCT
+    =====================================================*/
+
+    if (ymsppAddProductBtn) {
+
+        ymsppAddProductBtn.addEventListener("click", function () {
+
+            window.location.href = "add-product.html";
+
+        });
+
+    }
+
+    /*=====================================================
+    PRODUCT CARD CLICK
+    =====================================================*/
+
+    ymsppProductCards.forEach(function (card) {
+
+        card.style.cursor = "pointer";
+
+        card.addEventListener("click", function (event) {
+
+            if (event.target.closest(".ymspp-edit-btn")) {
+
+                return;
+
+            }
+
+            window.location.href = "product-details.html";
+
+        });
+
+    });
+
+    /*=====================================================
+    EDIT PRODUCT
+    =====================================================*/
+
+    ymsppEditButtons.forEach(function (button) {
+
+        button.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+            /*---------------------------------------------
+            Store selected product (optional)
+            ---------------------------------------------*/
+
+            const ymsppCard =
+                this.closest(".ymspp-product-card");
+
+            if (ymsppCard) {
+
+                const ymsppProductTitle =
+                    ymsppCard.querySelector(
+                        ".ymspp-product-title"
+                    )?.textContent.trim();
+
+                sessionStorage.setItem(
+
+                    "ymsppSelectedProduct",
+
+                    ymsppProductTitle || ""
+
+                );
+
+            }
+
+            /*---------------------------------------------
+            Redirect
+            ---------------------------------------------*/
+
+            window.location.href =
+                "edit-product.html";
+
+        });
+
+    });
+
+    /*=====================================================
+    PRODUCT HOVER EFFECTS
+    =====================================================*/
+
+    ymsppProductCards.forEach(function (card) {
+
+        card.addEventListener("mouseenter", function () {
+
+            this.classList.add("ymspp-card-hover");
+
+        });
+
+        card.addEventListener("mouseleave", function () {
+
+            this.classList.remove("ymspp-card-hover");
+
+        });
+
+    });
+
+    /*=====================================================
+    KEYBOARD ACCESSIBILITY
+    =====================================================*/
+
+    ymsppProductCards.forEach(function (card) {
+
+        card.setAttribute("tabindex", "0");
+
+        card.addEventListener("keydown", function (event) {
+
+            if (
+
+                event.key === "Enter" ||
+
+                event.key === " "
+
+            ) {
+
+                event.preventDefault();
+
+                window.location.href =
+                    "product-details.html";
+
+            }
+
+        });
+
+    });
+
+    /*=====================================================
+    BUTTON RIPPLE EFFECT
+    =====================================================*/
+
+    const ymsppButtons = document.querySelectorAll(
+
+        ".ymspp-add-product-btn, .ymspp-edit-btn, .ymspp-icon-btn"
+
+    );
+
+    ymsppButtons.forEach(function(button){
+
+        button.addEventListener("click", function(event){
+
+            const ripple = document.createElement("span");
+
+            ripple.className = "ymspp-ripple";
+
+            const rect = this.getBoundingClientRect();
+
+            const size = Math.max(
+
+                rect.width,
+
+                rect.height
+
+            );
+
+            ripple.style.width = size + "px";
+
+            ripple.style.height = size + "px";
+
+            ripple.style.left =
+
+                (event.clientX - rect.left - size / 2) + "px";
+
+            ripple.style.top =
+
+                (event.clientY - rect.top - size / 2) + "px";
+
+            this.appendChild(ripple);
+
+            setTimeout(function(){
+
+                ripple.remove();
+
+            },600);
+
+        });
+
+    });
+
+    /*=====================================================
+    IMAGE LOADING ANIMATION
+    =====================================================*/
+
+    const ymsppImages = document.querySelectorAll(
+
+        ".ymspp-product-image"
+
+    );
+
+    ymsppImages.forEach(function(image){
+
+        image.addEventListener("load", function(){
+
+            this.classList.add(
+
+                "ymspp-image-loaded"
+
+            );
+
+        });
+
+    });
+
+    /*=====================================================
+    PAGE LOADED
+    =====================================================*/
+
+    document.body.classList.add(
+
+        "ymspp-page-ready"
+
+    );
+
+    console.log(
+
+        "YMSPP My Products page initialized successfully."
+
+    );
+
+});
+
+
 
 
 /*=========================================================
@@ -5232,6 +12209,541 @@ const yswSidebarLinks = {
 /*=========================================================
 END OF SELLER WALLET JAVASCRIPT
 =========================================================*/
+
+/*==========================================================
+SELLER SIDEBAR ORDERS
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    "use strict";
+
+    /*======================================================
+    PAGE CHECK
+    Prevent conflicts with other pages
+    ======================================================*/
+
+    const ssorPage = document.getElementById("ssor-page");
+
+    if (!ssorPage) return;
+
+    /*======================================================
+    HELPERS
+    ======================================================*/
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const $$ = (selector) => document.querySelectorAll(selector);
+
+    /*======================================================
+    REVEAL ANIMATION
+    ======================================================*/
+
+    const ssorCards = $$(".ssor-order-card");
+
+    if ("IntersectionObserver" in window && ssorCards.length) {
+
+        const ssorObserver = new IntersectionObserver((entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("ssor-show");
+
+                    entry.target.classList.remove("ssor-hidden");
+
+                    ssorObserver.unobserve(entry.target);
+
+                }
+
+            });
+
+        }, {
+
+            threshold:0.15
+
+        });
+
+        ssorCards.forEach((card)=>{
+
+            card.classList.add("ssor-hidden");
+
+            ssorObserver.observe(card);
+
+        });
+
+    }
+
+    /*======================================================
+    IMAGE HOVER
+    ======================================================*/
+
+    const ssorImages = $$(".ssor-order-image img");
+
+    if(ssorImages.length){
+
+        ssorImages.forEach((image)=>{
+
+            image.addEventListener("mouseenter",()=>{
+
+                image.style.transform="scale(1.08)";
+
+            });
+
+            image.addEventListener("mouseleave",()=>{
+
+                image.style.transform="scale(1)";
+
+            });
+
+        });
+
+    }
+
+    /*======================================================
+    CARD HOVER EFFECT
+    ======================================================*/
+
+    if(ssorCards.length){
+
+        ssorCards.forEach((card)=>{
+
+            card.addEventListener("mouseenter",()=>{
+
+                card.style.transform="translateY(-5px)";
+
+            });
+
+            card.addEventListener("mouseleave",()=>{
+
+                card.style.transform="translateY(0)";
+
+            });
+
+        });
+
+    }
+
+    /*======================================================
+    RIPPLE EFFECT
+    ======================================================*/
+
+    const ssorButtons = $$(".ssor-btn,.ssor-icon-btn");
+
+    if(ssorButtons.length){
+
+        ssorButtons.forEach((button)=>{
+
+            button.style.position="relative";
+
+            button.style.overflow="hidden";
+
+            button.addEventListener("click",(event)=>{
+
+                const ripple=document.createElement("span");
+
+                ripple.className="ssor-ripple";
+
+                const rect=button.getBoundingClientRect();
+
+                const size=Math.max(rect.width,rect.height);
+
+                ripple.style.width=size+"px";
+
+                ripple.style.height=size+"px";
+
+                ripple.style.left=(event.clientX-rect.left-size/2)+"px";
+
+                ripple.style.top=(event.clientY-rect.top-size/2)+"px";
+
+                button.appendChild(ripple);
+
+                ripple.addEventListener("animationend",()=>{
+
+                    ripple.remove();
+
+                });
+
+            });
+
+        });
+
+    }
+
+    /*======================================================
+    NAVIGATION LINKS
+    ======================================================*/
+
+    const ssorLinks = $$(".ssor-nav-link");
+
+    if(ssorLinks.length){
+
+        const currentPage=window.location.pathname
+            .split("/")
+            .pop()
+            .toLowerCase();
+
+        ssorLinks.forEach((link)=>{
+
+            const href=link.getAttribute("href");
+
+            if(!href) return;
+
+            if(href.toLowerCase()===currentPage){
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    }
+
+    /*======================================================
+    BREADCRUMB
+    ======================================================*/
+
+    const ssorBackBtn=$(".ssor-breadcrumb a");
+
+    if(ssorBackBtn){
+
+        ssorBackBtn.addEventListener("click",(event)=>{
+
+            event.preventDefault();
+
+            window.location.href="seller-dashboard.html";
+
+        });
+
+    }
+
+    /*======================================================
+    USER PROFILE
+    ======================================================*/
+
+    const ssorUser=$(".ssor-user-box");
+
+    if(ssorUser){
+
+        ssorUser.addEventListener("click",(event)=>{
+
+            event.preventDefault();
+
+            window.location.href="seller-profile.html";
+
+        });
+
+    }
+
+    /*======================================================
+    CART
+    ======================================================*/
+
+    const ssorCart=$("#ssorCart");
+
+    if(ssorCart){
+
+        ssorCart.addEventListener("click",(event)=>{
+
+            event.preventDefault();
+
+            window.location.href="cart.html";
+
+        });
+
+    }
+
+    /*======================================================
+    NOTIFICATIONS
+    ======================================================*/
+
+    const ssorNotification=$("#ssorNotification");
+
+    if(ssorNotification){
+
+        ssorNotification.addEventListener("click",(event)=>{
+
+            event.preventDefault();
+
+            window.location.href="notifications.html";
+
+        });
+
+    }
+
+    /*======================================================
+    ORDER CARD CLICK
+    ======================================================*/
+
+    if(ssorCards.length){
+
+        ssorCards.forEach((card)=>{
+
+            card.style.cursor="pointer";
+
+            card.addEventListener("click",()=>{
+
+                window.location.href="seller-order-details.html";
+
+            });
+
+        });
+
+    }
+
+    /*======================================================
+    KEYBOARD ACCESSIBILITY
+    ======================================================*/
+
+    document.addEventListener("keyup", (event) => {
+
+        if (event.key === "Escape") {
+
+            document.activeElement.blur();
+
+        }
+
+    });
+
+    /*======================================================
+    STATUS BADGE HOVER
+    ======================================================*/
+
+    const ssorStatusBadges = $$(".ssor-status");
+
+    if (ssorStatusBadges.length) {
+
+        ssorStatusBadges.forEach((badge) => {
+
+            badge.addEventListener("mouseenter", () => {
+
+                badge.style.transform = "scale(1.05)";
+
+            });
+
+            badge.addEventListener("mouseleave", () => {
+
+                badge.style.transform = "scale(1)";
+
+            });
+
+        });
+
+    }
+
+    /*======================================================
+    PAGE TRANSITION
+    ======================================================*/
+
+    document.querySelectorAll("a[href]").forEach((link) => {
+
+        const href = link.getAttribute("href");
+
+        if (!href) return;
+
+        if (
+            href.startsWith("#") ||
+            href.startsWith("javascript:")
+        ) return;
+
+        link.addEventListener("click", () => {
+
+            document.body.classList.add("ssor-page-leaving");
+
+        });
+
+    });
+
+    /*======================================================
+    PAGE LOADED
+    ======================================================*/
+
+    window.addEventListener("load", () => {
+
+        document.body.classList.add("ssor-page-loaded");
+
+    });
+
+    /*======================================================
+    WINDOW RESIZE
+    ======================================================*/
+
+    window.addEventListener("resize", () => {
+
+        if (window.innerWidth < 768) {
+
+            ssorCards.forEach((card) => {
+
+                card.style.transition = ".3s ease";
+
+            });
+
+        }
+
+    });
+
+    /*======================================================
+    SCROLL ANIMATION
+    ======================================================*/
+
+    let ssorScrollTick = false;
+
+    window.addEventListener("scroll", () => {
+
+        if (ssorScrollTick) return;
+
+        window.requestAnimationFrame(() => {
+
+            const scrollTop = window.scrollY;
+
+            if (scrollTop > 20) {
+
+                const header = $(".ssor-header");
+
+                if (header) {
+
+                    header.style.boxShadow = "0 8px 20px rgba(16,24,40,.08)";
+
+                }
+
+            } else {
+
+                const header = $(".ssor-header");
+
+                if (header) {
+
+                    header.style.boxShadow = "";
+
+                }
+
+            }
+
+            ssorScrollTick = false;
+
+        });
+
+        ssorScrollTick = true;
+
+    });
+
+    /*======================================================
+    IMAGE FALLBACK
+    ======================================================*/
+
+    ssorImages.forEach((image) => {
+
+        image.addEventListener("error", function () {
+
+            this.src = "assets/images/product-placeholder.jpg";
+
+        });
+
+    });
+
+    /*======================================================
+    ORDER COUNTER
+    ======================================================*/
+
+    const ssorTitle = $(".ssor-page-title");
+
+    if (ssorTitle && ssorCards.length) {
+
+        ssorTitle.setAttribute(
+
+            "data-orders",
+
+            ssorCards.length
+
+        );
+
+    }
+
+    /*======================================================
+    OPTIONAL SEARCH SUPPORT
+    ======================================================*/
+
+    const ssorSearch = document.getElementById("ssorSearch");
+
+    if (ssorSearch) {
+
+        ssorSearch.addEventListener("keyup", function () {
+
+            const value = this.value.toLowerCase();
+
+            ssorCards.forEach((card) => {
+
+                const text = card.textContent.toLowerCase();
+
+                card.style.display =
+
+                    text.includes(value)
+
+                        ? ""
+
+                        : "none";
+
+            });
+
+        });
+
+    }
+
+    /*======================================================
+    OPTIONAL FILTER SUPPORT
+    ======================================================*/
+
+    const ssorFilter = document.getElementById("ssorFilter");
+
+    if (ssorFilter) {
+
+        ssorFilter.addEventListener("change", function () {
+
+            const value = this.value.toLowerCase();
+
+            ssorCards.forEach((card) => {
+
+                if (value === "all") {
+
+                    card.style.display = "";
+
+                    return;
+
+                }
+
+                const status = card
+                    .querySelector(".ssor-status")
+                    ?.textContent
+                    .trim()
+                    .toLowerCase();
+
+                card.style.display =
+
+                    status === value
+
+                        ? ""
+
+                        : "none";
+
+            });
+
+        });
+
+    }
+
+    /*======================================================
+    CONSOLE MESSAGE
+    ======================================================*/
+
+    console.log(
+
+        "%cSeller Sidebar Orders Loaded Successfully",
+
+        "color:#18c37e;font-size:14px;font-weight:bold;"
+
+    );
+
+});
 
 /*=========================================================
 YOVI PAYMENT PLAN ANNUALLY
@@ -10097,973 +17609,388 @@ document.addEventListener(
 );
 
 
-/*=========================================================
-BUYER REVIEWS CENTRE
-PART 3A
-=========================================================*/
+/*==========================================================
+BUYER REVIEWS CENTRE PAGE
+Prefix : brcp
+==========================================================*/
 
-/*=========================================================
-APPLICATION
-=========================================================*/
+document.addEventListener("DOMContentLoaded", () => {
 
-const BuyerReviewsCentre = {
+    "use strict";
 
-    /*=========================================
-    LOCAL STORAGE KEYS
-    =========================================*/
+    /*======================================================
+    PAGE OBJECT
+    ======================================================*/
 
-    storage: {
+    const brcp = {
 
-        submittedReviews: "yoviSubmittedReviews",
+        tabs: document.querySelectorAll(".brcp-tab"),
 
-        pendingReviews: "yoviPendingReviews"
+        reviewCards: document.querySelectorAll(".brcp-review-card"),
 
-    },
+        ratings: document.querySelectorAll(".brcp-rating"),
 
-    /*=========================================
-    APPLICATION STATE
-    =========================================*/
+        submitButtons: document.querySelectorAll(".brcp-submit-btn"),
 
-    state: {
+        remindLinks: document.querySelectorAll(".brcp-remind-link"),
 
-        activeTab: "pending",
+        reviewInputs: document.querySelectorAll(".brcp-review-input")
 
-        selectedRatings: {},
+    };
 
-        submittedReviews: [],
+    /*======================================================
+    TAB SWITCHER
+    ======================================================*/
 
-        pendingReviews: []
+    function brcpInitializeTabs() {
 
-    },
+        if (!brcp.tabs.length) return;
 
-    /*=========================================
-    DOM ELEMENTS
-    =========================================*/
-
-    elements: {},
-
-    /*=========================================
-    INITIALIZE
-    =========================================*/
-
-    init() {
-
-        this.cacheDOM();
-
-        this.loadLocalStorage();
-
-        this.restoreRatings();
-
-        this.restoreSubmittedReviews();
-
-        this.bindEvents();
-
-        this.updateTabCounts();
-
-        this.updateEmptyState();
-
-    },
-
-    /*=========================================
-    CACHE DOM
-    =========================================*/
-
-    cacheDOM() {
-
-        this.elements.pendingTab =
-            document.getElementById("cbrcPendingTab");
-
-        this.elements.submittedTab =
-            document.getElementById("cbrcSubmittedTab");
-
-        this.elements.tabs =
-            document.querySelectorAll(".cbrc-tab");
-
-        this.elements.reviewCards =
-            document.querySelectorAll(".cbrc-review-card");
-
-        this.elements.starGroups =
-            document.querySelectorAll(".cbrc-rating-stars");
-
-        this.elements.textareas =
-            document.querySelectorAll(".cbrc-review-textarea");
-
-        this.elements.submitButtons =
-            document.querySelectorAll(".cbrc-submit-review-btn");
-
-        this.elements.remindButtons =
-            document.querySelectorAll(".cbrc-remind-btn");
-
-        this.elements.emptyState =
-            document.getElementById("cbrcEmptyState");
-
-        this.elements.toast =
-            document.getElementById("cbrcSuccessToast");
-
-    },
-
-    /*=========================================
-    LOAD LOCAL STORAGE
-    =========================================*/
-
-    loadLocalStorage() {
-
-        const submitted =
-            localStorage.getItem(this.storage.submittedReviews);
-
-        const pending =
-            localStorage.getItem(this.storage.pendingReviews);
-
-        this.state.submittedReviews =
-            submitted ? JSON.parse(submitted) : [];
-
-        this.state.pendingReviews =
-            pending ? JSON.parse(pending) : [];
-
-    },
-
-    /*=========================================
-    SAVE LOCAL STORAGE
-    =========================================*/
-
-    saveLocalStorage() {
-
-        localStorage.setItem(
-
-            this.storage.submittedReviews,
-
-            JSON.stringify(this.state.submittedReviews)
-
-        );
-
-        localStorage.setItem(
-
-            this.storage.pendingReviews,
-
-            JSON.stringify(this.state.pendingReviews)
-
-        );
-
-    },
-
-    /*=========================================
-    RESTORE SAVED RATINGS
-    =========================================*/
-
-    restoreRatings() {
-
-        const ratings =
-            localStorage.getItem("yoviReviewRatings");
-
-        if (!ratings) return;
-
-        this.state.selectedRatings =
-            JSON.parse(ratings);
-
-    },
-
-    /*=========================================
-    SAVE RATINGS
-    =========================================*/
-
-    saveRatings() {
-
-        localStorage.setItem(
-
-            "yoviReviewRatings",
-
-            JSON.stringify(this.state.selectedRatings)
-
-        );
-
-    },
-
-    /*=========================================
-    BIND EVENTS
-    =========================================*/
-
-    bindEvents() {
-
-        /*-------------------------------
-        Tabs
-        -------------------------------*/
-
-        this.elements.tabs.forEach(tab => {
+        brcp.tabs.forEach(tab => {
 
             tab.addEventListener("click", () => {
 
-                this.switchTab(
+                brcp.tabs.forEach(item => {
 
-                    tab.dataset.tab
-
-                );
-
-            });
-
-        });
-
-        /*-------------------------------
-        Submit Review Buttons
-        -------------------------------*/
-
-        this.elements.submitButtons.forEach(button => {
-
-            button.addEventListener("click", (event) => {
-
-                this.submitReview(event);
-
-            });
-
-        });
-
-        /*-------------------------------
-        Remind Me Later
-        -------------------------------*/
-
-        this.elements.remindButtons.forEach(button => {
-
-            button.addEventListener("click", (event) => {
-
-                this.remindLater(event);
-
-            });
-
-        });
-
-        /*-------------------------------
-        Check Empty State
-        -------------------------------*/
-
-        this.updateEmptyState();
-
-    },
-
-    /*=========================================
-    SWITCH TAB
-    =========================================*/
-
-    switchTab(tabName) {
-
-        this.state.activeTab = tabName;
-
-        this.elements.tabs.forEach(tab => {
-
-            tab.classList.remove("active");
-
-        });
-
-        document
-            .querySelector(`[data-tab="${tabName}"]`)
-            .classList.add("active");
-
-        this.elements.pendingTab.classList.remove("active");
-
-        this.elements.submittedTab.classList.remove("active");
-
-        if (tabName === "pending") {
-
-            this.elements.pendingTab.classList.add("active");
-
-        } else {
-
-            this.elements.submittedTab.classList.add("active");
-
-        }
-
-        this.updateEmptyState();
-
-    },
-
-    /*=========================================
-    UPDATE EMPTY STATE
-    =========================================*/
-
-    updateEmptyState() {
-
-        if (!this.elements.emptyState) {
-
-            return;
-
-        }
-
-        const pendingCount =
-
-            this.elements.pendingTab
-                ?.querySelectorAll(".cbrc-review-card")
-                .length || 0;
-
-        const submittedCount =
-
-            this.elements.submittedTab
-                ?.querySelectorAll(".cbrc-review-card")
-                .length || 0;
-
-        let showEmpty = false;
-
-        if (
-
-            this.state.activeTab === "pending" &&
-
-            pendingCount === 0
-
-        ) {
-
-            showEmpty = true;
-
-        }
-
-        if (
-
-            this.state.activeTab === "submitted" &&
-
-            submittedCount === 0
-
-        ) {
-
-            showEmpty = true;
-
-        }
-
-        if (showEmpty) {
-
-            this.elements.emptyState.classList.remove("d-none");
-
-        } else {
-
-            this.elements.emptyState.classList.add("d-none");
-
-        }
-
-    },
-
-    /*=========================================
-    RESTORE SUBMITTED REVIEWS
-    =========================================*/
-
-    restoreSubmittedReviews() {
-
-        if (
-
-            !this.state.submittedReviews ||
-
-            !this.state.submittedReviews.length
-
-        ) {
-
-            return;
-
-        }
-
-        this.state.submittedReviews.forEach(review => {
-
-            const card = document.querySelector(
-
-                `[data-review-id="${review.id}"]`
-
-            );
-
-            if (!card) return;
-
-            card.classList.add("cbrc-review-submitted");
-
-        });
-
-    },
-
-    /*=========================================
-    INITIALIZE STAR RATING
-    =========================================*/
-
-    initializeStarRatings() {
-
-        this.elements.starGroups.forEach(group => {
-
-            const stars = group.querySelectorAll("i");
-
-            stars.forEach(star => {
-
-                /*-------------------------------
-                Hover
-                -------------------------------*/
-
-                star.addEventListener("mouseenter", () => {
-
-                    const value = Number(star.dataset.value);
-
-                    this.previewRating(group, value);
+                    item.classList.remove("brcp-tab-active");
 
                 });
 
-                /*-------------------------------
-                Click
-                -------------------------------*/
-
-                star.addEventListener("click", () => {
-
-                    const value = Number(star.dataset.value);
-
-                    const reviewCard = star.closest(".cbrc-review-card");
-
-                    const reviewId = reviewCard.dataset.reviewId;
-
-                    this.setRating(
-
-                        reviewId,
-
-                        group,
-
-                        value
-
-                    );
-
-                });
+                tab.classList.add("brcp-tab-active");
 
             });
-
-            /*-------------------------------
-            Mouse Leave
-            -------------------------------*/
-
-            group.addEventListener("mouseleave", () => {
-
-                const reviewCard = group.closest(".cbrc-review-card");
-
-                const reviewId = reviewCard.dataset.reviewId;
-
-                const savedRating =
-
-                    this.state.selectedRatings[reviewId] || 0;
-
-                this.renderRating(
-
-                    group,
-
-                    savedRating
-
-                );
-
-            });
-
-        });
-
-    },
-
-    /*=========================================
-    STAR HOVER PREVIEW
-    =========================================*/
-
-    previewRating(group, rating) {
-
-        const stars = group.querySelectorAll("i");
-
-        stars.forEach(star => {
-
-            const value = Number(star.dataset.value);
-
-            if (value <= rating) {
-
-                star.classList.remove("bi-star");
-
-                star.classList.add(
-
-                    "bi-star-fill",
-
-                    "cbrc-active"
-
-                );
-
-            } else {
-
-                star.classList.remove(
-
-                    "bi-star-fill",
-
-                    "cbrc-active"
-
-                );
-
-                star.classList.add("bi-star");
-
-            }
-
-        });
-
-    },
-
-    /*=========================================
-    SAVE RATING
-    =========================================*/
-
-    setRating(reviewId, group, rating) {
-
-        this.state.selectedRatings[reviewId] = rating;
-
-        this.saveRatings();
-
-        this.renderRating(
-
-            group,
-
-            rating
-
-        );
-
-        const text = group.parentElement.querySelector(
-
-            ".cbrc-rating-text"
-
-        );
-
-        if (text) {
-
-            text.textContent =
-
-                `${rating} / 5 Selected`;
-
-        }
-
-    },
-
-    /*=========================================
-    RENDER STAR RATING
-    =========================================*/
-
-    renderRating(group, rating) {
-
-        const stars = group.querySelectorAll("i");
-
-        stars.forEach(star => {
-
-            const value = Number(star.dataset.value);
-
-            if (value <= rating) {
-
-                star.classList.remove("bi-star");
-
-                star.classList.add(
-
-                    "bi-star-fill",
-
-                    "cbrc-active"
-
-                );
-
-            } else {
-
-                star.classList.remove(
-
-                    "bi-star-fill",
-
-                    "cbrc-active"
-
-                );
-
-                star.classList.add("bi-star");
-
-            }
-
-        });
-
-    },
-
-    /*=========================================
-    RESTORE SAVED STAR RATINGS
-    =========================================*/
-
-    restoreStarRatings() {
-
-        this.elements.starGroups.forEach(group => {
-
-            const reviewCard =
-
-                group.closest(".cbrc-review-card");
-
-            const reviewId =
-
-                reviewCard.dataset.reviewId;
-
-            const rating =
-
-                this.state.selectedRatings[reviewId] || 0;
-
-            this.renderRating(
-
-                group,
-
-                rating
-
-            );
-
-            const text = group.parentElement.querySelector(
-
-                ".cbrc-rating-text"
-
-            );
-
-            if (text && rating > 0) {
-
-                text.textContent =
-
-                    `${rating} / 5 Selected`;
-
-            }
-
-        });
-
-    },
-
-    /*=========================================
-    SUBMIT REVIEW
-    =========================================*/
-
-    submitReview(event) {
-
-        const button = event.currentTarget;
-
-        const reviewCard = button.closest(
-
-            ".cbrc-review-card"
-
-        );
-
-        const reviewId = reviewCard.dataset.reviewId;
-
-        const textarea = reviewCard.querySelector(
-
-            ".cbrc-review-textarea"
-
-        );
-
-        const reviewText = textarea.value.trim();
-
-        const rating =
-
-            this.state.selectedRatings[reviewId] || 0;
-
-        /*-------------------------------
-        VALIDATION
-        -------------------------------*/
-
-        if (rating === 0) {
-
-            alert("Please select a star rating.");
-
-            return;
-
-        }
-
-        if (reviewText.length < 10) {
-
-            alert(
-
-                "Your review must contain at least 10 characters."
-
-            );
-
-            textarea.focus();
-
-            return;
-
-        }
-
-        /*-------------------------------
-        LOADING STATE
-        -------------------------------*/
-
-        reviewCard.classList.add("cbrc-loading");
-
-        button.disabled = true;
-
-        setTimeout(() => {
-
-            this.completeSubmission(
-
-                reviewCard,
-
-                reviewId,
-
-                rating,
-
-                reviewText
-
-            );
-
-        }, 1000);
-
-    },
-
-    /*=========================================
-    COMPLETE SUBMISSION
-    =========================================*/
-
-    completeSubmission(
-
-        reviewCard,
-
-        reviewId,
-
-        rating,
-
-        reviewText
-
-    ) {
-
-        reviewCard.classList.remove(
-
-            "cbrc-loading"
-
-        );
-
-        reviewCard.classList.add(
-
-            "cbrc-review-submitted"
-
-        );
-
-        this.state.submittedReviews.push({
-
-            id: reviewId,
-
-            rating,
-
-            review: reviewText,
-
-            submittedAt: Date.now()
-
-        });
-
-        this.saveLocalStorage();
-
-        /*-------------------------------
-        MOVE CARD
-        -------------------------------*/
-
-        if (this.elements.submittedTab) {
-
-            this.elements.submittedTab.appendChild(
-
-                reviewCard
-
-            );
-
-        }
-
-        /*-------------------------------
-        REMOVE INPUTS
-        -------------------------------*/
-
-        const inputArea = reviewCard.querySelector(
-
-            ".cbrc-review-input"
-
-        );
-
-        const actionArea = reviewCard.querySelector(
-
-            ".cbrc-review-actions"
-
-        );
-
-        const ratingText = reviewCard.querySelector(
-
-            ".cbrc-rating-text"
-
-        );
-
-        if (inputArea) {
-
-            inputArea.remove();
-
-        }
-
-        if (actionArea) {
-
-            actionArea.remove();
-
-        }
-
-        if (ratingText) {
-
-            ratingText.textContent =
-
-                "Review Submitted";
-
-        }
-
-        this.showToast(
-
-            "Review submitted successfully."
-
-        );
-
-        this.updateTabCounts();
-
-        this.updateEmptyState();
-
-    },
-
-    /*=========================================
-    UPDATE TAB COUNTS
-    =========================================*/
-
-    updateTabCounts() {
-
-        const pendingCount =
-
-            this.elements.pendingTab.querySelectorAll(
-
-                ".cbrc-review-card"
-
-            ).length;
-
-        const submittedCount =
-
-            this.elements.submittedTab.querySelectorAll(
-
-                ".cbrc-review-card"
-
-            ).length;
-
-        const pendingTabButton = document.querySelector(
-
-            '[data-tab="pending"]'
-
-        );
-
-        const submittedTabButton = document.querySelector(
-
-            '[data-tab="submitted"]'
-
-        );
-
-        if (pendingTabButton) {
-
-            pendingTabButton.textContent =
-
-                `Pending Reviews (${pendingCount})`;
-
-        }
-
-        if (submittedTabButton) {
-
-            submittedTabButton.textContent =
-
-                `Submitted (${submittedCount})`;
-
-        }
-
-    },
-
-    /*=========================================
-    RESET REVIEW FORM
-    =========================================*/
-
-    resetReviewForm(card) {
-
-        const textarea = card.querySelector(
-
-            ".cbrc-review-textarea"
-
-        );
-
-        const stars = card.querySelector(
-
-            ".cbrc-rating-stars"
-
-        );
-
-        const ratingText = card.querySelector(
-
-            ".cbrc-rating-text"
-
-        );
-
-        if (textarea) {
-
-            textarea.value = "";
-
-        }
-
-        if (stars) {
-
-            this.renderRating(
-
-                stars,
-
-                0
-
-            );
-
-        }
-
-        if (ratingText) {
-
-            ratingText.textContent =
-
-                "Tap to rate";
-
-        }
-
-        const reviewId = card.dataset.reviewId;
-
-        delete this.state.selectedRatings[reviewId];
-
-        this.saveRatings();
-
-    },
-
-    /*=========================================
-    PAGE NAVIGATION
-    =========================================*/
-
-    navigate(page) {
-
-        window.location.href = page;
-
-    },
-
-    /*=========================================
-    GLOBAL EVENT HANDLERS
-    =========================================*/
-
-    registerGlobalEvents() {
-
-        window.addEventListener("beforeunload", () => {
-
-            this.saveLocalStorage();
-
-            this.saveRatings();
-
-        });
-
-        document.addEventListener("visibilitychange", () => {
-
-            if (!document.hidden) {
-
-                this.updateTabCounts();
-
-                this.updateEmptyState();
-
-            }
 
         });
 
     }
 
-};
+    brcpInitializeTabs();
 
-/*=========================================================
-APPLICATION START
-=========================================================*/
+    /*======================================================
+    STAR RATING
+    ======================================================*/
 
-document.addEventListener("DOMContentLoaded", () => {
+    function brcpInitializeRatings() {
 
-    BuyerReviewsCentre.init();
+        if (!brcp.ratings.length) return;
 
-    BuyerReviewsCentre.registerGlobalEvents();
+        brcp.ratings.forEach(group => {
+
+            const stars = group.querySelectorAll(".brcp-star");
+
+            const label = group.querySelector(".brcp-rating-text");
+
+            let selectedRating = 0;
+
+            stars.forEach((star, index) => {
+
+                star.addEventListener("mouseenter", () => {
+
+                    stars.forEach((item, position) => {
+
+                        item.classList.toggle(
+
+                            "brcp-star-active",
+
+                            position <= index
+
+                        );
+
+                    });
+
+                });
+
+                star.addEventListener("mouseleave", () => {
+
+                    stars.forEach((item, position) => {
+
+                        item.classList.toggle(
+
+                            "brcp-star-active",
+
+                            position < selectedRating
+
+                        );
+
+                    });
+
+                });
+
+                star.addEventListener("click", () => {
+
+                    selectedRating = index + 1;
+
+                    stars.forEach((item, position) => {
+
+                        item.classList.toggle(
+
+                            "brcp-star-active",
+
+                            position < selectedRating
+
+                        );
+
+                    });
+
+                    if (label) {
+
+                        switch (selectedRating) {
+
+                            case 1:
+
+                                label.textContent = "Poor";
+
+                                break;
+
+                            case 2:
+
+                                label.textContent = "Fair";
+
+                                break;
+
+                            case 3:
+
+                                label.textContent = "Good";
+
+                                break;
+
+                            case 4:
+
+                                label.textContent = "Very Good";
+
+                                break;
+
+                            case 5:
+
+                                label.textContent = "Excellent";
+
+                                break;
+
+                        }
+
+                    }
+
+                });
+
+            });
+
+        });
+
+    }
+
+    brcpInitializeRatings();
+
+    /*======================================================
+    CHARACTER COUNTER
+    ======================================================*/
+
+    function brcpInitializeCharacterCount() {
+
+        brcp.reviewInputs.forEach(input => {
+
+            const counter = document.createElement("small");
+
+            counter.className = "brcp-character-count";
+
+            counter.textContent = "0 / 500";
+
+            input.insertAdjacentElement("afterend", counter);
+
+            input.addEventListener("input", () => {
+
+                if (input.value.length > 500) {
+
+                    input.value = input.value.substring(0, 500);
+
+                }
+
+                counter.textContent =
+
+                    `${input.value.length} / 500`;
+
+            });
+
+        });
+
+    }
+
+    brcpInitializeCharacterCount();
+
+    /*======================================================
+    AUTO RESIZE TEXTAREA
+    ======================================================*/
+
+    function brcpAutoResize() {
+
+        brcp.reviewInputs.forEach(input => {
+
+            input.addEventListener("input", function () {
+
+                this.style.height = "auto";
+
+                this.style.height =
+
+                    this.scrollHeight + "px";
+
+            });
+
+        });
+
+    }
+
+    brcpAutoResize();
+
+    /*======================================================
+    SUBMIT REVIEW
+    ======================================================*/
+
+    function brcpInitializeSubmitButtons() {
+
+        brcp.submitButtons.forEach((button, index) => {
+
+            button.addEventListener("click", () => {
+
+                const textarea = brcp.reviewInputs[index];
+
+                const ratingGroup = brcp.ratings[index];
+
+                const rating = ratingGroup.querySelectorAll(".brcp-star-active").length;
+
+                if (rating === 0) {
+
+                    alert("Please select a star rating before submitting your review.");
+
+                    return;
+
+                }
+
+                if (textarea.value.trim() === "") {
+
+                    alert("Please write your review before submitting.");
+
+                    textarea.focus();
+
+                    return;
+
+                }
+
+                button.classList.add("brcp-loading");
+
+                button.disabled = true;
+
+                button.textContent = "Submitting...";
+
+                setTimeout(() => {
+
+                    button.classList.remove("brcp-loading");
+
+                    button.textContent = "Review Submitted";
+
+                    button.disabled = true;
+
+                    textarea.disabled = true;
+
+                    textarea.style.opacity = ".7";
+
+                    ratingGroup.style.pointerEvents = "none";
+
+                }, 1200);
+
+            });
+
+        });
+
+    }
+
+    brcpInitializeSubmitButtons();
+
+    /*======================================================
+    REMIND ME LATER
+    ======================================================*/
+
+    function brcpInitializeReminderLinks() {
+
+        brcp.remindLinks.forEach((link, index) => {
+
+            link.addEventListener("click", (event) => {
+
+                event.preventDefault();
+
+                brcp.reviewCards[index].style.transition = ".35s ease";
+
+                brcp.reviewCards[index].style.opacity = "0";
+
+                brcp.reviewCards[index].style.transform = "translateY(20px)";
+
+                setTimeout(() => {
+
+                    brcp.reviewCards[index].style.display = "none";
+
+                }, 350);
+
+            });
+
+        });
+
+    }
+
+    brcpInitializeReminderLinks();
+
+    /*======================================================
+    PAGE ENTRY ANIMATION
+    ======================================================*/
+
+    function brcpRevealCards() {
+
+        brcp.reviewCards.forEach((card, index) => {
+
+            card.style.opacity = "0";
+
+            card.style.transform = "translateY(25px)";
+
+            setTimeout(() => {
+
+                card.style.transition = ".5s ease";
+
+                card.style.opacity = "1";
+
+                card.style.transform = "translateY(0)";
+
+            }, index * 150);
+
+        });
+
+    }
+
+    brcpRevealCards();
+
+    /*======================================================
+    WINDOW.HREF PLACEHOLDERS
+    ======================================================*/
+
+    const brcpNavigation = {
+
+        dashboard: "../../buyer/buyer-dashboard.html",
+
+        submittedReviews: "../../reviews/review-submitted.html"
+
+    };
+
+    if (brcp.tabs.length > 1) {
+
+        brcp.tabs[1].addEventListener("click", () => {
+
+            window.location.href = brcpNavigation.submittedReviews;
+
+        });
+
+    }
 
 });
 
+    /*======================================================
+    END OF BUYER REVIEW PAGE
+    ======================================================*/
 
 
 
