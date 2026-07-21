@@ -795,8 +795,445 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /*======================================
-END OF  HOMEPAGE 
+END OF  YOVI LANDING PAGE 
 ======================================*/
+
+/*==========================================================
+YOVI APP HOME PAGE
+Prefix : yahp
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    "use strict";
+
+    /*======================================================
+    DOM ELEMENTS
+    ======================================================*/
+
+    const yahp = {
+
+        searchForm: document.getElementById("yahpSearchForm"),
+
+        searchInput: document.getElementById("yahpSearchInput"),
+
+        locationSelect: document.getElementById("yahpLocation"),
+
+        searchButton: document.getElementById("yahpSearchButton"),
+
+        newsletterForm: document.getElementById("yahpNewsletterForm"),
+
+        newsletterInput: document.getElementById("yahpNewsletterInput"),
+
+        searchTabs: document.querySelectorAll(".yahp-search-tab"),
+
+        categoryCards: document.querySelectorAll(".yahp-category-card"),
+
+        productCards: document.querySelectorAll(".yahp-product-card"),
+
+        trustCards: document.querySelectorAll(".yahp-trust-card"),
+
+        navLinks: document.querySelectorAll(".yahp-navbar .nav-link"),
+
+        animatedItems: document.querySelectorAll(
+
+            ".yahp-trust-card, .yahp-category-card, .yahp-product-card"
+
+        )
+
+    };
+
+    /*======================================================
+    SEARCH TAB SWITCHING
+    ======================================================*/
+
+    function yahpInitializeTabs() {
+
+        if (!yahp.searchTabs.length) return;
+
+        yahp.searchTabs.forEach(tab => {
+
+            tab.addEventListener("click", () => {
+
+                yahp.searchTabs.forEach(button => {
+
+                    button.classList.remove("yahp-search-tab-active");
+
+                });
+
+                tab.classList.add("yahp-search-tab-active");
+
+            });
+
+        });
+
+    }
+
+    yahpInitializeTabs();
+
+    /*======================================================
+    SEARCH FORM
+    ======================================================*/
+
+    function yahpInitializeSearch() {
+
+        if (!yahp.searchForm) return;
+
+        yahp.searchForm.addEventListener("submit", function(event){
+
+            event.preventDefault();
+
+            const keyword =
+
+                yahp.searchInput.value.trim();
+
+            const location =
+
+                yahp.locationSelect.value;
+
+            if(keyword === ""){
+
+                yahp.searchInput.focus();
+
+                return;
+
+            }
+
+            console.log({
+
+                keyword,
+
+                location
+
+            });
+
+            /* Replace later */
+
+            // window.location.href =
+            // "search-results.html";
+
+        });
+
+    }
+
+    yahpInitializeSearch();
+
+    /*======================================================
+    NEWSLETTER
+    ======================================================*/
+
+    function yahpNewsletter() {
+
+        if (!yahp.newsletterForm) return;
+
+        yahp.newsletterForm.addEventListener("submit", function(event){
+
+            event.preventDefault();
+
+            const email =
+
+                yahp.newsletterInput.value.trim();
+
+            if(email === ""){
+
+                yahp.newsletterInput.focus();
+
+                return;
+
+            }
+
+            alert("Subscription successful!");
+
+            yahp.newsletterInput.value = "";
+
+        });
+
+    }
+
+    yahpNewsletter();
+
+    /*======================================================
+    CATEGORY CARD HOVER
+    ======================================================*/
+
+    function yahpCategoryAnimation(){
+
+        yahp.categoryCards.forEach(card=>{
+
+            card.addEventListener("mouseenter",()=>{
+
+                card.style.transform="translateY(-10px)";
+
+            });
+
+            card.addEventListener("mouseleave",()=>{
+
+                card.style.transform="translateY(0)";
+
+            });
+
+        });
+
+    }
+
+    yahpCategoryAnimation();
+
+    /*======================================================
+    PRODUCT CARD HOVER
+    ======================================================*/
+
+    function yahpProductAnimation(){
+
+        yahp.productCards.forEach(card=>{
+
+            card.addEventListener("mouseenter",()=>{
+
+                card.style.transition=".35s ease";
+
+            });
+
+        });
+
+    }
+
+    yahpProductAnimation();
+
+    /*======================================================
+    TRUST CARD EFFECT
+    ======================================================*/
+
+    function yahpTrustAnimation(){
+
+        yahp.trustCards.forEach(card=>{
+
+            card.addEventListener("mouseenter",()=>{
+
+                card.classList.add("shadow-lg");
+
+            });
+
+            card.addEventListener("mouseleave",()=>{
+
+                card.classList.remove("shadow-lg");
+
+            });
+
+        });
+
+    }
+
+    yahpTrustAnimation();
+
+    /*======================================================
+    ACTIVE NAVIGATION
+    ======================================================*/
+
+    function yahpActiveNavigation(){
+
+        const current =
+
+            window.location.pathname.split("/").pop();
+
+        yahp.navLinks.forEach(link=>{
+
+            const href =
+
+                link.getAttribute("href");
+
+            if(href===current){
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    }
+
+    yahpActiveNavigation();
+
+/*======================================================
+SCROLL REVEAL ANIMATION
+======================================================*/
+
+    function yahpScrollReveal() {
+
+        if (!("IntersectionObserver" in window)) return;
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("yahp-reveal-active");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        }, {
+
+            threshold: 0.15
+
+        });
+
+        yahp.animatedItems.forEach((item) => {
+
+            item.classList.add("yahp-reveal");
+
+            observer.observe(item);
+
+        });
+
+    }
+
+    yahpScrollReveal();
+
+    /*======================================================
+SMOOTH SCROLL FOR INTERNAL LINKS
+======================================================*/
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+        anchor.addEventListener("click", function (event) {
+
+            const target = document.querySelector(
+
+                this.getAttribute("href")
+
+            );
+
+            if (!target) return;
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "start"
+
+            });
+
+        });
+
+    });
+
+    /*======================================================
+CTA BUTTONS
+======================================================*/
+
+    const yahpPrimaryButton = document.querySelector(".yahp-primary-btn");
+
+    const yahpSecondaryButton = document.querySelector(".yahp-secondary-btn");
+
+    if (yahpPrimaryButton) {
+
+        yahpPrimaryButton.addEventListener("click", () => {
+
+            window.location.href = "register.html";
+
+        });
+
+    }
+
+    if (yahpSecondaryButton) {
+
+        yahpSecondaryButton.addEventListener("click", () => {
+
+            window.location.href = "become-seller.html";
+
+        });
+
+    }
+
+    /*======================================================
+PRODUCT CARDS
+======================================================*/
+
+    yahp.productCards.forEach((card) => {
+
+        card.addEventListener("click", () => {
+
+            window.location.href = "product-details.html";
+
+        });
+
+    });
+
+    /*======================================================
+CATEGORY CARDS
+======================================================*/
+
+    yahp.categoryCards.forEach((card) => {
+
+        card.addEventListener("click", (event) => {
+
+            if (event.target.closest("a")) return;
+
+            window.location.href = "categories.html";
+
+        });
+
+    });
+
+    /*======================================================
+BACK TO TOP
+======================================================*/
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 120) {
+
+            document.body.classList.add("yahp-scrolled");
+
+        } else {
+
+            document.body.classList.remove("yahp-scrolled");
+
+        }
+
+    });
+
+    /*======================================================
+WINDOW LOAD ANIMATION
+======================================================*/
+
+    window.addEventListener("load", () => {
+
+        document.body.classList.add("yahp-page-loaded");
+
+    });
+
+    /*======================================================
+PROVIDER & HOW-CARDS HOVER EFFECT
+======================================================*/
+
+document.querySelectorAll(".yahp-provider-card, .yahp-how-card").forEach(card=>{
+
+    card.addEventListener("mouseenter",()=>{
+
+        card.style.transform="translateY(-8px)";
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.transform="translateY(0)";
+
+    });
+
+});
+
+});
+
+/*======================================================
+END OF FILE
+======================================================*/
+
 
 /*==========================================================
 CHECKOUT DELIVERY
@@ -3864,6 +4301,442 @@ END OF SERVICE TOP NAVBAR LANDING PAGE
 
 
 /*==========================================================
+TP NAVIGATION MESSAGES PAGE
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    "use strict";
+
+    /*======================================================
+    DOM ELEMENTS
+    ======================================================*/
+
+    const ybmpg = {
+
+        searchInput: document.getElementById("ybmpgSearchInput"),
+
+        conversationList: document.getElementById("ybmpgConversationList"),
+
+        conversationItems: document.querySelectorAll(".ybmpg-conversation-item"),
+
+        chatBody: document.getElementById("ybmpgChatBody"),
+
+        chatForm: document.getElementById("ybmpgChatForm"),
+
+        messageInput: document.getElementById("ybmpgMessageInput"),
+
+        sendButton: document.getElementById("ybmpgSendButton"),
+
+        attachmentButton: document.getElementById("ybmpgAttachmentButton")
+
+    };
+
+    /*======================================================
+    SEARCH CONVERSATIONS
+    ======================================================*/
+
+    function ybmpgInitializeSearch() {
+
+        if (!ybmpg.searchInput) return;
+
+        ybmpg.searchInput.addEventListener("input", function () {
+
+            const keyword = this.value.toLowerCase().trim();
+
+            ybmpg.conversationItems.forEach(item => {
+
+                const name = item.querySelector("h6").textContent.toLowerCase();
+
+                const message = item.querySelector("p").textContent.toLowerCase();
+
+                if (
+
+                    name.includes(keyword) ||
+
+                    message.includes(keyword)
+
+                ) {
+
+                    item.style.display = "flex";
+
+                }
+
+                else {
+
+                    item.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+    }
+
+    ybmpgInitializeSearch();
+
+    /*======================================================
+    ACTIVE CONVERSATION
+    ======================================================*/
+
+    function ybmpgConversationSelection() {
+
+        ybmpg.conversationItems.forEach(item => {
+
+            item.addEventListener("click", function (event) {
+
+                event.preventDefault();
+
+                ybmpg.conversationItems.forEach(chat => {
+
+                    chat.classList.remove("ybmpg-conversation-active");
+
+                });
+
+                this.classList.add("ybmpg-conversation-active");
+
+            });
+
+        });
+
+    }
+
+    ybmpgConversationSelection();
+
+    /*======================================================
+    AUTO SCROLL CHAT
+    ======================================================*/
+
+    function ybmpgScrollBottom() {
+
+        if (!ybmpg.chatBody) return;
+
+        ybmpg.chatBody.scrollTop = ybmpg.chatBody.scrollHeight;
+
+    }
+
+    ybmpgScrollBottom();
+
+    /*======================================================
+    ATTACHMENT BUTTON
+    ======================================================*/
+
+    function ybmpgAttachment() {
+
+        if (!ybmpg.attachmentButton) return;
+
+        ybmpg.attachmentButton.addEventListener("click", () => {
+
+            alert("Attachment feature will be connected later.");
+
+        });
+
+    }
+
+    ybmpgAttachment();
+
+    /*======================================================
+    ENTER TO SEND
+    ======================================================*/
+
+    function ybmpgKeyboardSend() {
+
+        if (!ybmpg.messageInput) return;
+
+        ybmpg.messageInput.addEventListener("keydown", function (event) {
+
+            if (
+
+                event.key === "Enter" &&
+
+                !event.shiftKey
+
+            ) {
+
+                event.preventDefault();
+
+                ybmpg.chatForm.dispatchEvent(
+
+                    new Event("submit")
+
+                );
+
+            }
+
+        });
+
+    }
+
+    ybmpgKeyboardSend();
+
+    /*======================================================
+    SEND MESSAGE
+    ======================================================*/
+
+    function ybmpgSendMessage() {
+
+        if (!ybmpg.chatForm) return;
+
+        ybmpg.chatForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const message =
+
+                ybmpg.messageInput.value.trim();
+
+            if (message === "") return;
+
+            const row = document.createElement("div");
+
+            row.className =
+
+                "ybmpg-message-row ybmpg-message-right";
+
+            const bubble = document.createElement("div");
+
+            bubble.className =
+
+                "ybmpg-message-bubble ybmpg-message-self";
+
+            const paragraph = document.createElement("p");
+
+            paragraph.textContent = message;
+
+            const time = document.createElement("span");
+
+            const now = new Date();
+
+            time.textContent =
+
+                now.toLocaleTimeString([], {
+
+                    hour: "2-digit",
+
+                    minute: "2-digit"
+
+                });
+
+            bubble.appendChild(paragraph);
+
+            bubble.appendChild(time);
+
+            row.appendChild(bubble);
+
+            ybmpg.chatBody.appendChild(row);
+
+            ybmpg.messageInput.value = "";
+
+            ybmpgScrollBottom();
+
+        });
+
+    }
+
+    ybmpgSendMessage();
+
+    /*======================================================
+    FAKE AUTO REPLY
+    ======================================================*/
+
+    function ybmpgAutoReply() {
+
+        if (!ybmpg.chatForm) return;
+
+        const replies = [
+
+            "Thank you for reaching out. 😊",
+
+            "I'll get back to you shortly.",
+
+            "Your request has been received.",
+
+            "Sure, I'll confirm and let you know.",
+
+            "Thanks for your patience."
+
+        ];
+
+        ybmpg.chatForm.addEventListener("submit", () => {
+
+            setTimeout(() => {
+
+                const randomReply =
+
+                    replies[Math.floor(Math.random() * replies.length)];
+
+                const row = document.createElement("div");
+
+                row.className =
+
+                    "ybmpg-message-row ybmpg-message-left";
+
+                const bubble = document.createElement("div");
+
+                bubble.className =
+
+                    "ybmpg-message-bubble";
+
+                const paragraph = document.createElement("p");
+
+                paragraph.textContent = randomReply;
+
+                const time = document.createElement("span");
+
+                const now = new Date();
+
+                time.textContent =
+
+                    now.toLocaleTimeString([], {
+
+                        hour: "2-digit",
+
+                        minute: "2-digit"
+
+                    });
+
+                bubble.appendChild(paragraph);
+
+                bubble.appendChild(time);
+
+                row.appendChild(bubble);
+
+                ybmpg.chatBody.appendChild(row);
+
+                ybmpgScrollBottom();
+
+            }, 1800);
+
+        });
+
+    }
+
+    ybmpgAutoReply();
+
+    /*======================================================
+    INPUT BUTTON STATE
+    ======================================================*/
+
+    function ybmpgInputState() {
+
+        if (!ybmpg.messageInput) return;
+
+        ybmpg.sendButton.disabled = true;
+
+        ybmpg.messageInput.addEventListener("input", () => {
+
+            const hasValue =
+
+                ybmpg.messageInput.value.trim() !== "";
+
+            ybmpg.sendButton.disabled = !hasValue;
+
+            if (hasValue) {
+
+                ybmpg.sendButton.classList.add("ybmpg-send-active");
+
+            }
+
+            else {
+
+                ybmpg.sendButton.classList.remove("ybmpg-send-active");
+
+            }
+
+        });
+
+    }
+
+    ybmpgInputState();
+
+    /*======================================================
+    WINDOW.HREF PLACEHOLDERS
+    ======================================================*/
+
+    const ybmpgNavigation = {
+
+        home: "../../navigation/home.html",
+
+        products: "../../navigation/products.html",
+
+        services: "../../navigation/services.html",
+
+        orders: "../../navigation/orders.html",
+
+        bookings: "../../navigation/bookings.html",
+
+        messages: "../../navigation/messages.html",
+
+        profile: "../../buyer/buyer-profile.html",
+
+        settings: "../../buyer/buyer-setting.html",
+
+        notifications: "../../navigation/notification.html",
+
+        cart: "../../navigation/cart.html"
+
+    };
+
+    /*======================================================
+    PAGE ENTRANCE ANIMATION
+    ======================================================*/
+
+    function ybmpgReveal() {
+
+        const elements = document.querySelectorAll(
+
+            ".ybmpg-sidebar, .ybmpg-chat-area"
+
+        );
+
+        elements.forEach((element, index) => {
+
+            element.style.opacity = "0";
+
+            element.style.transform = "translateY(25px)";
+
+            setTimeout(() => {
+
+                element.style.transition = ".5s ease";
+
+                element.style.opacity = "1";
+
+                element.style.transform = "translateY(0)";
+
+            }, index * 150);
+
+        });
+
+    }
+
+    ybmpgReveal();
+
+    /*======================================================
+    KEEP CHAT SCROLLED TO BOTTOM
+    ======================================================*/
+
+    window.addEventListener("load", () => {
+
+        ybmpgScrollBottom();
+
+    });
+
+    window.addEventListener("resize", () => {
+
+        ybmpgScrollBottom();
+
+    });
+
+});
+
+/*======================================================
+    END OF BUYER MESSAGES PAGE
+    ======================================================*/
+
+
+
+/*==========================================================
 SERVICE TOP PROVIDERS LISTING
 ==========================================================*/
 
@@ -5810,8 +6683,6 @@ END OF BOOKING CONFIRMATION PAGE
 
 /*==========================================================
 MY BOOKINGS PAGE
-Prefix: stmb-
-script.js — Part 1
 ==========================================================*/
 
 (function(){
@@ -6143,6 +7014,367 @@ window.addEventListener("load",function(){
 /*==========================================================
 END OF BOOKING PAGE
 ==========================================================*/
+
+/*==========================================================
+NOTIFICATIONS PAGE
+==========================================================*/
+
+(function(){
+
+"use strict";
+
+/*==========================================================
+PAGE CHECK
+==========================================================*/
+
+if(!document.querySelector(".stntf-page")){
+
+    return;
+
+}
+
+/*==========================================================
+HELPERS
+==========================================================*/
+
+const $=(selector,parent=document)=>parent.querySelector(selector);
+
+const $$=(selector,parent=document)=>parent.querySelectorAll(selector);
+
+/*==========================================================
+ELEMENTS
+==========================================================*/
+
+const stntfNavbar=$(".stntf-navbar");
+
+const stntfCards=$$(".stntf-card");
+
+const stntfFilters=$$(".stntf-filter");
+
+const stntfReadAllBtn=$("#stntfReadAllBtn");
+
+const stntfCartBtn=$("#stntfCartBtn");
+
+const stntfNotificationBtn=$("#stntfNotificationBtn");
+
+const stntfUserBtn=$(".stntf-user");
+
+/*==========================================================
+NAVBAR SCROLL
+==========================================================*/
+
+function stntfNavbarScroll(){
+
+    if(window.scrollY>10){
+
+        stntfNavbar.style.boxShadow="var(--shadow-md)";
+
+    }else{
+
+        stntfNavbar.style.boxShadow="var(--shadow-xs)";
+
+    }
+
+}
+
+window.addEventListener(
+
+    "scroll",
+
+    stntfNavbarScroll
+
+);
+
+stntfNavbarScroll();
+
+/*==========================================================
+FILTER NOTIFICATIONS
+==========================================================*/
+
+stntfFilters.forEach(function(filter){
+
+    filter.addEventListener("click",function(){
+
+        stntfFilters.forEach(function(item){
+
+            item.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+        const category=this.dataset.filter;
+
+        stntfCards.forEach(function(card){
+
+            if(category==="all"){
+
+                card.classList.remove("stntf-hidden");
+
+                return;
+
+            }
+
+            if(card.dataset.category===category){
+
+                card.classList.remove("stntf-hidden");
+
+            }else{
+
+                card.classList.add("stntf-hidden");
+
+            }
+
+        });
+
+    });
+
+});
+
+/*==========================================================
+MARK ALL AS READ
+==========================================================*/
+
+if(stntfReadAllBtn){
+
+    stntfReadAllBtn.addEventListener("click",function(){
+
+        stntfCards.forEach(function(card){
+
+            card.classList.add("stntf-read");
+
+            card.classList.remove("unread");
+
+        });
+
+    });
+
+}
+
+/*==========================================================
+CARD CLICK
+==========================================================*/
+
+stntfCards.forEach(function(card){
+
+    card.addEventListener("click",function(){
+
+        this.classList.add("stntf-read");
+
+        this.classList.remove("unread");
+
+    });
+
+});
+
+/*==========================================================
+NAVIGATION
+==========================================================*/
+
+if(stntfCartBtn){
+
+    stntfCartBtn.addEventListener("click",function(){
+
+        window.location.href="../../navigation/cart.html";
+
+    });
+
+}
+
+if(stntfNotificationBtn){
+
+    stntfNotificationBtn.addEventListener("click",function(){
+
+        window.location.href="../../navigation/home.html";
+
+    });
+
+}
+
+if(stntfUserBtn){
+
+    stntfUserBtn.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        window.location.href="../../buyer/buyer-profile.html";
+
+    });
+
+}
+
+/*==========================================================
+INTERSECTION ANIMATION
+==========================================================*/
+
+const stntfObserver=new IntersectionObserver(
+
+function(entries){
+
+    entries.forEach(function(entry){
+
+        if(entry.isIntersecting){
+
+            entry.target.style.opacity="1";
+
+            entry.target.style.transform="translateY(0)";
+
+        }
+
+    });
+
+},
+
+{
+
+    threshold:.15
+
+}
+
+);
+
+stntfCards.forEach(function(card){
+
+    stntfObserver.observe(card);
+
+});
+
+/*==========================================================
+RIPPLE EFFECT
+==========================================================*/
+
+stntfCards.forEach(function(card){
+
+    card.addEventListener("click",function(event){
+
+        const ripple=document.createElement("span");
+
+        ripple.className="stntf-ripple";
+
+        const rect=this.getBoundingClientRect();
+
+        const size=Math.max(rect.width,rect.height);
+
+        ripple.style.width=size+"px";
+
+        ripple.style.height=size+"px";
+
+        ripple.style.left=
+
+        (event.clientX-rect.left-size/2)+"px";
+
+        ripple.style.top=
+
+        (event.clientY-rect.top-size/2)+"px";
+
+        this.appendChild(ripple);
+
+        setTimeout(function(){
+
+            ripple.remove();
+
+        },600);
+
+    });
+
+});
+
+/*==========================================================
+KEYBOARD SUPPORT
+==========================================================*/
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape"){
+
+        document.activeElement.blur();
+
+    }
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",function(){
+
+    if(window.innerWidth>=992){
+
+        document
+
+        .querySelector(".navbar-collapse")
+
+        ?.classList.remove("show");
+
+    }
+
+});
+
+/*==========================================================
+RIPPLE STYLE
+==========================================================*/
+
+const stntfStyle=document.createElement("style");
+
+stntfStyle.textContent=`
+
+.stntf-card{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.stntf-ripple{
+
+position:absolute;
+
+border-radius:50%;
+
+background:rgba(24,195,126,.18);
+
+transform:scale(0);
+
+pointer-events:none;
+
+animation:stntfRipple .6s linear;
+
+}
+
+@keyframes stntfRipple{
+
+to{
+
+transform:scale(4);
+
+opacity:0;
+
+}
+
+}
+
+`;
+
+document.head.appendChild(stntfStyle);
+
+/*==========================================================
+PAGE LOADED
+==========================================================*/
+
+window.addEventListener("load",function(){
+
+    document.body.classList.add("stntf-loaded");
+
+});
+
+})();
+
+/*==========================================================
+END OF NOTIFICATIONS PAGE
+==========================================================*/
+
 
 
 
@@ -16377,973 +17609,388 @@ document.addEventListener(
 );
 
 
-/*=========================================================
-BUYER REVIEWS CENTRE
-PART 3A
-=========================================================*/
+/*==========================================================
+BUYER REVIEWS CENTRE PAGE
+Prefix : brcp
+==========================================================*/
 
-/*=========================================================
-APPLICATION
-=========================================================*/
+document.addEventListener("DOMContentLoaded", () => {
 
-const BuyerReviewsCentre = {
+    "use strict";
 
-    /*=========================================
-    LOCAL STORAGE KEYS
-    =========================================*/
+    /*======================================================
+    PAGE OBJECT
+    ======================================================*/
 
-    storage: {
+    const brcp = {
 
-        submittedReviews: "yoviSubmittedReviews",
+        tabs: document.querySelectorAll(".brcp-tab"),
 
-        pendingReviews: "yoviPendingReviews"
+        reviewCards: document.querySelectorAll(".brcp-review-card"),
 
-    },
+        ratings: document.querySelectorAll(".brcp-rating"),
 
-    /*=========================================
-    APPLICATION STATE
-    =========================================*/
+        submitButtons: document.querySelectorAll(".brcp-submit-btn"),
 
-    state: {
+        remindLinks: document.querySelectorAll(".brcp-remind-link"),
 
-        activeTab: "pending",
+        reviewInputs: document.querySelectorAll(".brcp-review-input")
 
-        selectedRatings: {},
+    };
 
-        submittedReviews: [],
+    /*======================================================
+    TAB SWITCHER
+    ======================================================*/
 
-        pendingReviews: []
+    function brcpInitializeTabs() {
 
-    },
+        if (!brcp.tabs.length) return;
 
-    /*=========================================
-    DOM ELEMENTS
-    =========================================*/
-
-    elements: {},
-
-    /*=========================================
-    INITIALIZE
-    =========================================*/
-
-    init() {
-
-        this.cacheDOM();
-
-        this.loadLocalStorage();
-
-        this.restoreRatings();
-
-        this.restoreSubmittedReviews();
-
-        this.bindEvents();
-
-        this.updateTabCounts();
-
-        this.updateEmptyState();
-
-    },
-
-    /*=========================================
-    CACHE DOM
-    =========================================*/
-
-    cacheDOM() {
-
-        this.elements.pendingTab =
-            document.getElementById("cbrcPendingTab");
-
-        this.elements.submittedTab =
-            document.getElementById("cbrcSubmittedTab");
-
-        this.elements.tabs =
-            document.querySelectorAll(".cbrc-tab");
-
-        this.elements.reviewCards =
-            document.querySelectorAll(".cbrc-review-card");
-
-        this.elements.starGroups =
-            document.querySelectorAll(".cbrc-rating-stars");
-
-        this.elements.textareas =
-            document.querySelectorAll(".cbrc-review-textarea");
-
-        this.elements.submitButtons =
-            document.querySelectorAll(".cbrc-submit-review-btn");
-
-        this.elements.remindButtons =
-            document.querySelectorAll(".cbrc-remind-btn");
-
-        this.elements.emptyState =
-            document.getElementById("cbrcEmptyState");
-
-        this.elements.toast =
-            document.getElementById("cbrcSuccessToast");
-
-    },
-
-    /*=========================================
-    LOAD LOCAL STORAGE
-    =========================================*/
-
-    loadLocalStorage() {
-
-        const submitted =
-            localStorage.getItem(this.storage.submittedReviews);
-
-        const pending =
-            localStorage.getItem(this.storage.pendingReviews);
-
-        this.state.submittedReviews =
-            submitted ? JSON.parse(submitted) : [];
-
-        this.state.pendingReviews =
-            pending ? JSON.parse(pending) : [];
-
-    },
-
-    /*=========================================
-    SAVE LOCAL STORAGE
-    =========================================*/
-
-    saveLocalStorage() {
-
-        localStorage.setItem(
-
-            this.storage.submittedReviews,
-
-            JSON.stringify(this.state.submittedReviews)
-
-        );
-
-        localStorage.setItem(
-
-            this.storage.pendingReviews,
-
-            JSON.stringify(this.state.pendingReviews)
-
-        );
-
-    },
-
-    /*=========================================
-    RESTORE SAVED RATINGS
-    =========================================*/
-
-    restoreRatings() {
-
-        const ratings =
-            localStorage.getItem("yoviReviewRatings");
-
-        if (!ratings) return;
-
-        this.state.selectedRatings =
-            JSON.parse(ratings);
-
-    },
-
-    /*=========================================
-    SAVE RATINGS
-    =========================================*/
-
-    saveRatings() {
-
-        localStorage.setItem(
-
-            "yoviReviewRatings",
-
-            JSON.stringify(this.state.selectedRatings)
-
-        );
-
-    },
-
-    /*=========================================
-    BIND EVENTS
-    =========================================*/
-
-    bindEvents() {
-
-        /*-------------------------------
-        Tabs
-        -------------------------------*/
-
-        this.elements.tabs.forEach(tab => {
+        brcp.tabs.forEach(tab => {
 
             tab.addEventListener("click", () => {
 
-                this.switchTab(
+                brcp.tabs.forEach(item => {
 
-                    tab.dataset.tab
-
-                );
-
-            });
-
-        });
-
-        /*-------------------------------
-        Submit Review Buttons
-        -------------------------------*/
-
-        this.elements.submitButtons.forEach(button => {
-
-            button.addEventListener("click", (event) => {
-
-                this.submitReview(event);
-
-            });
-
-        });
-
-        /*-------------------------------
-        Remind Me Later
-        -------------------------------*/
-
-        this.elements.remindButtons.forEach(button => {
-
-            button.addEventListener("click", (event) => {
-
-                this.remindLater(event);
-
-            });
-
-        });
-
-        /*-------------------------------
-        Check Empty State
-        -------------------------------*/
-
-        this.updateEmptyState();
-
-    },
-
-    /*=========================================
-    SWITCH TAB
-    =========================================*/
-
-    switchTab(tabName) {
-
-        this.state.activeTab = tabName;
-
-        this.elements.tabs.forEach(tab => {
-
-            tab.classList.remove("active");
-
-        });
-
-        document
-            .querySelector(`[data-tab="${tabName}"]`)
-            .classList.add("active");
-
-        this.elements.pendingTab.classList.remove("active");
-
-        this.elements.submittedTab.classList.remove("active");
-
-        if (tabName === "pending") {
-
-            this.elements.pendingTab.classList.add("active");
-
-        } else {
-
-            this.elements.submittedTab.classList.add("active");
-
-        }
-
-        this.updateEmptyState();
-
-    },
-
-    /*=========================================
-    UPDATE EMPTY STATE
-    =========================================*/
-
-    updateEmptyState() {
-
-        if (!this.elements.emptyState) {
-
-            return;
-
-        }
-
-        const pendingCount =
-
-            this.elements.pendingTab
-                ?.querySelectorAll(".cbrc-review-card")
-                .length || 0;
-
-        const submittedCount =
-
-            this.elements.submittedTab
-                ?.querySelectorAll(".cbrc-review-card")
-                .length || 0;
-
-        let showEmpty = false;
-
-        if (
-
-            this.state.activeTab === "pending" &&
-
-            pendingCount === 0
-
-        ) {
-
-            showEmpty = true;
-
-        }
-
-        if (
-
-            this.state.activeTab === "submitted" &&
-
-            submittedCount === 0
-
-        ) {
-
-            showEmpty = true;
-
-        }
-
-        if (showEmpty) {
-
-            this.elements.emptyState.classList.remove("d-none");
-
-        } else {
-
-            this.elements.emptyState.classList.add("d-none");
-
-        }
-
-    },
-
-    /*=========================================
-    RESTORE SUBMITTED REVIEWS
-    =========================================*/
-
-    restoreSubmittedReviews() {
-
-        if (
-
-            !this.state.submittedReviews ||
-
-            !this.state.submittedReviews.length
-
-        ) {
-
-            return;
-
-        }
-
-        this.state.submittedReviews.forEach(review => {
-
-            const card = document.querySelector(
-
-                `[data-review-id="${review.id}"]`
-
-            );
-
-            if (!card) return;
-
-            card.classList.add("cbrc-review-submitted");
-
-        });
-
-    },
-
-    /*=========================================
-    INITIALIZE STAR RATING
-    =========================================*/
-
-    initializeStarRatings() {
-
-        this.elements.starGroups.forEach(group => {
-
-            const stars = group.querySelectorAll("i");
-
-            stars.forEach(star => {
-
-                /*-------------------------------
-                Hover
-                -------------------------------*/
-
-                star.addEventListener("mouseenter", () => {
-
-                    const value = Number(star.dataset.value);
-
-                    this.previewRating(group, value);
+                    item.classList.remove("brcp-tab-active");
 
                 });
 
-                /*-------------------------------
-                Click
-                -------------------------------*/
-
-                star.addEventListener("click", () => {
-
-                    const value = Number(star.dataset.value);
-
-                    const reviewCard = star.closest(".cbrc-review-card");
-
-                    const reviewId = reviewCard.dataset.reviewId;
-
-                    this.setRating(
-
-                        reviewId,
-
-                        group,
-
-                        value
-
-                    );
-
-                });
+                tab.classList.add("brcp-tab-active");
 
             });
-
-            /*-------------------------------
-            Mouse Leave
-            -------------------------------*/
-
-            group.addEventListener("mouseleave", () => {
-
-                const reviewCard = group.closest(".cbrc-review-card");
-
-                const reviewId = reviewCard.dataset.reviewId;
-
-                const savedRating =
-
-                    this.state.selectedRatings[reviewId] || 0;
-
-                this.renderRating(
-
-                    group,
-
-                    savedRating
-
-                );
-
-            });
-
-        });
-
-    },
-
-    /*=========================================
-    STAR HOVER PREVIEW
-    =========================================*/
-
-    previewRating(group, rating) {
-
-        const stars = group.querySelectorAll("i");
-
-        stars.forEach(star => {
-
-            const value = Number(star.dataset.value);
-
-            if (value <= rating) {
-
-                star.classList.remove("bi-star");
-
-                star.classList.add(
-
-                    "bi-star-fill",
-
-                    "cbrc-active"
-
-                );
-
-            } else {
-
-                star.classList.remove(
-
-                    "bi-star-fill",
-
-                    "cbrc-active"
-
-                );
-
-                star.classList.add("bi-star");
-
-            }
-
-        });
-
-    },
-
-    /*=========================================
-    SAVE RATING
-    =========================================*/
-
-    setRating(reviewId, group, rating) {
-
-        this.state.selectedRatings[reviewId] = rating;
-
-        this.saveRatings();
-
-        this.renderRating(
-
-            group,
-
-            rating
-
-        );
-
-        const text = group.parentElement.querySelector(
-
-            ".cbrc-rating-text"
-
-        );
-
-        if (text) {
-
-            text.textContent =
-
-                `${rating} / 5 Selected`;
-
-        }
-
-    },
-
-    /*=========================================
-    RENDER STAR RATING
-    =========================================*/
-
-    renderRating(group, rating) {
-
-        const stars = group.querySelectorAll("i");
-
-        stars.forEach(star => {
-
-            const value = Number(star.dataset.value);
-
-            if (value <= rating) {
-
-                star.classList.remove("bi-star");
-
-                star.classList.add(
-
-                    "bi-star-fill",
-
-                    "cbrc-active"
-
-                );
-
-            } else {
-
-                star.classList.remove(
-
-                    "bi-star-fill",
-
-                    "cbrc-active"
-
-                );
-
-                star.classList.add("bi-star");
-
-            }
-
-        });
-
-    },
-
-    /*=========================================
-    RESTORE SAVED STAR RATINGS
-    =========================================*/
-
-    restoreStarRatings() {
-
-        this.elements.starGroups.forEach(group => {
-
-            const reviewCard =
-
-                group.closest(".cbrc-review-card");
-
-            const reviewId =
-
-                reviewCard.dataset.reviewId;
-
-            const rating =
-
-                this.state.selectedRatings[reviewId] || 0;
-
-            this.renderRating(
-
-                group,
-
-                rating
-
-            );
-
-            const text = group.parentElement.querySelector(
-
-                ".cbrc-rating-text"
-
-            );
-
-            if (text && rating > 0) {
-
-                text.textContent =
-
-                    `${rating} / 5 Selected`;
-
-            }
-
-        });
-
-    },
-
-    /*=========================================
-    SUBMIT REVIEW
-    =========================================*/
-
-    submitReview(event) {
-
-        const button = event.currentTarget;
-
-        const reviewCard = button.closest(
-
-            ".cbrc-review-card"
-
-        );
-
-        const reviewId = reviewCard.dataset.reviewId;
-
-        const textarea = reviewCard.querySelector(
-
-            ".cbrc-review-textarea"
-
-        );
-
-        const reviewText = textarea.value.trim();
-
-        const rating =
-
-            this.state.selectedRatings[reviewId] || 0;
-
-        /*-------------------------------
-        VALIDATION
-        -------------------------------*/
-
-        if (rating === 0) {
-
-            alert("Please select a star rating.");
-
-            return;
-
-        }
-
-        if (reviewText.length < 10) {
-
-            alert(
-
-                "Your review must contain at least 10 characters."
-
-            );
-
-            textarea.focus();
-
-            return;
-
-        }
-
-        /*-------------------------------
-        LOADING STATE
-        -------------------------------*/
-
-        reviewCard.classList.add("cbrc-loading");
-
-        button.disabled = true;
-
-        setTimeout(() => {
-
-            this.completeSubmission(
-
-                reviewCard,
-
-                reviewId,
-
-                rating,
-
-                reviewText
-
-            );
-
-        }, 1000);
-
-    },
-
-    /*=========================================
-    COMPLETE SUBMISSION
-    =========================================*/
-
-    completeSubmission(
-
-        reviewCard,
-
-        reviewId,
-
-        rating,
-
-        reviewText
-
-    ) {
-
-        reviewCard.classList.remove(
-
-            "cbrc-loading"
-
-        );
-
-        reviewCard.classList.add(
-
-            "cbrc-review-submitted"
-
-        );
-
-        this.state.submittedReviews.push({
-
-            id: reviewId,
-
-            rating,
-
-            review: reviewText,
-
-            submittedAt: Date.now()
-
-        });
-
-        this.saveLocalStorage();
-
-        /*-------------------------------
-        MOVE CARD
-        -------------------------------*/
-
-        if (this.elements.submittedTab) {
-
-            this.elements.submittedTab.appendChild(
-
-                reviewCard
-
-            );
-
-        }
-
-        /*-------------------------------
-        REMOVE INPUTS
-        -------------------------------*/
-
-        const inputArea = reviewCard.querySelector(
-
-            ".cbrc-review-input"
-
-        );
-
-        const actionArea = reviewCard.querySelector(
-
-            ".cbrc-review-actions"
-
-        );
-
-        const ratingText = reviewCard.querySelector(
-
-            ".cbrc-rating-text"
-
-        );
-
-        if (inputArea) {
-
-            inputArea.remove();
-
-        }
-
-        if (actionArea) {
-
-            actionArea.remove();
-
-        }
-
-        if (ratingText) {
-
-            ratingText.textContent =
-
-                "Review Submitted";
-
-        }
-
-        this.showToast(
-
-            "Review submitted successfully."
-
-        );
-
-        this.updateTabCounts();
-
-        this.updateEmptyState();
-
-    },
-
-    /*=========================================
-    UPDATE TAB COUNTS
-    =========================================*/
-
-    updateTabCounts() {
-
-        const pendingCount =
-
-            this.elements.pendingTab.querySelectorAll(
-
-                ".cbrc-review-card"
-
-            ).length;
-
-        const submittedCount =
-
-            this.elements.submittedTab.querySelectorAll(
-
-                ".cbrc-review-card"
-
-            ).length;
-
-        const pendingTabButton = document.querySelector(
-
-            '[data-tab="pending"]'
-
-        );
-
-        const submittedTabButton = document.querySelector(
-
-            '[data-tab="submitted"]'
-
-        );
-
-        if (pendingTabButton) {
-
-            pendingTabButton.textContent =
-
-                `Pending Reviews (${pendingCount})`;
-
-        }
-
-        if (submittedTabButton) {
-
-            submittedTabButton.textContent =
-
-                `Submitted (${submittedCount})`;
-
-        }
-
-    },
-
-    /*=========================================
-    RESET REVIEW FORM
-    =========================================*/
-
-    resetReviewForm(card) {
-
-        const textarea = card.querySelector(
-
-            ".cbrc-review-textarea"
-
-        );
-
-        const stars = card.querySelector(
-
-            ".cbrc-rating-stars"
-
-        );
-
-        const ratingText = card.querySelector(
-
-            ".cbrc-rating-text"
-
-        );
-
-        if (textarea) {
-
-            textarea.value = "";
-
-        }
-
-        if (stars) {
-
-            this.renderRating(
-
-                stars,
-
-                0
-
-            );
-
-        }
-
-        if (ratingText) {
-
-            ratingText.textContent =
-
-                "Tap to rate";
-
-        }
-
-        const reviewId = card.dataset.reviewId;
-
-        delete this.state.selectedRatings[reviewId];
-
-        this.saveRatings();
-
-    },
-
-    /*=========================================
-    PAGE NAVIGATION
-    =========================================*/
-
-    navigate(page) {
-
-        window.location.href = page;
-
-    },
-
-    /*=========================================
-    GLOBAL EVENT HANDLERS
-    =========================================*/
-
-    registerGlobalEvents() {
-
-        window.addEventListener("beforeunload", () => {
-
-            this.saveLocalStorage();
-
-            this.saveRatings();
-
-        });
-
-        document.addEventListener("visibilitychange", () => {
-
-            if (!document.hidden) {
-
-                this.updateTabCounts();
-
-                this.updateEmptyState();
-
-            }
 
         });
 
     }
 
-};
+    brcpInitializeTabs();
 
-/*=========================================================
-APPLICATION START
-=========================================================*/
+    /*======================================================
+    STAR RATING
+    ======================================================*/
 
-document.addEventListener("DOMContentLoaded", () => {
+    function brcpInitializeRatings() {
 
-    BuyerReviewsCentre.init();
+        if (!brcp.ratings.length) return;
 
-    BuyerReviewsCentre.registerGlobalEvents();
+        brcp.ratings.forEach(group => {
+
+            const stars = group.querySelectorAll(".brcp-star");
+
+            const label = group.querySelector(".brcp-rating-text");
+
+            let selectedRating = 0;
+
+            stars.forEach((star, index) => {
+
+                star.addEventListener("mouseenter", () => {
+
+                    stars.forEach((item, position) => {
+
+                        item.classList.toggle(
+
+                            "brcp-star-active",
+
+                            position <= index
+
+                        );
+
+                    });
+
+                });
+
+                star.addEventListener("mouseleave", () => {
+
+                    stars.forEach((item, position) => {
+
+                        item.classList.toggle(
+
+                            "brcp-star-active",
+
+                            position < selectedRating
+
+                        );
+
+                    });
+
+                });
+
+                star.addEventListener("click", () => {
+
+                    selectedRating = index + 1;
+
+                    stars.forEach((item, position) => {
+
+                        item.classList.toggle(
+
+                            "brcp-star-active",
+
+                            position < selectedRating
+
+                        );
+
+                    });
+
+                    if (label) {
+
+                        switch (selectedRating) {
+
+                            case 1:
+
+                                label.textContent = "Poor";
+
+                                break;
+
+                            case 2:
+
+                                label.textContent = "Fair";
+
+                                break;
+
+                            case 3:
+
+                                label.textContent = "Good";
+
+                                break;
+
+                            case 4:
+
+                                label.textContent = "Very Good";
+
+                                break;
+
+                            case 5:
+
+                                label.textContent = "Excellent";
+
+                                break;
+
+                        }
+
+                    }
+
+                });
+
+            });
+
+        });
+
+    }
+
+    brcpInitializeRatings();
+
+    /*======================================================
+    CHARACTER COUNTER
+    ======================================================*/
+
+    function brcpInitializeCharacterCount() {
+
+        brcp.reviewInputs.forEach(input => {
+
+            const counter = document.createElement("small");
+
+            counter.className = "brcp-character-count";
+
+            counter.textContent = "0 / 500";
+
+            input.insertAdjacentElement("afterend", counter);
+
+            input.addEventListener("input", () => {
+
+                if (input.value.length > 500) {
+
+                    input.value = input.value.substring(0, 500);
+
+                }
+
+                counter.textContent =
+
+                    `${input.value.length} / 500`;
+
+            });
+
+        });
+
+    }
+
+    brcpInitializeCharacterCount();
+
+    /*======================================================
+    AUTO RESIZE TEXTAREA
+    ======================================================*/
+
+    function brcpAutoResize() {
+
+        brcp.reviewInputs.forEach(input => {
+
+            input.addEventListener("input", function () {
+
+                this.style.height = "auto";
+
+                this.style.height =
+
+                    this.scrollHeight + "px";
+
+            });
+
+        });
+
+    }
+
+    brcpAutoResize();
+
+    /*======================================================
+    SUBMIT REVIEW
+    ======================================================*/
+
+    function brcpInitializeSubmitButtons() {
+
+        brcp.submitButtons.forEach((button, index) => {
+
+            button.addEventListener("click", () => {
+
+                const textarea = brcp.reviewInputs[index];
+
+                const ratingGroup = brcp.ratings[index];
+
+                const rating = ratingGroup.querySelectorAll(".brcp-star-active").length;
+
+                if (rating === 0) {
+
+                    alert("Please select a star rating before submitting your review.");
+
+                    return;
+
+                }
+
+                if (textarea.value.trim() === "") {
+
+                    alert("Please write your review before submitting.");
+
+                    textarea.focus();
+
+                    return;
+
+                }
+
+                button.classList.add("brcp-loading");
+
+                button.disabled = true;
+
+                button.textContent = "Submitting...";
+
+                setTimeout(() => {
+
+                    button.classList.remove("brcp-loading");
+
+                    button.textContent = "Review Submitted";
+
+                    button.disabled = true;
+
+                    textarea.disabled = true;
+
+                    textarea.style.opacity = ".7";
+
+                    ratingGroup.style.pointerEvents = "none";
+
+                }, 1200);
+
+            });
+
+        });
+
+    }
+
+    brcpInitializeSubmitButtons();
+
+    /*======================================================
+    REMIND ME LATER
+    ======================================================*/
+
+    function brcpInitializeReminderLinks() {
+
+        brcp.remindLinks.forEach((link, index) => {
+
+            link.addEventListener("click", (event) => {
+
+                event.preventDefault();
+
+                brcp.reviewCards[index].style.transition = ".35s ease";
+
+                brcp.reviewCards[index].style.opacity = "0";
+
+                brcp.reviewCards[index].style.transform = "translateY(20px)";
+
+                setTimeout(() => {
+
+                    brcp.reviewCards[index].style.display = "none";
+
+                }, 350);
+
+            });
+
+        });
+
+    }
+
+    brcpInitializeReminderLinks();
+
+    /*======================================================
+    PAGE ENTRY ANIMATION
+    ======================================================*/
+
+    function brcpRevealCards() {
+
+        brcp.reviewCards.forEach((card, index) => {
+
+            card.style.opacity = "0";
+
+            card.style.transform = "translateY(25px)";
+
+            setTimeout(() => {
+
+                card.style.transition = ".5s ease";
+
+                card.style.opacity = "1";
+
+                card.style.transform = "translateY(0)";
+
+            }, index * 150);
+
+        });
+
+    }
+
+    brcpRevealCards();
+
+    /*======================================================
+    WINDOW.HREF PLACEHOLDERS
+    ======================================================*/
+
+    const brcpNavigation = {
+
+        dashboard: "../../buyer/buyer-dashboard.html",
+
+        submittedReviews: "../../reviews/review-submitted.html"
+
+    };
+
+    if (brcp.tabs.length > 1) {
+
+        brcp.tabs[1].addEventListener("click", () => {
+
+            window.location.href = brcpNavigation.submittedReviews;
+
+        });
+
+    }
 
 });
 
+    /*======================================================
+    END OF BUYER REVIEW PAGE
+    ======================================================*/
 
 
 

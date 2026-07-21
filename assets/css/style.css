@@ -2417,6 +2417,1381 @@ section{
 END OF LANDING PAGE 
 ================================== */
 
+/*==========================================================
+YOVI APP HOME PAGE
+==========================================================*/
+
+.yahp-page{
+
+    background:var(--body);
+
+    overflow:hidden;
+
+}
+
+/*==========================================================
+NAVBAR
+==========================================================*/
+
+.yahp-navbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(16px);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.yahp-navbar .navbar{
+
+    min-height:82px;
+
+}
+
+.yahp-brand img{
+
+    height:42px;
+
+    width:auto;
+
+}
+
+.yahp-navbar .nav-link{
+
+    color:var(--heading);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    padding:.8rem 1rem;
+
+    transition:var(--transition);
+
+}
+
+.yahp-navbar .nav-link:hover,
+
+.yahp-navbar .nav-link.active{
+
+    color:var(--primary);
+
+}
+
+.yahp-nav-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.yahp-nav-icon{
+
+    position:relative;
+
+    width:46px;
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:50%;
+
+    transition:var(--transition);
+
+}
+
+.yahp-nav-icon:hover{
+
+    background:var(--primary-light);
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+.yahp-nav-icon i{
+
+    font-size:1.15rem;
+
+}
+
+.yahp-notification-dot{
+
+    position:absolute;
+
+    top:11px;
+
+    right:11px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+}
+
+.yahp-profile-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:none;
+
+    background:none;
+
+    padding:0;
+
+}
+
+.yahp-profile-btn img{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.yahp-profile-btn span{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+/*==========================================================
+HERO
+==========================================================*/
+
+.yahp-hero{
+
+    padding:90px 0 70px;
+    
+    background: var(--heading);
+}
+
+.yahp-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+    margin-bottom:24px;
+
+}
+
+.yahp-title{
+
+    font-size:3.3rem;
+
+    font-weight:800;
+
+    line-height:1.18;
+
+    color:var(--surface);
+
+    margin-bottom:22px;
+
+}
+
+.yahp-title span{
+
+    color:var(--primary);
+
+}
+
+.yahp-description{
+
+    max-width:760px;
+
+    margin:0 auto 42px;
+
+    font-size:1.05rem;
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+}
+
+/*==========================================================
+SEARCH CARD
+==========================================================*/
+
+.yahp-search-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-2xl);
+
+    box-shadow:var(--shadow-lg);
+
+    padding:28px;
+
+    margin-bottom:46px;
+
+}
+
+.yahp-search-tabs{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:14px;
+
+    margin-bottom:24px;
+
+}
+
+.yahp-search-tab{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:12px 26px;
+
+    border-radius:999px;
+
+    border:1px solid var(--border);
+
+    background:var(--white);
+
+    color:var(--heading);
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.yahp-search-tab-active,
+
+.yahp-search-tab:hover{
+
+    background:var(--primary);
+
+    border-color:var(--primary);
+
+    color:var(--white);
+
+}
+
+.yahp-search-form{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr auto;
+
+    gap:16px;
+
+}
+
+/*==========================================================
+SEARCH FORM
+==========================================================*/
+
+.yahp-search-group,
+
+.yahp-location-group{
+
+    position:relative;
+
+}
+
+.yahp-search-group i,
+
+.yahp-location-group i{
+
+    position:absolute;
+
+    top:50%;
+
+    left:18px;
+
+    transform:translateY(-50%);
+
+    color:var(--text-muted);
+
+    font-size:1rem;
+
+}
+
+.yahp-search-group input,
+
+.yahp-location-group select{
+
+    width:100%;
+
+    height:58px;
+
+    padding-left:52px;
+
+    padding-right:18px;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-pill);
+
+    background:var(--white);
+
+    color:var(--heading);
+
+    font-size:.95rem;
+
+    transition:var(--transition);
+
+}
+
+.yahp-search-group input:focus,
+
+.yahp-location-group select:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(24,195,126,.12);
+
+}
+
+.yahp-search-btn{
+
+    min-width:160px;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.yahp-search-btn:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+/*==========================================================
+HERO STATS
+==========================================================*/
+
+.yahp-statistics{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:70px;
+
+}
+
+.yahp-stat-item{
+
+    text-align:center;
+
+}
+
+.yahp-stat-item h3{
+
+    color:var(--surface);
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    margin-bottom:8px;
+
+}
+
+.yahp-stat-item p{
+
+    color:var(--text-light);
+
+    font-size:.92rem;
+
+}
+
+/*==========================================================
+TRUST SECTION
+==========================================================*/
+
+.yahp-trust-section{
+
+    padding-top:30px;
+
+}
+
+.yahp-trust-card{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:16px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    padding:24px;
+
+    height:100%;
+
+    transition:var(--transition);
+
+}
+
+.yahp-trust-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.yahp-trust-icon{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:1.35rem;
+
+    flex-shrink:0;
+
+}
+
+.yahp-trust-card h6{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    margin-bottom:6px;
+
+}
+
+.yahp-trust-card p{
+
+    font-size:.9rem;
+
+    color:var(--text-light);
+
+}
+
+/*==========================================================
+SECTION HEADER
+==========================================================*/
+
+.yahp-section-header{
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    margin-bottom:38px;
+
+}
+
+.yahp-section-header h2{
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+
+}
+
+.yahp-section-header p{
+
+    color:var(--text-light);
+
+}
+
+.yahp-view-all{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--primary);
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.yahp-view-all:hover{
+
+    gap:12px;
+
+}
+
+/*==========================================================
+CATEGORIES SECTION
+==========================================================*/
+
+.yahp-categories-section{
+
+    padding-top:80px;
+
+}
+
+.yahp-category-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    gap:12px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    padding:28px 16px;
+
+    min-height:180px;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.yahp-category-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--primary);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.yahp-category-icon{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:50%;
+
+    background:var(--primary-light);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:2rem;
+
+    transition:var(--transition);
+
+}
+
+.yahp-category-card:hover .yahp-category-icon{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    transform:scale(1.08);
+
+}
+
+.yahp-category-card h6{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:4px;
+
+}
+
+.yahp-category-card small{
+
+    color:var(--text-muted);
+
+    font-size:.82rem;
+
+}
+
+/*==========================================================
+FEATURED PRODUCTS
+==========================================================*/
+
+.yahp-featured-section{
+
+    padding-top:80px;
+
+}
+
+.yahp-product-card{
+
+    display:block;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    overflow:hidden;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-xs);
+
+    height:100%;
+
+}
+
+.yahp-product-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-lg);
+
+    border-color:var(--primary);
+
+}
+
+.yahp-product-image{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#f4f6f8;
+
+}
+
+.yahp-product-image img{
+
+    width:100%;
+
+    height:260px;
+
+    object-fit:cover;
+
+    transition:.5s ease;
+
+}
+
+.yahp-product-card:hover .yahp-product-image img{
+
+    transform:scale(1.08);
+
+}
+
+.yahp-product-body{
+
+    padding:22px;
+
+}
+
+.yahp-product-body small{
+
+    display:inline-block;
+
+    margin-bottom:10px;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+    letter-spacing:.08em;
+
+    color:var(--primary);
+
+}
+
+.yahp-product-body h5{
+
+    font-size:1.15rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:14px;
+
+    line-height:1.5;
+
+}
+
+.yahp-product-price{
+
+    font-size:1.5rem;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+    margin-bottom:18px;
+
+}
+
+.yahp-product-meta{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:14px;
+
+    font-size:.88rem;
+
+    color:var(--text-light);
+
+}
+
+.yahp-product-meta i{
+
+    color:var(--primary);
+
+    margin-right:4px;
+
+}
+
+.yahp-product-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding-top:16px;
+
+    border-top:1px solid var(--border-light);
+
+    font-size:.85rem;
+
+    color:var(--text-light);
+
+}
+
+.yahp-product-footer i{
+
+    color:var(--primary);
+
+    margin-right:5px;
+
+}
+
+/* ==========================================================
+NEARBY SERVICE PROVIDERS
+========================================================== */
+
+.yahp-provider-section{
+    padding-top:80px;
+}
+
+.yahp-provider-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius-xl);
+    overflow:hidden;
+    transition:var(--transition);
+    box-shadow:var(--shadow-xs);
+    height:100%;
+}
+
+.yahp-provider-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow-lg);
+}
+
+.yahp-provider-image{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.yahp-provider-body{
+    padding:20px;
+}
+
+.yahp-provider-body h5{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:8px;
+}
+
+.yahp-provider-body h5 i{
+    color:var(--primary);
+}
+
+.yahp-provider-rating{
+    color:#f6b500;
+    font-weight:700;
+    margin:10px 0;
+}
+
+.yahp-provider-btn{
+    display:inline-block;
+    width:100%;
+    padding:12px;
+    border-radius:var(--radius-pill);
+    background:var(--primary);
+    color:#fff;
+    text-align:center;
+    font-weight:700;
+    margin-top:15px;
+}
+
+/* ==========================================================
+HOW YOVI WORKS
+========================================================== */
+
+.yahp-how-section{
+    padding-top:80px;
+    background: var(--heading);
+}
+
+.yahp-how-section h2{
+    color: var(--surface);
+}
+
+.yahp-how-card{
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius-xl);
+    padding:40px 30px;
+    text-align:center;
+    transition:var(--transition);
+}
+
+.yahp-how-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow-lg);
+}
+
+.yahp-how-number{
+    position:absolute;
+    top:18px;
+    right:18px;
+    color:var(--primary);
+    font-size:2rem;
+    font-weight:800;
+    opacity:.15;
+}
+
+.yahp-how-card i{
+    font-size:2.7rem;
+    color:var(--primary);
+    margin-bottom:18px;
+}
+
+.yahp-how-card h5{
+    margin-bottom:15px;
+}
+
+/*==========================================================
+CALL TO ACTION
+==========================================================*/
+
+.yahp-cta-section{
+
+    padding:90px 0;
+
+}
+
+.yahp-cta-wrapper{
+
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+
+    border-radius:var(--radius-2xl);
+
+    padding:70px 40px;
+
+    text-align:center;
+
+    color:var(--white);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.yahp-cta-wrapper h2{
+
+    color:var(--white);
+
+    font-size:2.6rem;
+
+    font-weight:800;
+
+    margin-bottom:18px;
+
+}
+
+.yahp-cta-wrapper p{
+
+    max-width:700px;
+
+    margin:0 auto 34px;
+
+    color:rgba(255,255,255,.9);
+
+    font-size:1.05rem;
+
+    line-height:1.8;
+
+}
+
+.yahp-cta-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+
+.yahp-primary-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:15px 36px;
+
+    background:var(--white);
+
+    color:var(--primary);
+
+    font-weight:700;
+
+    border-radius:var(--radius-pill);
+
+    transition:var(--transition);
+
+}
+
+.yahp-primary-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.yahp-secondary-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:15px 36px;
+
+    border:2px solid rgba(255,255,255,.35);
+
+    color:var(--white);
+
+    border-radius:var(--radius-pill);
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.yahp-secondary-btn:hover{
+
+    background:rgba(255,255,255,.12);
+
+}
+
+/*==========================================================
+FOOTER
+==========================================================*/
+
+.yahp-footer{
+
+    background:var(--black);
+
+    padding:80px 0 40px;
+
+}
+
+.yahp-footer img{
+
+    height:42px;
+
+    width:auto;
+
+}
+
+.yahp-footer p{
+
+    color:rgba(255,255,255,.75);
+
+}
+
+.yahp-footer h6{
+
+    color:var(--white);
+
+    font-size:1rem;
+
+    margin-bottom:18px;
+
+}
+
+.yahp-footer ul li{
+
+    margin-bottom:12px;
+
+}
+
+.yahp-footer ul li a{
+
+    color:rgba(255,255,255,.72);
+
+    transition:var(--transition);
+
+}
+
+.yahp-footer ul li a:hover{
+
+    color:var(--primary);
+
+}
+
+.yahp-footer .form-control{
+
+    height:52px;
+
+    border:none;
+
+    box-shadow:none;
+
+}
+
+.yahp-footer .btn{
+
+    padding:0 24px;
+
+    font-weight:600;
+
+}
+
+/*==========================================================
+ANIMATIONS
+==========================================================*/
+
+@keyframes yahpFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.yahp-hero-content,
+
+.yahp-trust-card,
+
+.yahp-category-card,
+
+.yahp-product-card,
+
+.yahp-cta-wrapper{
+
+    animation:yahpFadeUp .8s ease both;
+
+}
+
+/*==========================================================
+RESPONSIVE
+==========================================================*/
+
+@media (max-width:991.98px){
+
+    .yahp-title{
+
+        font-size:2.6rem;
+
+    }
+
+    .yahp-search-form{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .yahp-statistics{
+
+        gap:36px;
+
+        flex-wrap:wrap;
+
+    }
+
+    .yahp-section-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:18px;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .yahp-navbar .navbar{
+
+        min-height:72px;
+
+    }
+
+    .yahp-title{
+
+        font-size:2rem;
+
+    }
+
+    .yahp-description{
+
+        font-size:.95rem;
+
+    }
+
+    .yahp-search-card{
+
+        padding:22px;
+
+    }
+
+    .yahp-search-tabs{
+
+        flex-direction:column;
+
+    }
+
+    .yahp-statistics{
+
+        flex-direction:column;
+
+        gap:24px;
+
+    }
+
+    .yahp-cta-wrapper{
+
+        padding:50px 24px;
+
+    }
+
+    .yahp-cta-wrapper h2{
+
+        font-size:2rem;
+
+    }
+
+}
+
+@media (max-width:575.98px){
+
+    .yahp-nav-actions{
+
+        width:100%;
+
+        justify-content:center;
+
+        margin-top:20px;
+
+    }
+
+    .yahp-profile-btn span{
+
+        display:none;
+
+    }
+
+    .yahp-category-card{
+
+        min-height:150px;
+
+        padding:20px 12px;
+
+    }
+
+    .yahp-product-image img{
+
+        height:220px;
+
+    }
+
+    .yahp-product-body{
+
+        padding:18px;
+
+    }
+
+    .yahp-product-price{
+
+        font-size:1.3rem;
+
+    }
+
+    .yahp-cta-buttons{
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
+
+    .yahp-primary-btn,
+
+    .yahp-secondary-btn{
+
+        width:100%;
+
+    }
+
+}
+
+/*==========================================================
+END OF YOVI APP HOME PAGE
+==========================================================*/
+
 
 
 /*=========================================================
@@ -43207,60 +44582,26 @@ ACCESSIBILITY
 END OF BUYER DONE STYLES
 =========================================*/
 
-/*=========================================================
-BUYER REVIEWS CENTRE
-PART 2A
-=========================================================*/
+/*==========================================================
+REVIEWS CENTRE PAGE
+Prefix : brcp
+==========================================================*/
 
-/*=========================================================
-PAGE
-=========================================================*/
+.brcp-page{
 
-#cbrcPage{
-
-    background:var(--bg-color);
+    padding:48px 0 80px;
 
     min-height:100vh;
 
-}
-
-.cbrc-page-wrapper{
-
-    min-height:100vh;
-
-    display:flex;
-
-    flex-direction:column;
-
-    animation:cbrcPageFade .45s ease;
+    background:var(--body);
 
 }
 
-@keyframes cbrcPageFade{
+/*==========================================================
+NAVBAR
+==========================================================*/
 
-    from{
-
-        opacity:0;
-
-        transform:translateY(16px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-/*=========================================================
-HEADER
-=========================================================*/
-
-.cbrc-header{
+.brcp-navbar{
 
     position:sticky;
 
@@ -43268,227 +44609,101 @@ HEADER
 
     z-index:1000;
 
-    background:#ffffff;
+    background:var(--white);
 
-    border-bottom:1px solid var(--border-color);
+    border-bottom:1px solid var(--border);
 
-    padding:14px 0;
-
-    box-shadow:0 2px 12px rgba(15,23,42,.04);
+    box-shadow:var(--shadow-xs);
 
 }
 
-.cbrc-header .container-fluid{
-
-    padding-left:32px;
-
-    padding-right:32px;
-
-}
-
-/*=========================================================
-LOGO
-=========================================================*/
-
-.cbrc-logo-link{
-
-    display:inline-flex;
-
-    text-decoration:none;
-
-}
-
-.cbrc-logo-placeholder{
-
-    width:150px;
-
-    height:48px;
-
-    border:2px dashed var(--border-color);
-
-    border-radius:12px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:#ffffff;
-
-    color:var(--text-muted);
-
-    font-size:.9rem;
-
-    font-weight:600;
-
-    transition:all .3s ease;
-
-}
-
-.cbrc-logo-placeholder:hover{
-
-    border-color:#14D495;
-
-    color:#14D495;
-
-}
-
-/*=========================================================
-NAVIGATION
-=========================================================*/
-
-.cbrc-navigation{
-
-    list-style:none;
+.brcp-brand{
 
     display:flex;
 
     align-items:center;
 
-    justify-content:center;
+}
 
-    gap:34px;
+.brcp-brand img{
 
-    margin:0;
+    height:42px;
 
-    padding:0;
+    width:auto;
 
 }
 
-.cbrc-navigation li a{
+.brcp-nav-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.brcp-nav-icon{
 
     position:relative;
-
-    text-decoration:none;
-
-    color:var(--text-secondary);
-
-    font-size:.95rem;
-
-    font-weight:500;
-
-    transition:all .3s ease;
-
-}
-
-.cbrc-navigation li a:hover{
-
-    color:#14D495;
-
-}
-
-.cbrc-navigation li a::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    bottom:-8px;
-
-    width:0;
-
-    height:2px;
-
-    background:#14D495;
-
-    transition:.3s ease;
-
-}
-
-.cbrc-navigation li a:hover::after{
-
-    width:100%;
-
-}
-
-/*=========================================================
-HEADER RIGHT
-=========================================================*/
-
-.cbrc-header-right{
-
-    display:flex;
-
-    justify-content:flex-end;
-
-    align-items:center;
-
-    gap:16px;
-
-}
-
-.cbrc-icon-btn{
 
     width:42px;
 
     height:42px;
 
-    border:none;
-
-    border-radius:50%;
-
-    background:#F9FAFB;
-
     display:flex;
-
-    justify-content:center;
 
     align-items:center;
 
-    transition:all .3s ease;
+    justify-content:center;
 
-}
-
-.cbrc-icon-btn i{
-
-    font-size:1.1rem;
-
-    color:var(--text-secondary);
-
-}
-
-.cbrc-icon-btn:hover{
-
-    background:#14D495;
-
-    transform:translateY(-2px);
-
-}
-
-.cbrc-icon-btn:hover i{
-
-    color:#ffffff;
-
-}
-
-.cbrc-notification-dot{
-
-    width:9px;
-
-    height:9px;
-
-    background:#EF4444;
+    border:1px solid var(--border);
 
     border-radius:50%;
 
-    border:2px solid #ffffff;
+    color:var(--heading);
 
-    position:absolute;
+    background:var(--surface);
 
-    top:9px;
-
-    right:9px;
+    transition:var(--transition);
 
 }
 
-/*=========================================================
-PROFILE
-=========================================================*/
+.brcp-nav-icon:hover{
 
-.cbrc-profile-btn{
+    color:var(--primary);
+
+    border-color:var(--primary);
+
+    background:var(--primary-light);
+
+}
+
+.brcp-nav-icon i{
+
+    font-size:1.1rem;
+
+}
+
+.brcp-dot{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+}
+
+.brcp-user-btn{
 
     display:flex;
 
@@ -43500,9 +44715,11 @@ PROFILE
 
     background:transparent;
 
+    padding:0;
+
 }
 
-.cbrc-profile-image{
+.brcp-user-btn img{
 
     width:42px;
 
@@ -43514,35 +44731,27 @@ PROFILE
 
 }
 
-.cbrc-profile-name{
+.brcp-user-btn span{
 
     font-size:.95rem;
 
     font-weight:600;
 
-    color:var(--text-color);
+    color:var(--heading);
 
 }
 
-/*=========================================================
-MAIN CONTENT
-=========================================================*/
+/*==========================================================
+BREADCRUMB
+==========================================================*/
 
-.cbrc-main{
+.brcp-breadcrumb{
 
-    flex:1;
-
-    padding:42px 0 70px;
+    margin-bottom:22px;
 
 }
 
-.cbrc-breadcrumb{
-
-    margin-bottom:18px;
-
-}
-
-.cbrc-breadcrumb a{
+.brcp-breadcrumb a{
 
     display:inline-flex;
 
@@ -43550,53 +44759,57 @@ MAIN CONTENT
 
     gap:8px;
 
-    text-decoration:none;
-
-    color:var(--text-muted);
-
     font-size:.95rem;
+
+    color:var(--text);
 
     font-weight:500;
 
-    transition:.3s ease;
+}
+
+.brcp-breadcrumb a:hover{
+
+    color:var(--primary);
 
 }
 
-.cbrc-breadcrumb a:hover{
+.brcp-breadcrumb i{
 
-    color:#14D495;
-
-}
-
-.cbrc-page-header{
-
-    margin-bottom:24px;
+    font-size:.85rem;
 
 }
 
-.cbrc-page-title{
+/*==========================================================
+PAGE HEADING
+==========================================================*/
 
-    margin:0;
+.brcp-heading{
+
+    margin-bottom:30px;
+
+}
+
+.brcp-heading h2{
 
     font-size:2rem;
 
     font-weight:700;
 
-    color:var(--text-color);
+    color:var(--heading);
 
 }
 
-/*=========================================================
-REVIEW TABS
-=========================================================*/
+/*==========================================================
+TABS
+==========================================================*/
 
-.cbrc-tabs{
+.brcp-tabs{
 
     display:flex;
 
     align-items:center;
 
-    gap:12px;
+    gap:14px;
 
     margin-bottom:30px;
 
@@ -43604,87 +44817,55 @@ REVIEW TABS
 
 }
 
-.cbrc-tab{
-
-    border:none;
-
-    background:#F3F4F6;
-
-    color:var(--text-secondary);
+.brcp-tab{
 
     padding:12px 22px;
 
-    border-radius:50px;
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-pill);
+
+    background:var(--white);
+
+    color:var(--text);
 
     font-size:.95rem;
 
     font-weight:600;
 
-    transition:all .3s ease;
+    transition:var(--transition);
 
 }
 
-.cbrc-tab:hover{
+.brcp-tab:hover{
 
-    background:#14D495;
+    color:var(--primary);
 
-    color:#ffffff;
-
-}
-
-.cbrc-tab.active{
-
-    background:#10B981;
-
-    color:#ffffff;
-
-    box-shadow:0 10px 24px rgba(16,185,129,.22);
+    border-color:var(--primary);
 
 }
 
-/*=========================================================
-TAB CONTENT
-=========================================================*/
+.brcp-tab-active{
 
-.cbrc-tab-content{
+    background:var(--primary);
 
-    display:none;
+    color:var(--white);
 
-}
-
-.cbrc-tab-content.active{
-
-    display:block;
-
-    animation:cbrcFade .4s ease;
+    border-color:var(--primary);
 
 }
 
-@keyframes cbrcFade{
+.brcp-tab-active:hover{
 
-    from{
-
-        opacity:0;
-
-        transform:translateY(15px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
+    color:var(--white);
 
 }
 
-/*=========================================================
-REVIEW LIST
-=========================================================*/
+/*==========================================================
+REVIEW WRAPPER
+==========================================================*/
 
-.cbrc-review-list{
+.brcp-review-wrapper{
 
     display:flex;
 
@@ -43694,93 +44875,69 @@ REVIEW LIST
 
 }
 
-/*=========================================================
+/*==========================================================
 REVIEW CARD
-=========================================================*/
+==========================================================*/
 
-.cbrc-review-card{
+.brcp-review-card{
 
-    position:relative;
+    background:var(--surface);
 
-    background:#ffffff;
+    border:1px solid var(--border);
 
-    border:1px solid var(--border-color);
-
-    border-radius:20px;
+    border-radius:var(--radius-xl);
 
     padding:24px;
 
-    box-shadow:0 10px 28px rgba(15,23,42,.05);
+    box-shadow:var(--shadow-xs);
 
-    overflow:hidden;
+    transition:var(--transition);
 
-    transition:all .35s ease;
-
-}
-
-.cbrc-review-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    top:0;
-
-    width:5px;
-
-    height:100%;
-
-    background:#14D495;
-
-    transform:scaleY(0);
-
-    transform-origin:top;
-
-    transition:.35s ease;
+    animation:brcpFadeUp .55s ease;
 
 }
 
-.cbrc-review-card:hover{
+.brcp-review-card:hover{
 
     transform:translateY(-4px);
 
-    border-color:#14D495;
-
-    box-shadow:0 18px 42px rgba(15,23,42,.10);
+    box-shadow:var(--shadow-md);
 
 }
 
-.cbrc-review-card:hover::before{
+.brcp-review-top{
 
-    transform:scaleY(1);
+    margin-bottom:20px;
 
 }
 
-/*=========================================================
-PRODUCT IMAGE
-=========================================================*/
+.brcp-review-product{
 
-.cbrc-product-image{
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.brcp-product-image{
 
     width:72px;
 
     height:72px;
 
-    border-radius:16px;
+    border-radius:var(--radius-md);
 
     overflow:hidden;
 
-    background:#F8FAFC;
-
-    border:1px solid #E5E7EB;
-
     flex-shrink:0;
+
+    background:var(--border-light);
 
 }
 
-.cbrc-product-image img{
+.brcp-product-image img{
 
     width:100%;
 
@@ -43788,105 +44945,97 @@ PRODUCT IMAGE
 
     object-fit:cover;
 
-    transition:transform .35s ease;
+}
+
+.brcp-product-content{
+
+    flex:1;
 
 }
 
-.cbrc-review-card:hover .cbrc-product-image img{
+.brcp-product-title{
 
-    transform:scale(1.05);
-
-}
-
-/*=========================================================
-PRODUCT DETAILS
-=========================================================*/
-
-.cbrc-product-details{
-
-    margin-bottom:14px;
-
-}
-
-.cbrc-product-title{
-
-    margin:0 0 6px;
-
-    font-size:1.12rem;
+    font-size:1.05rem;
 
     font-weight:700;
 
-    color:var(--text-color);
+    color:var(--heading);
 
-    line-height:1.4;
-
-}
-
-.cbrc-product-meta{
-
-    margin:0;
-
-    font-size:.9rem;
-
-    color:var(--text-muted);
+    margin-bottom:6px;
 
 }
 
-/*=========================================================
-RATING
-=========================================================*/
+.brcp-product-meta{
 
-.cbrc-rating-wrapper{
+    font-size:.92rem;
+
+    color:var(--text-light);
+
+}
+
+/*==========================================================
+STAR RATING
+==========================================================*/
+
+.brcp-rating{
 
     display:flex;
 
     align-items:center;
 
-    gap:14px;
+    gap:10px;
+
+    margin-bottom:20px;
 
     flex-wrap:wrap;
 
-    margin-bottom:18px;
-
 }
 
-.cbrc-rating-stars{
+.brcp-star{
+
+    width:42px;
+
+    height:42px;
 
     display:flex;
 
     align-items:center;
 
-    gap:6px;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:transparent;
+
+    transition:var(--transition);
 
 }
 
-.cbrc-rating-stars i{
+.brcp-star i{
 
     font-size:1.35rem;
 
-    color:#D1D5DB;
+    color:#d1d5db;
 
-    cursor:pointer;
-
-    transition:all .25s ease;
+    transition:var(--transition);
 
 }
 
-.cbrc-rating-stars i:hover{
+.brcp-star:hover i{
 
-    color:#FBBF24;
+    color:#f6b100;
 
     transform:scale(1.15);
 
 }
 
-.cbrc-rating-stars i.cbrc-active{
+.brcp-star.brcp-star-active i{
 
-    color:#FBBF24;
+    color:#f6b100;
 
 }
 
-.cbrc-rating-text{
+.brcp-rating-text{
 
     font-size:.9rem;
 
@@ -43896,57 +45045,57 @@ RATING
 
 }
 
-/*=========================================================
+/*==========================================================
 TEXTAREA
-=========================================================*/
+==========================================================*/
 
-.cbrc-review-input{
+.brcp-review-input{
 
-    margin-bottom:18px;
-
-}
-
-.cbrc-review-textarea{
+    width:100%;
 
     min-height:120px;
 
-    resize: none;
+    resize:none;
 
-    border:1px solid #D1D5DB;
+    padding:16px 18px;
 
-    border-radius:14px;
+    border:1px solid var(--border);
 
-    padding:16px;
+    border-radius:var(--radius-lg);
+
+    background:var(--white);
+
+    color:var(--heading);
 
     font-size:.95rem;
 
-    color:var(--text-color);
+    line-height:1.7;
 
-    transition:all .3s ease;
-
-    box-shadow:none;
+    transition:var(--transition);
 
 }
 
-.cbrc-review-textarea::placeholder{
+.brcp-review-input::placeholder{
 
-    color:#9CA3AF;
-
-}
-
-.cbrc-review-textarea:focus{
-
-    border-color:#14D495;
-
-    box-shadow:0 0 0 .2rem rgba(20,212,149,.15);
+    color:var(--text-muted);
 
 }
 
-/*=========================================================
-REVIEW ACTIONS
-=========================================================*/
+.brcp-review-input:focus{
 
-.cbrc-review-actions{
+    border-color:var(--primary);
+
+    background:var(--primary-light);
+
+}
+
+/*==========================================================
+ACTIONS
+==========================================================*/
+
+.brcp-review-actions{
+
+    margin-top:20px;
 
     display:flex;
 
@@ -43954,169 +45103,17 @@ REVIEW ACTIONS
 
     justify-content:space-between;
 
+    gap:18px;
+
     flex-wrap:wrap;
 
-    gap:14px;
-
 }
 
-/*=========================================================
-SUBMIT BUTTON
-=========================================================*/
-
-.cbrc-submit-review-btn{
-
-    background:#14D495;
-
-    color:#ffffff;
-
-    border:none;
-
-    border-radius:50px;
-
-    padding:12px 28px;
-
-    font-size:.95rem;
-
-    font-weight:600;
-
-    transition:all .3s ease;
-
-    box-shadow:0 10px 24px rgba(20,212,149,.20);
-
-}
-
-.cbrc-submit-review-btn:hover{
-
-    background:#10B981;
-
-    color:#ffffff;
-
-    transform:translateY(-2px);
-
-    box-shadow:0 14px 30px rgba(16,185,129,.25);
-
-}
-
-.cbrc-submit-review-btn:active{
-
-    transform:scale(.98);
-
-}
-
-/*=========================================================
-REMIND BUTTON
-=========================================================*/
-
-.cbrc-remind-btn{
-
-    background:transparent;
-
-    border:none;
-
-    color:#6B7280;
-
-    font-size:.95rem;
-
-    font-weight:600;
-
-    transition:all .3s ease;
-
-}
-
-.cbrc-remind-btn:hover{
-
-    color:#14D495;
-
-    text-decoration:underline;
-
-}
-
-/*=========================================================
-SUBMITTED REVIEW CARDS
-=========================================================*/
-
-.cbrc-submitted-card{
-
-    border-left:5px solid #10B981;
-
-    background:#FFFFFF;
-
-}
-
-.cbrc-submitted-stars{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:4px;
-
-    margin:12px 0;
-
-}
-
-.cbrc-submitted-stars i{
-
-    color:#FBBF24;
-
-    font-size:1rem;
-
-}
-
-.cbrc-submitted-text{
-
-    margin:0;
-
-    color:var(--secondary);
-
-    font-size:.95rem;
-
-    line-height:1.7;
-
-}
-
-/*=========================================================
-EMPTY STATE
-=========================================================*/
-
-.cbrc-empty-state{
-
-    min-height:60vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:60px 20px;
-
-}
-
-.cbrc-empty-content{
-
-    max-width:520px;
-
-    width:100%;
-
-    text-align:center;
-
-    background:#FFFFFF;
-
-    border:1px solid var(--border-color);
-
-    border-radius:24px;
-
-    padding:48px 32px;
-
-    box-shadow:0 18px 40px rgba(15,23,42,.06);
-
-    animation:cbrcScaleIn .45s ease;
-
-}
-
-.cbrc-empty-content i{
+/*==========================================================
+BUTTONS
+==========================================================*/
+
+.brcp-submit-btn{
 
     display:inline-flex;
 
@@ -44124,133 +45121,113 @@ EMPTY STATE
 
     justify-content:center;
 
-    width:90px;
+    min-width:180px;
 
-    height:90px;
+    height:52px;
 
-    border-radius:50%;
-
-    background:rgba(20,212,149,.12);
-
-    color:#14D495;
-
-    font-size:2.8rem;
-
-    margin-bottom:22px;
-
-}
-
-.cbrc-empty-content h3{
-
-    margin-bottom:14px;
-
-    font-size:1.7rem;
-
-    font-weight:700;
-
-    color:var(--text-color);
-
-}
-
-.cbrc-empty-content p{
-
-    margin-bottom:30px;
-
-    color:var(--text-muted);
-
-    font-size:1rem;
-
-    line-height:1.7;
-
-}
-
-.cbrc-return-btn{
-
-    background:#14D495;
-
-    color:#FFFFFF;
+    padding:0 28px;
 
     border:none;
 
-    border-radius:999px;
+    border-radius:var(--radius-pill);
 
-    padding:13px 32px;
+    background:var(--primary);
 
-    font-weight:600;
-
-    transition:all .3s ease;
-
-}
-
-.cbrc-return-btn:hover{
-
-    background:#10B981;
-
-    color:#FFFFFF;
-
-    transform:translateY(-2px);
-
-}
-
-/*=========================================================
-SUCCESS TOAST
-=========================================================*/
-
-#cbrcSuccessToast{
-
-    border-radius:16px;
-
-    overflow:hidden;
-
-    box-shadow:0 18px 40px rgba(15,23,42,.18);
-
-}
-
-#cbrcSuccessToast .toast-body{
-
-    display:flex;
-
-    align-items:center;
-
-    font-weight:600;
+    color:var(--white);
 
     font-size:.95rem;
 
-    padding:16px 18px;
+    font-weight:600;
+
+    transition:var(--transition);
 
 }
 
-/*=========================================================
+.brcp-submit-btn:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.brcp-submit-btn:active{
+
+    transform:scale(.98);
+
+}
+
+.brcp-remind-link{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    color:var(--text-light);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.brcp-remind-link:hover{
+
+    color:var(--primary);
+
+}
+
+/*==========================================================
+DROPDOWN
+==========================================================*/
+
+.dropdown-menu{
+
+    border:none;
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:var(--shadow-lg);
+
+    padding:10px;
+
+}
+
+.dropdown-item{
+
+    border-radius:var(--radius-sm);
+
+    font-size:.92rem;
+
+    padding:10px 14px;
+
+    transition:var(--transition);
+
+}
+
+.dropdown-item:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+}
+
+/*==========================================================
 ANIMATIONS
-=========================================================*/
+==========================================================*/
 
-@keyframes cbrcScaleIn{
-
-    from{
-
-        opacity:0;
-
-        transform:scale(.92);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-
-    }
-
-}
-
-@keyframes cbrcSlideUp{
+@keyframes brcpFadeUp{
 
     from{
 
         opacity:0;
 
-        transform:translateY(28px);
+        transform:translateY(25px);
 
     }
 
@@ -44264,281 +45241,97 @@ ANIMATIONS
 
 }
 
-.cbrc-review-card{
+.brcp-heading,
 
-    animation:cbrcSlideUp .45s ease both;
+.brcp-tabs,
 
-}
+.brcp-review-card{
 
-.cbrc-review-card:nth-child(1){
-
-    animation-delay:.05s;
+    animation:brcpFadeUp .6s ease both;
 
 }
 
-.cbrc-review-card:nth-child(2){
-
-    animation-delay:.10s;
-
-}
-
-.cbrc-review-card:nth-child(3){
+.brcp-review-card:nth-child(2){
 
     animation-delay:.15s;
 
 }
 
-.cbrc-review-card:nth-child(4){
+.brcp-review-card:nth-child(3){
 
-    animation-delay:.20s;
-
-}
-
-/*=========================================================
-INTERACTIVE STAR EFFECT
-=========================================================*/
-
-.cbrc-rating-stars i{
-
-    position:relative;
+    animation-delay:.3s;
 
 }
 
-.cbrc-rating-stars i::after{
+/*==========================================================
+RESPONSIVE
+==========================================================*/
 
-    content:"";
+@media (max-width:991.98px){
 
-    position:absolute;
+    .brcp-page{
 
-    inset:-5px;
-
-    border-radius:50%;
-
-    background:rgba(251,191,36,.18);
-
-    opacity:0;
-
-    transform:scale(.5);
-
-    transition:all .25s ease;
-
-    z-index:-1;
-
-}
-
-.cbrc-rating-stars i:hover::after,
-
-.cbrc-rating-stars i.cbrc-active::after{
-
-    opacity:1;
-
-    transform:scale(1);
-
-}
-
-/*=========================================================
-LARGE TABLETS
-=========================================================*/
-
-@media (max-width: 1199.98px){
-
-    .cbrc-header .container-fluid{
-
-        padding-left:24px;
-
-        padding-right:24px;
+        padding:36px 0 70px;
 
     }
 
-    .cbrc-page-title{
+    .brcp-nav-right{
 
-        font-size:1.8rem;
-
-    }
-
-    .cbrc-review-card{
-
-        padding:22px;
-
-    }
-
-    .cbrc-product-title{
-
-        font-size:1.05rem;
-
-    }
-
-}
-
-/*=========================================================
-TABLETS
-=========================================================*/
-
-@media (max-width: 991.98px){
-
-    .cbrc-main{
-
-        padding:32px 0 60px;
-
-    }
-
-    .cbrc-header{
-
-        padding:12px 0;
-
-    }
-
-    .cbrc-header-right{
-
-        gap:12px;
-
-    }
-
-    .cbrc-profile-name{
-
-        display:none;
-
-    }
-
-    .cbrc-logo-placeholder{
-
-        width:130px;
-
-        height:44px;
-
-    }
-
-    .cbrc-page-title{
-
-        font-size:1.6rem;
-
-    }
-
-    .cbrc-tabs{
-
-        gap:10px;
-
-    }
-
-    .cbrc-tab{
-
-        flex:1;
-
-        text-align:center;
-
-        padding:12px 18px;
-
-    }
-
-    .cbrc-review-card{
-
-        padding:20px;
-
-    }
-
-    .cbrc-product-image{
-
-        width:68px;
-
-        height:68px;
-
-    }
-
-    .cbrc-review-textarea{
-
-        min-height:110px;
-
-    }
-
-}
-
-/*=========================================================
-MOBILE DEVICES
-=========================================================*/
-
-@media (max-width: 767.98px){
-
-    .cbrc-header .container-fluid{
-
-        padding-left:16px;
-
-        padding-right:16px;
-
-    }
-
-    .cbrc-main{
-
-        padding:24px 0 50px;
-
-    }
-
-    .cbrc-breadcrumb{
-
-        margin-bottom:14px;
-
-    }
-
-    .cbrc-page-title{
-
-        font-size:1.45rem;
-
-        line-height:1.4;
-
-    }
-
-    .cbrc-tabs{
-
-        flex-direction:column;
-
-        align-items:stretch;
-
-    }
-
-    .cbrc-tab{
-
-        width:100%;
-
-    }
-
-    .cbrc-review-card{
-
-        padding:18px;
-
-        border-radius:18px;
-
-    }
-
-    .cbrc-review-card .row{
-
-        flex-direction:column;
-
-    }
-
-    .cbrc-product-image{
-
-        width:100%;
-
-        max-width:90px;
-
-        height:90px;
-
-        margin:0 auto 18px;
-
-    }
-
-    .cbrc-product-details{
-
-        text-align:center;
-
-    }
-
-    .cbrc-rating-wrapper{
+        margin-top:20px;
 
         justify-content:center;
 
     }
 
-    .cbrc-review-actions{
+    .brcp-review-card{
+
+        padding:22px;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .brcp-page{
+
+        padding:28px 0 60px;
+
+    }
+
+    .brcp-heading h2{
+
+        font-size:1.65rem;
+
+    }
+
+    .brcp-review-product{
+
+        align-items:flex-start;
+
+    }
+
+    .brcp-product-image{
+
+        width:64px;
+
+        height:64px;
+
+    }
+
+    .brcp-product-title{
+
+        font-size:1rem;
+
+    }
+
+    .brcp-review-input{
+
+        min-height:110px;
+
+    }
+
+    .brcp-review-actions{
 
         flex-direction:column;
 
@@ -44546,47 +45339,59 @@ MOBILE DEVICES
 
     }
 
-    .cbrc-submit-review-btn,
-
-    .cbrc-remind-btn{
+    .brcp-submit-btn{
 
         width:100%;
 
     }
 
-    .cbrc-submit-review-btn{
+    .brcp-remind-link{
 
-        order:1;
+        justify-content:center;
 
     }
 
-    .cbrc-remind-btn{
+}
 
-        order:2;
+@media (max-width:575.98px){
+
+    .brcp-tabs{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .brcp-tab{
+
+        width:100%;
 
         text-align:center;
 
     }
 
-}
+    .brcp-review-card{
 
-/*=========================================================
-SMALL MOBILE DEVICES
-=========================================================*/
-
-@media (max-width: 575.98px){
-
-    .cbrc-logo-placeholder{
-
-        width:110px;
-
-        height:40px;
-
-        font-size:.75rem;
+        padding:18px;
 
     }
 
-    .cbrc-icon-btn{
+    .brcp-review-product{
+
+        gap:14px;
+
+    }
+
+    .brcp-product-image{
+
+        width:58px;
+
+        height:58px;
+
+    }
+
+    .brcp-star{
 
         width:38px;
 
@@ -44594,343 +45399,190 @@ SMALL MOBILE DEVICES
 
     }
 
-    .cbrc-profile-image{
+    .brcp-star i{
 
-        width:38px;
-
-        height:38px;
-
-    }
-
-    .cbrc-page-title{
-
-        font-size:1.3rem;
-
-    }
-
-    .cbrc-product-title{
-
-        font-size:1rem;
-
-    }
-
-    .cbrc-product-meta{
-
-        font-size:.82rem;
-
-    }
-
-    .cbrc-rating-stars{
-
-        gap:4px;
-
-    }
-
-    .cbrc-rating-stars i{
-
-        font-size:1.15rem;
-
-    }
-
-    .cbrc-review-textarea{
-
-        min-height:100px;
-
-        padding:14px;
-
-        font-size:.9rem;
-
-    }
-
-    .cbrc-submit-review-btn{
-
-        padding:12px 20px;
-
-        font-size:.9rem;
-
-    }
-
-    .cbrc-remind-btn{
-
-        font-size:.9rem;
-
-    }
-
-    .cbrc-empty-content{
-
-        padding:36px 22px;
-
-    }
-
-    .cbrc-empty-content h3{
-
-        font-size:1.35rem;
+        font-size:1.2rem;
 
     }
 
 }
 
-/*=========================================================
-LANDSCAPE PHONES
-=========================================================*/
+/*==========================================================
+NAVIGATION LINKS
+==========================================================*/
 
-@media (max-width: 767.98px) and (orientation:landscape){
-
-    .cbrc-review-card{
-
-        padding:16px;
-
-    }
-
-    .cbrc-product-image{
-
-        max-width:72px;
-
-        height:72px;
-
-        margin-bottom:12px;
-
-    }
-
-    .cbrc-review-textarea{
-
-        min-height:90px;
-
-    }
-
-}
-
-/*=========================================================
-ACCESSIBILITY
-=========================================================*/
-
-.cbrc-tab:focus-visible,
-.cbrc-submit-review-btn:focus-visible,
-.cbrc-remind-btn:focus-visible,
-.cbrc-icon-btn:focus-visible,
-.cbrc-profile-btn:focus-visible,
-.cbrc-review-textarea:focus-visible,
-.cbrc-rating-stars i:focus-visible{
-
-    outline:3px solid rgba(20,212,149,.35);
-
-    outline-offset:3px;
-
-}
-
-.cbrc-rating-stars i{
-
-    border-radius:50%;
-
-}
-
-/*=========================================================
-CUSTOM SCROLLBAR
-=========================================================*/
-
-.cbrc-review-textarea::-webkit-scrollbar{
-
-    width:8px;
-
-}
-
-.cbrc-review-textarea::-webkit-scrollbar-track{
-
-    background:#F3F4F6;
-
-    border-radius:999px;
-
-}
-
-.cbrc-review-textarea::-webkit-scrollbar-thumb{
-
-    background:#14D495;
-
-    border-radius:999px;
-
-}
-
-.cbrc-review-textarea::-webkit-scrollbar-thumb:hover{
-
-    background:#10B981;
-
-}
-
-/*=========================================================
-LOADING STATE
-=========================================================*/
-
-.cbrc-loading{
-
-    pointer-events:none;
-
-    opacity:.7;
-
-}
-
-.cbrc-loading .cbrc-submit-review-btn{
+.brcp-navbar .nav-link{
 
     position:relative;
 
-    color:transparent;
+    padding:.75rem 1rem;
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    color:var(--text);
+
+    transition:var(--transition);
 
 }
 
-.cbrc-loading .cbrc-submit-review-btn::after{
+.brcp-navbar .nav-link:hover,
+
+.brcp-navbar .nav-link:focus{
+
+    color:var(--primary);
+
+}
+
+.brcp-navbar .nav-link.active{
+
+    color:var(--primary);
+
+    font-weight:700;
+
+}
+
+.brcp-navbar .nav-link.active::after{
 
     content:"";
 
     position:absolute;
 
-    top:50%;
-
     left:50%;
 
-    width:18px;
+    bottom:-14px;
 
-    height:18px;
+    transform:translateX(-50%);
 
-    margin-top:-9px;
+    width:24px;
 
-    margin-left:-9px;
+    height:3px;
 
-    border:2px solid rgba(255,255,255,.4);
+    background:var(--primary);
 
-    border-top-color:#FFFFFF;
-
-    border-radius:50%;
-
-    animation:cbrcSpin .7s linear infinite;
+    border-radius:999px;
 
 }
 
-@keyframes cbrcSpin{
+/*==========================================================
+ACCESSIBILITY
+==========================================================*/
+
+.brcp-submit-btn:focus-visible,
+
+.brcp-tab:focus-visible,
+
+.brcp-star:focus-visible,
+
+.brcp-nav-icon:focus-visible,
+
+.brcp-remind-link:focus-visible{
+
+    outline:3px solid rgba(24,195,126,.25);
+
+    outline-offset:3px;
+
+}
+
+.brcp-review-input:focus-visible{
+
+    outline:none;
+
+}
+
+/*==========================================================
+UTILITY STATES
+==========================================================*/
+
+.brcp-hidden{
+
+    display:none !important;
+
+}
+
+.brcp-disabled{
+
+    opacity:.55;
+
+    pointer-events:none;
+
+    user-select:none;
+
+}
+
+.brcp-loading{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.brcp-loading::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+
+    animation:brcpLoading 1.2s linear infinite;
+
+}
+
+@keyframes brcpLoading{
+
+    from{
+
+        transform:translateX(-100%);
+
+    }
 
     to{
 
-        transform:rotate(360deg);
+        transform:translateX(100%);
 
     }
 
 }
 
-/*=========================================================
-DARK MODE
-=========================================================*/
-
-@media (prefers-color-scheme:dark){
-
-    #cbrcPage{
-
-        background:#0F172A;
-
-    }
-
-    .cbrc-header{
-
-        background:#111827;
-
-        border-color:#1F2937;
-
-    }
-
-    .cbrc-review-card,
-
-    .cbrc-empty-content{
-
-        background:#1E293B;
-
-        border-color:#334155;
-
-    }
-
-    .cbrc-page-title,
-
-    .cbrc-product-title,
-
-    .cbrc-profile-name,
-
-    .cbrc-empty-content h3{
-
-        color:#F8FAFC;
-
-    }
-
-    .cbrc-product-meta,
-
-    .cbrc-rating-text,
-
-    .cbrc-submitted-text,
-
-    .cbrc-empty-content p{
-
-        color:#CBD5E1;
-
-    }
-
-    .cbrc-tab{
-
-        background:#334155;
-
-        color:#E2E8F0;
-
-    }
-
-    .cbrc-tab.active{
-
-        background:#10B981;
-
-        color:#FFFFFF;
-
-    }
-
-    .cbrc-review-textarea{
-
-        background:#0F172A;
-
-        color:#F8FAFC;
-
-        border-color:#334155;
-
-    }
-
-    .cbrc-review-textarea::placeholder{
-
-        color:#94A3B8;
-
-    }
-
-}
-
-/*=========================================================
+/*==========================================================
 PRINT
-=========================================================*/
+==========================================================*/
 
 @media print{
 
-    .cbrc-header,
+    .brcp-navbar,
 
-    .cbrc-tabs,
+    .brcp-tabs,
 
-    .cbrc-review-actions,
-
-    .toast-container{
+    .brcp-review-actions{
 
         display:none !important;
 
     }
 
-    #cbrcPage{
+    .brcp-page{
 
-        background:#FFFFFF;
+        padding:0;
+
+        background:#fff;
 
     }
 
-    .cbrc-review-card{
+    .brcp-review-card{
 
         box-shadow:none;
 
-        border:1px solid #CCCCCC;
+        border:1px solid #ddd;
 
         page-break-inside:avoid;
 
@@ -44938,347 +45590,11 @@ PRINT
 
 }
 
-/*=========================================================
-REDUCED MOTION
-=========================================================*/
+/*==========================================================
+END OF BUYER REVIEWS CENTRE
+==========================================================*/
 
-@media (prefers-reduced-motion:reduce){
 
-    *{
-
-        animation:none !important;
-
-        transition:none !important;
-
-        scroll-behavior:auto !important;
-
-    }
-
-}
-
-/*=========================================================
-PERFORMANCE
-=========================================================*/
-
-.cbrc-review-card,
-.cbrc-tab,
-.cbrc-submit-review-btn,
-.cbrc-icon-btn{
-
-    will-change:transform;
-
-}
-
-.cbrc-product-image img{
-
-    backface-visibility:hidden;
-
-    transform:translateZ(0);
-
-}
-
-/*=========================================================
-UTILITY CLASSES
-=========================================================*/
-
-.cbrc-hidden{
-
-    display:none !important;
-
-}
-
-.cbrc-visible{
-
-    display:block !important;
-
-}
-
-.cbrc-flex{
-
-    display:flex !important;
-
-}
-
-.cbrc-flex-center{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-}
-
-.cbrc-w-100{
-
-    width:100%;
-
-}
-
-.cbrc-text-center{
-
-    text-align:center;
-
-}
-
-.cbrc-text-success{
-
-    color:#10B981 !important;
-
-}
-
-.cbrc-text-muted{
-
-    color:var(--text-muted) !important;
-
-}
-
-.cbrc-rounded{
-
-    border-radius:16px !important;
-
-}
-
-.cbrc-shadow{
-
-    box-shadow:0 12px 30px rgba(15,23,42,.08);
-
-}
-
-/*=========================================================
-STAR SELECTION ANIMATION
-=========================================================*/
-
-.cbrc-rating-stars i.cbrc-active{
-
-    color:#FBBF24;
-
-    animation:cbrcStarPop .25s ease;
-
-}
-
-@keyframes cbrcStarPop{
-
-    0%{
-
-        transform:scale(.75);
-
-    }
-
-    60%{
-
-        transform:scale(1.25);
-
-    }
-
-    100%{
-
-        transform:scale(1);
-
-    }
-
-}
-
-/*=========================================================
-SUCCESS STATE
-=========================================================*/
-
-.cbrc-review-card.cbrc-review-submitted{
-
-    border-color:#10B981;
-
-    box-shadow:0 16px 36px rgba(16,185,129,.18);
-
-}
-
-.cbrc-review-card.cbrc-review-submitted::before{
-
-    transform:scaleY(1);
-
-    background:#10B981;
-
-}
-
-/*=========================================================
-BUTTON DISABLED STATE
-=========================================================*/
-
-.cbrc-submit-review-btn:disabled{
-
-    opacity:.65;
-
-    cursor:not-allowed;
-
-    pointer-events:none;
-
-    box-shadow:none;
-
-}
-
-.cbrc-remind-btn:disabled{
-
-    opacity:.65;
-
-    cursor:not-allowed;
-
-}
-
-/*=========================================================
-TOAST ANIMATION
-=========================================================*/
-
-.toast.show{
-
-    animation:cbrcToastSlide .35s ease;
-
-}
-
-@keyframes cbrcToastSlide{
-
-    from{
-
-        opacity:0;
-
-        transform:translateX(30px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateX(0);
-
-    }
-
-}
-
-/*=========================================================
-IMAGE HOVER EFFECT
-=========================================================*/
-
-.cbrc-product-image{
-
-    transition:
-
-        transform .35s ease,
-
-        box-shadow .35s ease;
-
-}
-
-.cbrc-review-card:hover .cbrc-product-image{
-
-    transform:scale(1.04);
-
-    box-shadow:0 10px 24px rgba(20,212,149,.18);
-
-}
-
-/*=========================================================
-TEXT SELECTION
-=========================================================*/
-
-#cbrcPage ::selection{
-
-    background:#14D495;
-
-    color:#FFFFFF;
-
-}
-
-#cbrcPage ::-moz-selection{
-
-    background:#14D495;
-
-    color:#FFFFFF;
-
-}
-
-/*=========================================================
-SMOOTH SCROLL
-=========================================================*/
-
-html{
-
-    scroll-behavior:smooth;
-
-}
-
-/*=========================================================
-EXTRA SMALL DEVICES
-=========================================================*/
-
-@media (max-width:360px){
-
-    .cbrc-page-title{
-
-        font-size:1.15rem;
-
-    }
-
-    .cbrc-review-card{
-
-        padding:15px;
-
-    }
-
-    .cbrc-product-image{
-
-        width:72px;
-
-        height:72px;
-
-    }
-
-    .cbrc-submit-review-btn{
-
-        font-size:.85rem;
-
-        padding:11px 16px;
-
-    }
-
-    .cbrc-remind-btn{
-
-        font-size:.85rem;
-
-    }
-
-    .cbrc-rating-stars i{
-
-        font-size:1rem;
-
-    }
-
-    .cbrc-review-textarea{
-
-        min-height:90px;
-
-        font-size:.85rem;
-
-    }
-
-}
-
-/*=========================================================
-HIGH RESOLUTION DISPLAYS
-=========================================================*/
-
-@media (-webkit-min-device-pixel-ratio:2),
-(min-resolution:192dpi){
-
-    .cbrc-product-image img{
-
-        image-rendering:auto;
-
-    }
-
-}
-
-/*=========================================================
-END OF BUYER REVIEWS CENTRE STYLES
-=========================================================*/
 
 /*=========================================================
 BUYER NEIGHBORHOOD
@@ -55537,6 +55853,1075 @@ ACCESSIBILITY
 /*==========================================================
 END OF SERVICE LANDING PAGE
 ==========================================================*/
+
+/*==========================================================
+BUYER MESSAGE PAGE
+Prefix: ybmpg
+==========================================================*/
+
+.ybmpg-page{
+
+    background:var(--body);
+
+    min-height:100vh;
+
+    padding:32px 24px;
+
+}
+
+.ybmpg-wrapper{
+
+    display:grid;
+
+    grid-template-columns:360px 1fr;
+
+    gap:24px;
+
+    align-items:stretch;
+
+}
+
+/*==========================================================
+NAVBAR
+==========================================================*/
+
+.ybmpg-navbar{
+
+    background:var(--white);
+
+    border-bottom:1px solid var(--border);
+
+    padding:14px 26px;
+
+    box-shadow:var(--shadow-xs);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+.ybmpg-brand img{
+
+    height:42px;
+
+    width:auto;
+
+}
+
+.ybmpg-navbar .nav-link{
+
+    color:var(--text);
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    padding:.75rem 1rem;
+
+    transition:var(--transition);
+
+}
+
+.ybmpg-navbar .nav-link:hover,
+
+.ybmpg-navbar .nav-link.active{
+
+    color:var(--primary);
+
+}
+
+.ybmpg-navbar-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.ybmpg-nav-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:1px solid var(--border);
+
+    background:var(--white);
+
+    position:relative;
+
+    transition:var(--transition);
+
+}
+
+.ybmpg-nav-icon:hover{
+
+    background:var(--primary-light);
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+.ybmpg-nav-icon i{
+
+    font-size:1.15rem;
+
+}
+
+.ybmpg-notification-dot{
+
+    position:absolute;
+
+    top:10px;
+
+    right:11px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+}
+
+.ybmpg-profile-trigger{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:none;
+
+    background:none;
+
+    padding:0;
+
+}
+
+.ybmpg-profile-trigger img{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.ybmpg-profile-trigger span{
+
+    color:var(--heading);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+}
+
+/*==========================================================
+SIDEBAR
+==========================================================*/
+
+.ybmpg-sidebar{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    box-shadow:var(--shadow-xs);
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:760px;
+
+}
+
+.ybmpg-sidebar-header{
+
+    padding:24px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.ybmpg-sidebar-header h3{
+
+    font-size:1.45rem;
+
+    font-weight:700;
+
+}
+
+.ybmpg-search-wrapper{
+
+    margin:20px;
+
+    position:relative;
+
+}
+
+.ybmpg-search-wrapper i{
+
+    position:absolute;
+
+    top:50%;
+
+    left:18px;
+
+    transform:translateY(-50%);
+
+    color:var(--text-muted);
+
+}
+
+.ybmpg-search-wrapper input{
+
+    width:100%;
+
+    height:52px;
+
+    padding-left:48px;
+
+    padding-right:16px;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-pill);
+
+    background:var(--body);
+
+    font-size:.95rem;
+
+}
+
+.ybmpg-search-wrapper input:focus{
+
+    border-color:var(--primary);
+
+    background:var(--white);
+
+}
+
+/*==========================================================
+CONVERSATION LIST
+==========================================================*/
+
+.ybmpg-conversation-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow-y:auto;
+
+    flex:1;
+
+}
+
+.ybmpg-conversation-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:14px;
+
+    padding:18px 20px;
+
+    border-bottom:1px solid var(--border-light);
+
+    transition:var(--transition);
+
+    position:relative;
+
+}
+
+.ybmpg-conversation-item:hover{
+
+    background:var(--primary-light);
+
+}
+
+.ybmpg-conversation-active{
+
+    background:var(--primary-light);
+
+    border-left:4px solid var(--primary);
+
+}
+
+.ybmpg-avatar{
+
+    position:relative;
+
+    flex-shrink:0;
+
+}
+
+.ybmpg-avatar img{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.ybmpg-online-dot{
+
+    position:absolute;
+
+    right:2px;
+
+    bottom:2px;
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    border:2px solid var(--white);
+
+    background:var(--success);
+
+}
+
+.ybmpg-conversation-content{
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+.ybmpg-conversation-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:2px;
+
+    gap:12px;
+
+}
+
+.ybmpg-conversation-top h6{
+
+    font-size:.98rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin:0;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+.ybmpg-conversation-top small{
+
+    font-size:.72rem;
+
+    color:var(--text-muted);
+
+    white-space:nowrap;
+
+}
+
+.ybmpg-user-role{
+
+    display:inline-block;
+
+    font-size:.76rem;
+
+    font-weight:600;
+
+    color:var(--primary);
+
+    margin-bottom:6px;
+
+}
+
+.ybmpg-conversation-content p{
+
+    font-size:.88rem;
+
+    color:var(--text-light);
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+.ybmpg-unread-badge{
+
+    position:absolute;
+
+    right:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:22px;
+
+    height:22px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    font-size:.72rem;
+
+    font-weight:700;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+/*==========================================================
+CHAT AREA
+==========================================================*/
+
+.ybmpg-chat-area{
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    box-shadow:var(--shadow-xs);
+
+    overflow:hidden;
+
+    min-height:760px;
+
+}
+
+.ybmpg-chat-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 26px;
+
+    border-bottom:1px solid var(--border);
+
+    background:var(--white);
+
+}
+
+.ybmpg-chat-user{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.ybmpg-chat-user h5{
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+    margin-bottom:2px;
+
+}
+
+.ybmpg-chat-user small{
+
+    color:var(--success);
+
+    font-size:.82rem;
+
+}
+
+.ybmpg-chat-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.ybmpg-chat-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--body);
+
+    color:var(--heading);
+
+    transition:var(--transition);
+
+}
+
+.ybmpg-chat-icon:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+}
+
+/*==========================================================
+CHAT BODY
+==========================================================*/
+
+.ybmpg-chat-body{
+
+    flex:1;
+
+    padding:28px;
+
+    overflow-y:auto;
+
+    background:#f8fafc;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.ybmpg-message-row{
+
+    display:flex;
+
+    width:100%;
+
+    animation:ybmpgFadeIn .35s ease;
+
+}
+
+.ybmpg-message-left{
+
+    justify-content:flex-start;
+
+}
+
+.ybmpg-message-right{
+
+    justify-content:flex-end;
+
+}
+
+.ybmpg-message-bubble{
+
+    max-width:72%;
+
+    padding:16px 18px;
+
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:20px 20px 20px 6px;
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.ybmpg-message-self{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    border:none;
+
+    border-radius:20px 20px 6px 20px;
+
+}
+
+.ybmpg-message-bubble p{
+
+    margin:0;
+
+    font-size:.95rem;
+
+    line-height:1.75;
+
+    color:var(--text);
+
+}
+
+.ybmpg-message-self p{
+
+    color:var(--white);
+
+}
+
+.ybmpg-message-bubble span{
+
+    display:block;
+
+    margin-top:10px;
+
+    font-size:.74rem;
+
+    color:var(--text-muted);
+
+    text-align:right;
+
+}
+
+.ybmpg-message-self span{
+
+    color:rgba(255,255,255,.85);
+
+}
+
+/*==========================================================
+CHAT FOOTER
+==========================================================*/
+
+.ybmpg-chat-footer{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:20px 24px;
+
+    background:var(--white);
+
+    border-top:1px solid var(--border);
+
+}
+
+.ybmpg-footer-icon{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--body);
+
+    color:var(--heading);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:var(--transition);
+
+}
+
+.ybmpg-footer-icon:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+}
+
+.ybmpg-footer-icon i{
+
+    font-size:1.2rem;
+
+}
+
+.ybmpg-chat-footer input{
+
+    flex:1;
+
+    height:54px;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-pill);
+
+    padding:0 22px;
+
+    background:var(--body);
+
+    font-size:.95rem;
+
+    transition:var(--transition);
+
+}
+
+.ybmpg-chat-footer input:focus{
+
+    border-color:var(--primary);
+
+    background:var(--white);
+
+}
+
+.ybmpg-send-button{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:0 26px;
+
+    height:54px;
+
+    border:none;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.ybmpg-send-button:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+/*==========================================================
+DROPDOWN
+==========================================================*/
+
+.ybmpg-profile-trigger::after{
+
+    margin-left:8px;
+
+}
+
+.dropdown-menu{
+
+    border:none;
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:var(--shadow-lg);
+
+    padding:10px;
+
+}
+
+.dropdown-item{
+
+    padding:10px 16px;
+
+    border-radius:var(--radius-sm);
+
+    font-size:.92rem;
+
+    transition:var(--transition);
+
+}
+
+.dropdown-item:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+}
+
+/*==========================================================
+ANIMATIONS
+==========================================================*/
+
+@keyframes ybmpgFadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.ybmpg-sidebar,
+
+.ybmpg-chat-area{
+
+    animation:ybmpgFadeIn .55s ease;
+
+}
+
+.ybmpg-conversation-item{
+
+    animation:ybmpgFadeIn .45s ease both;
+
+}
+
+.ybmpg-conversation-item:nth-child(2){
+
+    animation-delay:.08s;
+
+}
+
+.ybmpg-conversation-item:nth-child(3){
+
+    animation-delay:.16s;
+
+}
+
+.ybmpg-conversation-item:nth-child(4){
+
+    animation-delay:.24s;
+
+}
+
+/*==========================================================
+RESPONSIVE
+==========================================================*/
+
+@media (max-width:991.98px){
+
+    .ybmpg-wrapper{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .ybmpg-sidebar{
+
+        min-height:auto;
+
+    }
+
+    .ybmpg-chat-area{
+
+        min-height:700px;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .ybmpg-page{
+
+        padding:16px;
+
+    }
+
+    .ybmpg-chat-header{
+
+        padding:16px;
+
+    }
+
+    .ybmpg-chat-body{
+
+        padding:18px;
+
+    }
+
+    .ybmpg-message-bubble{
+
+        max-width:90%;
+
+    }
+
+    .ybmpg-chat-footer{
+
+        padding:14px;
+
+        gap:10px;
+
+    }
+
+    .ybmpg-chat-footer input{
+
+        font-size:.9rem;
+
+    }
+
+    .ybmpg-send-button{
+
+        padding:0 18px;
+
+    }
+
+    .ybmpg-send-button span{
+
+        display:none;
+
+    }
+
+}
+
+@media (max-width:575.98px){
+
+    .ybmpg-navbar-actions{
+
+        margin-top:20px;
+
+        justify-content:center;
+
+        width:100%;
+
+    }
+
+    .ybmpg-profile-trigger span{
+
+        display:none;
+
+    }
+
+    .ybmpg-sidebar-header{
+
+        padding:18px;
+
+    }
+
+    .ybmpg-search-wrapper{
+
+        margin:16px;
+
+    }
+
+    .ybmpg-conversation-item{
+
+        padding:16px;
+
+    }
+
+    .ybmpg-avatar img{
+
+        width:46px;
+
+        height:46px;
+
+    }
+
+    .ybmpg-chat-user h5{
+
+        font-size:.95rem;
+
+    }
+
+    .ybmpg-chat-user small{
+
+        font-size:.75rem;
+
+    }
+
+    .ybmpg-chat-icon{
+
+        width:38px;
+
+        height:38px;
+
+    }
+
+}
+
+/*==========================================================
+END OF BUYER MESSAGES PAGE
+==========================================================*/
+
+
 
 /*==========================================================
 SERVICE TOP PROVIDERS LISTING

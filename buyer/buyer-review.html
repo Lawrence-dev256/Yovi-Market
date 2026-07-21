@@ -9,13 +9,9 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>
+    <title>Reviews Centre</title>
 
-        Reviews Centre | YOVI
-
-    </title>
-
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap -->
 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -27,65 +23,186 @@
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Global Styles -->
+    <!-- Google Font -->
 
     <link
-        rel="stylesheet"
-        href="../assets/css/style.css">
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Global CSS -->
+
+    <link rel="stylesheet" href="../assets/css/style.css">
 
 </head>
 
-<body id="cbrcPage">
+<body>
 
-    <!--==================================================
-        PAGE WRAPPER
-    ===================================================-->
+    <!-- ==========================================================
+         TOP NAVIGATION
+    =========================================================== -->
 
-    <div class="cbrc-page-wrapper">
+    <header class="brcp-navbar border-bottom bg-white">
 
-        <!--==================================================
-            HEADER
-        ===================================================-->
+        <div class="container-fluid">
 
-        <header class="cbrc-header">
+            <nav class="navbar navbar-expand-lg navbar-light px-0">
 
-            <div class="container-fluid">
+                <!-- Brand -->
 
-                <div class="row align-items-center">
+                <a
+                    href="../navigation/home.html"
+                    class="navbar-brand brcp-brand">
 
-                    <!--======================================
-                        LOGO
-                    =======================================-->
+                    <img
+                        src="https://placehold.co/120x42?text=LOGO"
+                        alt="Brand Logo">
 
-                    <div class="col-lg-2 col-md-3 col-6">
+                </a>
 
-                        <a
-                            href="../index.html"
-                            class="cbrc-logo-link">
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#brcpNavbar">
 
-                            <div class="cbrc-logo-placeholder">
+                    <span class="navbar-toggler-icon"></span>
 
-                                Logo Placeholder
+                </button>
 
-                            </div>
+                <div
+                    class="collapse navbar-collapse justify-content-center"
+                    id="brcpNavbar">
 
-                        </a>
+                    <ul class="navbar-nav align-items-lg-center">
 
-                    </div>
+                        <li class="nav-item">
 
-                    <!--======================================
-                        DESKTOP NAVIGATION
-                    =======================================-->
+                            <a
+                                href="../navigation/home.html"
+                                class="nav-link">
 
-                    <div class="col-lg-7 d-none d-lg-flex justify-content-center">
+                                Home
 
-                        <ul class="cbrc-navigation">
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a
+                                href="../navigation/products.html"
+                                class="nav-link">
+
+                                Products
+
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a
+                                href="../navigation/services.html"
+                                class="nav-link">
+
+                                Services
+
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a
+                                href="../navigation/orders.html"
+                                class="nav-link">
+
+                                Orders
+
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a
+                                href="../navigation/bookings.html"
+                                class="nav-link">
+
+                                Bookings
+
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a
+                                href="../messages/messages.html"
+                                class="nav-link">
+
+                                Messages
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Right Navigation -->
+
+                <div
+                    class="d-flex align-items-center ms-lg-4 brcp-nav-right">
+
+                    <!-- Cart -->
+
+                    <a
+                        href="../navigation/cart.html"
+                        class="brcp-nav-icon js-card-link">
+
+                        <i class="bi bi-cart3"></i>
+
+                    </a>
+
+                    <!-- Notification -->
+
+                    <a
+                        href="../navigation/notification.html"
+                        class="brcp-nav-icon">
+
+                        <i class="bi bi-bell"></i>
+
+                        <span class="brcp-dot"></span>
+
+                    </a>
+
+                    <!-- User -->
+
+                    <div class="dropdown">
+
+                        <button
+                            class="btn brcp-user-btn dropdown-toggle"
+                            data-bs-toggle="dropdown">
+
+                            <img
+                                src="https://placehold.co/40x40"
+                                alt="User">
+
+                            <span>Adaeze</span>
+
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
 
                             <li>
 
-                                <a href="../index.html">
+                                <a
+                                    class="dropdown-item"
+                                    href="../buyer/buyer-dashboard.html">
 
-                                    Home
+                                    Dashboard
 
                                 </a>
 
@@ -93,19 +210,11 @@
 
                             <li>
 
-                                <a href="products.html">
+                                <a
+                                    class="dropdown-item"
+                                    href="../buyer/buyer-profile.html">
 
-                                    Products
-
-                                </a>
-
-                            </li>
-
-                            <li>
-
-                                <a href="services.html">
-
-                                    Services
+                                    Profile
 
                                 </a>
 
@@ -113,19 +222,11 @@
 
                             <li>
 
-                                <a href="buyer-orders.html">
+                                <a
+                                    class="dropdown-item"
+                                    href="../buyer/buyer-setting.html">
 
-                                    Orders
-
-                                </a>
-
-                            </li>
-
-                            <li>
-
-                                <a href="buyer-bookings.html">
-
-                                    Bookings
+                                    Settings
 
                                 </a>
 
@@ -133,9 +234,17 @@
 
                             <li>
 
-                                <a href="messages.html">
+                                <hr class="dropdown-divider">
 
-                                    Messages
+                            </li>
+
+                            <li>
+
+                                <a
+                                    class="dropdown-item"
+                                    href="../index.html">
+
+                                    Logout
 
                                 </a>
 
@@ -145,867 +254,475 @@
 
                     </div>
 
-                    <!--======================================
-                        RIGHT SECTION
-                    =======================================-->
-
-                    <div class="col-lg-3 col-md-9 col-6">
-
-                        <div class="cbrc-header-right">
-
-                            <button
-                                id="cbrcCartButton"
-                                class="cbrc-icon-btn js-cart-link"
-                                type="button">
-
-                                <i class="bi bi-cart3"></i>
-
-                            </button>
-
-                            <button
-                                id="cbrcNotificationButton"
-                                class="cbrc-icon-btn position-relative"
-                                type="button">
-
-                                <i class="bi bi-bell"></i>
-
-                                <span class="cbrc-notification-dot"></span>
-
-                            </button>
-
-                            <div class="dropdown">
-
-                                <button
-                                    class="cbrc-profile-btn dropdown-toggle"
-                                    data-bs-toggle="dropdown"
-                                    type="button">
-
-                                    <img
-                                        src="https://via.placeholder.com/40"
-                                        alt="Profile"
-                                        class="cbrc-profile-image">
-
-                                    <span class="cbrc-profile-name">
-
-                                        Adaeze
-
-                                    </span>
-
-                                </button>
-
-                                <ul class="dropdown-menu dropdown-menu-end">
-
-                                    <li>
-
-                                        <a
-                                            class="dropdown-item"
-                                            href="../buyer/buyer-dashboard.html">
-
-                                            Dashboard
-
-                                        </a>
-
-                                    </li>
-
-                                    <li>
-
-                                        <a
-                                            class="dropdown-item"
-                                            href="buyer-profile.html">
-
-                                            Profile
-
-                                        </a>
-
-                                    </li>
-
-                                    <li>
-
-                                        <a
-                                            class="dropdown-item"
-                                            href="buyer-settings.html">
-
-                                            Settings
-
-                                        </a>
-
-                                    </li>
-
-                                    <li>
-
-                                        <hr class="dropdown-divider">
-
-                                    </li>
-
-                                    <li>
-
-                                        <a
-                                            class="dropdown-item text-danger"
-                                            href="../auth/login.html">
-
-                                            Logout
-
-                                        </a>
-
-                                    </li>
-
-                                </ul>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
                 </div>
 
-            </div>
+            </nav>
 
-        </header>
+        </div>
 
-        <!--==================================================
-            MAIN CONTENT
-        ===================================================-->
+    </header>
 
-        <main class="cbrc-main">
+    <!-- ==========================================================
+         PAGE
+    =========================================================== -->
 
-            <div class="container">
-
-                <!-- Breadcrumb -->
-
-                <div class="cbrc-breadcrumb">
-
-                    <a href="../buyer/buyer-dashboard.html">
-
-                        <i class="bi bi-chevron-left"></i>
-
-                        Dashboard
-
-                    </a>
-
-                </div>
-
-                <!-- Page Header -->
-
-                <div class="cbrc-page-header">
-
-                    <h1 class="cbrc-page-title">
-
-                        Reviews Centre
-
-                    </h1>
-
-                </div>
-
-                <!-- Tabs -->
-
-                <div class="cbrc-tabs">
-
-                    <button
-                        class="cbrc-tab active"
-                        data-tab="pending">
-
-                        Pending Reviews (3)
-
-                    </button>
-
-                    <a href="../tabs/buyer-submitted-tab.html">
-
-                    <button
-                        class="cbrc-tab"
-                        data-tab="submitted">
-
-                        Submitted (8)
-
-                    </button>
-
-                    </a>
-
-                </div>
-
-                <!-- Pending Reviews -->
-
-                <div
-                    id="cbrcPendingTab"
-                    class="cbrc-tab-content active">
-
-                    <!--======================================
-                        REVIEW CARD 1
-                    ======================================-->
-
-                    <div
-                        class="cbrc-review-card"
-                        data-review-id="1">
-
-                        <div class="row g-3">
-
-                            <!-- Product Image -->
-
-                            <div class="col-auto">
-
-                                <div class="cbrc-product-image">
-
-                                    <img
-                                        src="https://via.placeholder.com/72x72"
-                                        alt="Samsung Galaxy A54">
-
-                                </div>
-
-                            </div>
-
-                            <!-- Review Content -->
-
-                            <div class="col">
-
-                                <div class="cbrc-product-details">
-
-                                    <h5 class="cbrc-product-title">
-
-                                        Samsung Galaxy A54 – 256GB
-
-                                    </h5>
-
-                                    <p class="cbrc-product-meta">
-
-                                        TechHub Lagos · Delivered Jun 15
-
-                                    </p>
-
-                                </div>
-
-                                <!-- Rating -->
-
-                                <div class="cbrc-rating-wrapper">
-
-                                    <div
-                                        class="cbrc-rating-stars"
-                                        data-rating="0">
-
-                                        <i
-                                            class="bi bi-star"
-                                            data-value="1"></i>
-
-                                        <i
-                                            class="bi bi-star"
-                                            data-value="2"></i>
-
-                                        <i
-                                            class="bi bi-star"
-                                            data-value="3"></i>
-
-                                        <i
-                                            class="bi bi-star"
-                                            data-value="4"></i>
-
-                                        <i
-                                            class="bi bi-star"
-                                            data-value="5"></i>
-
-                                    </div>
-
-                                    <span
-                                        class="cbrc-rating-text">
-
-                                        Tap to rate
-
-                                    </span>
-
-                                </div>
-
-                                <!-- Review -->
-
-                                <div class="cbrc-review-input">
-
-                                    <textarea
-                                        class="form-control cbrc-review-textarea"
-                                        rows="2"
-                                        maxlength="300"
-                                        placeholder="Share your experience with this product..."></textarea>
-
-                                </div>
-
-                                <!-- Actions -->
-
-                                <div
-                                    class="cbrc-review-actions">
-
-                                    <button
-                                        class="btn cbrc-submit-review-btn"
-                                        type="button">
-
-                                        Submit Review
-
-                                    </button>
-
-                                    <button
-                                        class="btn cbrc-remind-btn"
-                                        type="button">
-
-                                        Remind Me Later
-
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!--======================================
-                        REVIEW CARD 2
-                    ======================================-->
-
-                    <div
-                        class="cbrc-review-card"
-                        data-review-id="2">
-
-                        <div class="row g-3">
-
-                            <!-- Product Image -->
-
-                            <div class="col-auto">
-
-                                <div class="cbrc-product-image">
-
-                                    <img
-                                        src="https://via.placeholder.com/72x72"
-                                        alt="iPhone 14 Pro">
-
-                                </div>
-
-                            </div>
-
-                            <!-- Review Content -->
-
-                            <div class="col">
-
-                                <div class="cbrc-product-details">
-
-                                    <h5 class="cbrc-product-title">
-
-                                        iPhone 14 Pro – 128GB Space Black
-
-                                    </h5>
-
-                                    <p class="cbrc-product-meta">
-
-                                        iWorld Store · Delivered Jun 16
-
-                                    </p>
-
-                                </div>
-
-                                <!-- Rating -->
-
-                                <div class="cbrc-rating-wrapper">
-
-                                    <div
-                                        class="cbrc-rating-stars"
-                                        data-rating="0">
-
-                                        <i
-                                            class="bi bi-star"
-                                            data-value="1"></i>
-
-                                        <i
-                                            class="bi bi-star"
-                                            data-value="2"></i>
-
-                                        <i
-                                            class="bi bi-star"
-                                            data-value="3"></i>
-
-                                        <i
-                                            class="bi bi-star"
-                                            data-value="4"></i>
-
-                                        <i
-                                            class="bi bi-star"
-                                            data-value="5"></i>
-
-                                    </div>
-
-                                    <span
-                                        class="cbrc-rating-text">
-
-                                        Tap to rate
-
-                                    </span>
-
-                                </div>
-
-                                <!-- Review -->
-
-                                <div class="cbrc-review-input">
-
-                                    <textarea
-                                        class="form-control cbrc-review-textarea"
-                                        rows="2"
-                                        maxlength="300"
-                                        placeholder="Share your experience with this product..."></textarea>
-
-                                </div>
-
-                                <!-- Actions -->
-
-                                <div
-                                    class="cbrc-review-actions">
-
-                                    <button
-                                        class="btn cbrc-submit-review-btn"
-                                        type="button">
-
-                                        Submit Review
-
-                                    </button>
-
-                                    <button
-                                        class="btn cbrc-remind-btn"
-                                        type="button">
-
-                                        Remind Me Later
-
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!--======================================
-                        REVIEW CARD 3
-                    ======================================-->
-
-                    <div
-                        class="cbrc-review-card"
-                        data-review-id="3">
-
-                        <div class="row g-3">
-
-                            <!-- Product Image -->
-
-                            <div class="col-auto">
-
-                                <div class="cbrc-product-image">
-
-                                    <img
-                                        src="https://via.placeholder.com/72x72"
-                                        alt="Ankara Print Dress">
-
-                                </div>
-
-                            </div>
-
-                            <!-- Product Details -->
-
-                            <div class="col">
-
-                                <div class="cbrc-product-details">
-
-                                    <h5 class="cbrc-product-title">
-
-                                        Ankara Print Dress – Women's
-
-                                    </h5>
-
-                                    <p class="cbrc-product-meta">
-
-                                        AfroFashion · Delivered Jun 17
-
-                                    </p>
-
-                                </div>
-
-                                <!-- Rating -->
-
-                                <div class="cbrc-rating-wrapper">
-
-                                    <div
-                                        class="cbrc-rating-stars"
-                                        data-rating="0">
-
-                                        <i class="bi bi-star" data-value="1"></i>
-                                        <i class="bi bi-star" data-value="2"></i>
-                                        <i class="bi bi-star" data-value="3"></i>
-                                        <i class="bi bi-star" data-value="4"></i>
-                                        <i class="bi bi-star" data-value="5"></i>
-
-                                    </div>
-
-                                    <span class="cbrc-rating-text">
-
-                                        Tap to rate
-
-                                    </span>
-
-                                </div>
-
-                                <!-- Review -->
-
-                                <div class="cbrc-review-input">
-
-                                    <textarea
-                                        class="form-control cbrc-review-textarea"
-                                        rows="2"
-                                        maxlength="300"
-                                        placeholder="Share your experience with this product..."></textarea>
-
-                                </div>
-
-                                <!-- Actions -->
-
-                                <div class="cbrc-review-actions">
-
-                                    <button
-                                        class="btn cbrc-submit-review-btn"
-                                        type="button">
-
-                                        Submit Review
-
-                                    </button>
-
-                                    <button
-                                        class="btn cbrc-remind-btn"
-                                        type="button">
-
-                                        Remind Me Later
-
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!--======================================
-                    SUBMITTED REVIEWS TAB
-                ======================================-->
-
-                <div
-                    id="cbrcSubmittedTab"
-                    class="cbrc-tab-content">
-
-                    <!-- Submitted Review 1 -->
-
-                    <div class="cbrc-review-card cbrc-submitted-card">
-
-                        <div class="row align-items-center g-3">
-
-                            <div class="col-auto">
-
-                                <div class="cbrc-product-image">
-
-                                    <img
-                                        src="https://via.placeholder.com/72x72"
-                                        alt="Submitted Product">
-
-                                </div>
-
-                            </div>
-
-                            <div class="col">
-
-                                <h5 class="cbrc-product-title">
-
-                                    Samsung Galaxy S24 Ultra
-
-                                </h5>
-
-                                <p class="cbrc-product-meta">
-
-                                    TechHub Lagos · Reviewed Jun 10
-
-                                </p>
-
-                                <div class="cbrc-submitted-stars">
-
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-
-                                </div>
-
-                                <p class="cbrc-submitted-text">
-
-                                    Excellent product. Delivery was fast and the quality exceeded my expectations.
-
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- Submitted Review 2 -->
-
-                    <div class="cbrc-review-card cbrc-submitted-card">
-
-                        <div class="row align-items-center g-3">
-
-                            <div class="col-auto">
-
-                                <div class="cbrc-product-image">
-
-                                    <img
-                                        src="https://via.placeholder.com/72x72"
-                                        alt="Submitted Product">
-
-                                </div>
-
-                            </div>
-
-                            <div class="col">
-
-                                <h5 class="cbrc-product-title">
-
-                                    AirPods Pro (2nd Gen)
-
-                                </h5>
-
-                                <p class="cbrc-product-meta">
-
-                                    Gadget World · Reviewed Jun 08
-
-                                </p>
-
-                                <div class="cbrc-submitted-stars">
-
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-half"></i>
-
-                                </div>
-
-                                <p class="cbrc-submitted-text">
-
-                                    Great sound quality and battery life. Highly recommended.
-
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!--======================================
-                        SUBMITTED REVIEW 3
-                    ======================================-->
-
-                    <div class="cbrc-review-card cbrc-submitted-card">
-
-                        <div class="row align-items-center g-3">
-
-                            <div class="col-auto">
-
-                                <div class="cbrc-product-image">
-
-                                    <img
-                                        src="https://via.placeholder.com/72x72"
-                                        alt="Nike Air Max">
-
-                                </div>
-
-                            </div>
-
-                            <div class="col">
-
-                                <h5 class="cbrc-product-title">
-
-                                    Nike Air Max 270
-
-                                </h5>
-
-                                <p class="cbrc-product-meta">
-
-                                    Sneaker Hub · Reviewed Jun 04
-
-                                </p>
-
-                                <div class="cbrc-submitted-stars">
-
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star"></i>
-
-                                </div>
-
-                                <p class="cbrc-submitted-text">
-
-                                    Comfortable and exactly as described. Delivery was on time.
-
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!--======================================
-                        SUBMITTED REVIEW 4
-                    ======================================-->
-
-                    <div class="cbrc-review-card cbrc-submitted-card">
-
-                        <div class="row align-items-center g-3">
-
-                            <div class="col-auto">
-
-                                <div class="cbrc-product-image">
-
-                                    <img
-                                        src="https://via.placeholder.com/72x72"
-                                        alt="MacBook Air">
-
-                                </div>
-
-                            </div>
-
-                            <div class="col">
-
-                                <h5 class="cbrc-product-title">
-
-                                    MacBook Air M3
-
-                                </h5>
-
-                                <p class="cbrc-product-meta">
-
-                                    Apple Store · Reviewed May 30
-
-                                </p>
-
-                                <div class="cbrc-submitted-stars">
-
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-
-                                </div>
-
-                                <p class="cbrc-submitted-text">
-
-                                    Fantastic performance, beautiful display and excellent battery life.
-
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </main>
-
-    </div>
-
-    <!--==============================================
-        EMPTY STATE
-        (Hidden by default)
-    ===============================================-->
-
-    <section
-        id="cbrcEmptyState"
-        class="cbrc-empty-state d-none">
+    <main class="brcp-page">
 
         <div class="container">
 
-            <div class="cbrc-empty-content">
+            <!-- Breadcrumb -->
 
-                <i class="bi bi-chat-square-heart"></i>
+            <div class="brcp-breadcrumb">
 
-                <h3>
+                <a href="../buyer/buyer-dashboard.html">
 
-                    No Reviews Available
+                    <i class="bi bi-chevron-left"></i>
 
-                </h3>
+                    Dashboard
 
-                <p>
+                </a>
 
-                    You don't have any pending or submitted reviews yet.
+            </div>
 
-                </p>
+            <!-- Page Heading -->
+
+            <div class="brcp-heading">
+
+                <h2>
+
+                    Reviews Centre
+
+                </h2>
+
+            </div>
+
+            <!-- Review Tabs -->
+
+            <div class="brcp-tabs">
+
+                <a href="../buyer/buyer-review.html">
 
                 <button
-                    class="btn cbrc-return-btn"
-                    onclick="window.location.href='buyer-dashboard.html'">
+                    class="brcp-tab brcp-tab-active"
+                    type="button">
 
-                    Return to Dashboard
+                    Pending Reviews (3)
 
                 </button>
+
+                </a>
+
+                <a href="../reviews/review-submitted.html">
+
+                <button
+                    class="brcp-tab"
+                    type="button">
+
+                    Submitted (8)
+
+                </button>
+
+                </a>
+
+            </div>
+
+            <!-- Review Cards -->
+
+            <div class="brcp-review-wrapper">
+
+                <!-- ==========================================
+                     REVIEW CARD 01
+                =========================================== -->
+
+                <article class="brcp-review-card">
+
+                    <div class="brcp-review-top">
+
+                        <div class="brcp-review-product">
+
+                            <div class="brcp-product-image">
+
+                                <img
+                                    src="https://placehold.co/72x72"
+                                    alt="Samsung Galaxy A54">
+
+                            </div>
+
+                            <div class="brcp-product-content">
+
+                                <h6 class="brcp-product-title">
+
+                                    Samsung Galaxy A54 – 256GB
+
+                                </h6>
+
+                                <p class="brcp-product-meta">
+
+                                    TechHub Lagos · Delivered Jun 15
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="brcp-rating"
+                        data-review="1">
+
+                        <button
+                            type="button"
+                            class="brcp-star"
+                            data-value="1">
+
+                            <i class="bi bi-star"></i>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="brcp-star"
+                            data-value="2">
+
+                            <i class="bi bi-star"></i>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="brcp-star"
+                            data-value="3">
+
+                            <i class="bi bi-star"></i>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="brcp-star"
+                            data-value="4">
+
+                            <i class="bi bi-star"></i>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="brcp-star"
+                            data-value="5">
+
+                            <i class="bi bi-star"></i>
+
+                        </button>
+
+                        <span class="brcp-rating-text">
+
+                            Tap to rate
+
+                        </span>
+
+                    </div>
+
+                    <textarea
+                        class="brcp-review-input"
+                        rows="2"
+                        placeholder="Share your experience with this product..."></textarea>
+
+                    <div class="brcp-review-actions">
+
+                        <a href="../reviews/review-submitted.html">
+
+                        <button
+                            id="brcpSubmitReviewOne"
+                            class="brcp-submit-btn"
+                            type="button">
+
+                            Submit Review
+
+                        </button>
+
+                        </a>
+
+                        <a
+                            href="#"
+                            class="brcp-remind-link">
+
+                            Remind Me Later
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+                <!-- ==========================================
+                     REVIEW CARD 02
+                =========================================== -->
+
+                <article class="brcp-review-card">
+
+                    <div class="brcp-review-top">
+
+                        <div class="brcp-review-product">
+
+                            <div class="brcp-product-image">
+
+                                <img
+                                    src="https://placehold.co/72x72"
+                                    alt="iPhone 14 Pro">
+
+                            </div>
+
+                            <div class="brcp-product-content">
+
+                                <h6 class="brcp-product-title">
+
+                                    iPhone 14 Pro – 128GB Space Black
+
+                                </h6>
+
+                                <p class="brcp-product-meta">
+
+                                    iWorld Store · Delivered Jun 16
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="brcp-rating"
+                        data-review="2">
+
+                        <button
+                            class="brcp-star"
+                            type="button"
+                            data-value="1">
+
+                            <i class="bi bi-star"></i>
+
+                        </button>
+
+                        <button
+                            class="brcp-star"
+                            type="button"
+                            data-value="2">
+
+                            <i class="bi bi-star"></i>
+
+                        </button>
+
+                        <button
+                            class="brcp-star"
+                            type="button"
+                            data-value="3">
+
+                            <i class="bi bi-star"></i>
+
+                        </button>
+
+                        <button
+                            class="brcp-star"
+                            type="button"
+                            data-value="4">
+
+                            <i class="bi bi-star"></i>
+
+                        </button>
+
+                        <button
+                            class="brcp-star"
+                            type="button"
+                            data-value="5">
+
+                            <i class="bi bi-star"></i>
+
+                        </button>
+
+                        <span class="brcp-rating-text">
+
+                            Tap to rate
+
+                        </span>
+
+                    </div>
+
+                    <textarea
+                        class="brcp-review-input"
+                        rows="2"
+                        placeholder="Share your experience with this product..."></textarea>
+
+                    <div class="brcp-review-actions">
+
+                        <a href="../reviews/review-submitted.html">
+
+                        <button
+                            id="brcpSubmitReviewTwo"
+                            class="brcp-submit-btn"
+                            type="button">
+
+                            Submit Review
+
+                        </button>
+
+                        </a>
+
+                        <a
+                            href="#"
+                            class="brcp-remind-link">
+
+                            Remind Me Later
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+                     <!-- ==========================================
+                     REVIEW CARD 03
+                =========================================== -->
+
+                <article class="brcp-review-card">
+
+                    <div class="brcp-review-top">
+
+                        <div class="brcp-review-product">
+
+                            <div class="brcp-product-image">
+
+                                <img
+                                    src="https://placehold.co/72x72"
+                                    alt="Ankara Print Dress">
+
+                            </div>
+
+                            <div class="brcp-product-content">
+
+                                <h6 class="brcp-product-title">
+
+                                    Ankara Print Dress – Women's
+
+                                </h6>
+
+                                <p class="brcp-product-meta">
+
+                                    AfroFashion · Delivered Jun 17
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="brcp-rating"
+                        data-review="3">
+
+                        <button
+                            type="button"
+                            class="brcp-star"
+                            data-value="1">
+
+                            <i class="bi bi-star"></i>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="brcp-star"
+                            data-value="2">
+
+                            <i class="bi bi-star"></i>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="brcp-star"
+                            data-value="3">
+
+                            <i class="bi bi-star"></i>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="brcp-star"
+                            data-value="4">
+
+                            <i class="bi bi-star"></i>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="brcp-star"
+                            data-value="5">
+
+                            <i class="bi bi-star"></i>
+
+                        </button>
+
+                        <span class="brcp-rating-text">
+
+                            Tap to rate
+
+                        </span>
+
+                    </div>
+
+                    <textarea
+                        id="brcpReviewThree"
+                        class="brcp-review-input"
+                        rows="2"
+                        placeholder="Share your experience with this product..."></textarea>
+
+                    <div class="brcp-review-actions">
+
+                        <a href="../reviews/review-submitted.html">
+
+                        <button
+                            id="brcpSubmitReviewThree"
+                            type="button"
+                            class="brcp-submit-btn">
+
+                            Submit Review
+
+                        </button>
+
+                        </a>
+
+                        <a
+                            href="#"
+                            class="brcp-remind-link">
+
+                            Remind Me Later
+
+                        </a>
+
+                    </div>
+
+                </article>
 
             </div>
 
         </div>
 
-    </section>
+    </main>
 
-    <!--==============================================
-        SUCCESS TOAST
-    ===============================================-->
-
-    <div
-        class="toast-container position-fixed bottom-0 end-0 p-3">
-
-        <div
-            id="cbrcSuccessToast"
-            class="toast border-0 text-bg-success"
-            role="alert"
-            aria-live="assertive"
-            aria-atomic="true">
-
-            <div class="d-flex">
-
-                <div class="toast-body">
-
-                    <i class="bi bi-check-circle-fill me-2"></i>
-
-                    Review submitted successfully.
-
-                </div>
-
-                <button
-                    type="button"
-                    class="btn-close btn-close-white me-2 m-auto"
-                    data-bs-dismiss="toast">
-
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- Bootstrap -->
+    <!-- Bootstrap Bundle -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Global Script -->
+    <!-- Global JavaScript -->
 
     <script src="../assets/js/app.js"></script>
 
