@@ -44583,8 +44583,1256 @@ END OF BUYER DONE STYLES
 =========================================*/
 
 /*==========================================================
+YOVI BUYER DASHBOARD PAGE
+Prefix : ybdp
+==========================================================*/
+
+/*==========================================================
+PAGE LAYOUT
+==========================================================*/
+
+.ybdp-page{
+
+    background:var(--body);
+
+    overflow-x:hidden;
+
+}
+
+.ybdp-wrapper{
+
+    display:flex;
+
+    min-height:calc(100vh - 82px);
+
+}
+
+/*==========================================================
+TOP NAVBAR
+==========================================================*/
+
+.ybdp-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1050;
+
+}
+
+.ybdp-navbar{
+
+    height:82px;
+
+    background:var(--surface);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.ybdp-brand img{
+
+    height:42px;
+
+    width:auto;
+
+}
+
+.ybdp-navbar .nav-link{
+
+    color:var(--text);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    padding:.85rem 1rem;
+
+    transition:var(--transition);
+
+}
+
+.ybdp-navbar .nav-link:hover,
+
+.ybdp-navbar .nav-link.active{
+
+    color:var(--primary);
+
+}
+
+.ybdp-top-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.ybdp-icon-btn{
+
+    width:44px;
+
+    height:44px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    border-radius:50%;
+
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    transition:var(--transition);
+
+}
+
+.ybdp-icon-btn:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    border-color:var(--primary);
+
+}
+
+.ybdp-icon-btn i{
+
+    font-size:1.15rem;
+
+}
+
+.ybdp-notification-dot{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+}
+
+.ybdp-profile-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:0;
+
+    border:none;
+
+    background:none;
+
+}
+
+.ybdp-profile-btn img{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.ybdp-profile-btn span{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+/*==========================================================
+SIDEBAR
+==========================================================*/
+
+.ybdp-sidebar{
+
+    width:280px;
+
+    background:var(--surface);
+
+    border-right:1px solid var(--border);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:28px 22px;
+
+    position:sticky;
+
+    top:82px;
+
+    height:calc(100vh - 82px);
+
+}
+
+.ybdp-user-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+}
+
+.ybdp-user-card img{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.ybdp-user-card h6{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:4px;
+
+}
+
+.ybdp-user-card small{
+
+    color:var(--text-muted);
+
+    font-size:.82rem;
+
+}
+
+.ybdp-sidebar-menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.ybdp-sidebar-menu li a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:14px 16px;
+
+    border-radius:var(--radius-md);
+
+    color:var(--text);
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.ybdp-sidebar-menu li a i{
+
+    font-size:1.05rem;
+
+    width:22px;
+
+    text-align:center;
+
+}
+
+.ybdp-sidebar-menu li a:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+}
+
+.ybdp-sidebar-menu li a.active{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+}
+
+.ybdp-sidebar-footer{
+
+    margin-top:28px;
+
+}
+
+.ybdp-sidebar-footer a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:15px 16px;
+
+    border-radius:var(--radius-md);
+
+    color:var(--danger);
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.ybdp-sidebar-footer a:hover{
+
+    background:#fdecec;
+
+}
+
+/*==========================================================
+MAIN CONTENT
+==========================================================*/
+
+.ybdp-content{
+
+    flex:1;
+
+    padding:32px;
+
+    overflow:hidden;
+
+}
+
+.ybdp-page-heading{
+
+    margin-bottom:28px;
+
+}
+
+.ybdp-page-heading h2{
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+    margin-bottom:8px;
+
+}
+
+.ybdp-page-heading p{
+
+    color:var(--text-light);
+
+    font-size:.95rem;
+
+}
+
+/*==========================================================
+SUMMARY CARDS
+==========================================================*/
+
+.ybdp-summary-row{
+
+    margin-bottom:28px;
+
+}
+
+.ybdp-summary-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    padding:24px;
+
+    height:100%;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.ybdp-summary-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.ybdp-summary-icon{
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:20px;
+
+}
+
+.ybdp-summary-icon i{
+
+    font-size:1.5rem;
+
+}
+
+.ybdp-orders-icon{
+
+    background:#e9fbf4;
+
+    color:var(--primary);
+
+}
+
+.ybdp-booking-icon{
+
+    background:#eef5ff;
+
+    color:var(--info);
+
+}
+
+.ybdp-wishlist-icon{
+
+    background:#fff1f2;
+
+    color:#ec4899;
+
+}
+
+.ybdp-spending-icon{
+
+    background:#fff7e9;
+
+    color:var(--secondary);
+
+}
+
+.ybdp-summary-card h3{
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+    margin-bottom:6px;
+
+}
+
+.ybdp-summary-card p{
+
+    font-size:.92rem;
+
+    color:var(--text-light);
+
+    margin-bottom:6px;
+
+}
+
+.ybdp-summary-card small{
+
+    font-size:.82rem;
+
+    color:var(--success);
+
+    font-weight:600;
+
+}
+
+/*==========================================================
+GENERAL CARD
+==========================================================*/
+
+.ybdp-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:var(--shadow-xs);
+
+    overflow:hidden;
+
+}
+
+.ybdp-card-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:22px 24px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.ybdp-card-header h5{
+
+    font-size:1.1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+}
+
+.ybdp-card-header a{
+
+    font-size:.88rem;
+
+    color:var(--primary);
+
+    font-weight:600;
+
+}
+
+.ybdp-card-header a:hover{
+
+    color:var(--primary-dark);
+
+}
+
+/*==========================================================
+RECENT ORDERS TABLE
+==========================================================*/
+
+.ybdp-order-table{
+
+    margin-bottom:0;
+
+}
+
+.ybdp-order-table thead th{
+
+    border-bottom:1px solid var(--border);
+
+    background:#fafbfc;
+
+    color:var(--text);
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    padding:16px 22px;
+
+    white-space:nowrap;
+
+}
+
+.ybdp-order-table tbody td{
+
+    padding:18px 22px;
+
+    vertical-align:middle;
+
+    border-color:var(--border-light);
+
+    font-size:.92rem;
+
+    color:var(--text);
+
+}
+
+.ybdp-order-product{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.ybdp-order-product img{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:12px;
+
+    object-fit:cover;
+
+}
+
+.ybdp-order-product h6{
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    margin-bottom:4px;
+
+}
+
+.ybdp-order-product small{
+
+    font-size:.78rem;
+
+    color:var(--text-muted);
+
+}
+
+/*==========================================================
+ORDER STATUS BADGES
+==========================================================*/
+
+.ybdp-status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+    line-height:1;
+
+    white-space:nowrap;
+
+}
+
+.ybdp-status-processing{
+
+    background:#fff5e8;
+
+    color:var(--secondary);
+
+}
+
+.ybdp-status-transit{
+
+    background:#eaf4ff;
+
+    color:var(--info);
+
+}
+
+.ybdp-status-delivered{
+
+    background:#eafaf3;
+
+    color:var(--success);
+
+}
+
+/*==========================================================
+UPCOMING BOOKINGS
+==========================================================*/
+
+.ybdp-booking-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.ybdp-booking-item{
+
+    padding:22px 24px;
+
+    border-bottom:1px solid var(--border-light);
+
+    transition:var(--transition);
+
+}
+
+.ybdp-booking-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.ybdp-booking-item:hover{
+
+    background:#fafcfd;
+
+}
+
+.ybdp-booking-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:16px;
+
+}
+
+.ybdp-booking-top img{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.ybdp-booking-top h6{
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    margin-bottom:4px;
+
+    color:var(--heading);
+
+}
+
+.ybdp-booking-top small{
+
+    color:var(--text-muted);
+
+    font-size:.8rem;
+
+}
+
+.ybdp-booking-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    margin-bottom:18px;
+
+}
+
+.ybdp-booking-info p{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:.88rem;
+
+    color:var(--text-light);
+
+}
+
+.ybdp-booking-info i{
+
+    color:var(--primary);
+
+    width:18px;
+
+}
+
+.ybdp-chat-btn{
+
+    width:100%;
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    border:1px solid var(--primary);
+
+    border-radius:var(--radius-pill);
+
+    background:transparent;
+
+    color:var(--primary);
+
+    font-size:.9rem;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.ybdp-chat-btn:hover{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+}
+
+.ybdp-chat-btn i{
+
+    font-size:1rem;
+
+}
+
+/*==========================================================
+QUICK ACTION CARDS
+==========================================================*/
+
+.ybdp-action-card{
+
+    display:block;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    padding:28px 22px;
+
+    height:100%;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.ybdp-action-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-md);
+
+    border-color:var(--primary);
+
+}
+
+.ybdp-action-icon{
+
+    width:58px;
+
+    height:58px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:16px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
+
+.ybdp-action-icon i{
+
+    font-size:1.45rem;
+
+}
+
+.ybdp-action-card h6{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+    color:var(--heading);
+
+}
+
+.ybdp-action-card p{
+
+    font-size:.88rem;
+
+    line-height:1.7;
+
+    color:var(--text-light);
+
+}
+
+/*==========================================================
+ANIMATIONS
+==========================================================*/
+
+@keyframes ybdpFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes ybdpFadeLeft{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+@keyframes ybdpFadeRight{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+.ybdp-sidebar{
+
+    animation:ybdpFadeLeft .8s ease;
+
+}
+
+.ybdp-page-heading,
+
+.ybdp-summary-card,
+
+.ybdp-card,
+
+.ybdp-action-card{
+
+    animation:ybdpFadeUp .8s ease both;
+
+}
+
+.ybdp-summary-card:nth-child(2){
+
+    animation-delay:.1s;
+
+}
+
+.ybdp-summary-card:nth-child(3){
+
+    animation-delay:.2s;
+
+}
+
+.ybdp-summary-card:nth-child(4){
+
+    animation-delay:.3s;
+
+}
+
+.ybdp-card:nth-child(2){
+
+    animation:ybdpFadeRight .8s ease;
+
+}
+
+/*==========================================================
+CUSTOM SCROLLBAR
+==========================================================*/
+
+.ybdp-sidebar::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.ybdp-sidebar::-webkit-scrollbar-thumb{
+
+    background:#d6dde5;
+
+    border-radius:999px;
+
+}
+
+.ybdp-sidebar::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+/*==========================================================
+RESPONSIVE
+==========================================================*/
+
+@media (max-width:1199.98px){
+
+    .ybdp-sidebar{
+
+        width:250px;
+
+    }
+
+    .ybdp-content{
+
+        padding:24px;
+
+    }
+
+}
+
+@media (max-width:991.98px){
+
+    .ybdp-wrapper{
+
+        display:block;
+
+    }
+
+    .ybdp-sidebar{
+
+        position:relative;
+
+        top:0;
+
+        width:100%;
+
+        height:auto;
+
+        border-right:none;
+
+        border-bottom:1px solid var(--border);
+
+    }
+
+    .ybdp-sidebar-menu{
+
+        display:grid;
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:10px;
+
+    }
+
+    .ybdp-content{
+
+        padding:20px;
+
+    }
+
+    .ybdp-page-heading h2{
+
+        font-size:1.75rem;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .ybdp-navbar{
+
+        height:auto;
+
+        padding:14px 0;
+
+    }
+
+    .ybdp-top-actions{
+
+        margin-top:18px;
+
+        justify-content:center;
+
+    }
+
+    .ybdp-profile-btn span{
+
+        display:none;
+
+    }
+
+    .ybdp-sidebar-menu{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .ybdp-page-heading{
+
+        text-align:center;
+
+    }
+
+    .ybdp-summary-card{
+
+        text-align:center;
+
+    }
+
+    .ybdp-summary-icon{
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+    }
+
+    .ybdp-card-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:8px;
+
+    }
+
+    .ybdp-order-table{
+
+        min-width:720px;
+
+    }
+
+}
+
+@media (max-width:575.98px){
+
+    .ybdp-content{
+
+        padding:16px;
+
+    }
+
+    .ybdp-user-card{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .ybdp-summary-card{
+
+        padding:20px;
+
+    }
+
+    .ybdp-booking-item{
+
+        padding:18px;
+
+    }
+
+    .ybdp-action-card{
+
+        padding:20px;
+
+    }
+
+}
+
+/*==========================================================
+END OF BUYER DASHBOARD
+==========================================================*/
+
+/*==========================================================
 REVIEWS CENTRE PAGE
-Prefix : brcp
 ==========================================================*/
 
 .brcp-page{

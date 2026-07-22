@@ -4301,7 +4301,7 @@ END OF SERVICE TOP NAVBAR LANDING PAGE
 
 
 /*==========================================================
-TP NAVIGATION MESSAGES PAGE
+TOP NAVIGATION MESSAGES PAGE
 ==========================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -4734,7 +4734,420 @@ document.addEventListener("DOMContentLoaded", () => {
     END OF BUYER MESSAGES PAGE
     ======================================================*/
 
+/*==========================================================
+YOVI BUYER DASHBOARD
+Prefix : ybdp
+==========================================================*/
 
+document.addEventListener("DOMContentLoaded", () => {
+
+    "use strict";
+
+    /*======================================================
+    DOM ELEMENTS
+    ======================================================*/
+
+    const ybdp = {
+
+        sidebarLinks:
+
+            document.querySelectorAll(".ybdp-sidebar-menu a"),
+
+        summaryCards:
+
+            document.querySelectorAll(".ybdp-summary-card"),
+
+        actionCards:
+
+            document.querySelectorAll(".ybdp-action-card"),
+
+        bookingCards:
+
+            document.querySelectorAll(".ybdp-booking-item"),
+
+        orderRows:
+
+            document.querySelectorAll(".ybdp-order-table tbody tr"),
+
+        chatButtons:
+
+            document.querySelectorAll(".ybdp-chat-btn"),
+
+        profileButton:
+
+            document.querySelector(".ybdp-profile-btn"),
+
+        notificationButton:
+
+            document.querySelector(".ybdp-icon-btn"),
+
+        pageHeading:
+
+            document.querySelector(".ybdp-page-heading"),
+
+        cards:
+
+            document.querySelectorAll(
+
+                ".ybdp-summary-card, .ybdp-card, .ybdp-action-card"
+
+            )
+
+    };
+
+    /*======================================================
+    SIDEBAR ACTIVE STATE
+    ======================================================*/
+
+    function ybdpSidebarActive(){
+
+        ybdp.sidebarLinks.forEach(link=>{
+
+            link.addEventListener("click",function(){
+
+                ybdp.sidebarLinks.forEach(item=>{
+
+                    item.classList.remove("active");
+
+                });
+
+                this.classList.add("active");
+
+            });
+
+        });
+
+    }
+
+    ybdpSidebarActive();
+
+    /*======================================================
+    SUMMARY CARD EFFECT
+    ======================================================*/
+
+    function ybdpSummaryHover(){
+
+        ybdp.summaryCards.forEach(card=>{
+
+            card.addEventListener("mouseenter",()=>{
+
+                card.style.transform="translateY(-6px)";
+
+            });
+
+            card.addEventListener("mouseleave",()=>{
+
+                card.style.transform="translateY(0px)";
+
+            });
+
+        });
+
+    }
+
+    ybdpSummaryHover();
+
+    /*======================================================
+    QUICK ACTION CARDS
+    ======================================================*/
+
+    function ybdpQuickActions(){
+
+        ybdp.actionCards.forEach(card=>{
+
+            card.addEventListener("mouseenter",()=>{
+
+                card.style.transform="translateY(-6px)";
+
+            });
+
+            card.addEventListener("mouseleave",()=>{
+
+                card.style.transform="translateY(0px)";
+
+            });
+
+        });
+
+    }
+
+    ybdpQuickActions();
+
+    /*======================================================
+    BOOKING CARD EFFECT
+    ======================================================*/
+
+    function ybdpBookingCards(){
+
+        ybdp.bookingCards.forEach(card=>{
+
+            card.addEventListener("mouseenter",()=>{
+
+                card.style.background="#fafbfc";
+
+            });
+
+            card.addEventListener("mouseleave",()=>{
+
+                card.style.background="";
+
+            });
+
+        });
+
+    }
+
+    ybdpBookingCards();
+
+    /*======================================================
+    CHAT BUTTON
+    ======================================================*/
+
+    ybdp.chatButtons.forEach(button=>{
+
+        button.addEventListener("click",()=>{
+
+            window.location.href="buyer-messages.html";
+
+        });
+
+    });
+
+    /*======================================================
+    ORDER ROW CLICK
+    ======================================================*/
+
+    ybdp.orderRows.forEach(row=>{
+
+        row.style.cursor="pointer";
+
+        row.addEventListener("click",()=>{
+
+            window.location.href="order-details.html";
+
+        });
+
+    });
+
+    /*======================================================
+    QUICK ACTION LINKS
+    ======================================================*/
+
+    ybdp.actionCards.forEach(card=>{
+
+        card.addEventListener("click",function(e){
+
+            if(e.target.closest("a")) return;
+
+            const link=this.getAttribute("href");
+
+            if(link){
+
+                window.location.href=link;
+
+            }
+
+        });
+
+    });
+
+    /*======================================================
+    PROFILE DROPDOWN ANIMATION
+    ======================================================*/
+
+    if(ybdp.profileButton){
+
+        ybdp.profileButton.addEventListener("mouseenter",()=>{
+
+            ybdp.profileButton.style.transform="scale(1.03)";
+
+        });
+
+        ybdp.profileButton.addEventListener("mouseleave",()=>{
+
+            ybdp.profileButton.style.transform="scale(1)";
+
+        });
+
+    }
+
+    /*======================================================
+    PAGE LOAD ANIMATION
+    ======================================================*/
+
+    function ybdpPageLoad(){
+
+        ybdp.cards.forEach((card,index)=>{
+
+            card.style.opacity="0";
+
+            card.style.transform="translateY(25px)";
+
+            setTimeout(()=>{
+
+                card.style.transition=".45s ease";
+
+                card.style.opacity="1";
+
+                card.style.transform="translateY(0)";
+
+            },index*100);
+
+        });
+
+    }
+
+    ybdpPageLoad();
+
+/*======================================================
+SCROLL REVEAL ANIMATION
+======================================================*/
+
+    function ybdpRevealAnimation(){
+
+        const observer=new IntersectionObserver((entries)=>{
+
+            entries.forEach(entry=>{
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("ybdp-show");
+
+                }
+
+            });
+
+        },{
+
+            threshold:.15
+
+        });
+
+        document.querySelectorAll(
+
+            ".ybdp-summary-card, .ybdp-card, .ybdp-action-card"
+
+        ).forEach(item=>{
+
+            item.classList.add("ybdp-hidden");
+
+            observer.observe(item);
+
+        });
+
+    }
+
+    ybdpRevealAnimation();
+
+    /*======================================================
+    NOTIFICATION BUTTON
+    ======================================================*/
+
+    if(ybdp.notificationButton){
+
+        ybdp.notificationButton.addEventListener("click",()=>{
+
+            window.location.href="notifications.html";
+
+        });
+
+    }
+
+    /*======================================================
+    PAGE HEADING EFFECT
+    ======================================================*/
+
+    if(ybdp.pageHeading){
+
+        ybdp.pageHeading.addEventListener("mouseenter",()=>{
+
+            ybdp.pageHeading.style.transition=".35s ease";
+
+            ybdp.pageHeading.style.transform="translateX(6px)";
+
+        });
+
+        ybdp.pageHeading.addEventListener("mouseleave",()=>{
+
+            ybdp.pageHeading.style.transform="translateX(0)";
+
+        });
+
+    }
+
+    /*======================================================
+    WINDOW SCROLL
+    ======================================================*/
+
+    window.addEventListener("scroll",()=>{
+
+        if(window.scrollY>100){
+
+            document.body.classList.add("ybdp-scrolled");
+
+        }
+
+        else{
+
+            document.body.classList.remove("ybdp-scrolled");
+
+        }
+
+    });
+
+    /*======================================================
+    KEYBOARD SHORTCUTS
+    ======================================================*/
+
+    document.addEventListener("keydown",(event)=>{
+
+        if(event.altKey && event.key==="o"){
+
+            window.location.href="orders.html";
+
+        }
+
+        if(event.altKey && event.key==="b"){
+
+            window.location.href="bookings.html";
+
+        }
+
+        if(event.altKey && event.key==="m"){
+
+            window.location.href="buyer-messages.html";
+
+        }
+
+    });
+
+    /*======================================================
+    RESIZE EVENT
+    ======================================================*/
+
+    window.addEventListener("resize",()=>{
+
+        document.documentElement.style.setProperty(
+
+            "--ybdp-window-width",
+
+            window.innerWidth+"px"
+
+        );
+
+    });
+
+    /*======================================================
+    INITIALIZE
+    ======================================================*/
+
+    document.body.classList.add("ybdp-ready");
+
+});
+
+/*==========================================================
+END OF BUYER DASHBOARD
+==========================================================*/
 
 /*==========================================================
 SERVICE TOP PROVIDERS LISTING
