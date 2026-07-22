@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const homeBtn = document.getElementById("ybdBackHomeBtn");
 
-    const notificationBtn = document.getElementById("ybdViewNotificationsBtn");
+    const notificationBtn = document.getElementById("ybdViewBuyerDashboardBtn");
 
     const productsPage = document.getElementById("ybdProductsPage");
 
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
     VIEW NOTIFICATIONS
     =========================================*/
 
-    notificationBtn.addEventListener("click", () => {
+    buyerDashboardBtn.addEventListener("click", () => {
 
         showLoader();
 
