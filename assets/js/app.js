@@ -5150,6 +5150,768 @@ END OF BUYER DASHBOARD
 ==========================================================*/
 
 /*==========================================================
+YOVI BUYER ELECTRONICS CATEGORY SCREEN
+Prefix : ybeps
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+"use strict";
+
+/*==========================================================
+DOM ELEMENTS
+==========================================================*/
+
+const ybeps={
+
+searchInput:document.querySelector("#ybepsSearch"),
+
+productCards:document.querySelectorAll(".ybeps-product-card"),
+
+categoryButtons:document.querySelectorAll(".ybeps-category-btn"),
+
+filterLinks:document.querySelectorAll(".ybeps-filter-list a"),
+
+cartButtons:document.querySelectorAll(".ybeps-cart-btn"),
+
+viewButtons:document.querySelectorAll(".ybeps-view-btn"),
+
+filterButton:document.querySelector(".ybeps-filter-btn"),
+
+paginationLinks:document.querySelectorAll(".pagination .page-link"),
+
+notificationButton:document.querySelector(".ybeps-icon-btn"),
+
+profileButton:document.querySelector(".ybeps-profile-btn"),
+
+emptyState:document.querySelector(".ybeps-empty-state")
+
+};
+
+/*==========================================================
+PAGE INTRO
+==========================================================*/
+
+function ybepsPageIntro(){
+
+    ybeps.productCards.forEach((card,index)=>{
+
+        card.style.opacity="0";
+
+        card.style.transform="translateY(30px)";
+
+        setTimeout(()=>{
+
+            card.style.transition=".45s ease";
+
+            card.style.opacity="1";
+
+            card.style.transform="translateY(0)";
+
+        },index*80);
+
+    });
+
+}
+
+ybepsPageIntro();
+
+/*==========================================================
+CATEGORY ACTIVE STATE
+==========================================================*/
+
+ybeps.categoryButtons.forEach(button=>{
+
+    button.addEventListener("click",function(){
+
+        ybeps.categoryButtons.forEach(btn=>{
+
+            btn.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+    });
+
+});
+
+/*==========================================================
+PRODUCT HOVER
+==========================================================*/
+
+ybeps.productCards.forEach(card=>{
+
+    card.addEventListener("mouseenter",()=>{
+
+        card.style.transform="translateY(-8px)";
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.transform="translateY(0)";
+
+    });
+
+});
+
+/*==========================================================
+PRODUCT DETAILS
+==========================================================*/
+
+ybeps.productCards.forEach(card=>{
+
+    card.addEventListener("click",(event)=>{
+
+        if(event.target.closest(".ybeps-cart-btn")) return;
+
+        window.location.href="../../products/products-detail.html";
+
+    });
+
+});
+
+/*==========================================================
+ADD TO CART
+==========================================================*/
+
+ybeps.cartButtons.forEach(button=>{
+
+    button.addEventListener("click",(event)=>{
+
+        event.stopPropagation();
+
+        button.classList.add("active");
+
+        button.innerHTML='<i class="bi bi-check-lg"></i>';
+
+        setTimeout(()=>{
+
+            button.classList.remove("active");
+
+            button.innerHTML='<i class="bi bi-cart-plus"></i>';
+
+        },1500);
+
+    });
+
+});
+
+/*==========================================================
+SEARCH
+==========================================================*/
+
+if(ybeps.searchInput){
+
+    ybeps.searchInput.addEventListener("keyup",function(){
+
+        const keyword=this.value.toLowerCase();
+
+        ybeps.productCards.forEach(card=>{
+
+            const title=card.querySelector("h5").textContent.toLowerCase();
+
+            if(title.includes(keyword)){
+
+                card.parentElement.style.display="block";
+
+            }
+
+            else{
+
+                card.parentElement.style.display="none";
+
+            }
+
+        });
+
+    });
+
+}
+
+/*==========================================================
+GRID / LIST VIEW
+==========================================================*/
+
+ybeps.viewButtons.forEach(button=>{
+
+    button.addEventListener("click",function(){
+
+        ybeps.viewButtons.forEach(btn=>{
+
+            btn.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+    });
+
+});
+
+/*==========================================================
+FILTER BUTTON
+==========================================================*/
+
+if(ybeps.filterButton){
+
+    ybeps.filterButton.addEventListener("click",()=>{
+
+        document.querySelector(".ybeps-filter-card")
+
+        ?.scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"start"
+
+        });
+
+    });
+
+}
+
+/*==========================================================
+FILTER LINKS
+==========================================================*/
+
+ybeps.filterLinks.forEach(link=>{
+
+    link.addEventListener("click",(event)=>{
+
+        event.preventDefault();
+
+        ybeps.filterLinks.forEach(item=>{
+
+            item.classList.remove("active");
+
+        });
+
+        link.classList.add("active");
+
+    });
+
+});
+
+/*==========================================================
+PAGINATION
+==========================================================*/
+
+ybeps.paginationLinks.forEach(link=>{
+
+    link.addEventListener("click",(event)=>{
+
+        event.preventDefault();
+
+        ybeps.paginationLinks.forEach(item=>{
+
+            item.parentElement.classList.remove("active");
+
+        });
+
+        if(link.parentElement.classList.contains("disabled")) return;
+
+        link.parentElement.classList.add("active");
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+    });
+
+});
+
+/*==========================================================
+NOTIFICATION
+==========================================================*/
+
+if(ybeps.notificationButton){
+
+    ybeps.notificationButton.addEventListener("click",()=>{
+
+        window.location.href="../../navigation/notification.html";
+
+    });
+
+}
+
+/*==========================================================
+PROFILE EFFECT
+==========================================================*/
+
+if(ybeps.profileButton){
+
+    ybeps.profileButton.addEventListener("mouseenter",()=>{
+
+        ybeps.profileButton.style.transform="scale(1.03)";
+
+    });
+
+    ybeps.profileButton.addEventListener("mouseleave",()=>{
+
+        ybeps.profileButton.style.transform="scale(1)";
+
+    });
+
+}
+
+/*==========================================================
+SCROLL REVEAL
+==========================================================*/
+
+const ybepsObserver=new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("ybeps-show");
+
+        }
+
+    });
+
+},{
+
+    threshold:.15
+
+});
+
+document.querySelectorAll(
+
+    ".ybeps-product-card, .ybeps-filter-card"
+
+).forEach(item=>{
+
+    item.classList.add("ybeps-hidden");
+
+    ybepsObserver.observe(item);
+
+});
+
+/*==========================================================
+EMPTY STATE
+==========================================================*/
+
+function ybepsCheckEmptyState(){
+
+    const visibleProducts=[
+
+        ...document.querySelectorAll(".ybeps-product-card")
+
+    ].filter(card=>
+
+        card.parentElement.style.display!=="none"
+
+    );
+
+    if(
+
+        ybeps.emptyState &&
+
+        visibleProducts.length===0
+
+    ){
+
+        ybeps.emptyState.classList.remove("d-none");
+
+    }
+
+    else if(ybeps.emptyState){
+
+        ybeps.emptyState.classList.add("d-none");
+
+    }
+
+}
+
+if(ybeps.searchInput){
+
+    ybeps.searchInput.addEventListener("keyup",ybepsCheckEmptyState);
+
+}
+
+/*==========================================================
+KEYBOARD SHORTCUTS
+==========================================================*/
+
+document.addEventListener("keydown",(event)=>{
+
+    if(event.altKey && event.key==="f"){
+
+        event.preventDefault();
+
+        ybeps.searchInput?.focus();
+
+    }
+
+    if(event.altKey && event.key==="c"){
+
+        window.location.href="cart.html";
+
+    }
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",()=>{
+
+    document.documentElement.style.setProperty(
+
+        "--ybeps-window-width",
+
+        `${window.innerWidth}px`
+
+    );
+
+});
+
+/*==========================================================
+INITIALIZE
+==========================================================*/
+
+ybepsCheckEmptyState();
+
+document.body.classList.add("ybeps-ready");
+
+});
+
+/*==========================================================
+END OF YOVI BUYER ELECTRONICS CATEGORIES SCREEN
+==========================================================*/
+
+/*==========================================================
+YOVI BUYER RECENTLY VIEWED PAGE
+Prefix : ybrvp
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+"use strict";
+
+/*==========================================================
+DOM ELEMENTS
+==========================================================*/
+
+const ybrvp={
+
+productCards:document.querySelectorAll(".ybrvp-product-card"),
+
+providerCards:document.querySelectorAll(".ybrvp-provider-card"),
+
+sectionTitles:document.querySelectorAll(".ybrvp-section-header"),
+
+pageHeader:document.querySelector(".ybrvp-page-header"),
+
+cartButton:document.querySelector(".js-card-link"),
+
+notificationButton:document.querySelector(".ybrvp-notification-dot"),
+
+profileButton:document.querySelector(".ybrvp-profile-btn"),
+
+verifiedBadges:document.querySelectorAll(".ybrvp-provider-badge"),
+
+statusBadges:document.querySelectorAll(".ybrvp-status"),
+
+emptyState:document.querySelector(".ybrvp-empty-state")
+
+};
+
+/*==========================================================
+PAGE INTRO ANIMATION
+==========================================================*/
+
+function ybrvpPageAnimation(){
+
+if(!ybrvp.pageHeader) return;
+
+ybrvp.pageHeader.style.opacity="0";
+
+ybrvp.pageHeader.style.transform="translateY(25px)";
+
+setTimeout(()=>{
+
+ybrvp.pageHeader.style.transition=".5s ease";
+
+ybrvp.pageHeader.style.opacity="1";
+
+ybrvp.pageHeader.style.transform="translateY(0)";
+
+},150);
+
+}
+
+ybrvpPageAnimation();
+
+/*==========================================================
+PRODUCT CARD EFFECT
+==========================================================*/
+
+function ybrvpProductHover(){
+
+ybrvp.productCards.forEach(card=>{
+
+card.addEventListener("mouseenter",()=>{
+
+card.style.transform="translateY(-8px)";
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="translateY(0)";
+
+});
+
+});
+
+}
+
+ybrvpProductHover();
+
+/*==========================================================
+PROVIDER CARD EFFECT
+==========================================================*/
+
+function ybrvpProviderHover(){
+
+ybrvp.providerCards.forEach(card=>{
+
+card.addEventListener("mouseenter",()=>{
+
+card.style.transform="translateY(-8px)";
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="translateY(0)";
+
+});
+
+});
+
+}
+
+ybrvpProviderHover();
+
+/*==========================================================
+PRODUCT CLICK
+==========================================================*/
+
+ybrvp.productCards.forEach(card=>{
+
+card.addEventListener("click",()=>{
+
+window.location.href="../../products/products-detail.html";
+
+});
+
+});
+
+/*==========================================================
+PROVIDER CLICK
+==========================================================*/
+
+ybrvp.providerCards.forEach(card=>{
+
+card.addEventListener("click",()=>{
+
+window.location.href="../../profile/provider-profile.html";
+
+});
+
+});
+
+/*==========================================================
+VERIFIED BADGE EFFECT
+==========================================================*/
+
+ybrvp.verifiedBadges.forEach(badge=>{
+
+badge.addEventListener("mouseenter",()=>{
+
+badge.style.transform="scale(1.05)";
+
+});
+
+badge.addEventListener("mouseleave",()=>{
+
+badge.style.transform="scale(1)";
+
+});
+
+});
+
+/*==========================================================
+STATUS BADGE EFFECT
+==========================================================*/
+
+ybrvp.statusBadges.forEach(badge=>{
+
+badge.addEventListener("mouseenter",()=>{
+
+badge.style.opacity=".9";
+
+});
+
+badge.addEventListener("mouseleave",()=>{
+
+badge.style.opacity="1";
+
+});
+
+});
+
+    /*==========================================================
+    NOTIFICATION BUTTON
+    ==========================================================*/
+
+    if(ybrvp.notificationButton){
+
+        ybrvp.notificationButton.addEventListener("click",()=>{
+
+            window.location.href="../../navigation/notification.html";
+
+        });
+
+    }
+
+    /*==========================================================
+    PROFILE BUTTON EFFECT
+    ==========================================================*/
+
+    if(ybrvp.profileButton){
+
+        ybrvp.profileButton.addEventListener("mouseenter",()=>{
+
+            ybrvp.profileButton.style.transform="scale(1.03)";
+
+        });
+
+        ybrvp.profileButton.addEventListener("mouseleave",()=>{
+
+            ybrvp.profileButton.style.transform="scale(1)";
+
+        });
+
+    }
+
+    /*==========================================================
+    SCROLL REVEAL
+    ==========================================================*/
+
+    const ybrvpObserver=new IntersectionObserver((entries)=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("ybrvp-show");
+
+            }
+
+        });
+
+    },{
+
+        threshold:.15
+
+    });
+
+    document.querySelectorAll(
+
+        ".ybrvp-product-card, .ybrvp-provider-card"
+
+    ).forEach(item=>{
+
+        item.classList.add("ybrvp-hidden");
+
+        ybrvpObserver.observe(item);
+
+    });
+
+    /*==========================================================
+    EMPTY STATE CHECK
+    ==========================================================*/
+
+    if(
+
+        ybrvp.emptyState &&
+
+        ybrvp.productCards.length===0 &&
+
+        ybrvp.providerCards.length===0
+
+    ){
+
+        ybrvp.emptyState.classList.remove("d-none");
+
+    }
+
+    /*==========================================================
+    WINDOW RESIZE
+    ==========================================================*/
+
+    window.addEventListener("resize",()=>{
+
+        document.documentElement.style.setProperty(
+
+            "--ybrvp-window-width",
+
+            window.innerWidth+"px"
+
+        );
+
+    });
+
+    /*==========================================================
+    KEYBOARD SHORTCUTS
+    ==========================================================*/
+
+    document.addEventListener("keydown",(event)=>{
+
+        if(event.altKey && event.key==="p"){
+
+            window.location.href="../../navigation/products.html";
+
+        }
+
+        if(event.altKey && event.key==="s"){
+
+            window.location.href="../../navigation/services.html";
+
+        }
+
+    });
+
+    /*==========================================================
+    INITIALIZE PAGE
+    ==========================================================*/
+
+    document.body.classList.add("ybrvp-ready");
+
+});
+
+/*==========================================================
+Reveal Animation Helpers
+==========================================================*/
+
+document.documentElement.classList.add("js");
+
+/*==========================================================
+END OF BUYER RECENTLY VIEWED PAGE
+==========================================================*/
+
+/*==========================================================
 SERVICE TOP PROVIDERS LISTING
 ==========================================================*/
 
