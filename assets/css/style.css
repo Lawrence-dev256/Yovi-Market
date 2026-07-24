@@ -47044,6 +47044,3157 @@ Prefix : ybeps
 ==========================================================*/
 
 /*==========================================================
+YOVI BUYER EXPLORE PRODUCTS
+PAGE 2
+
+Prefix : ybeps
+==========================================================*/
+
+/*==========================================================
+PAGE
+==========================================================*/
+
+.ybeps-page{
+
+    background:var(--body);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+
+.ybeps-container{
+
+    padding:40px 24px 80px;
+
+}
+
+.ybeps-page-content{
+
+    width:100%;
+
+}
+
+/*==========================================================
+HEADER
+==========================================================*/
+
+.ybeps-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1050;
+
+    background:var(--surface);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.ybeps-navbar{
+
+    min-height:82px;
+
+}
+
+.ybeps-logo img{
+
+    height:42px;
+
+    width:auto;
+
+}
+
+.ybeps-navbar .nav-link{
+
+    color:var(--text);
+
+    font-weight:600;
+
+    padding:1rem .9rem;
+
+    transition:var(--transition);
+
+}
+
+.ybeps-navbar .nav-link:hover,
+
+.ybeps-navbar .nav-link.active{
+
+    color:var(--primary);
+
+}
+
+.ybeps-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.ybeps-icon-btn{
+
+    width:46px;
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:1px solid var(--border);
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    position:relative;
+
+    transition:var(--transition);
+
+}
+
+.ybeps-icon-btn:hover{
+
+    background:var(--primary-light);
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+.ybeps-notification-dot{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+}
+
+.ybeps-profile-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:none;
+
+    background:none;
+
+    padding:0;
+
+}
+
+.ybeps-profile-btn img{
+
+    width:42px;
+
+    height:42px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+}
+
+.ybeps-profile-btn span{
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+/*==========================================================
+SIDEBAR
+==========================================================*/
+
+.ybeps-sidebar{
+
+    position:sticky;
+
+    top:105px;
+
+}
+
+.ybeps-page-header{
+
+    margin-bottom:28px;
+
+}
+
+.ybeps-page-header h1{
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+    margin-bottom:8px;
+
+}
+
+.ybeps-page-header p{
+
+    color:var(--text-light);
+
+    margin:0;
+
+    line-height:1.7;
+
+}
+
+/*==========================================================
+CATEGORY PILLS
+==========================================================*/
+
+.ybeps-category-wrapper{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:28px;
+
+}
+
+.ybeps-category-btn{
+
+    border:1px solid var(--border);
+
+    background:var(--surface);
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.ybeps-category-btn:hover,
+
+.ybeps-category-btn.active{
+
+    background:var(--primary);
+
+    border-color:var(--primary);
+
+    color:var(--white);
+
+}
+
+/*==========================================================
+FILTER CARDS
+==========================================================*/
+
+.ybeps-filter-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    padding:24px;
+
+    margin-bottom:22px;
+
+    box-shadow:var(--shadow-xs);
+
+    transition:var(--transition);
+
+}
+
+.ybeps-filter-card:hover{
+
+    border-color:var(--primary);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.ybeps-filter-card h5{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:18px;
+
+}
+
+.ybeps-filter-list{
+
+    list-style:none;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+.ybeps-filter-list li{
+
+    margin-bottom:14px;
+
+}
+
+.ybeps-filter-list li:last-child{
+
+    margin-bottom:0;
+
+}
+
+.ybeps-filter-list a{
+
+    display:flex;
+
+    align-items:center;
+
+    color:var(--text-light);
+
+    font-size:.92rem;
+
+    font-weight:500;
+
+    transition:var(--transition);
+
+}
+
+.ybeps-filter-list a:hover{
+
+    color:var(--primary);
+
+    padding-left:8px;
+
+}
+
+/*==========================================================
+TOP TOOLBAR
+==========================================================*/
+
+.ybeps-toolbar{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:16px;
+
+    margin-bottom:32px;
+
+}
+
+.ybeps-toolbar-search{
+
+    flex:1;
+
+}
+
+.ybeps-toolbar-search input{
+
+    width:100%;
+
+    height:50px;
+
+    border:1px solid var(--border);
+
+    border-radius:999px;
+
+    background:var(--surface);
+
+    padding:0 20px;
+
+    outline:none;
+
+    color:var(--text);
+
+    transition:var(--transition);
+
+}
+
+.ybeps-toolbar-search input:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 3px rgba(var(--primary-rgb),.12);
+
+}
+
+.ybeps-filter-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    padding:0 22px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.ybeps-filter-btn:hover{
+
+    transform:translateY(-2px);
+
+    background:var(--primary-dark);
+
+}
+
+.ybeps-view-toggle{
+
+    display:flex;
+
+    align-items:center;
+
+    border:1px solid var(--border);
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    background:var(--surface);
+
+}
+
+.ybeps-view-btn{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    background:transparent;
+
+    color:var(--text-light);
+
+    transition:var(--transition);
+
+}
+
+.ybeps-view-btn.active,
+
+.ybeps-view-btn:hover{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+}
+
+/*==========================================================
+PRODUCT GRID
+==========================================================*/
+
+.ybeps-product-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100%;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow-xs);
+
+    transition:var(--transition);
+
+}
+
+.ybeps-product-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--primary);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.ybeps-product-image{
+
+    position:relative;
+
+    width:100%;
+
+    height:235px;
+
+    overflow:hidden;
+
+    background:#f7f7f7;
+
+}
+
+.ybeps-product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.45s ease;
+
+}
+
+.ybeps-product-card:hover .ybeps-product-image img{
+
+    transform:scale(1.08);
+
+}
+
+/*==========================================================
+PRODUCT BADGES
+==========================================================*/
+
+.ybeps-product-badge{
+
+    position:absolute;
+
+    top:16px;
+
+    left:16px;
+
+    z-index:2;
+
+    padding:6px 14px;
+
+    border-radius:999px;
+
+    font-size:.72rem;
+
+    font-weight:700;
+
+    color:var(--white);
+
+    letter-spacing:.3px;
+
+}
+
+.ybeps-product-badge.bestseller{
+
+    background:var(--success);
+
+}
+
+.ybeps-product-badge.sale{
+
+    background:var(--danger);
+
+}
+
+.ybeps-product-badge.limited{
+
+    background:#ff9800;
+
+}
+
+/*==========================================================
+PRODUCT CONTENT
+==========================================================*/
+
+.ybeps-product-body{
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
+    padding:22px;
+
+}
+
+.ybeps-product-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:14px;
+
+}
+
+.ybeps-category-tag{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:6px 14px;
+
+    border-radius:999px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+}
+
+.ybeps-rating{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+}
+
+.ybeps-rating i{
+
+    color:#FFC107;
+
+}
+
+.ybeps-product-body h5{
+
+    font-size:1.08rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:12px;
+
+    line-height:1.5;
+
+}
+
+.ybeps-product-body p{
+
+    flex:1;
+
+    color:var(--text-light);
+
+    font-size:.92rem;
+
+    line-height:1.7;
+
+    margin-bottom:18px;
+
+}
+
+.ybeps-old-price{
+
+    margin-bottom:10px;
+
+    color:var(--text-light);
+
+    font-size:.9rem;
+
+    text-decoration:line-through;
+
+}
+
+.ybeps-product-footer{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:14px;
+
+    padding-top:18px;
+
+    border-top:1px solid var(--border-light);
+
+}
+
+.ybeps-product-footer h3{
+
+    margin:0;
+
+    font-size:1.35rem;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+}
+
+.ybeps-cart-btn{
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+.ybeps-cart-btn:hover{
+
+    background:var(--primary-dark);
+
+    transform:scale(1.08);
+
+}
+
+.ybeps-cart-btn i{
+
+    font-size:1.15rem;
+
+}
+
+/*==========================================================
+PAGINATION
+==========================================================*/
+
+.ybeps-pagination-wrapper{
+
+    margin-top:48px;
+
+}
+
+.ybeps-pagination-wrapper .pagination{
+
+    gap:10px;
+
+}
+
+.ybeps-pagination-wrapper .page-link{
+
+    width:46px;
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:1px solid var(--border);
+
+    background:var(--surface);
+
+    color:var(--heading);
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.ybeps-pagination-wrapper .page-item.active .page-link{
+
+    background:var(--primary);
+
+    border-color:var(--primary);
+
+    color:var(--white);
+
+}
+
+.ybeps-pagination-wrapper .page-link:hover{
+
+    background:var(--primary);
+
+    border-color:var(--primary);
+
+    color:var(--white);
+
+}
+
+/*==========================================================
+EMPTY STATE
+==========================================================*/
+
+.ybeps-empty-state{
+
+    padding:90px 24px;
+
+    text-align:center;
+
+    background:var(--surface);
+
+    border:1px dashed var(--border);
+
+    border-radius:var(--radius-xl);
+
+    margin-top:48px;
+
+}
+
+.ybeps-empty-content{
+
+    max-width:520px;
+
+    margin:0 auto;
+
+}
+
+.ybeps-empty-icon{
+
+    width:90px;
+
+    height:90px;
+
+    margin:0 auto 24px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--primary-light);
+
+}
+
+.ybeps-empty-icon i{
+
+    font-size:2.4rem;
+
+    color:var(--primary);
+
+}
+
+.ybeps-empty-state h3{
+
+    font-size:1.8rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:14px;
+
+}
+
+.ybeps-empty-state p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+    margin-bottom:28px;
+
+}
+
+.ybeps-primary-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:14px 34px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.ybeps-primary-btn:hover{
+
+    background:var(--primary-dark);
+
+    color:var(--white);
+
+}
+
+/*==========================================================
+RESPONSIVE
+==========================================================*/
+
+@media (max-width:991.98px){
+
+    .ybeps-sidebar{
+
+        position:static;
+
+        margin-bottom:30px;
+
+    }
+
+    .ybeps-toolbar{
+
+        flex-wrap:wrap;
+
+    }
+
+    .ybeps-toolbar-search{
+
+        width:100%;
+
+        order:1;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .ybeps-container{
+
+        padding:28px 16px 60px;
+
+    }
+
+    .ybeps-page-header{
+
+        text-align:center;
+
+    }
+
+    .ybeps-page-header h1{
+
+        font-size:1.8rem;
+
+    }
+
+    .ybeps-actions{
+
+        width:100%;
+
+        justify-content:center;
+
+        margin-top:18px;
+
+    }
+
+    .ybeps-profile-btn span{
+
+        display:none;
+
+    }
+
+    .ybeps-toolbar{
+
+        justify-content:center;
+
+    }
+
+    .ybeps-product-image{
+
+        height:210px;
+
+    }
+
+    .ybeps-product-body{
+
+        padding:18px;
+
+    }
+
+    .ybeps-product-footer h3{
+
+        font-size:1.18rem;
+
+    }
+
+}
+
+@media (max-width:575.98px){
+
+    .ybeps-category-wrapper{
+
+        gap:8px;
+
+    }
+
+    .ybeps-category-btn{
+
+        font-size:.8rem;
+
+        padding:8px 15px;
+
+    }
+
+    .ybeps-filter-card{
+
+        padding:18px;
+
+    }
+
+    .ybeps-product-top{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+    .ybeps-product-footer{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:16px;
+
+    }
+
+    .ybeps-cart-btn{
+
+        width:100%;
+
+        border-radius:999px;
+
+    }
+
+    .ybeps-empty-state{
+
+        padding:60px 18px;
+
+    }
+
+    .ybeps-primary-btn{
+
+        width:100%;
+
+    }
+
+}
+
+/*==========================================================
+ANIMATIONS
+==========================================================*/
+
+@keyframes ybepsFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(28px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.ybeps-product-card,
+
+.ybeps-filter-card,
+
+.ybeps-page-header{
+
+    animation:ybepsFadeUp .6s ease both;
+
+}
+
+/*==========================================================
+END OF YOVI BUYER ELECTRONICS PRODUCTS
+PAGE 2
+==========================================================*/
+
+/*==========================================================
+YOVI BUYER WISHLIST
+Prefix : ybwls
+==========================================================*/
+
+/*==========================================================
+PAGE
+==========================================================*/
+
+.ybwls-page{
+
+    background:var(--body);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+
+.ybwls-container{
+
+    max-width:1400px;
+
+    padding:40px 20px 80px;
+
+}
+
+/*==========================================================
+HEADER
+==========================================================*/
+
+.ybwls-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1050;
+
+    background:var(--surface);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.ybwls-navbar{
+
+    min-height:82px;
+
+    padding:0;
+
+}
+
+.ybwls-logo img{
+
+    height:42px;
+
+    width:auto;
+
+}
+
+.ybwls-navbar .nav-link{
+
+    color:var(--text);
+
+    font-weight:600;
+
+    padding:1.55rem .9rem;
+
+    transition:var(--transition);
+
+}
+
+.ybwls-navbar .nav-link:hover,
+
+.ybwls-navbar .nav-link.active{
+
+    color:var(--primary);
+
+}
+
+.ybwls-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.ybwls-icon-btn{
+
+    width:46px;
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:1px solid var(--border);
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    transition:var(--transition);
+
+    position:relative;
+
+}
+
+.ybwls-icon-btn:hover{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    border-color:var(--primary);
+
+}
+
+.ybwls-notification-dot{
+
+    position:absolute;
+
+    top:11px;
+
+    right:11px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+}
+
+.ybwls-profile-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:none;
+
+    background:none;
+
+    padding:0;
+
+}
+
+.ybwls-profile-btn img{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.ybwls-profile-btn span{
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+/*==========================================================
+PAGE HEADER
+==========================================================*/
+
+.ybwls-page-header{
+
+    margin-bottom:28px;
+
+}
+
+.ybwls-page-header h1{
+
+    font-size:2.2rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+    margin-bottom:6px;
+
+}
+
+.ybwls-page-header p{
+
+    margin:0;
+
+    color:var(--text-light);
+
+    font-size:.95rem;
+
+}
+
+/*==========================================================
+TABS
+==========================================================*/
+
+.ybwls-tabs{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:36px;
+
+    border-bottom:1px solid var(--border);
+
+    margin-bottom:34px;
+
+}
+
+.ybwls-tab{
+
+    position:relative;
+
+    border:none;
+
+    background:none;
+
+    padding:0 0 16px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--text-light);
+
+    transition:var(--transition);
+
+    cursor:pointer;
+
+}
+
+.ybwls-tab:hover{
+
+    color:var(--primary);
+
+}
+
+.ybwls-tab.active{
+
+    color:var(--primary);
+
+}
+
+.ybwls-tab.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-1px;
+
+    width:100%;
+
+    height:3px;
+
+    background:var(--primary);
+
+    border-radius:999px;
+
+}
+
+/*==========================================================
+PRODUCT GRID
+==========================================================*/
+
+.ybwls-products-panel{
+
+    display:block;
+
+}
+
+.ybwls-products-panel.d-none{
+
+    display:none;
+
+}
+
+.ybwls-product-card{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100%;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow-xs);
+
+    transition:var(--transition);
+
+}
+
+.ybwls-product-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--primary);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+/*==========================================================
+PRODUCT IMAGE
+==========================================================*/
+
+.ybwls-product-image{
+
+    position:relative;
+
+    width:100%;
+
+    height:235px;
+
+    overflow:hidden;
+
+    background:var(--neutral-100);
+
+}
+
+.ybwls-product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.45s ease;
+
+}
+
+.ybwls-product-card:hover .ybwls-product-image img{
+
+    transform:scale(1.08);
+
+}
+
+/*==========================================================
+FAVOURITE BUTTON
+==========================================================*/
+
+.ybwls-favourite{
+
+    position:absolute;
+
+    top:16px;
+
+    right:16px;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(255,255,255,.95);
+
+    color:var(--danger);
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.ybwls-favourite:hover{
+
+    transform:scale(1.1);
+
+}
+
+.ybwls-favourite i{
+
+    font-size:1rem;
+
+}
+
+/*==========================================================
+PRICE DROP BADGE
+==========================================================*/
+
+.ybwls-badge{
+
+    position:absolute;
+
+    top:16px;
+
+    left:16px;
+
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    background:var(--success);
+
+    color:var(--white);
+
+    font-size:.72rem;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+/*==========================================================
+PRODUCT CONTENT
+==========================================================*/
+
+.ybwls-product-body{
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
+    padding:22px;
+
+}
+
+.ybwls-category{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    width:max-content;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+    margin-bottom:14px;
+
+}
+
+.ybwls-product-body h5{
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    line-height:1.6;
+
+    margin-bottom:18px;
+
+    flex:1;
+
+}
+
+/*==========================================================
+PRODUCT META
+==========================================================*/
+
+.ybwls-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:20px;
+
+}
+
+.ybwls-meta h4{
+
+    margin:0;
+
+    font-size:1.35rem;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+}
+
+.ybwls-meta span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+.ybwls-meta span i{
+
+    color:#FFC107;
+
+}
+
+/*==========================================================
+ADD TO CART BUTTON
+==========================================================*/
+
+.ybwls-cart-btn{
+
+    width:100%;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:var(--radius-lg);
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+    cursor:pointer;
+
+}
+
+.ybwls-cart-btn:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.ybwls-cart-btn:active{
+
+    transform:scale(.98);
+
+}
+
+/*==========================================================
+SAVED PROVIDERS PANEL
+==========================================================*/
+
+.ybwls-providers-panel{
+
+    display:block;
+
+}
+
+.ybwls-providers-panel.d-none{
+
+    display:none;
+
+}
+
+/*==========================================================
+EMPTY STATE
+==========================================================*/
+
+.ybwls-empty-state{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:80px 30px;
+
+    background:var(--surface);
+
+    border:1px dashed var(--border);
+
+    border-radius:var(--radius-xl);
+
+}
+
+.ybwls-empty-content{
+
+    max-width:560px;
+
+    margin:auto;
+
+}
+
+.ybwls-empty-icon{
+
+    width:90px;
+
+    height:90px;
+
+    margin:0 auto 24px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--primary-light);
+
+}
+
+.ybwls-empty-icon i{
+
+    font-size:2.5rem;
+
+    color:var(--primary);
+
+}
+
+.ybwls-empty-state h2,
+
+.ybwls-empty-state h3{
+
+    color:var(--heading);
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    margin-bottom:14px;
+
+}
+
+.ybwls-empty-state p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+    margin-bottom:28px;
+
+}
+
+.ybwls-primary-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:14px 34px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.ybwls-primary-btn:hover{
+
+    background:var(--primary-dark);
+
+    color:var(--white);
+
+}
+
+/*==========================================================
+RESPONSIVE
+==========================================================*/
+
+@media (max-width:991.98px){
+
+    .ybwls-container{
+
+        padding:32px 18px 70px;
+
+    }
+
+    .ybwls-navbar{
+
+        padding:12px 0;
+
+    }
+
+    .ybwls-actions{
+
+        width:100%;
+
+        justify-content:center;
+
+        margin-top:18px;
+
+    }
+
+    .ybwls-tabs{
+
+        gap:22px;
+
+        overflow-x:auto;
+
+        white-space:nowrap;
+
+        scrollbar-width:none;
+
+    }
+
+    .ybwls-tabs::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .ybwls-page-header{
+
+        text-align:center;
+
+    }
+
+    .ybwls-page-header h1{
+
+        font-size:1.8rem;
+
+    }
+
+    .ybwls-profile-btn span{
+
+        display:none;
+
+    }
+
+    .ybwls-product-image{
+
+        height:210px;
+
+    }
+
+    .ybwls-product-body{
+
+        padding:18px;
+
+    }
+
+    .ybwls-meta{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+}
+
+@media (max-width:575.98px){
+
+    .ybwls-container{
+
+        padding:24px 14px 60px;
+
+    }
+
+    .ybwls-page-header h1{
+
+        font-size:1.55rem;
+
+    }
+
+    .ybwls-tabs{
+
+        gap:18px;
+
+    }
+
+    .ybwls-tab{
+
+        font-size:.9rem;
+
+    }
+
+    .ybwls-product-image{
+
+        height:190px;
+
+    }
+
+    .ybwls-favourite{
+
+        width:38px;
+
+        height:38px;
+
+    }
+
+    .ybwls-badge{
+
+        font-size:.68rem;
+
+        padding:6px 12px;
+
+    }
+
+    .ybwls-meta h4{
+
+        font-size:1.2rem;
+
+    }
+
+    .ybwls-cart-btn{
+
+        height:46px;
+
+    }
+
+    .ybwls-empty-state{
+
+        padding:60px 20px;
+
+    }
+
+    .ybwls-empty-icon{
+
+        width:72px;
+
+        height:72px;
+
+    }
+
+    .ybwls-empty-icon i{
+
+        font-size:2rem;
+
+    }
+
+    .ybwls-empty-state h2,
+
+    .ybwls-empty-state h3{
+
+        font-size:1.55rem;
+
+    }
+
+    .ybwls-primary-btn{
+
+        width:100%;
+
+    }
+
+}
+
+/*==========================================================
+ANIMATIONS
+==========================================================*/
+
+@keyframes ybwlsFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.ybwls-product-card,
+
+.ybwls-page-header,
+
+.ybwls-tabs{
+
+    animation:ybwlsFadeUp .6s ease both;
+
+}
+
+.ybwls-product-card:nth-child(2){
+
+    animation-delay:.08s;
+
+}
+
+.ybwls-product-card:nth-child(3){
+
+    animation-delay:.16s;
+
+}
+
+.ybwls-product-card:nth-child(4){
+
+    animation-delay:.24s;
+
+}
+
+.ybwls-hidden{
+
+    display:none !important;
+
+}
+
+.ybwls-show{
+
+    display:block !important;
+
+}
+
+/*==========================================================
+END OF YOVI BUYER WISHLIST
+Prefix : ybwls
+==========================================================*/
+
+/*==========================================================
+YOVI BUYER WISHLIST
+SAVED PROVIDERS
+
+Prefix : ybwspp
+==========================================================*/
+
+/*==========================================================
+PAGE
+==========================================================*/
+
+.ybwspp-page{
+
+    background:var(--body);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+
+.ybwspp-container{
+
+    max-width:1400px;
+
+    padding:40px 24px 80px;
+
+}
+
+/*==========================================================
+HEADER
+==========================================================*/
+
+.ybwspp-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1050;
+
+    background:var(--surface);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.ybwspp-navbar{
+
+    min-height:82px;
+
+}
+
+.ybwspp-logo img{
+
+    height:42px;
+
+    width:auto;
+
+}
+
+.ybwspp-navbar .nav-link{
+
+    color:var(--text);
+
+    font-weight:600;
+
+    padding:1rem .9rem;
+
+    transition:var(--transition);
+
+}
+
+.ybwspp-navbar .nav-link:hover,
+
+.ybwspp-navbar .nav-link.active{
+
+    color:var(--primary);
+
+}
+
+.ybwspp-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.ybwspp-icon-btn{
+
+    width:46px;
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:1px solid var(--border);
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    position:relative;
+
+    transition:var(--transition);
+
+}
+
+.ybwspp-icon-btn:hover{
+
+    color:var(--primary);
+
+    border-color:var(--primary);
+
+    background:var(--primary-light);
+
+}
+
+.ybwspp-notification-dot{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+}
+
+.ybwspp-profile-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:none;
+
+    background:none;
+
+    padding:0;
+
+}
+
+.ybwspp-profile-btn img{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.ybwspp-profile-btn span{
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+.ybwspp-profile-btn i{
+
+    color:var(--text-light);
+
+    font-size:.8rem;
+
+}
+
+/*==========================================================
+PAGE HEADER
+==========================================================*/
+
+.ybwspp-page-header{
+
+    margin-bottom:28px;
+
+}
+
+.ybwspp-page-header h1{
+
+    font-size:2.2rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+    margin-bottom:8px;
+
+}
+
+.ybwspp-page-header p{
+
+    margin:0;
+
+    color:var(--text-light);
+
+    font-size:.95rem;
+
+}
+
+/*==========================================================
+TABS
+==========================================================*/
+
+.ybwspp-tabs{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:34px;
+
+    border-bottom:1px solid var(--border);
+
+    margin-bottom:36px;
+
+}
+
+.ybwspp-tab{
+
+    position:relative;
+
+    border:none;
+
+    background:none;
+
+    text-decoration:none;
+
+    color:var(--text-light);
+
+    font-weight:700;
+
+    font-size:1rem;
+
+    padding:0 0 18px;
+
+    transition:var(--transition);
+
+}
+
+.ybwspp-tab:hover{
+
+    color:var(--primary);
+
+}
+
+.ybwspp-tab.active{
+
+    color:var(--primary);
+
+}
+
+.ybwspp-tab.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-1px;
+
+    width:100%;
+
+    height:3px;
+
+    background:var(--primary);
+
+    border-radius:999px;
+
+}
+
+/*==========================================================
+PROVIDER GRID
+==========================================================*/
+
+.ybwspp-provider-section{
+
+    width:100%;
+
+}
+
+.ybwspp-provider-card{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+    height:100%;
+
+    padding:22px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    box-shadow:var(--shadow-xs);
+
+    transition:var(--transition);
+
+    cursor:pointer;
+
+}
+
+.ybwspp-provider-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--primary);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+/*==========================================================
+PROVIDER AVATAR
+==========================================================*/
+
+.ybwspp-provider-avatar{
+
+    position:relative;
+
+    flex-shrink:0;
+
+}
+
+.ybwspp-provider-avatar img{
+
+    width:82px;
+
+    height:82px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:3px solid var(--surface);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.ybwspp-online{
+
+    position:absolute;
+
+    right:6px;
+
+    bottom:4px;
+
+    width:16px;
+
+    height:16px;
+
+    border-radius:50%;
+
+    background:var(--success);
+
+    border:3px solid var(--surface);
+
+}
+
+/*==========================================================
+PROVIDER CONTENT
+==========================================================*/
+
+.ybwspp-provider-content{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-width:0;
+
+}
+
+.ybwspp-provider-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:14px;
+
+    margin-bottom:14px;
+
+}
+
+.ybwspp-provider-top h5{
+
+    margin:0 0 4px;
+
+    font-size:1.1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+}
+
+.ybwspp-provider-top p{
+
+    margin:0;
+
+    font-size:.9rem;
+
+    color:var(--text-light);
+
+}
+
+/*==========================================================
+VERIFIED BADGE
+==========================================================*/
+
+.ybwspp-verified{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    background:rgba(37,99,235,.10);
+
+    color:#2563eb;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+}
+
+.ybwspp-verified i{
+
+    font-size:.8rem;
+
+}
+
+/*==========================================================
+PROVIDER META
+==========================================================*/
+
+.ybwspp-provider-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin-bottom:18px;
+
+}
+
+.ybwspp-provider-meta span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    font-size:.88rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+.ybwspp-provider-meta i{
+
+    color:#FFC107;
+
+}
+
+.ybwspp-provider-meta .bi-geo-alt{
+
+    color:var(--primary);
+
+}
+
+/*==========================================================
+BOTTOM SECTION
+==========================================================*/
+
+.ybwspp-provider-bottom{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-top:auto;
+
+    padding-top:18px;
+
+    border-top:1px solid var(--border-light);
+
+}
+
+.ybwspp-provider-bottom strong{
+
+    font-size:1.15rem;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+}
+
+/*==========================================================
+STATUS BADGES
+==========================================================*/
+
+.ybwspp-status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+}
+
+.ybwspp-status.available{
+
+    background:rgba(34,197,94,.12);
+
+    color:#16a34a;
+
+}
+
+.ybwspp-status.busy{
+
+    background:rgba(245,158,11,.12);
+
+    color:#d97706;
+
+}
+
+.ybwspp-status.offline{
+
+    background:rgba(239,68,68,.10);
+
+    color:#dc2626;
+
+}
+
+/*==========================================================
+EMPTY STATE
+==========================================================*/
+
+.ybwspp-empty-state{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:90px 30px;
+
+    background:var(--surface);
+
+    border:1px dashed var(--border);
+
+    border-radius:var(--radius-xl);
+
+}
+
+.ybwspp-empty-icon{
+
+    width:90px;
+
+    height:90px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:24px;
+
+    border-radius:50%;
+
+    background:var(--primary-light);
+
+}
+
+.ybwspp-empty-icon i{
+
+    font-size:2.5rem;
+
+    color:var(--primary);
+
+}
+
+.ybwspp-empty-state h3{
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+    margin-bottom:14px;
+
+}
+
+.ybwspp-empty-state p{
+
+    max-width:520px;
+
+    margin:0 auto 30px;
+
+    line-height:1.8;
+
+    color:var(--text-light);
+
+}
+
+.ybwspp-primary-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:14px 34px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.ybwspp-primary-btn:hover{
+
+    background:var(--primary-dark);
+
+    color:var(--white);
+
+}
+
+/*==========================================================
+RESPONSIVE
+==========================================================*/
+
+@media (max-width:991.98px){
+
+    .ybwspp-container{
+
+        padding:32px 18px 70px;
+
+    }
+
+    .ybwspp-navbar{
+
+        padding:12px 0;
+
+    }
+
+    .ybwspp-actions{
+
+        width:100%;
+
+        justify-content:center;
+
+        margin-top:18px;
+
+    }
+
+    .ybwspp-tabs{
+
+        gap:22px;
+
+        overflow-x:auto;
+
+        white-space:nowrap;
+
+        scrollbar-width:none;
+
+    }
+
+    .ybwspp-tabs::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
+    .ybwspp-provider-card{
+
+        padding:20px;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .ybwspp-page-header{
+
+        text-align:center;
+
+    }
+
+    .ybwspp-page-header h1{
+
+        font-size:1.8rem;
+
+    }
+
+    .ybwspp-profile-btn span,
+
+    .ybwspp-profile-btn i{
+
+        display:none;
+
+    }
+
+    .ybwspp-provider-card{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+
+    }
+
+    .ybwspp-provider-top{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:10px;
+
+    }
+
+    .ybwspp-provider-meta{
+
+        justify-content:center;
+
+    }
+
+    .ybwspp-provider-bottom{
+
+        flex-direction:column;
+
+        gap:14px;
+
+    }
+
+}
+
+@media (max-width:575.98px){
+
+    .ybwspp-container{
+
+        padding:24px 14px 60px;
+
+    }
+
+    .ybwspp-page-header h1{
+
+        font-size:1.6rem;
+
+    }
+
+    .ybwspp-tab{
+
+        font-size:.9rem;
+
+    }
+
+    .ybwspp-provider-avatar img{
+
+        width:72px;
+
+        height:72px;
+
+    }
+
+    .ybwspp-provider-top h5{
+
+        font-size:1rem;
+
+    }
+
+    .ybwspp-provider-bottom strong{
+
+        font-size:1rem;
+
+    }
+
+    .ybwspp-status{
+
+        width:100%;
+
+    }
+
+    .ybwspp-primary-btn{
+
+        width:100%;
+
+    }
+
+    .ybwspp-empty-state{
+
+        padding:60px 20px;
+
+    }
+
+    .ybwspp-empty-icon{
+
+        width:72px;
+
+        height:72px;
+
+    }
+
+    .ybwspp-empty-icon i{
+
+        font-size:2rem;
+
+    }
+
+    .ybwspp-empty-state h3{
+
+        font-size:1.6rem;
+
+    }
+
+}
+
+/*==========================================================
+ANIMATIONS
+==========================================================*/
+
+@keyframes ybwsppFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(28px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.ybwspp-page-header,
+
+.ybwspp-tabs,
+
+.ybwspp-provider-card{
+
+    animation:ybwsppFadeUp .6s ease both;
+
+}
+
+.ybwspp-provider-card:nth-child(2){
+
+    animation-delay:.08s;
+
+}
+
+.ybwspp-provider-card:nth-child(3){
+
+    animation-delay:.16s;
+
+}
+
+.ybwspp-provider-card:nth-child(4){
+
+    animation-delay:.24s;
+
+}
+
+.ybwspp-provider-card:nth-child(5){
+
+    animation-delay:.32s;
+
+}
+
+.ybwspp-provider-card:nth-child(6){
+
+    animation-delay:.40s;
+
+}
+
+/*==========================================================
+UTILITY CLASSES
+==========================================================*/
+
+.ybwspp-hidden{
+
+    display:none !important;
+
+}
+
+.ybwspp-show{
+
+    display:block !important;
+
+}
+
+.ybwspp-provider-card:focus-within{
+
+    border-color:var(--primary);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+/*==========================================================
+END OF YOVI BUYER WISHLIST SAVED PROVIDERS
+Prefix : ybwspp
+==========================================================*/
+
+
+/*==========================================================
 YOVI BUYER RECENTLY VIEWED PAGE
 Prefix : ybrvp
 ==========================================================*/
@@ -49086,15 +52237,894 @@ PRINT
 END OF BUYER REVIEWS CENTRE
 ==========================================================*/
 
+/*==========================================================
+YOVI BUYER REVIEW CENTRE (SUBMITTED REVIEWS)
+Prefix : brcs
+==========================================================*/
+
+/*==========================================================
+PAGE LAYOUT
+==========================================================*/
+
+.brcs-page{
+
+    background:var(--body);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+
+.brcs-container{
+
+    max-width:920px;
+
+    padding-top:34px;
+
+    padding-bottom:80px;
+
+}
+
+/*==========================================================
+HEADER
+==========================================================*/
+
+.brcs-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1050;
+
+    background:var(--surface);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.brcs-navbar{
+
+    min-height:82px;
+
+    padding:0;
+
+}
+
+.brcs-logo img{
+
+    height:42px;
+
+    width:auto;
+
+}
+
+.brcs-navbar .nav-link{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+    padding:1.65rem .9rem;
+
+    transition:var(--transition);
+
+}
+
+.brcs-navbar .nav-link:hover,
+
+.brcs-navbar .nav-link.active{
+
+    color:var(--primary);
+
+}
+
+.brcs-header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.brcs-icon-btn{
+
+    width:44px;
+
+    height:44px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:1px solid var(--border);
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    position:relative;
+
+    transition:var(--transition);
+
+}
+
+.brcs-icon-btn:hover{
+
+    background:var(--primary-light);
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+.brcs-notification-dot{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+}
+
+.brcs-profile-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:none;
+
+    border:none;
+
+    padding:0;
+
+}
+
+.brcs-profile-btn img{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.brcs-profile-btn span{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+/*==========================================================
+BREADCRUMB
+==========================================================*/
+
+.brcs-breadcrumb{
+
+    margin-bottom:18px;
+
+}
+
+.brcs-breadcrumb a{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--text-light);
+
+    font-size:.9rem;
+
+    transition:var(--transition);
+
+}
+
+.brcs-breadcrumb a:hover{
+
+    color:var(--primary);
+
+}
+
+/*==========================================================
+PAGE HEADER
+==========================================================*/
+
+.brcs-page-header{
+
+    margin-bottom:22px;
+
+}
+
+.brcs-page-header h1{
+
+    font-size:2.1rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+    margin:0;
+
+}
+
+/*==========================================================
+TABS
+==========================================================*/
+
+.brcs-tabs{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:36px;
+
+    border-bottom:1px solid var(--border);
+
+    margin-bottom:28px;
+
+}
+
+.brcs-tab{
+
+    position:relative;
+
+    padding:0 0 14px;
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    color:var(--text-light);
+
+    transition:var(--transition);
+
+}
+
+.brcs-tab:hover{
+
+    color:var(--primary);
+
+}
+
+.brcs-tab.active{
+
+    color:var(--primary);
+
+}
+
+.brcs-tab.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-1px;
+
+    width:100%;
+
+    height:2px;
+
+    background:var(--primary);
+
+    border-radius:999px;
+
+}
+
+/*==========================================================
+REVIEW WRAPPER
+==========================================================*/
+
+.brcs-review-wrapper{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+}
+
+/*==========================================================
+REVIEW CARD
+==========================================================*/
+
+.brcs-review-card{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+    padding:24px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-xl);
+
+    box-shadow:var(--shadow-xs);
+
+    transition:var(--transition);
+
+}
+
+.brcs-review-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:var(--primary);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+/*==========================================================
+REVIEW IMAGE
+==========================================================*/
+
+.brcs-review-image{
+
+    flex-shrink:0;
+
+}
+
+.brcs-review-image img{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:16px;
+
+    object-fit:cover;
+
+    border:1px solid var(--border);
+
+}
+
+/*==========================================================
+REVIEW CONTENT
+==========================================================*/
+
+.brcs-review-content{
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+.brcs-review-content h5{
+
+    margin:0 0 10px;
+
+    font-size:1.1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    line-height:1.5;
+
+}
+
+.brcs-review-content p{
+
+    margin:14px 0 18px;
+
+    color:var(--text-light);
+
+    font-size:.95rem;
+
+    line-height:1.8;
+
+}
+
+/*==========================================================
+STAR RATING
+==========================================================*/
+
+.brcs-review-stars{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:4px;
+
+}
+
+.brcs-review-stars i{
+
+    color:#FFC107;
+
+    font-size:.9rem;
+
+}
+
+/*==========================================================
+REVIEW META
+==========================================================*/
+
+.brcs-review-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    flex-wrap:wrap;
+
+    color:var(--text-light);
+
+    font-size:.85rem;
+
+}
+
+.brcs-review-meta span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+
+.brcs-review-meta i{
+
+    color:var(--primary);
+
+}
+
+/*==========================================================
+EMPTY STATE
+==========================================================*/
+
+.brcs-empty-state{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:80px 20px;
+
+    background:var(--surface);
+
+    border:1px dashed var(--border);
+
+    border-radius:var(--radius-xl);
+
+}
+
+.brcs-empty-icon{
+
+    width:90px;
+
+    height:90px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--primary-light);
+
+    margin-bottom:24px;
+
+}
+
+.brcs-empty-icon i{
+
+    font-size:2.3rem;
+
+    color:var(--primary);
+
+}
+
+.brcs-empty-state h3{
+
+    font-size:1.7rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:12px;
+
+}
+
+.brcs-empty-state p{
+
+    max-width:500px;
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+.brcs-primary-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.brcs-primary-btn:hover{
+
+    background:var(--primary-dark);
+
+    color:var(--white);
+
+}
+
+/*==========================================================
+ANIMATIONS
+==========================================================*/
+
+@keyframes brcsFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.brcs-page-header,
+
+.brcs-tabs,
+
+.brcs-review-card{
+
+    animation:brcsFadeUp .6s ease both;
+
+}
+
+.brcs-review-card:nth-child(2){
+
+    animation-delay:.08s;
+
+}
+
+.brcs-review-card:nth-child(3){
+
+    animation-delay:.16s;
+
+}
+
+.brcs-review-card:nth-child(4){
+
+    animation-delay:.24s;
+
+}
+
+/*==========================================================
+SCROLL REVEAL
+==========================================================*/
+
+.brcs-hidden{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:.55s ease;
+
+}
+
+.brcs-show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/*==========================================================
+RESPONSIVE
+==========================================================*/
+
+@media (max-width:991.98px){
+
+    .brcs-container{
+
+        max-width:100%;
+
+        padding-top:28px;
+
+    }
+
+    .brcs-navbar{
+
+        padding:12px 0;
+
+    }
+
+    .brcs-page-header h1{
+
+        font-size:1.85rem;
+
+    }
+
+    .brcs-tabs{
+
+        gap:22px;
+
+        overflow-x:auto;
+
+        white-space:nowrap;
+
+        scrollbar-width:none;
+
+    }
+
+    .brcs-tabs::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .brcs-header-actions{
+
+        width:100%;
+
+        margin-top:18px;
+
+        justify-content:center;
+
+    }
+
+    .brcs-profile-btn span{
+
+        display:none;
+
+    }
+
+    .brcs-review-card{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+
+        padding:22px;
+
+    }
+
+    .brcs-review-image img{
+
+        width:82px;
+
+        height:82px;
+
+    }
+
+    .brcs-review-stars{
+
+        justify-content:center;
+
+    }
+
+    .brcs-review-meta{
+
+        justify-content:center;
+
+    }
+
+    .brcs-page-header{
+
+        text-align:center;
+
+    }
+
+    .brcs-breadcrumb{
+
+        text-align:center;
+
+    }
+
+}
+
+@media (max-width:575.98px){
+
+    .brcs-container{
+
+        padding:22px 16px 60px;
+
+    }
+
+    .brcs-page-header h1{
+
+        font-size:1.55rem;
+
+    }
+
+    .brcs-review-card{
+
+        padding:18px;
+
+        gap:18px;
+
+    }
+
+    .brcs-review-content h5{
+
+        font-size:1rem;
+
+    }
+
+    .brcs-review-content p{
+
+        font-size:.9rem;
+
+    }
+
+    .brcs-review-meta{
+
+        flex-direction:column;
+
+        gap:10px;
+
+    }
+
+    .brcs-review-meta span{
+
+        justify-content:center;
+
+    }
+
+    .brcs-empty-state{
+
+        padding:60px 20px;
+
+    }
+
+    .brcs-empty-icon{
+
+        width:72px;
+
+        height:72px;
+
+    }
+
+    .brcs-empty-icon i{
+
+        font-size:2rem;
+
+    }
+
+    .brcs-primary-btn{
+
+        width:100%;
+
+    }
+
+}
+
+/*==========================================================
+UTILITY CLASSES
+==========================================================*/
+
+.brcs-text-primary{
+
+    color:var(--primary)!important;
+
+}
+
+.brcs-fw-600{
+
+    font-weight:600!important;
+
+}
+
+.brcs-fw-700{
+
+    font-weight:700!important;
+
+}
+
+.brcs-rounded{
+
+    border-radius:var(--radius-xl)!important;
+
+}
+
+/*==========================================================
+END OF YOVI BUYER REVIEW CENTRE
+==========================================================*/
+
 
 
 /*=========================================================
 BUYER NEIGHBORHOOD
 PART 2A
-=========================================================*/
-
-/*=========================================================
-PAGE
 =========================================================*/
 
 #cbnhPage{

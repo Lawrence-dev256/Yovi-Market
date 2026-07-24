@@ -5047,7 +5047,7 @@ SCROLL REVEAL ANIMATION
 
         ybdp.notificationButton.addEventListener("click",()=>{
 
-            window.location.href="notifications.html";
+            window.location.href="../../navigation/notification.html";
 
         });
 
@@ -5103,19 +5103,19 @@ SCROLL REVEAL ANIMATION
 
         if(event.altKey && event.key==="o"){
 
-            window.location.href="orders.html";
+            window.location.href="../../navigation/order.html";
 
         }
 
         if(event.altKey && event.key==="b"){
 
-            window.location.href="bookings.html";
+            window.location.href="../../navigation/bookings.html";
 
         }
 
         if(event.altKey && event.key==="m"){
 
-            window.location.href="buyer-messages.html";
+            window.location.href="../../navigation/messages.html";
 
         }
 
@@ -5151,7 +5151,6 @@ END OF BUYER DASHBOARD
 
 /*==========================================================
 YOVI BUYER ELECTRONICS CATEGORY SCREEN
-Prefix : ybeps
 ==========================================================*/
 
 document.addEventListener("DOMContentLoaded",()=>{
@@ -5589,8 +5588,993 @@ END OF YOVI BUYER ELECTRONICS CATEGORIES SCREEN
 ==========================================================*/
 
 /*==========================================================
+YOVI BUYER EXPLORE PRODUCTS
+PAGE 2
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+"use strict";
+
+/*==========================================================
+DOM ELEMENTS
+==========================================================*/
+
+const ybeps={
+
+searchInput:document.querySelector("#ybepsSearch"),
+
+productCards:document.querySelectorAll(".ybeps-product-card"),
+
+categoryButtons:document.querySelectorAll(".ybeps-category-btn"),
+
+filterLinks:document.querySelectorAll(".ybeps-filter-list a"),
+
+cartButtons:document.querySelectorAll(".ybeps-cart-btn"),
+
+viewButtons:document.querySelectorAll(".ybeps-view-btn"),
+
+filterButton:document.querySelector(".ybeps-filter-btn"),
+
+paginationLinks:document.querySelectorAll(".pagination .page-link"),
+
+emptyState:document.querySelector(".ybeps-empty-state"),
+
+searchBox:document.querySelector(".ybeps-toolbar-search input")
+
+};
+
+/*==========================================================
+PAGE INTRO ANIMATION
+==========================================================*/
+
+function ybepsPageIntro(){
+
+    ybeps.productCards.forEach((card,index)=>{
+
+        card.style.opacity="0";
+
+        card.style.transform="translateY(35px)";
+
+        setTimeout(()=>{
+
+            card.style.transition=".45s ease";
+
+            card.style.opacity="1";
+
+            card.style.transform="translateY(0)";
+
+        },index*90);
+
+    });
+
+}
+
+ybepsPageIntro();
+
+/*==========================================================
+CATEGORY BUTTONS
+==========================================================*/
+
+ybeps.categoryButtons.forEach(button=>{
+
+    button.addEventListener("click",function(){
+
+        ybeps.categoryButtons.forEach(btn=>{
+
+            btn.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+    });
+
+});
+
+/*==========================================================
+PRODUCT CARD CLICK
+==========================================================*/
+
+ybeps.productCards.forEach(card=>{
+
+    card.addEventListener("click",(event)=>{
+
+        if(event.target.closest(".ybeps-cart-btn")) return;
+
+        window.location.href="../../products/products-detail.html";
+
+    });
+
+});
+
+/*==========================================================
+ADD TO CART
+==========================================================*/
+
+ybeps.cartButtons.forEach(button=>{
+
+    button.addEventListener("click",(event)=>{
+
+        event.stopPropagation();
+
+        button.classList.add("active");
+
+        button.innerHTML='<i class="bi bi-check-lg"></i>';
+
+        button.disabled=true;
+
+        setTimeout(()=>{
+
+            button.disabled=false;
+
+            button.classList.remove("active");
+
+            button.innerHTML='<i class="bi bi-cart-plus"></i>';
+
+        },1400);
+
+    });
+
+});
+
+/*==========================================================
+SEARCH PRODUCTS
+==========================================================*/
+
+if(ybeps.searchInput){
+
+    ybeps.searchInput.addEventListener("keyup",function(){
+
+        const keyword=this.value.toLowerCase().trim();
+
+        let visibleCards=0;
+
+        ybeps.productCards.forEach(card=>{
+
+            const title=card.querySelector("h5").textContent.toLowerCase();
+
+            const category=card.querySelector(".ybeps-category-tag").textContent.toLowerCase();
+
+            if(title.includes(keyword)||category.includes(keyword)){
+
+                card.parentElement.style.display="block";
+
+                visibleCards++;
+
+            }else{
+
+                card.parentElement.style.display="none";
+
+            }
+
+        });
+
+        if(ybeps.emptyState){
+
+            ybeps.emptyState.classList.toggle("d-none",visibleCards!==0);
+
+        }
+
+    });
+
+}
+
+/*==========================================================
+VIEW TOGGLE
+==========================================================*/
+
+ybeps.viewButtons.forEach(button=>{
+
+    button.addEventListener("click",function(){
+
+        ybeps.viewButtons.forEach(btn=>{
+
+            btn.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+    });
+
+});
+
+/*==========================================================
+FILTER LINKS
+==========================================================*/
+
+ybeps.filterLinks.forEach(link=>{
+
+    link.addEventListener("click",(event)=>{
+
+        event.preventDefault();
+
+        ybeps.filterLinks.forEach(item=>{
+
+            item.classList.remove("active");
+
+        });
+
+        link.classList.add("active");
+
+    });
+
+});
+
+/*==========================================================
+FILTER BUTTON
+==========================================================*/
+
+if(ybeps.filterButton){
+
+    ybeps.filterButton.addEventListener("click",()=>{
+
+        document.querySelector(".ybeps-filter-card")
+        ?.scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"start"
+
+        });
+
+    });
+
+}
+
+/*==========================================================
+PAGINATION
+==========================================================*/
+
+ybeps.paginationLinks.forEach(link=>{
+
+    link.addEventListener("click",(event)=>{
+
+        const page=link.textContent.trim();
+
+        switch(page){
+
+            case "1":
+
+                event.preventDefault();
+
+                window.location.href="../../categories/electronics.html";
+
+                break;
+
+            case "2":
+
+                event.preventDefault();
+
+                window.location.href="../../tabs/electronics-category2.html";
+
+                break;
+
+            case "3":
+
+                event.preventDefault();
+
+                window.location.href="buyer-products-page-3.html";
+
+                break;
+
+            case "4":
+
+                event.preventDefault();
+
+                window.location.href="buyer-products-page-4.html";
+
+                break;
+
+            case "5":
+
+                event.preventDefault();
+
+                window.location.href="buyer-products-page-5.html";
+
+                break;
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+SCROLL REVEAL
+==========================================================*/
+
+const ybepsObserver=new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("ybeps-show");
+
+        }
+
+    });
+
+},{
+
+    threshold:.15
+
+});
+
+document.querySelectorAll(
+
+".ybeps-product-card,.ybeps-filter-card"
+
+).forEach(item=>{
+
+    item.classList.add("ybeps-hidden");
+
+    ybepsObserver.observe(item);
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",()=>{
+
+    document.documentElement.style.setProperty(
+
+        "--ybeps-window-width",
+
+        window.innerWidth+"px"
+
+    );
+
+});
+
+/*==========================================================
+KEYBOARD SHORTCUTS
+==========================================================*/
+
+document.addEventListener("keydown",(event)=>{
+
+    if(event.key==="/"){
+
+        event.preventDefault();
+
+        ybeps.searchBox?.focus();
+
+    }
+
+    if(event.altKey && event.key==="1"){
+
+        window.location.href="../../categories/electronics.html";
+
+    }
+
+    if(event.altKey && event.key==="2"){
+
+        window.location.href="../../tabs/electronics-category2.html";
+
+    }
+
+});
+
+/*==========================================================
+INITIALIZE PAGE
+==========================================================*/
+
+document.body.classList.add("ybeps-ready");
+
+});
+
+/*==========================================================
+END OF YOVI BUYER EXPLORE PRODUCTS
+PAGE 2
+==========================================================*/
+
+
+/*==========================================================
+YOVI BUYER WISHLIST
+Prefix : ybwls
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+"use strict";
+
+/*==========================================================
+DOM ELEMENTS
+==========================================================*/
+
+const ybwls={
+
+tabs:document.querySelectorAll(".ybwls-tab"),
+
+productPanel:document.querySelector(".ybwls-products-panel"),
+
+providerPanel:document.querySelector(".ybwls-providers-panel"),
+
+wishlistCards:document.querySelectorAll(".ybwls-product-card"),
+
+wishlistButtons:document.querySelectorAll(".ybwls-favourite"),
+
+cartButtons:document.querySelectorAll(".ybwls-cart-btn"),
+
+emptyState:document.querySelector(".ybwls-empty-state.ybwls-hidden"),
+
+pageHeader:document.querySelector(".ybwls-page-header"),
+
+notificationButton:document.querySelector(".ybwls-icon-btn"),
+
+profileButton:document.querySelector(".ybwls-profile-btn")
+
+};
+
+/*==========================================================
+PAGE INTRO
+==========================================================*/
+
+function ybwlsPageIntro(){
+
+    if(!ybwls.pageHeader) return;
+
+    ybwls.pageHeader.style.opacity="0";
+
+    ybwls.pageHeader.style.transform="translateY(25px)";
+
+    setTimeout(()=>{
+
+        ybwls.pageHeader.style.transition=".45s ease";
+
+        ybwls.pageHeader.style.opacity="1";
+
+        ybwls.pageHeader.style.transform="translateY(0)";
+
+    },120);
+
+}
+
+ybwlsPageIntro();
+
+/*==========================================================
+TAB SWITCHING
+==========================================================*/
+
+ybwls.tabs.forEach(tab=>{
+
+    tab.addEventListener("click",()=>{
+
+        ybwls.tabs.forEach(item=>{
+
+            item.classList.remove("active");
+
+        });
+
+        tab.classList.add("active");
+
+        if(tab.dataset.tab==="products"){
+
+            ybwls.productPanel.classList.remove("d-none");
+
+            ybwls.providerPanel.classList.add("d-none");
+
+        }else{
+
+            ybwls.productPanel.classList.add("d-none");
+
+            ybwls.providerPanel.classList.remove("d-none");
+
+        }
+
+    });
+
+});
+
+/*==========================================================
+OPEN PRODUCT DETAILS
+==========================================================*/
+
+ybwls.wishlistCards.forEach(card=>{
+
+    card.addEventListener("click",(event)=>{
+
+        if(event.target.closest(".ybwls-favourite")) return;
+
+        if(event.target.closest(".ybwls-cart-btn")) return;
+
+        window.location.href="../../products/products-detail.html";
+
+    });
+
+});
+
+/*==========================================================
+ADD TO CART
+==========================================================*/
+
+ybwls.cartButtons.forEach(button=>{
+
+    button.addEventListener("click",(event)=>{
+
+        event.stopPropagation();
+
+        button.disabled=true;
+
+        button.innerHTML='<i class="bi bi-check-lg"></i> Added';
+
+        button.classList.add("active");
+
+        setTimeout(()=>{
+
+            button.disabled=false;
+
+            button.classList.remove("active");
+
+            button.innerHTML="Add to Cart";
+
+        },1600);
+
+    });
+
+});
+
+/*==========================================================
+REMOVE FROM WISHLIST
+==========================================================*/
+
+ybwls.wishlistButtons.forEach(button=>{
+
+    button.addEventListener("click",(event)=>{
+
+        event.stopPropagation();
+
+        const card=button.closest(".col-xxl-3,.col-xl-4,.col-md-6");
+
+        card.style.transition=".35s ease";
+
+        card.style.opacity="0";
+
+        card.style.transform="scale(.92)";
+
+        setTimeout(()=>{
+
+            card.remove();
+
+            ybwlsWishlistCheck();
+
+        },350);
+
+    });
+
+});
+
+/*==========================================================
+EMPTY STATE CHECK
+==========================================================*/
+
+function ybwlsWishlistCheck(){
+
+    const remainingCards=document.querySelectorAll(".ybwls-product-card");
+
+    if(remainingCards.length===0){
+
+        ybwls.productPanel.classList.add("d-none");
+
+        if(ybwls.emptyState){
+
+            ybwls.emptyState.classList.remove("ybwls-hidden");
+
+            ybwls.emptyState.classList.add("ybwls-show");
+
+        }
+
+    }
+
+}
+
+/*==========================================================
+PROFILE BUTTON
+==========================================================*/
+
+if(ybwls.profileButton){
+
+    ybwls.profileButton.addEventListener("mouseenter",()=>{
+
+        ybwls.profileButton.style.transform="scale(1.03)";
+
+    });
+
+    ybwls.profileButton.addEventListener("mouseleave",()=>{
+
+        ybwls.profileButton.style.transform="scale(1)";
+
+    });
+
+}
+
+/*==========================================================
+NOTIFICATION BUTTON
+==========================================================*/
+
+if(ybwls.notificationButton){
+
+    ybwls.notificationButton.addEventListener("click",(event)=>{
+
+        event.preventDefault();
+
+        window.location.href="../../navigation/notification.html";
+
+    });
+
+}
+
+/*==========================================================
+SCROLL REVEAL
+==========================================================*/
+
+const ybwlsObserver=new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("ybwls-show");
+
+        }
+
+    });
+
+},{
+
+    threshold:.15
+
+});
+
+document.querySelectorAll(".ybwls-product-card").forEach(card=>{
+
+    card.classList.add("ybwls-hidden");
+
+    ybwlsObserver.observe(card);
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",()=>{
+
+    document.documentElement.style.setProperty(
+
+        "--ybwls-window-width",
+
+        window.innerWidth+"px"
+
+    );
+
+});
+
+/*==========================================================
+KEYBOARD SHORTCUTS
+==========================================================*/
+
+document.addEventListener("keydown",(event)=>{
+
+    if(event.altKey && event.key==="w"){
+
+        window.location.href="../../buyer/buyer-wishlist.html";
+
+    }
+
+    if(event.altKey && event.key==="p"){
+
+        window.location.href="../../navigation/products.html";
+
+    }
+
+});
+
+/*==========================================================
+INITIALIZE PAGE
+==========================================================*/
+
+document.body.classList.add("ybwls-ready");
+
+});
+
+/*==========================================================
+END OF YOVI BUYER WISHLIST
+Prefix : ybwls
+==========================================================*/
+
+/*==========================================================
+YOVI BUYER WISHLIST SAVED PROVIDERS
+Prefix : ybwspp
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+"use strict";
+
+/*==========================================================
+DOM ELEMENTS
+==========================================================*/
+
+const ybwspp={
+
+providerCards:document.querySelectorAll(".ybwspp-provider-card"),
+
+tabs:document.querySelectorAll(".ybwspp-tab"),
+
+notificationButton:document.querySelector(".ybwspp-icon-btn"),
+
+profileButton:document.querySelector(".ybwspp-profile-btn"),
+
+pageHeader:document.querySelector(".ybwspp-page-header"),
+
+verifiedBadges:document.querySelectorAll(".ybwspp-verified"),
+
+statusBadges:document.querySelectorAll(".ybwspp-status"),
+
+emptyState:document.querySelector(".ybwspp-empty-state")
+
+};
+
+/*==========================================================
+PAGE INTRO
+==========================================================*/
+
+function ybwsppPageIntro(){
+
+    if(!ybwspp.pageHeader) return;
+
+    ybwspp.pageHeader.style.opacity="0";
+
+    ybwspp.pageHeader.style.transform="translateY(25px)";
+
+    setTimeout(()=>{
+
+        ybwspp.pageHeader.style.transition=".45s ease";
+
+        ybwspp.pageHeader.style.opacity="1";
+
+        ybwspp.pageHeader.style.transform="translateY(0)";
+
+    },120);
+
+}
+
+ybwsppPageIntro();
+
+/*==========================================================
+PROVIDER CARD CLICK
+==========================================================*/
+
+ybwspp.providerCards.forEach(card=>{
+
+    card.addEventListener("click",()=>{
+
+        window.location.href="../../profile/provider-profile.html";
+
+    });
+
+});
+
+/*==========================================================
+TAB NAVIGATION
+==========================================================*/
+
+ybwspp.tabs.forEach(tab=>{
+
+    tab.addEventListener("click",(event)=>{
+
+        if(tab.classList.contains("active")) return;
+
+        event.preventDefault();
+
+        window.location.href="../../buyer/buyer-wishlist.html";
+
+    });
+
+});
+
+/*==========================================================
+CARD HOVER EFFECT
+==========================================================*/
+
+ybwspp.providerCards.forEach(card=>{
+
+    card.addEventListener("mouseenter",()=>{
+
+        card.style.transform="translateY(-8px)";
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.transform="translateY(0)";
+
+    });
+
+});
+
+/*==========================================================
+STATUS BADGE ANIMATION
+==========================================================*/
+
+ybwspp.statusBadges.forEach((badge,index)=>{
+
+    badge.style.opacity="0";
+
+    badge.style.transform="translateY(8px)";
+
+    setTimeout(()=>{
+
+        badge.style.transition=".35s ease";
+
+        badge.style.opacity="1";
+
+        badge.style.transform="translateY(0)";
+
+    },index*80);
+
+});
+
+/*==========================================================
+VERIFIED BADGE EFFECT
+==========================================================*/
+
+ybwspp.verifiedBadges.forEach(badge=>{
+
+    badge.addEventListener("mouseenter",()=>{
+
+        badge.style.transform="scale(1.05)";
+
+    });
+
+    badge.addEventListener("mouseleave",()=>{
+
+        badge.style.transform="scale(1)";
+
+    });
+
+});
+
+/*==========================================================
+NOTIFICATION BUTTON
+==========================================================*/
+
+if(ybwspp.notificationButton){
+
+    ybwspp.notificationButton.addEventListener("click",(event)=>{
+
+        event.preventDefault();
+
+        window.location.href="../../navigation/notification.html";
+
+    });
+
+}
+
+/*==========================================================
+PROFILE BUTTON
+==========================================================*/
+
+if(ybwspp.profileButton){
+
+    ybwspp.profileButton.addEventListener("click",(event)=>{
+
+        event.preventDefault();
+
+        window.location.href="../../buyer/buyer-profile.html";
+
+    });
+
+}
+
+/*==========================================================
+SCROLL REVEAL
+==========================================================*/
+
+const ybwsppObserver=new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("ybwspp-show");
+
+            entry.target.classList.remove("ybwspp-hidden");
+
+        }
+
+    });
+
+},{
+
+    threshold:.15
+
+});
+
+ybwspp.providerCards.forEach(card=>{
+
+    card.classList.add("ybwspp-hidden");
+
+    ybwsppObserver.observe(card);
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",()=>{
+
+    document.documentElement.style.setProperty(
+
+        "--ybwspp-window-width",
+
+        window.innerWidth+"px"
+
+    );
+
+});
+
+/*==========================================================
+KEYBOARD SHORTCUTS
+==========================================================*/
+
+document.addEventListener("keydown",(event)=>{
+
+    /* Alt + W → Wishlist Products */
+
+    if(event.altKey && event.key.toLowerCase()==="w"){
+
+        window.location.href="../../buyer/buyer-wishlist.html";
+
+    }
+
+    /* Alt + S → Saved Providers */
+
+    if(event.altKey && event.key.toLowerCase()==="s"){
+
+        window.location.href="../../tabs/wishlist-provider.html";
+
+    }
+
+    /* Escape → Scroll to Top */
+
+    if(event.key==="Escape"){
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+    }
+
+});
+
+/*==========================================================
+INITIALIZE PAGE
+==========================================================*/
+
+document.body.classList.add("ybwspp-ready");
+
+});
+
+/*==========================================================
+END OF YOVI BUYER WISHLIST SAVED PROVIDERS
+Prefix : ybwspp
+==========================================================*/
+
+
+
+/*==========================================================
 YOVI BUYER RECENTLY VIEWED PAGE
-Prefix : ybrvp
 ==========================================================*/
 
 document.addEventListener("DOMContentLoaded",()=>{
@@ -19163,11 +20147,284 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-    /*======================================================
+ /*======================================================
     END OF BUYER REVIEW PAGE
-    ======================================================*/
+======================================================*/
 
+/*==========================================================
+YOVI BUYER REVIEW CENTRE
+SUBMITTED REVIEWS
+========================================================*/
 
+document.addEventListener("DOMContentLoaded",()=>{
+
+"use strict";
+
+/*==========================================================
+DOM ELEMENTS
+==========================================================*/
+
+const brcs={
+
+reviewCards:document.querySelectorAll(".brcs-review-card"),
+
+reviewTabs:document.querySelectorAll(".brcs-tab"),
+
+profileButton:document.querySelector(".brcs-profile-btn"),
+
+notificationButton:document.querySelector(".brcs-icon-btn"),
+
+emptyState:document.querySelector(".brcs-empty-state"),
+
+breadcrumb:document.querySelector(".brcs-breadcrumb a"),
+
+pageHeader:document.querySelector(".brcs-page-header"),
+
+primaryButton:document.querySelector(".brcs-primary-btn")
+
+};
+
+/*==========================================================
+PAGE INTRO
+==========================================================*/
+
+function brcsPageIntro(){
+
+    if(!brcs.pageHeader) return;
+
+    brcs.pageHeader.style.opacity="0";
+
+    brcs.pageHeader.style.transform="translateY(25px)";
+
+    setTimeout(()=>{
+
+        brcs.pageHeader.style.transition=".45s ease";
+
+        brcs.pageHeader.style.opacity="1";
+
+        brcs.pageHeader.style.transform="translateY(0)";
+
+    },120);
+
+}
+
+brcsPageIntro();
+
+/*==========================================================
+REVIEW CARD HOVER
+==========================================================*/
+
+brcs.reviewCards.forEach(card=>{
+
+    card.addEventListener("mouseenter",()=>{
+
+        card.style.transform="translateY(-6px)";
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.transform="translateY(0)";
+
+    });
+
+});
+
+/*==========================================================
+OPEN REVIEW DETAILS
+==========================================================*/
+
+brcs.reviewCards.forEach(card=>{
+
+    card.addEventListener("click",()=>{
+
+        window.location.href="../../reviews/review-details.html";
+
+    });
+
+});
+
+/*==========================================================
+TAB SWITCHING
+==========================================================*/
+
+brcs.reviewTabs.forEach(tab=>{
+
+    tab.addEventListener("click",()=>{
+
+        brcs.reviewTabs.forEach(item=>{
+
+            item.classList.remove("active");
+
+        });
+
+        tab.classList.add("active");
+
+    });
+
+});
+
+/*==========================================================
+PROFILE BUTTON
+==========================================================*/
+
+if(brcs.profileButton){
+
+    brcs.profileButton.addEventListener("mouseenter",()=>{
+
+        brcs.profileButton.style.transform="scale(1.03)";
+
+    });
+
+    brcs.profileButton.addEventListener("mouseleave",()=>{
+
+        brcs.profileButton.style.transform="scale(1)";
+
+    });
+
+}
+
+/*==========================================================
+BREADCRUMB
+==========================================================*/
+
+if(brcs.breadcrumb){
+
+    brcs.breadcrumb.addEventListener("click",(event)=>{
+
+        event.preventDefault();
+
+        window.location.href="../../buyer/buyer-dashboard.html";
+
+    });
+
+}
+
+/*==========================================================
+NOTIFICATION BUTTON
+==========================================================*/
+
+if(brcs.notificationButton){
+
+    brcs.notificationButton.addEventListener("click",(event)=>{
+
+        event.preventDefault();
+
+        window.location.href="../../navigation/notification.html";
+
+    });
+
+}
+
+/*==========================================================
+EMPTY STATE CHECK
+==========================================================*/
+
+if(
+
+    brcs.emptyState &&
+
+    brcs.reviewCards.length===0
+
+){
+
+    brcs.emptyState.classList.remove("d-none");
+
+}
+
+/*==========================================================
+PRIMARY BUTTON
+==========================================================*/
+
+if(brcs.primaryButton){
+
+    brcs.primaryButton.addEventListener("click",(event)=>{
+
+        event.preventDefault();
+
+        window.location.href="../../navigation/order.html";
+
+    });
+
+}
+
+/*==========================================================
+SCROLL REVEAL
+==========================================================*/
+
+const brcsObserver=new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("brcs-show");
+
+        }
+
+    });
+
+},{
+
+    threshold:.15
+
+});
+
+document.querySelectorAll(".brcs-review-card").forEach(card=>{
+
+    card.classList.add("brcs-hidden");
+
+    brcsObserver.observe(card);
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",()=>{
+
+    document.documentElement.style.setProperty(
+
+        "--brcs-window-width",
+
+        window.innerWidth+"px"
+
+    );
+
+});
+
+/*==========================================================
+KEYBOARD SHORTCUTS
+==========================================================*/
+
+document.addEventListener("keydown",(event)=>{
+
+    if(event.altKey && event.key==="d"){
+
+        window.location.href="../../buyer/buyer-dashboard.html";
+
+    }
+
+    if(event.altKey && event.key==="r"){
+
+        window.location.href="../../buyer/buyer-review.html";
+
+    }
+
+});
+
+/*==========================================================
+INITIALIZE PAGE
+==========================================================*/
+
+document.body.classList.add("brcs-ready");
+
+});
+
+/*==========================================================
+END OF YOVI BUYER REVIEW CENTRE
+==========================================================*/
 
 
 
