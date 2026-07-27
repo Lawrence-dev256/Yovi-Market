@@ -20427,6 +20427,397 @@ END OF YOVI BUYER REVIEW CENTRE
 ==========================================================*/
 
 
+/*==========================================================
+YOVI REFER & EARN
+
+Prefix : ybrae
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+"use strict";
+
+/*==========================================================
+DOM ELEMENTS
+==========================================================*/
+
+const ybrae={
+
+copyButton:document.getElementById("ybraeCopyButton"),
+
+referralCode:document.getElementById("ybraeReferralCode"),
+
+whatsappButton:document.querySelector(".ybrae-whatsapp"),
+
+emailButton:document.querySelector(".ybrae-email"),
+
+shareButton:document.querySelector(".ybrae-link"),
+
+tierItems:document.querySelectorAll(".ybrae-tier-item"),
+
+leaderboardItems:document.querySelectorAll(".ybrae-leader-item"),
+
+statCards:document.querySelectorAll(".ybrae-stat-card"),
+
+hero:document.querySelector(".ybrae-hero"),
+
+profileButton:document.querySelector(".ybrae-profile-btn"),
+
+notificationButton:document.querySelector(".ybrae-icon-btn")
+
+};
+
+/*==========================================================
+PAGE INTRO
+==========================================================*/
+
+function ybraeHeroAnimation(){
+
+    if(!ybrae.hero) return;
+
+    ybrae.hero.style.opacity="0";
+
+    ybrae.hero.style.transform="translateY(30px)";
+
+    setTimeout(()=>{
+
+        ybrae.hero.style.transition=".5s ease";
+
+        ybrae.hero.style.opacity="1";
+
+        ybrae.hero.style.transform="translateY(0)";
+
+    },120);
+
+}
+
+ybraeHeroAnimation();
+
+/*==========================================================
+COPY REFERRAL CODE
+==========================================================*/
+
+if(ybrae.copyButton && ybrae.referralCode){
+
+    ybrae.copyButton.addEventListener("click",async()=>{
+
+        try{
+
+            await navigator.clipboard.writeText(
+
+                ybrae.referralCode.textContent.trim()
+
+            );
+
+            const originalText=ybrae.copyButton.innerHTML;
+
+            ybrae.copyButton.innerHTML=
+
+            '<i class="bi bi-check-lg"></i> Copied';
+
+            ybrae.copyButton.disabled=true;
+
+            setTimeout(()=>{
+
+                ybrae.copyButton.innerHTML=originalText;
+
+                ybrae.copyButton.disabled=false;
+
+            },1800);
+
+        }catch(error){
+
+            console.error(error);
+
+        }
+
+    });
+
+}
+
+/*==========================================================
+WHATSAPP SHARE
+==========================================================*/
+
+if(ybrae.whatsappButton){
+
+    ybrae.whatsappButton.addEventListener("click",()=>{
+
+        const message=
+
+`Join me on YOVI and earn rewards using my referral code: ${ybrae.referralCode.textContent.trim()}`;
+
+        window.open(
+
+`https://wa.me/?text=${encodeURIComponent(message)}`,
+
+"_blank"
+
+        );
+
+    });
+
+}
+
+/*==========================================================
+EMAIL SHARE
+==========================================================*/
+
+if(ybrae.emailButton){
+
+    ybrae.emailButton.addEventListener("click",()=>{
+
+        const subject="Join me on YOVI";
+
+        const body=
+
+`Use my referral code: ${ybrae.referralCode.textContent.trim()} and enjoy amazing rewards.`;
+
+        window.location.href=
+
+`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    });
+
+}
+
+/*==========================================================
+SHARE LINK
+==========================================================*/
+
+if(ybrae.shareButton){
+
+    ybrae.shareButton.addEventListener("click",async()=>{
+
+        const referralLink=
+
+`https://yovi.com/ref/${ybrae.referralCode.textContent.trim()}`;
+
+        if(navigator.share){
+
+            try{
+
+                await navigator.share({
+
+                    title:"YOVI Refer & Earn",
+
+                    text:"Join YOVI using my referral link.",
+
+                    url:referralLink
+
+                });
+
+            }catch(error){
+
+                console.log(error);
+
+            }
+
+        }else{
+
+            navigator.clipboard.writeText(referralLink);
+
+        }
+
+    });
+
+}
+
+/*==========================================================
+STAT CARD HOVER EFFECT
+==========================================================*/
+
+ybrae.statCards.forEach(card=>{
+
+    card.addEventListener("mouseenter",()=>{
+
+        card.style.transform="translateY(-8px)";
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.transform="translateY(0)";
+
+    });
+
+});
+
+/*==========================================================
+REWARD TIER HOVER
+==========================================================*/
+
+ybrae.tierItems.forEach(item=>{
+
+    item.addEventListener("mouseenter",()=>{
+
+        item.style.transform="translateY(-4px)";
+
+    });
+
+    item.addEventListener("mouseleave",()=>{
+
+        item.style.transform="translateY(0)";
+
+    });
+
+});
+
+/*==========================================================
+LEADERBOARD HOVER
+==========================================================*/
+
+ybrae.leaderboardItems.forEach(item=>{
+
+    item.addEventListener("mouseenter",()=>{
+
+        item.style.transform="translateY(-4px)";
+
+    });
+
+    item.addEventListener("mouseleave",()=>{
+
+        item.style.transform="translateY(0)";
+
+    });
+
+});
+
+/*==========================================================
+PROFILE BUTTON
+==========================================================*/
+
+if(ybrae.profileButton){
+
+    ybrae.profileButton.addEventListener("click",(event)=>{
+
+        event.preventDefault();
+
+        window.location.href="/buyer/buyer-profile.html";
+
+    });
+
+}
+
+/*==========================================================
+NOTIFICATION BUTTON
+==========================================================*/
+
+if(ybrae.notificationButton){
+
+    ybrae.notificationButton.addEventListener("click",(event)=>{
+
+        event.preventDefault();
+
+        window.location.href="/navigation/notification.html";
+
+    });
+
+}
+
+/*==========================================================
+SCROLL REVEAL
+==========================================================*/
+
+const ybraeObserver=new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("ybrae-show");
+
+            entry.target.classList.remove("ybrae-hidden");
+
+        }
+
+    });
+
+},{
+
+    threshold:.15
+
+});
+
+document.querySelectorAll(
+
+".ybrae-stat-card,.ybrae-tier-item,.ybrae-leader-item"
+
+).forEach(element=>{
+
+    element.classList.add("ybrae-hidden");
+
+    ybraeObserver.observe(element);
+
+});
+
+/*==========================================================
+WINDOW RESIZE
+==========================================================*/
+
+window.addEventListener("resize",()=>{
+
+    document.documentElement.style.setProperty(
+
+        "--ybrae-window-width",
+
+        `${window.innerWidth}px`
+
+    );
+
+});
+
+/*==========================================================
+KEYBOARD SHORTCUTS
+==========================================================*/
+
+document.addEventListener("keydown",(event)=>{
+
+    /* Alt + R → Reload Refer & Earn */
+
+    if(event.altKey && event.key.toLowerCase()==="r"){
+
+        window.location.href="/buyer/buyer-refer-earn.html";
+
+    }
+
+    /* Alt + D → Dashboard */
+
+    if(event.altKey && event.key.toLowerCase()==="d"){
+
+        window.location.href="/buyer/buyer-dashboard.html";
+
+    }
+
+    /* Escape → Scroll to Top */
+
+    if(event.key==="Escape"){
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+    }
+
+});
+
+/*==========================================================
+INITIALIZE PAGE
+==========================================================*/
+
+document.body.classList.add("ybrae-ready");
+
+});
+
+/*==========================================================
+END OF YOVI REFER & EARN
+
+Prefix : ybrae
+==========================================================*/
 
 
 

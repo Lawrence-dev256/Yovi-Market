@@ -1,3 +1,862 @@
-, maximum-scale=1.0, user-scalable=no
+<!DOCTYPE html>
 
-js-cart-link
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="description"
+        content="Refer friends to YOVI and earn rewards for every successful referral.">
+
+    <title>Refer & Earn</title>
+
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Global Styles -->
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body class="ybrae-page">
+
+<!--==========================================================
+HEADER
+===========================================================-->
+
+<header class="ybrae-header">
+
+    <nav class="navbar navbar-expand-lg ybrae-navbar">
+
+        <div class="container-fluid">
+
+            <!-- Logo -->
+
+            <a href="../index.html"
+                class="navbar-brand ybrae-logo">
+
+                <img src="../assets/images/logo.svg"
+                    alt="brand Logo">
+
+            </a>
+
+            <!-- Mobile Toggle -->
+
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#ybraeNavbar">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse"
+                id="ybraeNavbar">
+
+                <!-- Navigation -->
+
+                <ul class="navbar-nav mx-auto">
+
+                    <li class="nav-item">
+
+                        <a href="../index.html"
+                            class="nav-link">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="/navigation/products.html"
+                            class="nav-link">
+
+                            Products
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="/navigation/services.html"
+                            class="nav-link">
+
+                            Services
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="/navigation/order.html"
+                            class="nav-link">
+
+                            Orders
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="/navigation/bookings.html"
+                            class="nav-link">
+
+                            Bookings
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="/navigation/messages.html"
+                            class="nav-link">
+
+                            Messages
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+                <!-- Right Actions -->
+
+                <div class="ybrae-actions">
+
+                    <a href="/navigation/cart.html">
+
+                    <button class="ybrae-icon-btn">
+
+                        <i class="bi bi-cart3 js-card-link"></i>
+
+                    </button>
+
+                    </a>
+
+                    <a href="/navigation/notification.html">
+
+                    <button class="ybrae-icon-btn position-relative">
+
+                        <i class="bi bi-bell"></i>
+
+                        <span class="ybrae-notification-dot"></span>
+
+                    </button>
+
+                    </a>
+
+                    <button class="btn ybrae-profile-btn">
+
+                        <img src="../assets/images/avatar.jpg"
+                            alt="Buyer">
+
+                        <span>
+
+                            Adaeze
+
+                        </span>
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+<!--==========================================================
+MAIN CONTENT
+===========================================================-->
+
+<main class="container ybrae-container">
+
+    <!-- Breadcrumb -->
+
+    <div class="ybrae-breadcrumb">
+
+        <a href="/buyer/buyer-dashboard.html">
+
+            <i class="bi bi-chevron-left"></i>
+
+            Dashboard
+
+        </a>
+
+    </div>
+
+    <!--======================================================
+    HERO CARD
+    =======================================================-->
+
+    <section class="ybrae-hero">
+
+        <div class="ybrae-hero-icon">
+
+            <i class="bi bi-gift"></i>
+
+        </div>
+
+        <h1>
+
+            Refer &amp; Earn
+
+        </h1>
+
+        <p>
+
+            Invite friends to YOVI and earn ₦2,000 for every person who signs up and makes their first purchase.
+
+        </p>
+
+        <!-- Referral Code -->
+
+        <div class="ybrae-code-wrapper">
+
+            <div class="ybrae-code">
+
+                <span id="ybraeReferralCode">
+
+                    YOVI-REF-ADAEZE2024
+
+                </span>
+
+            </div>
+
+            <button class="ybrae-copy-btn"
+                id="ybraeCopyButton">
+
+                <i class="bi bi-copy"></i>
+
+                Copy
+
+            </button>
+
+        </div>
+
+        <!-- Share Buttons -->
+
+        <div class="ybrae-share-buttons">
+
+            <button class="ybrae-share-btn ybrae-whatsapp">
+
+                <i class="bi bi-whatsapp"></i>
+
+                WhatsApp
+
+            </button>
+
+            <button class="ybrae-share-btn ybrae-email">
+
+                <i class="bi bi-envelope-fill"></i>
+
+                Email
+
+            </button>
+
+            <button class="ybrae-share-btn ybrae-link">
+
+                <i class="bi bi-link-45deg"></i>
+
+                Share Link
+
+            </button>
+
+        </div>
+
+    </section>
+
+     <!--==========================================================
+REFERRAL STATS
+===========================================================-->
+
+<section class="ybrae-stats">
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+
+            <div class="ybrae-stat-card">
+
+                <h2>
+
+                    3
+
+                </h2>
+
+                <p>
+
+                    Friends Invited
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="ybrae-stat-card">
+
+                <h2>
+
+                    1
+
+                </h2>
+
+                <p>
+
+                    Signed Up
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="ybrae-stat-card ybrae-earned">
+
+                <h2>
+
+                    ₦2,000
+
+                </h2>
+
+                <p>
+
+                    Earned So Far
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--==========================================================
+REWARD TIERS
+===========================================================-->
+
+<section class="ybrae-card">
+
+    <div class="ybrae-card-header">
+
+        <h3>
+
+            Reward Tiers
+
+        </h3>
+
+    </div>
+
+    <div class="ybrae-tier-list">
+
+        <!-- Tier 1 -->
+
+        <div class="ybrae-tier-item ybrae-tier-active">
+
+            <div class="ybrae-tier-left">
+
+                <div class="ybrae-tier-number">
+
+                    1
+
+                </div>
+
+                <div>
+
+                    <h5>
+
+                        First Referral
+
+                    </h5>
+
+                    <p>
+
+                        ₦2,000 credit
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="ybrae-tier-right">
+
+                <span class="ybrae-tier-badge">
+
+                    Starter
+
+                </span>
+
+                <i class="bi bi-check-circle-fill"></i>
+
+            </div>
+
+        </div>
+
+        <!-- Tier 2 -->
+
+        <div class="ybrae-tier-item">
+
+            <div class="ybrae-tier-left">
+
+                <div class="ybrae-tier-number">
+
+                    5
+
+                </div>
+
+                <div>
+
+                    <h5>
+
+                        5 Referrals
+
+                    </h5>
+
+                    <p>
+
+                        ₦12,500 + Free listing
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="ybrae-tier-right">
+
+                <span class="ybrae-tier-label">
+
+                    Bronze
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- Tier 3 -->
+
+        <div class="ybrae-tier-item">
+
+            <div class="ybrae-tier-left">
+
+                <div class="ybrae-tier-number">
+
+                    10
+
+                </div>
+
+                <div>
+
+                    <h5>
+
+                        10 Referrals
+
+                    </h5>
+
+                    <p>
+
+                        ₦30,000 + Verified boost
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="ybrae-tier-right">
+
+                <span class="ybrae-tier-label">
+
+                    Silver
+
+                </span>
+
+            </div>
+
+        </div>
+
+              <!-- Tier 4 -->
+
+        <div class="ybrae-tier-item">
+
+            <div class="ybrae-tier-left">
+
+                <div class="ybrae-tier-number">
+
+                    25
+
+                </div>
+
+                <div>
+
+                    <h5>
+
+                        25 Referrals
+
+                    </h5>
+
+                    <p>
+
+                        ₦100,000 + Pro account
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="ybrae-tier-right">
+
+                <span class="ybrae-tier-label">
+
+                    Gold Champion
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--==========================================================
+TOP REFERRERS
+===========================================================-->
+
+<section class="ybrae-card">
+
+    <div class="ybrae-card-header">
+
+        <h3>
+
+            Top Referrers — June 2024
+
+        </h3>
+
+    </div>
+
+    <div class="ybrae-leaderboard">
+
+        <!-- Rank 1 -->
+
+        <div class="ybrae-leader-item">
+
+            <div class="ybrae-leader-left">
+
+                <span class="ybrae-rank">
+
+                    🥇
+
+                </span>
+
+                <div class="ybrae-avatar">
+
+                    O
+
+                </div>
+
+                <div>
+
+                    <h6>
+
+                        Oluwaseun A.
+
+                    </h6>
+
+                    <small>
+
+                        Lagos
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="ybrae-leader-right">
+
+                <strong>
+
+                    ₦96,000
+
+                </strong>
+
+                <small>
+
+                    48 referrals
+
+                </small>
+
+            </div>
+
+        </div>
+
+        <!-- Rank 2 -->
+
+        <div class="ybrae-leader-item">
+
+            <div class="ybrae-leader-left">
+
+                <span class="ybrae-rank">
+
+                    🥈
+
+                </span>
+
+                <div class="ybrae-avatar">
+
+                    C
+
+                </div>
+
+                <div>
+
+                    <h6>
+
+                        Chioma N.
+
+                    </h6>
+
+                    <small>
+
+                        Abuja
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="ybrae-leader-right">
+
+                <strong>
+
+                    ₦72,000
+
+                </strong>
+
+                <small>
+
+                    36 referrals
+
+                </small>
+
+            </div>
+
+        </div>
+
+        <!-- Rank 3 -->
+
+        <div class="ybrae-leader-item">
+
+            <div class="ybrae-leader-left">
+
+                <span class="ybrae-rank">
+
+                    🥉
+
+                </span>
+
+                <div class="ybrae-avatar">
+
+                    E
+
+                </div>
+
+                <div>
+
+                    <h6>
+
+                        Emeka K.
+
+                    </h6>
+
+                    <small>
+
+                        PH
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="ybrae-leader-right">
+
+                <strong>
+
+                    ₦58,000
+
+                </strong>
+
+                <small>
+
+                    29 referrals
+
+                </small>
+
+            </div>
+
+        </div>
+
+        <!-- Rank 4 -->
+
+        <div class="ybrae-leader-item">
+
+            <div class="ybrae-leader-left">
+
+                <span class="ybrae-rank-number">
+
+                    4
+
+                </span>
+
+                <div class="ybrae-avatar">
+
+                    B
+
+                </div>
+
+                <div>
+
+                    <h6>
+
+                        Bola T.
+
+                    </h6>
+
+                    <small>
+
+                        Lagos
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="ybrae-leader-right">
+
+                <strong>
+
+                    ₦44,000
+
+                </strong>
+
+                <small>
+
+                    22 referrals
+
+                </small>
+
+            </div>
+
+        </div>
+
+        <!-- Rank 5 -->
+
+        <div class="ybrae-leader-item">
+
+            <div class="ybrae-leader-left">
+
+                <span class="ybrae-rank-number">
+
+                    5
+
+                </span>
+
+                <div class="ybrae-avatar">
+
+                    G
+
+                </div>
+
+                <div>
+
+                    <h6>
+
+                        Grace O.
+
+                    </h6>
+
+                    <small>
+
+                        Lagos
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="ybrae-leader-right">
+
+                <strong>
+
+                    ₦36,000
+
+                </strong>
+
+                <small>
+
+                    18 referrals
+
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- Bootstrap -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Global Script -->
+
+<script src="../assets/js/app.js"></script>
+
+</body>
+
+</html>

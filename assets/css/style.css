@@ -42619,10 +42619,7 @@ END OF SELLER ANALYTICS STYLES
 
 
 /*==================================================
-BUYER DONE PAGE (2A)
-Page Layout • Brand • Success Illustration
-File: buyer-done.css
-Unique Prefix: ybd-
+BUYER DONE PAGE 
 ==================================================*/
 
 /*=========================================
@@ -53120,7 +53117,1160 @@ UTILITY CLASSES
 END OF YOVI BUYER REVIEW CENTRE
 ==========================================================*/
 
+/*==========================================================
+YOVI REFER & EARN
+Prefix : ybrae
+==========================================================*/
 
+.ybrae-page{
+
+    background:var(--body);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+
+.ybrae-container{
+
+    max-width:980px;
+
+    padding:34px 18px 90px;
+
+}
+
+/*==========================================================
+HEADER
+==========================================================*/
+
+.ybrae-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1050;
+
+    background:var(--surface);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.ybrae-navbar{
+
+    min-height:82px;
+
+}
+
+.ybrae-logo img{
+
+    height:42px;
+
+    width:auto;
+
+}
+
+.ybrae-navbar .nav-link{
+
+    color:var(--text);
+
+    font-weight:600;
+
+    padding:1rem .9rem;
+
+    transition:var(--transition);
+
+}
+
+.ybrae-navbar .nav-link:hover,
+
+.ybrae-navbar .nav-link.active{
+
+    color:var(--primary);
+
+}
+
+.ybrae-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.ybrae-icon-btn{
+
+    width:46px;
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:1px solid var(--border);
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    transition:var(--transition);
+
+    position:relative;
+
+}
+
+.ybrae-icon-btn:hover{
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+.ybrae-notification-dot{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#ff6b35;
+
+}
+
+.ybrae-profile-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:none;
+
+    border:none;
+
+    padding:0;
+
+}
+
+.ybrae-profile-btn img{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.ybrae-profile-btn span{
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+.ybrae-profile-btn i{
+
+    font-size:.8rem;
+
+    color:var(--text-light);
+
+}
+
+/*==========================================================
+BREADCRUMB
+==========================================================*/
+
+.ybrae-breadcrumb{
+
+    margin-bottom:18px;
+
+}
+
+.ybrae-breadcrumb a{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--text-light);
+
+    text-decoration:none;
+
+    font-size:.92rem;
+
+    transition:var(--transition);
+
+}
+
+.ybrae-breadcrumb a:hover{
+
+    color:var(--primary);
+
+}
+
+/*==========================================================
+HERO
+==========================================================*/
+
+.ybrae-hero{
+
+    background:linear-gradient(135deg,#10b981,#14d399);
+
+    border-radius:22px;
+
+    padding:42px;
+
+    text-align:center;
+
+    color:#ffffff;
+
+    margin-bottom:26px;
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.ybrae-hero-icon{
+
+    width:72px;
+
+    height:72px;
+
+    margin:0 auto 18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+
+    font-size:2rem;
+
+}
+
+.ybrae-hero h1{
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    margin-bottom:12px;
+
+    color: #ffffff;
+
+}
+
+.ybrae-hero p{
+
+    max-width:560px;
+
+    margin:0 auto 28px;
+
+    font-size:1rem;
+
+    line-height:1.7;
+
+    color:rgba(255,255,255,.92);
+
+}
+
+/*==========================================================
+REFERRAL CODE
+==========================================================*/
+
+.ybrae-code-wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:26px;
+
+}
+
+.ybrae-code{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:300px;
+
+    min-height:56px;
+
+    padding:0 22px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.18);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    backdrop-filter:blur(12px);
+
+}
+
+.ybrae-code span{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    color:#ffffff;
+
+}
+
+.ybrae-copy-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    min-width:120px;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#ffffff;
+
+    color:#10b981;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.ybrae-copy-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+/*==========================================================
+SHARE BUTTONS
+==========================================================*/
+
+.ybrae-share-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:14px;
+
+}
+
+.ybrae-share-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:14px 22px;
+
+    border:none;
+
+    border-radius:14px;
+
+    color:#ffffff;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.ybrae-share-btn i{
+
+    font-size:1rem;
+
+}
+
+.ybrae-whatsapp{
+
+    background:#25D366;
+
+}
+
+.ybrae-email{
+
+    background:#3b82f6;
+
+}
+
+.ybrae-link{
+
+    background:#6b7280;
+
+}
+
+.ybrae-share-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+/*==========================================================
+STATISTICS
+==========================================================*/
+
+.ybrae-stats{
+
+    margin-bottom:28px;
+
+}
+
+.ybrae-stat-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:30px 22px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow-xs);
+
+    transition:var(--transition);
+
+}
+
+.ybrae-stat-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.ybrae-stat-card h2{
+
+    margin:0 0 10px;
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+}
+
+.ybrae-stat-card p{
+
+    margin:0;
+
+    color:var(--text-light);
+
+    font-weight:600;
+
+}
+
+.ybrae-earned{
+
+    background:linear-gradient(135deg,#10b981,#34d399);
+
+}
+
+.ybrae-earned h2,
+
+.ybrae-earned p{
+
+    color:#ffffff;
+
+}
+
+/*==========================================================
+CARD
+==========================================================*/
+
+.ybrae-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:28px;
+
+    margin-bottom:28px;
+
+    box-shadow:var(--shadow-xs);
+
+}
+
+.ybrae-card-header{
+
+    margin-bottom:24px;
+
+}
+
+.ybrae-card-header h3{
+
+    margin:0;
+
+    font-size:1.25rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+}
+
+/*==========================================================
+REWARD TIERS
+==========================================================*/
+
+.ybrae-tier-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+.ybrae-tier-item{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:18px 20px;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    background:var(--surface);
+
+    transition:var(--transition);
+
+}
+
+.ybrae-tier-item:hover{
+
+    transform:translateY(-3px);
+
+    border-color:var(--primary);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.ybrae-tier-active{
+
+    border-color:#10b981;
+
+    background:rgba(16,185,129,.06);
+
+}
+
+.ybrae-tier-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.ybrae-tier-number{
+
+    width:52px;
+
+    height:52px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:1.1rem;
+
+    font-weight:800;
+
+}
+
+.ybrae-tier-left h5{
+
+    margin:0 0 4px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+}
+
+.ybrae-tier-left p{
+
+    margin:0;
+
+    font-size:.9rem;
+
+    color:var(--text-light);
+
+}
+
+.ybrae-tier-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.ybrae-tier-badge,
+
+.ybrae-tier-label{
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+}
+
+.ybrae-tier-right i{
+
+    color:#10b981;
+
+    font-size:1.2rem;
+
+}
+
+/*==========================================================
+LEADERBOARD
+==========================================================*/
+
+.ybrae-leaderboard{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+.ybrae-leader-item{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:18px 20px;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    background:var(--surface);
+
+    transition:var(--transition);
+
+}
+
+.ybrae-leader-item:hover{
+
+    transform:translateY(-3px);
+
+    border-color:var(--primary);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.ybrae-leader-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.ybrae-rank{
+
+    font-size:1.5rem;
+
+    line-height:1;
+
+}
+
+.ybrae-rank-number{
+
+    width:34px;
+
+    height:34px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--neutral-200);
+
+    color:var(--heading);
+
+    font-size:.9rem;
+
+    font-weight:700;
+
+}
+
+.ybrae-avatar{
+
+    width:48px;
+
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:1rem;
+
+    font-weight:800;
+
+}
+
+.ybrae-leader-left h6{
+
+    margin:0 0 3px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+}
+
+.ybrae-leader-left small{
+
+    color:var(--text-light);
+
+}
+
+.ybrae-leader-right{
+
+    text-align:right;
+
+}
+
+.ybrae-leader-right strong{
+
+    display:block;
+
+    margin-bottom:4px;
+
+    color:#10b981;
+
+    font-size:1.05rem;
+
+    font-weight:800;
+
+}
+
+.ybrae-leader-right small{
+
+    color:var(--text-light);
+
+}
+
+/*==========================================================
+RESPONSIVE
+==========================================================*/
+
+@media (max-width:991.98px){
+
+    .ybrae-container{
+
+        padding:30px 18px 70px;
+
+    }
+
+    .ybrae-navbar{
+
+        padding:12px 0;
+
+    }
+
+    .ybrae-actions{
+
+        width:100%;
+
+        justify-content:center;
+
+        margin-top:18px;
+
+    }
+
+    .ybrae-hero{
+
+        padding:34px 26px;
+
+    }
+
+    .ybrae-code{
+
+        min-width:100%;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .ybrae-profile-btn span,
+
+    .ybrae-profile-btn i{
+
+        display:none;
+
+    }
+
+    .ybrae-hero{
+
+        padding:30px 22px;
+
+    }
+
+    .ybrae-hero h1{
+
+        font-size:1.65rem;
+
+    }
+
+    .ybrae-code-wrapper{
+
+        flex-direction:column;
+
+    }
+
+    .ybrae-copy-btn{
+
+        width:100%;
+
+    }
+
+    .ybrae-share-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .ybrae-share-btn{
+
+        width:100%;
+
+    }
+
+    .ybrae-tier-item,
+
+    .ybrae-leader-item{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .ybrae-tier-right,
+
+    .ybrae-leader-right{
+
+        width:100%;
+
+        text-align:left;
+
+    }
+
+}
+
+@media (max-width:575.98px){
+
+    .ybrae-container{
+
+        padding:24px 14px 60px;
+
+    }
+
+    .ybrae-hero{
+
+        border-radius:18px;
+
+        padding:26px 18px;
+
+    }
+
+    .ybrae-hero-icon{
+
+        width:62px;
+
+        height:62px;
+
+        font-size:1.7rem;
+
+    }
+
+    .ybrae-hero h1{
+
+        font-size:1.45rem;
+
+    }
+
+    .ybrae-hero p{
+
+        font-size:.92rem;
+
+    }
+
+    .ybrae-code{
+
+        min-height:52px;
+
+        padding:0 16px;
+
+    }
+
+    .ybrae-code span{
+
+        font-size:.88rem;
+
+        letter-spacing:.5px;
+
+        word-break:break-all;
+
+        text-align:center;
+
+    }
+
+    .ybrae-copy-btn{
+
+        height:52px;
+
+    }
+
+    .ybrae-card{
+
+        padding:20px;
+
+        border-radius:18px;
+
+    }
+
+    .ybrae-tier-left{
+
+        gap:14px;
+
+    }
+
+    .ybrae-tier-number{
+
+        width:46px;
+
+        height:46px;
+
+        font-size:1rem;
+
+    }
+
+    .ybrae-avatar{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+}
+
+/*==========================================================
+ANIMATIONS
+==========================================================*/
+
+@keyframes ybraeFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.ybrae-hero,
+
+.ybrae-stats,
+
+.ybrae-card{
+
+    animation:ybraeFadeUp .6s ease both;
+
+}
+
+.ybrae-card:nth-of-type(2){
+
+    animation-delay:.12s;
+
+}
+
+.ybrae-card:nth-of-type(3){
+
+    animation-delay:.24s;
+
+}
+
+.ybrae-tier-item,
+
+.ybrae-leader-item{
+
+    transition:transform .3s ease,
+               box-shadow .3s ease,
+               border-color .3s ease;
+
+}
+
+/*==========================================================
+UTILITY
+==========================================================*/
+
+.ybrae-hidden{
+
+    display:none !important;
+
+}
+
+.ybrae-show{
+
+    display:block !important;
+
+}
+
+/*==========================================================
+END OF REFER & EARN
+
+Prefix : ybrae
+==========================================================*/
 
 /*=========================================================
 BUYER NEIGHBORHOOD
