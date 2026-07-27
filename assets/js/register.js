@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!yrgPage) return;
 
-    console.log("YOVI Register Page Loaded");
+  const API_BASE_URL = "https://backendyovi.onrender.com/api";
 
     /*=====================================================
     ELEMENTS
@@ -128,8 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const yrgEmailPattern =
         /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    const yrgPhonePattern =
-        /^[789]\d{9}$/;
+     const yrgPhonePattern =
+     /^0[789][01]\d{8}$/;
 
     const yrgUppercase =
         /[A-Z]/;
@@ -643,7 +643,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             "submit",
 
-            function(event){
+            async function(event){
 
                 event.preventDefault();
 
@@ -675,48 +675,89 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 /* Save Registration */
 
-                const yrgUser = {
+                try {
 
-                    firstName:
+    const response = await fetch(
+        `${API_BASE_URL}/auth/register`,
+        {
+            method: "POST",
 
-                        yrgFirstName.value.trim(),
+            headers: {
+                "Content-Type": "application/json"
+            },
 
-                    lastName:
+            body: JSON.stringify({
 
-                        yrgLastName.value.trim(),
+                firstName:
+                    yrgFirstName.value.trim(),
 
-                    email:
+                lastName:
+                    yrgLastName.value.trim(),
 
-                        yrgEmail.value.trim(),
+                email:
+                    yrgEmail.value.trim(),
 
-                    phone:
+                phone:
+                    yrgPhone.value.trim(),
 
-                        yrgPhone.value.trim(),
+                password:
+                    yrgPassword.value.trim()
 
-                    registeredAt:
+            })
 
-                        new Date().toISOString()
+        }
+    );
 
-                };
+    const data = await response.json();
 
-                localStorage.setItem(
+    if (!response.ok) {
+        throw new Error(
+            data.message || "Registration failed"
+        );
+    }
 
-                    "yoviRegisteredUser",
+    localStorage.setItem(
+        "token",
+        data.token
+    );
 
-                    JSON.stringify(yrgUser)
+    localStorage.setItem(
+        "yoviRegisteredUser",
+        JSON.stringify(data)
+    );
 
-                );
+    localStorage.removeItem(
+    "yrgRegisterDraft"
+);
 
-                /* Simulate Request */
+// Remove loading state
+yrgCreateAccountBtn.classList.remove(
+    "yrg-btn-loading"
+);
 
-                setTimeout(function(){
+yrgCreateAccountBtn.disabled = false;
 
-                    window.location.href =
+yrgCreateAccountBtn.innerHTML =
+    "Account Created";
 
-                    "/auth/otp-verify.html";
+// Redirect
+window.location.href =
+    "/auth/otp-verify.html";
 
-                },1500);
+}
+catch (error) {
 
+   alert(error.message || "Something went wrong. Please try again.");
+
+    yrgCreateAccountBtn.classList.remove(
+        "yrg-btn-loading"
+    );
+
+    yrgCreateAccountBtn.disabled = false;
+
+    yrgCreateAccountBtn.innerHTML =
+        "Create Account";
+}
             }
 
         );
@@ -963,7 +1004,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if(
 
-                    this.value.length > 10
+                    this.value.length > 11
 
                 ){
 
@@ -1295,13 +1336,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         };
 
-        localStorage.setItem(
-
-            "yrgRegisterDraft",
-
-            JSON.stringify(draft)
-
-        );
+      localStorage.setItem(
+    "yoviRegisteredUser",
+    JSON.stringify({
+        _id: data._id,
+        phone: data.phone
+    })
+);
 
     }
 
