@@ -483,7 +483,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 event.preventDefault();
 
                 window.location.href =
-                    "../products/products.html";
+                    "/navigation/products.html";
 
             }
 

@@ -3842,7 +3842,7 @@ LEFT PANEL
 
         ),
 
-        url("https://via.placeholder.com/900x1200");
+        url("/assets/images/register-bg.png");
 
     background-size:cover;
 
@@ -55394,7 +55394,7 @@ BACKGROUND IMAGE
 
     inset:0;
 
-    background:url("https://placehold.co/900x1400")
+    background:url("/assets/images/register-bg.png")
     center center/cover
     no-repeat;
 
@@ -59090,6 +59090,10 @@ PRODUCT IMAGE
 .ysc-product-image{
 
     width:100%;
+
+    height: 100%;
+
+    object-fit: cover;
 
     aspect-ratio:1/1;
 
