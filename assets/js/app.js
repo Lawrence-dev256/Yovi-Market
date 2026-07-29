@@ -5149,6 +5149,296 @@ SCROLL REVEAL ANIMATION
 END OF BUYER DASHBOARD
 ==========================================================*/
 
+/*=========================================================
+YOVI BUYER ORDERS PAGE
+=========================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    "use strict";
+
+    /*=====================================================
+    PAGE CHECK
+    =====================================================*/
+
+    const ybsopPage = document.querySelector(".ybsop-page");
+
+    if (!ybsopPage) return;
+
+    /*=====================================================
+    DOM ELEMENTS
+    =====================================================*/
+
+    const ybsop = {
+
+        cards: document.querySelectorAll(".ybsop-order-card"),
+
+        filters: document.querySelectorAll(".ybsop-filter-btn"),
+
+        trackButton: document.querySelector(".ybsop-track-btn"),
+
+        orderCards: document.querySelector(".ybsop-orders"),
+
+        navbarIcons: document.querySelectorAll(".ybsop-nav-icon"),
+
+        userButton: document.querySelector(".ybsop-user-btn")
+
+    };
+
+    /*=====================================================
+    PAGE ENTRANCE ANIMATION
+    =====================================================*/
+
+    const ybsopObserver = new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.style.opacity = "1";
+
+                    entry.target.style.transform =
+
+                        "translateY(0)";
+
+                }
+
+            });
+
+        },
+
+        {
+
+            threshold:0.15
+
+        }
+
+    );
+
+    ybsop.cards.forEach(card => {
+
+        card.style.opacity = "0";
+
+        card.style.transform = "translateY(25px)";
+
+        card.style.transition =
+
+            "opacity .45s ease, transform .45s ease";
+
+        ybsopObserver.observe(card);
+
+    });
+
+    /*=====================================================
+    FILTER BUTTONS
+    =====================================================*/
+
+    ybsop.filters.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            ybsop.filters.forEach(btn =>
+
+                btn.classList.remove("active")
+
+            );
+
+            button.classList.add("active");
+
+            const filter =
+
+                button.dataset.filter;
+
+            ybsop.cards.forEach(card => {
+
+                const status =
+
+                    card.dataset.status;
+
+                if (
+
+                    filter === "all" ||
+
+                    filter === status
+
+                ){
+
+                    card.style.display = "flex";
+
+                }else{
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+    });
+
+    /*=====================================================
+    CARD HOVER EFFECT
+    =====================================================*/
+
+    ybsop.cards.forEach(card => {
+
+        card.addEventListener("mouseenter", () => {
+
+            card.style.transform =
+
+                "translateY(-4px)";
+
+        });
+
+        card.addEventListener("mouseleave", () => {
+
+            card.style.transform =
+
+                "translateY(0)";
+
+        });
+
+    });
+
+    /*=====================================================
+    TRACK ORDER BUTTON
+    =====================================================*/
+
+    if(ybsop.trackButton){
+
+        ybsop.trackButton.addEventListener("click",
+
+            function(e){
+
+                e.preventDefault();
+
+                this.style.transform =
+
+                    "scale(.97)";
+
+                setTimeout(()=>{
+
+                    window.location.href =
+
+                    "/orders/order-tracking.html";
+
+                },150);
+
+            }
+
+        );
+
+    }
+
+    /*=====================================================
+    NAV ICON HOVER
+    =====================================================*/
+
+    ybsop.navbarIcons.forEach(icon=>{
+
+        icon.addEventListener("mouseenter",()=>{
+
+            icon.style.transform="translateY(-2px)";
+
+        });
+
+        icon.addEventListener("mouseleave",()=>{
+
+            icon.style.transform="translateY(0)";
+
+        });
+
+    });
+
+    /*=====================================================
+    USER PROFILE BUTTON
+    =====================================================*/
+
+    if (ybsop.userButton) {
+
+        ybsop.userButton.addEventListener("mouseenter", () => {
+
+            ybsop.userButton.style.transform =
+
+                "translateY(-2px)";
+
+        });
+
+        ybsop.userButton.addEventListener("mouseleave", () => {
+
+            ybsop.userButton.style.transform =
+
+                "translateY(0)";
+
+        });
+
+    }
+
+    /*=====================================================
+    KEYBOARD SHORTCUTS
+    =====================================================*/
+
+    document.addEventListener("keydown", event => {
+
+        /* ESC -> Go Back */
+
+        if (event.key === "Escape") {
+
+            window.history.back();
+
+        }
+
+        /* ALT + T -> Track Order */
+
+        if (
+
+            event.altKey &&
+
+            event.key.toLowerCase() === "t"
+
+        ) {
+
+            event.preventDefault();
+
+            window.location.href =
+
+                "/orders/order-tracking.html";
+
+        }
+
+    });
+
+    /*=====================================================
+    RESIZE LISTENER
+    =====================================================*/
+
+    window.addEventListener("resize", () => {
+
+        document.documentElement.style.setProperty(
+
+            "--ybsop-window-width",
+
+            `${window.innerWidth}px`
+
+        );
+
+    });
+
+    /*=====================================================
+    PAGE READY
+    =====================================================*/
+
+    document.body.classList.add("ybsop-ready");
+
+});
+
+/*=========================================================
+END OF BUYER ORDERS PAGE
+=========================================================*/
+
 /*==========================================================
 YOVI BUYER ELECTRONICS CATEGORY SCREEN
 ==========================================================*/
@@ -14905,6 +15195,292 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
+/*==========================================================
+YOVI BUYER TRACK ORDER
+Prefix: ybtor
+==========================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    "use strict";
+
+    /*======================================================
+    DOM ELEMENTS
+    ======================================================*/
+
+    const ybtor = {
+
+        page: document.querySelector(".ybtor-page"),
+
+        timeline: document.querySelector(".ybtor-timeline"),
+
+        steps: document.querySelectorAll(".ybtor-step"),
+
+        cards: document.querySelectorAll(
+
+            ".ybtor-order-card, .ybtor-timeline-card, .ybtor-reminder-card"
+
+        ),
+
+        reminderCard: document.querySelector(".ybtor-reminder-card"),
+
+        backButton: document.querySelector(".ybtor-back-link"),
+
+        statusBadge: document.querySelector(".ybtor-status-badge"),
+
+        escrowBadge: document.querySelector(".ybtor-escrow-pill")
+
+    };
+
+    if (!ybtor.page) return;
+
+    /*======================================================
+    PAGE ENTRANCE ANIMATION
+    ======================================================*/
+
+    const ybtorObserver = new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("ybtor-show");
+
+                    entry.target.classList.remove("ybtor-hidden");
+
+                }
+
+            });
+
+        },
+
+        {
+
+            threshold: .15
+
+        }
+
+    );
+
+    ybtor.cards.forEach(card => {
+
+        card.classList.add("ybtor-hidden");
+
+        ybtorObserver.observe(card);
+
+    });
+
+    /*======================================================
+    TIMELINE STEP HOVER
+    ======================================================*/
+
+    ybtor.steps.forEach(step => {
+
+        step.addEventListener("mouseenter", () => {
+
+            step.style.transform = "translateX(8px)";
+
+        });
+
+        step.addEventListener("mouseleave", () => {
+
+            step.style.transform = "translateX(0)";
+
+        });
+
+    });
+
+    /*======================================================
+    BACK BUTTON
+    ======================================================*/
+
+    if (ybtor.backButton) {
+
+        ybtor.backButton.addEventListener("click", function () {
+
+            this.style.transform = "translateX(-4px)";
+
+            setTimeout(() => {
+
+                this.style.transform = "";
+
+            }, 180);
+
+        });
+
+    }
+
+    /*======================================================
+    STATUS BADGE EFFECT
+    ======================================================*/
+
+    if (ybtor.statusBadge) {
+
+        ybtor.statusBadge.addEventListener("mouseenter", () => {
+
+            ybtor.statusBadge.style.transform = "scale(1.05)";
+
+        });
+
+        ybtor.statusBadge.addEventListener("mouseleave", () => {
+
+            ybtor.statusBadge.style.transform = "scale(1)";
+
+        });
+
+    }
+
+    /*======================================================
+    ESCROW BADGE EFFECT
+    ======================================================*/
+
+    if (ybtor.escrowBadge) {
+
+        ybtor.escrowBadge.addEventListener("mouseenter", () => {
+
+            ybtor.escrowBadge.style.transform = "translateY(-2px)";
+
+        });
+
+        ybtor.escrowBadge.addEventListener("mouseleave", () => {
+
+            ybtor.escrowBadge.style.transform = "translateY(0)";
+
+        });
+
+    }
+
+    /*======================================================
+    REMINDER CARD HOVER
+    ======================================================*/
+
+    if (ybtor.reminderCard) {
+
+        ybtor.reminderCard.addEventListener("mouseenter", () => {
+
+            ybtor.reminderCard.style.transform =
+
+                "translateY(-5px)";
+
+        });
+
+        ybtor.reminderCard.addEventListener("mouseleave", () => {
+
+            ybtor.reminderCard.style.transform =
+
+                "translateY(0)";
+
+        });
+
+    }
+
+    /*======================================================
+    KEYBOARD SHORTCUTS
+    ======================================================*/
+
+    document.addEventListener("keydown", event => {
+
+        /* Escape → Back to Orders */
+
+        if (event.key === "Escape") {
+
+            window.location.href = "/navigation/order.html";
+
+        }
+
+        /* Alt + O → Orders */
+
+        if (
+
+            event.altKey &&
+
+            event.key.toLowerCase() === "o"
+
+        ) {
+
+            window.location.href = "/navigation/order.html";
+
+        }
+
+    });
+
+    /*======================================================
+    SCROLL PROGRESS ANIMATION
+    ======================================================*/
+
+    const ybtorProgressObserver = new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.style.opacity = "1";
+
+                    entry.target.style.transform =
+
+                        "translateY(0)";
+
+                }
+
+            });
+
+        },
+
+        {
+
+            threshold: .2
+
+        }
+
+    );
+
+    ybtor.steps.forEach(step => {
+
+        step.style.opacity = "0";
+
+        step.style.transform = "translateY(18px)";
+
+        step.style.transition =
+
+            "opacity .45s ease, transform .45s ease";
+
+        ybtorProgressObserver.observe(step);
+
+    });
+
+    /*======================================================
+    WINDOW RESIZE
+    ======================================================*/
+
+    window.addEventListener("resize", () => {
+
+        document.documentElement.style.setProperty(
+
+            "--ybtor-window-width",
+
+            `${window.innerWidth}px`
+
+        );
+
+    });
+
+    /*======================================================
+    PAGE READY
+    ======================================================*/
+
+    document.body.classList.add("ybtor-ready");
+
+});
+
+/*==========================================================
+END OF YOVI BUYER TRACK ORDER
+==========================================================*/
+
 /*=========================================================
 YOVI PAYMENT PLAN ANNUALLY
 APP.JS — PART 3A
@@ -20426,7 +21002,6 @@ document.body.classList.add("brcs-ready");
 /*==========================================================
 END OF YOVI BUYER REVIEW CENTRE
 ==========================================================*/
-
 
 /*==========================================================
 YOVI REFER & EARN

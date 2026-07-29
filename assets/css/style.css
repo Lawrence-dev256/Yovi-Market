@@ -35371,7 +35371,6 @@ ANIMATION
 
 /*=========================================================
 YOVI PAYMENT PLAN ANNUALLY
-STYLE.CSS — PART 2C
 =========================================================*/
 
 /*=========================================================
@@ -35624,7 +35623,6 @@ FEATURE LIST
 
 /*=========================================================
 YOVI PAYMENT PLAN ANNUALLY
-STYLE.CSS — PART 2D
 =========================================================*/
 
 /*=========================================================
@@ -35894,11 +35892,6 @@ CARD ENTRANCE ANIMATION
     }
 
 }
-
-/*=========================================================
-YOVI PAYMENT PLAN ANNUALLY
-STYLE.CSS — PART 2E
-=========================================================*/
 
 /*=========================================================
 DROPDOWN MENU
@@ -36518,7 +36511,6 @@ END OF YPPA STYLES
 
 /*=========================================================
 SELLER PLANS
-PART 2A
 =========================================================*/
 
 /*=========================================================
@@ -45827,6 +45819,2188 @@ RESPONSIVE
 /*==========================================================
 END OF BUYER DASHBOARD
 ==========================================================*/
+
+/*=========================================================
+YOVI BUYER TRACK ORDER
+=========================================================*/
+
+.ybtor-page{
+
+    background:var(--neutral-50);
+
+    color:var(--text-primary);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+
+.ybtor-main{
+
+    padding:20px 0 48px;
+
+}
+
+.ybtor-container{
+
+    width:100%;
+
+    max-width:1080px;
+
+    margin:0 auto;
+
+}
+
+/*=========================================================
+TOP NAV ICONS
+=========================================================*/
+
+.ybtor-nav-icon{
+
+    width:44px;
+
+    height:44px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:transparent;
+
+    color:var(--text-primary);
+
+    transition:all .3s ease;
+
+}
+
+.ybtor-nav-icon i{
+
+    font-size:1.05rem;
+
+    transition:all .3s ease;
+
+}
+
+.ybtor-nav-icon:hover{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 24px rgba(0,0,0,.12);
+
+}
+
+.ybtor-nav-icon:hover i{
+
+    color:#ffffff;
+
+}
+
+.ybtor-nav-icon:focus,
+
+.ybtor-nav-icon:active{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    box-shadow:none;
+
+}
+
+.ybtor-nav-icon:focus i,
+
+.ybtor-nav-icon:active i{
+
+    color:#ffffff;
+
+}
+
+.ybtor-nav-right {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    flex-wrap: nowrap;
+
+    white-space: nowrap;
+
+    margin-left: auto;
+}
+
+.ybtor-nav-right .dropdown{
+
+    flex-shrink: 0;
+}
+
+.ybtor-user-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    flex-shrink:0;
+
+    border:none;
+
+    background:transparent;
+
+    padding:6px 10px;
+
+    border-radius:999px;
+
+    transition:.3s ease;
+
+}
+
+.ybtor-user-btn img{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.ybtor-user-btn span{
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    white-space:nowrap;
+
+}
+
+#ybtorNavbar{
+
+    align-items:center;
+
+}
+
+#ybtorNavbar .navbar-nav{
+
+    flex-wrap:nowrap;
+
+}
+
+/*=========================================================
+BREADCRUMB
+=========================================================*/
+
+.ybtor-back-wrapper{
+
+    margin-bottom:18px;
+
+}
+
+.ybtor-back-link{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    text-decoration:none;
+
+    color:var(--text-secondary);
+
+    font-size:.92rem;
+
+    font-weight:600;
+
+    transition:all .25s ease;
+
+}
+
+.ybtor-back-link i{
+
+    font-size:.82rem;
+
+}
+
+.ybtor-back-link:hover{
+
+    color:var(--primary);
+
+    transform:translateX(-4px);
+
+}
+
+/*=========================================================
+PAGE TITLE
+=========================================================*/
+
+.ybtor-heading{
+
+    margin-bottom:20px;
+
+}
+
+.ybtor-heading h1{
+
+    font-size:1.75rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    margin-bottom:4px;
+
+    line-height:1.25;
+
+}
+
+.ybtor-heading p{
+
+    margin:0;
+
+    font-size:.90rem;
+
+    color:var(--text-secondary);
+
+}
+
+/*=========================================================
+ORDER CARD
+=========================================================*/
+
+.ybtor-order-card{
+
+    background:#ffffff;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:20px 24px;
+
+    margin-bottom:22px;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:all .3s ease;
+
+}
+
+.ybtor-order-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.ybtor-product-wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.ybtor-product-image{
+
+    width:78px;
+
+    height:78px;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+    background:#f4f4f4;
+
+}
+
+.ybtor-product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+.ybtor-product-content{
+
+    flex:1;
+
+}
+
+.ybtor-product-content h3{
+
+    margin:0 0 4px;
+
+    font-size:1.02rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    line-height:1.35;
+
+}
+
+.ybtor-product-content p{
+
+    margin:0 0 12px;
+
+    font-size:.86rem;
+
+    color:var(--text-secondary);
+
+}
+
+/*=========================================================
+ESCROW BADGE
+=========================================================*/
+
+.ybtor-escrow-pill{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:7px 12px;
+
+    border-radius:999px;
+
+    background:#eefaf2;
+
+    color:#22a559;
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+    border:1px solid rgba(34,165,89,.15);
+
+}
+
+.ybtor-escrow-pill i{
+
+    font-size:.78rem;
+
+}
+
+/*=========================================================
+STATUS
+=========================================================*/
+
+.ybtor-status-wrapper{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-end;
+
+    justify-content:center;
+
+    height:100%;
+
+}
+
+.ybtor-status-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+    font-size:.80rem;
+
+    font-weight:700;
+
+    border-radius:999px;
+
+    padding:7px 18px;
+
+    margin-bottom:10px;
+
+    min-width:102px;
+
+}
+
+.ybtor-status-wrapper p{
+
+    margin:0;
+
+    font-size:.82rem;
+
+    font-weight:500;
+
+    color:var(--text-secondary);
+
+}
+
+/*=========================================================
+TRACKING TIMELINE CARD
+=========================================================*/
+
+.ybtor-timeline-card{
+
+    background:#ffffff;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:22px 24px;
+
+    margin-bottom:22px;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:all .30s ease;
+
+}
+
+.ybtor-timeline-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.ybtor-card-header{
+
+    margin-bottom:20px;
+
+}
+
+.ybtor-card-header h2{
+
+    margin:0;
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+}
+
+/*=========================================================
+TIMELINE
+=========================================================*/
+
+.ybtor-timeline{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:0;
+
+}
+
+.ybtor-step{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:16px;
+
+    transition:all .25s ease;
+
+}
+
+.ybtor-step:hover{
+
+    transform:translateX(5px);
+
+}
+
+.ybtor-step:not(:last-child){
+
+    padding-bottom:20px;
+
+}
+
+.ybtor-step-marker{
+
+    width:24px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+}
+
+.ybtor-step-circle{
+
+    width:16px;
+
+    height:16px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#ffffff;
+
+    border:2px solid #d8dbe2;
+
+    z-index:2;
+
+    transition:all .25s ease;
+
+}
+
+.ybtor-step-circle i{
+
+    font-size:.56rem;
+
+    color:#ffffff;
+
+}
+
+.ybtor-step-line{
+
+    width:2px;
+
+    height:42px;
+
+    background:#e5e7eb;
+
+    margin-top:4px;
+
+    border-radius:20px;
+
+}
+
+/*=========================================================
+STEP CONTENT
+=========================================================*/
+
+.ybtor-step-content{
+
+    flex:1;
+
+    padding-top:0;
+
+}
+
+.ybtor-step-content h4{
+
+    margin:0 0 4px;
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    line-height:1.4;
+
+}
+
+.ybtor-step-content p{
+
+    margin:0;
+
+    font-size:.82rem;
+
+    color:var(--text-secondary);
+
+    line-height:1.55;
+
+}
+
+/*=========================================================
+STEP STATES
+=========================================================*/
+
+.ybtor-step-completed .ybtor-step-circle{
+
+    background:#22c55e;
+
+    border-color:#22c55e;
+
+}
+
+.ybtor-step-completed .ybtor-step-line{
+
+    background:#22c55e;
+
+}
+
+.ybtor-step-current .ybtor-step-circle{
+
+    background:#2563eb;
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.14);
+
+}
+
+.ybtor-step-current .ybtor-step-content h4{
+
+    color:#2563eb;
+
+}
+
+.ybtor-step-upcoming .ybtor-step-circle{
+
+    background:#ffffff;
+
+    border-color:#d8dbe2;
+
+}
+
+.ybtor-step-upcoming .ybtor-step-line{
+
+    background:#e5e7eb;
+
+}
+
+/*=========================================================
+ESCROW REMINDER CARD
+=========================================================*/
+
+.ybtor-reminder-card{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:16px;
+
+    background:#eff6ff;
+
+    border:1px solid rgba(37,99,235,.12);
+
+    border-radius:18px;
+
+    padding:18px 20px;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:all .30s ease;
+
+}
+
+.ybtor-reminder-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.ybtor-reminder-icon{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:14px;
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+}
+
+.ybtor-reminder-icon i{
+
+    font-size:1.15rem;
+
+}
+
+.ybtor-reminder-content{
+
+    flex:1;
+
+}
+
+.ybtor-reminder-content h4{
+
+    margin:0 0 6px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+}
+
+.ybtor-reminder-content p{
+
+    margin:0;
+
+    font-size:.84rem;
+
+    line-height:1.65;
+
+    color:var(--text-secondary);
+
+}
+
+/*=========================================================
+GENERAL TRANSITIONS
+=========================================================*/
+
+.ybtor-order-card,
+
+.ybtor-timeline-card,
+
+.ybtor-reminder-card,
+
+.ybtor-step,
+
+.ybtor-back-link,
+
+.ybtor-status-badge,
+
+.ybtor-escrow-pill{
+
+    transition:all .28s ease;
+
+}
+
+/*=========================================================
+HOVER EFFECTS
+=========================================================*/
+
+.ybtor-status-badge:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.ybtor-escrow-pill:hover{
+
+    background:#e7f8ee;
+
+    border-color:rgba(34,197,94,.25);
+
+}
+
+.ybtor-product-image img{
+
+    transition:transform .35s ease;
+
+}
+
+.ybtor-order-card:hover .ybtor-product-image img{
+
+    transform:scale(1.04);
+
+}
+
+.ybtor-step-content h4{
+
+    transition:color .25s ease;
+
+}
+
+.ybtor-step:hover .ybtor-step-content h4{
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+ENTRANCE ANIMATION
+=========================================================*/
+
+@keyframes ybtorFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.ybtor-order-card{
+
+    animation:ybtorFadeUp .45s ease both;
+
+}
+
+.ybtor-timeline-card{
+
+    animation:ybtorFadeUp .55s ease both;
+
+}
+
+.ybtor-reminder-card{
+
+    animation:ybtorFadeUp .65s ease both;
+
+}
+
+/*=========================================================
+RESPONSIVE
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .ybtor-main{
+
+        padding:18px 0 40px;
+
+    }
+
+    .ybtor-container{
+
+        max-width:760px;
+
+    }
+
+    .ybtor-order-card,
+
+    .ybtor-timeline-card,
+
+    .ybtor-reminder-card{
+
+        padding:18px;
+
+    }
+
+    .ybtor-status-wrapper{
+
+        align-items:flex-start;
+
+        margin-top:18px;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .ybtor-container{
+
+        padding-left:16px;
+
+        padding-right:16px;
+
+    }
+
+    .ybtor-heading{
+
+        margin-bottom:18px;
+
+    }
+
+    .ybtor-heading h1{
+
+        font-size:1.5rem;
+
+    }
+
+    .ybtor-product-wrapper{
+
+        align-items:flex-start;
+
+    }
+
+    .ybtor-product-image{
+
+        width:68px;
+
+        height:68px;
+
+    }
+
+    .ybtor-product-content h3{
+
+        font-size:.95rem;
+
+    }
+
+    .ybtor-status-wrapper{
+
+        margin-top:16px;
+
+    }
+
+    .ybtor-status-badge{
+
+        font-size:.75rem;
+
+    }
+
+    .ybtor-step{
+
+        gap:14px;
+
+    }
+
+    .ybtor-step-line{
+
+        height:38px;
+
+    }
+
+    .ybtor-reminder-icon{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+}
+
+@media (max-width:575.98px){
+
+    .ybtor-main{
+
+        padding:16px 0 32px;
+
+    }
+
+    .ybtor-order-card,
+
+    .ybtor-timeline-card,
+
+    .ybtor-reminder-card{
+
+        border-radius:16px;
+
+        padding:16px;
+
+    }
+
+    .ybtor-heading h1{
+
+        font-size:1.35rem;
+
+    }
+
+    .ybtor-heading p{
+
+        font-size:.82rem;
+
+    }
+
+    .ybtor-product-wrapper{
+
+        flex-direction:column;
+
+        gap:14px;
+
+    }
+
+    .ybtor-product-image{
+
+        width:64px;
+
+        height:64px;
+
+    }
+
+    .ybtor-product-content{
+
+        width:100%;
+
+    }
+
+    .ybtor-product-content h3{
+
+        font-size:.92rem;
+
+    }
+
+    .ybtor-product-content p{
+
+        font-size:.80rem;
+
+        margin-bottom:10px;
+
+    }
+
+    .ybtor-escrow-pill{
+
+        width:100%;
+
+        justify-content:center;
+
+        padding:8px 12px;
+
+    }
+
+    .ybtor-status-wrapper{
+
+        width:100%;
+
+        align-items:flex-start;
+
+    }
+
+    .ybtor-status-badge{
+
+        width:100%;
+
+        justify-content:center;
+
+        margin-bottom:8px;
+
+    }
+
+    .ybtor-card-header{
+
+        margin-bottom:16px;
+
+    }
+
+    .ybtor-card-header h2{
+
+        font-size:1rem;
+
+    }
+
+    .ybtor-step-marker{
+
+        width:20px;
+
+    }
+
+    .ybtor-step-circle{
+
+        width:14px;
+
+        height:14px;
+
+    }
+
+    .ybtor-step-line{
+
+        height:34px;
+
+    }
+
+    .ybtor-step-content h4{
+
+        font-size:.88rem;
+
+    }
+
+    .ybtor-step-content p{
+
+        font-size:.78rem;
+
+    }
+
+    .ybtor-reminder-card{
+
+        gap:12px;
+
+    }
+
+    .ybtor-reminder-content h4{
+
+        font-size:.90rem;
+
+    }
+
+    .ybtor-reminder-content p{
+
+        font-size:.78rem;
+
+        line-height:1.6;
+
+    }
+
+}
+
+/*=========================================================
+UTILITY CLASSES
+=========================================================*/
+
+.ybtor-hidden{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(18px);
+
+}
+
+.ybtor-show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+
+    transition:
+
+        opacity .45s ease,
+
+        transform .45s ease;
+
+}
+
+.ybtor-pointer{
+
+    cursor:pointer;
+
+}
+
+.ybtor-no-select{
+
+    user-select:none;
+
+}
+
+/*=========================================================
+END
+BUYER TRACK ORDER PAGE
+========================================================*/
+
+
+/*=========================================================
+BUYER ORDERS 
+=========================================================*/
+
+.ybsop-page{
+
+    background:var(--surface);
+
+    color:var(--text-primary);
+
+    overflow-x:hidden;
+
+}
+
+.ybsop-main{
+
+    padding:32px 0 56px;
+
+}
+
+.ybsop-container{
+
+    max-width:980px;
+
+}
+
+/*=========================================================
+BREADCRUMB
+=========================================================*/
+
+.ybsop-breadcrumb{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:18px;
+
+    font-size:.88rem;
+
+}
+
+.ybsop-breadcrumb a{
+
+    color:var(--text-secondary);
+
+    text-decoration:none;
+
+    transition:.3s ease;
+
+}
+
+.ybsop-breadcrumb a:hover{
+
+    color:var(--primary);
+
+}
+
+.ybsop-breadcrumb span{
+
+    color:var(--text-muted);
+
+}
+
+.ybsop-current{
+
+    font-weight:600;
+
+    color:var(--heading);
+
+}
+
+/*=========================================================
+TOP NAV ICONS
+=========================================================*/
+
+.ybsop-nav-icon{
+
+    width:44px;
+
+    height:44px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:transparent;
+
+    color:var(--text-primary);
+
+    transition:all .3s ease;
+
+}
+
+.ybsop-nav-icon i{
+
+    font-size:1.05rem;
+
+    transition:all .3s ease;
+
+}
+
+.ybsop-nav-icon:hover{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 24px rgba(0,0,0,.12);
+
+}
+
+.ybsop-nav-icon:hover i{
+
+    color:#ffffff;
+
+}
+
+.ybsop-nav-icon:focus,
+
+.ybsop-nav-icon:active{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    box-shadow:none;
+
+}
+
+.ybsop-nav-icon:focus i,
+
+.ybsop-nav-icon:active i{
+
+    color:#ffffff;
+
+}
+
+/*=========================================================
+PAGE HEADER
+=========================================================*/
+
+.ybsop-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    margin-bottom:26px;
+
+}
+
+.ybsop-header-left h1{
+
+    margin:0;
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+    line-height:1.2;
+
+}
+
+.ybsop-header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+}
+
+.ybsop-track-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 20px;
+
+    border-radius:14px;
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    border:none;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s ease;
+
+}
+
+.ybsop-track-btn:hover{
+
+    background:var(--primary-dark);
+
+    color:#ffffff;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 28px rgba(0,0,0,.12);
+
+}
+
+/*=========================================================
+FILTER BUTTONS
+=========================================================*/
+
+.ybsop-filter-wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:26px;
+
+}
+
+.ybsop-filter-btn{
+
+    border:1px solid var(--border-color);
+
+    background:#ffffff;
+
+    color:var(--text-secondary);
+
+    border-radius:999px;
+
+    padding:10px 20px;
+
+    font-size:.88rem;
+
+    font-weight:600;
+
+    transition:.3s ease;
+
+    cursor:pointer;
+
+}
+
+.ybsop-filter-btn:hover{
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+.ybsop-filter-btn.active{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    border-color:var(--primary);
+
+}
+
+/*=========================================================
+ORDERS LIST
+=========================================================*/
+
+.ybsop-orders{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+/*=========================================================
+ORDER CARD
+=========================================================*/
+
+.ybsop-order-card{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    background:#ffffff;
+
+    border:1px solid var(--border-color);
+
+    border-radius:20px;
+
+    padding:20px 22px;
+
+    transition:all .3s ease;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.04);
+
+}
+
+.ybsop-order-card:hover{
+
+    transform:translateY(-3px);
+
+    border-color:var(--primary);
+
+    box-shadow:0 14px 32px rgba(0,0,0,.08);
+
+}
+
+/*=========================================================
+LEFT SECTION
+=========================================================*/
+
+.ybsop-order-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+/*=========================================================
+PRODUCT IMAGE
+=========================================================*/
+
+.ybsop-product-image{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+    background:#f5f5f5;
+
+}
+
+.ybsop-product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:transform .35s ease;
+
+}
+
+.ybsop-order-card:hover .ybsop-product-image img{
+
+    transform:scale(1.05);
+
+}
+
+/*=========================================================
+PRODUCT INFO
+=========================================================*/
+
+.ybsop-product-info{
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+.ybsop-product-info h3{
+
+    margin:0 0 6px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:var(--heading);
+
+    line-height:1.45;
+
+}
+
+.ybsop-product-info p{
+
+    margin:0 0 12px;
+
+    font-size:.90rem;
+
+    color:var(--text-secondary);
+
+}
+
+/*=========================================================
+ORDER META
+=========================================================*/
+
+.ybsop-order-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+.ybsop-escrow{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    background:rgba(34,197,94,.12);
+
+    color:#16a34a;
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+}
+
+.ybsop-escrow i{
+
+    font-size:.78rem;
+
+}
+
+.ybsop-order-id{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    background:#f8f9fa;
+
+    color:var(--text-secondary);
+
+    font-size:.78rem;
+
+    font-weight:600;
+
+}
+
+/*=========================================================
+RIGHT SECTION
+=========================================================*/
+
+.ybsop-order-right{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-end;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-shrink:0;
+
+    min-width:150px;
+
+}
+
+.ybsop-order-right h4{
+
+    margin:0;
+
+    font-size:1.12rem;
+
+    font-weight:800;
+
+    color:var(--heading);
+
+    line-height:1.2;
+
+}
+
+/*=========================================================
+ORDER STATUS BADGES
+=========================================================*/
+
+.ybsop-status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    font-size:.80rem;
+
+    font-weight:700;
+
+    min-width:120px;
+
+    transition:all .30s ease;
+
+}
+
+.ybsop-status:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.ybsop-processing{
+
+    background:rgba(245,158,11,.12);
+
+    color:#d97706;
+
+}
+
+.ybsop-transit{
+
+    background:rgba(37,99,235,.12);
+
+    color:#2563eb;
+
+}
+
+.ybsop-delivered{
+
+    background:rgba(34,197,94,.12);
+
+    color:#16a34a;
+
+}
+
+.ybsop-cancelled{
+
+    background:rgba(239,68,68,.12);
+
+    color:#dc2626;
+
+}
+
+/*=========================================================
+CARD ANIMATIONS
+=========================================================*/
+
+.ybsop-order-card{
+
+    animation:ybsopFadeUp .45s ease both;
+
+}
+
+.ybsop-order-card:nth-child(2){
+
+    animation-delay:.05s;
+
+}
+
+.ybsop-order-card:nth-child(3){
+
+    animation-delay:.10s;
+
+}
+
+.ybsop-order-card:nth-child(4){
+
+    animation-delay:.15s;
+
+}
+
+.ybsop-order-card:nth-child(5){
+
+    animation-delay:.20s;
+
+}
+
+.ybsop-order-card:nth-child(6){
+
+    animation-delay:.25s;
+
+}
+
+@keyframes ybsopFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+SMOOTH TRANSITIONS
+=========================================================*/
+
+.ybsop-track-btn,
+
+.ybsop-filter-btn,
+
+.ybsop-order-card,
+
+.ybsop-status,
+
+.ybsop-product-image img{
+
+    transition:all .30s ease;
+
+}
+
+/*=========================================================
+RESPONSIVE
+=========================================================*/
+
+@media (max-width:991.98px){
+
+    .ybsop-main{
+
+        padding:24px 0 48px;
+
+    }
+
+    .ybsop-container{
+
+        max-width:760px;
+
+    }
+
+    .ybsop-header{
+
+        flex-wrap:wrap;
+
+        align-items:flex-start;
+
+        gap:16px;
+
+    }
+
+    .ybsop-header-right{
+
+        width:100%;
+
+        justify-content:flex-start;
+
+    }
+
+    .ybsop-order-card{
+
+        padding:18px;
+
+    }
+
+    .ybsop-order-right{
+
+        min-width:120px;
+
+    }
+
+}
+
+@media (max-width:767.98px){
+
+    .ybsop-container{
+
+        padding-left:16px;
+
+        padding-right:16px;
+
+    }
+
+    .ybsop-header h1{
+
+        font-size:1.55rem;
+
+    }
+
+    .ybsop-track-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .ybsop-filter-wrapper{
+
+        gap:10px;
+
+    }
+
+    .ybsop-filter-btn{
+
+        padding:9px 16px;
+
+        font-size:.82rem;
+
+    }
+
+    .ybsop-order-card{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:18px;
+
+    }
+
+    .ybsop-order-left{
+
+        width:100%;
+
+    }
+
+    .ybsop-order-right{
+
+        width:100%;
+
+        flex-direction:row;
+
+        align-items:center;
+
+        justify-content:space-between;
+
+    }
+
+}
+
+@media (max-width:575.98px){
+
+    .ybsop-main{
+
+        padding:18px 0 36px;
+
+    }
+
+    .ybsop-header{
+
+        margin-bottom:20px;
+
+    }
+
+    .ybsop-header-left h1{
+
+        font-size:1.35rem;
+
+    }
+
+    .ybsop-breadcrumb{
+
+        font-size:.80rem;
+
+        gap:8px;
+
+    }
+
+    .ybsop-order-card{
+
+        border-radius:18px;
+
+        padding:16px;
+
+    }
+
+    .ybsop-order-left{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .ybsop-product-image{
+
+        width:72px;
+
+        height:72px;
+
+        border-radius:14px;
+
+    }
+
+    .ybsop-product-info{
+
+        width:100%;
+
+    }
+
+    .ybsop-product-info h3{
+
+        font-size:.92rem;
+
+    }
+
+    .ybsop-product-info p{
+
+        font-size:.82rem;
+
+        margin-bottom:10px;
+
+    }
+
+    .ybsop-order-meta{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:8px;
+
+    }
+
+    .ybsop-escrow,
+
+    .ybsop-order-id{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .ybsop-order-right{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+    .ybsop-order-right h4{
+
+        font-size:1rem;
+
+    }
+
+    .ybsop-status{
+
+        width:100%;
+
+    }
+
+    .ybsop-filter-wrapper{
+
+        overflow-x:auto;
+
+        flex-wrap:nowrap;
+
+        padding-bottom:6px;
+
+        scrollbar-width:none;
+
+    }
+
+    .ybsop-filter-wrapper::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
+    .ybsop-filter-btn{
+
+        flex-shrink:0;
+
+    }
+
+}
+
+/*=========================================================
+UTILITY CLASSES
+=========================================================*/
+
+.ybsop-hidden{
+
+    display:none !important;
+
+}
+
+.ybsop-show{
+
+    display:flex !important;
+
+}
+
+.ybsop-active{
+
+    background:var(--primary)!important;
+
+    color:#ffffff!important;
+
+    border-color:var(--primary)!important;
+
+}
+
+.ybsop-pointer{
+
+    cursor:pointer;
+
+}
+
+.ybsop-no-select{
+
+    user-select:none;
+
+}
+
+/*=========================================================
+END OF BUYER ORDERS PAGE
+=========================================================*/
 
 /*==========================================================
 YOVI BUYER EXPLORE PRODUCTS SCREEN

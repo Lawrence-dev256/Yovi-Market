@@ -1,3 +1,759 @@
-, maximum-scale=1.0, user-scalable=no
+<!DOCTYPE html>
+<html lang="en">
 
-js-cart-link
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>My Orders </title>
+
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Global CSS -->
+
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+</head>
+
+<body class="ybsop-page">
+
+    <!-- ==========================================
+    TOP NAVBAR
+    =========================================== -->
+
+    <nav class="navbar navbar-expand-lg ybsop-navbar">
+
+        <div class="container-fluid">
+
+            <!-- Logo -->
+
+            <a class="navbar-brand ybsop-logo"
+                href="/navigation/home.html">
+
+                <img src="../assets/images/logo.svg"
+                    alt="brand Logo">
+
+            </a>
+
+            <!-- Mobile Toggle -->
+
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#ybsopNavbar">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse"
+                id="ybsopNavbar">
+
+                <!-- Center Navigation -->
+
+                <ul class="navbar-nav mx-auto ybsop-nav-links">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                            href="/navigation/home.html">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                            href="/navigation/products.html">
+
+                            Products
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                            href="/navigation/services.html">
+
+                            Services
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link active"
+                            href="/buyer/buyer-orders.html">
+
+                            Orders
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                            href="/navigation/bookings.html">
+
+                            Bookings
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                            href="/navigation/messages.html">
+
+                            Messages
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+                <!-- Right -->
+
+                <div class="d-flex align-items-center ybsop-nav-right">
+
+                    <a href="/navigation/cart.html">
+
+                    <button class="btn ybsop-nav-icon">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                    </button>
+
+                    </a>
+
+                    <a href="/navigation/notification.html">
+
+                    <button class="btn ybsop-nav-icon position-relative">
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span class="ybsop-dot"></span>
+
+                    </button>
+
+                    </a>
+
+                    <div class="dropdown">
+
+                        <button class="btn dropdown-toggle ybsop-user-btn"
+                            data-bs-toggle="dropdown">
+
+                            <img src="../assets/images/avatar.jpg"
+                                alt="Buyer">
+
+                            <span>Adaeze</span>
+
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+
+                            <li>
+
+                                <a class="dropdown-item"
+                                    href="/buyer/buyer-profile.html">
+
+                                    Profile
+
+                                </a>
+
+                            </li>
+
+                            <li>
+
+                                <a class="dropdown-item"
+                                    href="/buyer/buyer-setting.html">
+
+                                    Settings
+
+                                </a>
+
+                            </li>
+
+                            <li>
+
+                                        </li>
+
+                            <li><hr class="dropdown-divider"></li>
+
+                            <li>
+
+                                <a class="dropdown-item text-danger"
+                                    href="/index.html">
+
+                                    Logout
+
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- ==========================================
+    MAIN CONTENT
+    =========================================== -->
+
+    <main class="ybsop-main">
+
+        <div class="container ybsop-container">
+
+            <!-- Breadcrumb -->
+
+            <nav class="ybsop-breadcrumb">
+
+                <a href="/buyer/buyer-dashboard.html">
+
+                    <i class="fa-solid fa-chevron-left"></i>
+
+                    Dashboard
+
+                </a>
+
+                <span>
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                </span>
+
+                <span class="ybsop-current">
+
+                    My Orders
+
+                </span>
+
+            </nav>
+
+            <!-- Page Heading -->
+
+            <div class="ybsop-header">
+
+                <div class="ybsop-header-left">
+
+                    <h1>
+
+                        My Orders
+
+                    </h1>
+
+                </div>
+
+                <div class="ybsop-header-right">
+
+                    <a href="/orders/order-tracking.html"
+                        class="btn ybsop-track-btn">
+
+                        <i class="fa-solid fa-location-crosshairs"></i>
+
+                        Track Order
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Filter Tabs -->
+
+            <div class="ybsop-filter-wrapper">
+
+                <button class="ybsop-filter-btn active"
+                    data-filter="all">
+
+                    All
+
+                </button>
+
+                <button class="ybsop-filter-btn"
+                    data-filter="processing">
+
+                    Processing
+
+                </button>
+
+                <button class="ybsop-filter-btn"
+                    data-filter="transit">
+
+                    In Transit
+
+                </button>
+
+                <button class="ybsop-filter-btn"
+                    data-filter="delivered">
+
+                    Delivered
+
+                </button>
+
+                <button class="ybsop-filter-btn"
+                    data-filter="cancelled">
+
+                    Cancelled
+
+                </button>
+
+            </div>
+
+            <!-- Orders -->
+
+            <section class="ybsop-orders">
+
+                <!-- Order 1 -->
+
+                <article class="ybsop-order-card"
+                    data-status="transit">
+
+                    <div class="ybsop-order-left">
+
+                        <div class="ybsop-product-image">
+
+                            <img src="/assets/images/galaxy-medium.png"
+                                alt="Samsung A54">
+
+                        </div>
+
+                        <div class="ybsop-product-info">
+
+                            <h3>
+
+                                Samsung Galaxy A54 – 256GB
+
+                            </h3>
+
+                            <p>
+
+                                TechHub Lagos
+
+                            </p>
+
+                            <div class="ybsop-order-meta">
+
+                                <span class="ybsop-escrow">
+
+                                    <i class="fa-regular fa-shield-check"></i>
+
+                                    Escrow Protected
+
+                                </span>
+
+                                <span class="ybsop-order-id">
+
+                                    Order #YV-2024-89300
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="ybsop-order-right">
+
+                        <h4>
+
+                            ₦185,000
+
+                        </h4>
+
+                        <span class="ybsop-status ybsop-transit">
+
+                            In Transit
+
+                        </span>
+
+                    </div>
+
+                </article>
+
+                <!-- Order 2 -->
+
+                <article class="ybsop-order-card"
+                    data-status="delivered">
+
+                    <div class="ybsop-order-left">
+
+                        <div class="ybsop-product-image">
+
+                            <img src="/assets/images/iphone-medium.png"
+                                alt="iPhone">
+
+                        </div>
+
+                        <div class="ybsop-product-info">
+
+                            <h3>
+
+                                iPhone 14 Pro – 128GB Space Black
+
+                            </h3>
+
+                            <p>
+
+                                iWorld Store
+
+                            </p>
+
+                            <div class="ybsop-order-meta">
+
+                                <span class="ybsop-escrow">
+
+                                    <i class="fa-regular fa-shield-check"></i>
+
+                                    Escrow Protected
+
+                                </span>
+
+                                <span class="ybsop-order-id">
+
+                                    Order #YV-2024-89301
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="ybsop-order-right">
+
+                        <h4>
+
+                            ₦620,000
+
+                        </h4>
+
+                        <span class="ybsop-status ybsop-delivered">
+
+                            Delivered
+
+                        </span>
+
+                    </div>
+
+                </article>
+
+                <!-- Order 3 -->
+
+                <article class="ybsop-order-card"
+                    data-status="processing">
+
+                    <div class="ybsop-order-left">
+
+                        <div class="ybsop-product-image">
+
+                            <img src="/assets/images/ankara-medium.png"
+                                alt="Ankara Dress">
+
+                        </div>
+
+                        <div class="ybsop-product-info">
+
+                            <h3>
+
+                                Ankara Print Dress – Women's
+
+                            </h3>
+
+                            <p>
+
+                                AfroFashion
+
+                            </p>
+
+                            <div class="ybsop-order-meta">
+
+                                <span class="ybsop-escrow">
+
+                                    <i class="fa-regular fa-shield-check"></i>
+
+                                    Escrow Protected
+
+                                </span>
+
+                                <span class="ybsop-order-id">
+
+                                    Order #YV-2024-89302
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="ybsop-order-right">
+
+                        <h4>
+
+                            ₦12,500
+
+                        </h4>
+
+                        <span class="ybsop-status ybsop-processing">
+
+                            Processing
+
+                        </span>
+
+                    </div>
+
+                </article>
+
+                <!-- Order 4 -->
+
+                <article class="ybsop-order-card"
+                    data-status="delivered">
+
+                    <div class="ybsop-order-left">
+
+                        <div class="ybsop-product-image">
+
+                            <img src="/assets/images/desk-medium.png"
+                                alt="Standing Desk">
+
+                        </div>
+
+                        <div class="ybsop-product-info">
+
+                            <h3>
+
+                                Standing Desk – Solid Oak Wood
+
+                            </h3>
+
+                            <p>
+
+                                WoodCraft NG
+
+                            </p>
+
+                            <div class="ybsop-order-meta">
+
+                                <span class="ybsop-escrow">
+
+                                    <i class="fa-regular fa-shield-check"></i>
+
+                                    Escrow Protected
+
+                                </span>
+
+                                <span class="ybsop-order-id">
+
+                                    Order #YV-2024-89303
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="ybsop-order-right">
+
+                        <h4>
+
+                            ₦75,000
+
+                        </h4>
+
+                        <span class="ybsop-status ybsop-delivered">
+
+                            Delivered
+
+                        </span>
+
+                    </div>
+
+                </article>
+
+                <!-- Order 5 -->
+
+                <article class="ybsop-order-card"
+                    data-status="delivered">
+
+                    <div class="ybsop-order-left">
+
+                        <div class="ybsop-product-image">
+
+                            <img src="/assets/images/fryer-medium.png"
+                                alt="Air Fryer">
+
+                        </div>
+
+                        <div class="ybsop-product-info">
+
+                            <h3>
+
+                                Air Fryer – 5.5L Capacity
+
+                            </h3>
+
+                            <p>
+
+                                KitchenPro
+
+                            </p>
+
+                            <div class="ybsop-order-meta">
+
+                                <span class="ybsop-escrow">
+
+                                    <i class="fa-regular fa-shield-check"></i>
+
+                                    Escrow Protected
+
+                                </span>
+
+                                <span class="ybsop-order-id">
+
+                                    Order #YV-2024-89304
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="ybsop-order-right">
+
+                        <h4>
+
+                            ₦48,000
+
+                        </h4>
+
+                        <span class="ybsop-status ybsop-delivered">
+
+                            Delivered
+
+                        </span>
+
+                    </div>
+
+                </article>
+
+                <!-- Order 6 -->
+
+                <article class="ybsop-order-card"
+                    data-status="delivered">
+
+                    <div class="ybsop-order-left">
+
+                        <div class="ybsop-product-image">
+
+                            <img src="/assets/images/ps5-medium.png"
+                                alt="PS5 Console">
+
+                        </div>
+
+                        <div class="ybsop-product-info">
+
+                            <h3>
+
+                                PS5 Console – Disc Edition
+
+                            </h3>
+
+                            <p>
+
+                                GamersHub
+
+                            </p>
+
+                            <div class="ybsop-order-meta">
+
+                                <span class="ybsop-escrow">
+
+                                    <i class="fa-regular fa-shield-check"></i>
+
+                                    Escrow Protected
+
+                                </span>
+
+                                <span class="ybsop-order-id">
+
+                                    Order #YV-2024-89305
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="ybsop-order-right">
+
+                        <h4>
+
+                            ₦480,000
+
+                        </h4>
+
+                        <span class="ybsop-status ybsop-delivered">
+
+                            Delivered
+
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Global JS -->
+
+    <script src="../assets/js/app.js"></script>
+
+</body>
+
+</html>
